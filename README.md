@@ -145,7 +145,7 @@ echo $FormFieldsGenerator->field_text($args);
 * field_time();
 * field_tel();
 * field_user();
-* field_custom_html();
+* field_custom_html(); 
 ```
 
 
