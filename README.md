@@ -84,7 +84,7 @@ include "class-form-fields-generator.php";
 ```
 
 ```php
-$PickPluginsFieldGenerator = new PickPluginsFieldGenerator();
+$FormFieldsGenerator = new FormFieldsGenerator();
 
 $args = array(
     'id'		    => 'text_multi_field',
@@ -95,7 +95,7 @@ $args = array(
     'placeholder'   => __('Text value','text-domain'),
 );
 
-echo $PickPluginsFieldGenerator->field_text($args);
+echo $FormFieldsGenerator->field_text($args);
 ```
 
 #### Available methods
