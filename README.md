@@ -14,7 +14,7 @@ Ready to be Role
 
 
 
-
+**PickPlugins Options Framework by** [PickPlugins](https://www.pickplugins.com)
 
 
 
