@@ -1,10 +1,11 @@
 <?php
 /*
 Plugin Name: PickPlugins Options Framework
-Plugin URI: https://www.pickplugins.com/item/site-builder/?ref=dashboard
-Description: Zero coding skill required to build your own WordPress site.
+Plugin URI: https://www.pickplugins.com/
+Description: Less work to build options page for settings page, meta box, taxonomy edit, user profile edit,
+customizer fields.
 Version: 1.0.0
-Text Domain: site-builder
+Text Domain: pickplugins-options-framework
 Domain Path: /languages
 Author: PickPlugins
 Author URI: http://pickplugins.com
@@ -38,9 +39,9 @@ class pickpluginsOptionsFramework{
 
     public function textdomain() {
 
-        $locale = apply_filters( 'plugin_locale', get_locale(), 'form-fields-generator' );
-        load_textdomain('form-fields-generator', WP_LANG_DIR .'/form-fields-generator/form-fields-generator-'. $locale .'.mo' );
-        load_plugin_textdomain( 'form-fields-generator', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
+        $locale = apply_filters( 'plugin_locale', get_locale(), 'pickplugins-options-framework' );
+        load_textdomain('pickplugins-options-framework', WP_LANG_DIR .'/pickplugins-options-framework/form-fields-generator-'. $locale .'.mo' );
+        load_plugin_textdomain( 'pickplugins-options-framework', false, plugin_basename( dirname( __FILE__ ) ) . '/languages/' );
     }
 
 
@@ -97,7 +98,7 @@ class pickpluginsOptionsFramework{
 
         $this->define('FFG_PLUGIN_URL', plugins_url('/', __FILE__)  );
         $this->define('FFG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-        $this->define('FFG_PLUGIN_NAME', __('WP Theme Settings', 'site-builder') );
+        $this->define('FFG_PLUGIN_NAME', __('PickPlugins Options Framework', 'pickplugins-options-framework') );
         $this->define('FFG_PLUGIN_SUPPORT', 'http://www.pickplugins.com/questions/'  );
 
     }

@@ -390,7 +390,6 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             ?>
 
-            <pre><?php //echo var_export($option, true)?></pre>
 
             <div class="field-wrapper field-text-wrapper field-text-wrapper<?php echo $id; ?>">
                 <input type='text' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
