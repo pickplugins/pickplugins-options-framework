@@ -29,7 +29,16 @@ function pp_display_fileds(){
     echo '<link rel="stylesheet"  href="'.FFG_PLUGIN_URL.'css/fieldsGenerator.css">';
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
+    $args = array(
+        'id'		    => 'custom_html_field',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('Text Field','text-domain'),
+        'details'	    => __('Description of text field','text-domain'),
+        'html'		    => '<b>Lorem Ipsum</b> is simply dummy text ',
+        'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
+    );
 
+    echo $FormFieldsGenerator->field_custom_html($args);
 
     $args = array(
         'id'		    => 'text_field',

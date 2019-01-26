@@ -1919,16 +1919,13 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
 
-        public function generate_field_custom_html( $option ){
+        public function field_custom_html( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
-            $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $args 			= isset( $option['args'] ) ? $option['args'] : "";
-
-            $values 	 		= get_option( $id );
             $html 			= isset( $option['html'] ) ? $option['html'] : "";
 
-            echo $html;
+            echo apply_filters('_field_custom_html_output',$html);
 
 
 
