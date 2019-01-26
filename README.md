@@ -122,7 +122,6 @@ echo $PickPluginsFieldGenerator->field_text($args);
 * field_icon();
 * field_icon_multi();
 * field_dimensions();
-* field_number();
 * field_wp_editor();
 * field_select2()
 * field_faq();
@@ -132,6 +131,21 @@ echo $PickPluginsFieldGenerator->field_text($args);
 * field_media();
 * field_media_multi();
 * field_repeatable();
+* field_google_recaptcha();
+* field_img_select();
+* field_submit();
+* field_nonce();
+* field_number();
+* field_color();
+* field_email();
+* field_search();
+* field_month();
+* field_date();
+* field_url();
+* field_time();
+* field_tel();
+* field_user();
+* generate_field_custom_html();
 ```
 
 
