@@ -35,7 +35,6 @@ function pp_display_fileds(){
         'title'		    => __('Text Field','text-domain'),
         'details'	    => __('Description of text field','text-domain'),
         'html'		    => '<b>Lorem Ipsum</b> is simply dummy text ',
-        'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
     );
 
     echo $FormFieldsGenerator->field_custom_html($args);
