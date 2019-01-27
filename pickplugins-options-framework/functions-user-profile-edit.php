@@ -567,9 +567,6 @@ $args = array(
     'panels' 	        => array(
 		'panelGroup-1'        => $page_1_options,
         //'panelGroup-2'        => $page_2_options,
-        //'panelGroup-3'        => $page_3_options,
-        //'panelGroup-4'        => $page_4_options,
-
     ),
 );
 
@@ -578,30 +575,6 @@ $UserProfileEdit = new UserProfileEdit( $args );
 
 
 
-
-
-
-
-
-
-
-
-
-//add_action( 'show_user_profile', 'crf_show_extra_profile_fields' );
-//add_action( 'edit_user_profile', 'crf_show_extra_profile_fields' );
-
-function crf_show_extra_profile_fields( $user ) {
-    ?>
-    <h3><?php esc_html_e( 'Personal Information', 'crf' ); ?></h3>
-
-    <table class="form-table">
-        <tr>
-            <th><label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'crf' ); ?></label></th>
-            <td><?php echo esc_html( get_the_author_meta( 'year_of_birth', $user->ID ) ); ?></td>
-        </tr>
-    </table>
-    <?php
-}
 
 
 

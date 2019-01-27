@@ -32,11 +32,11 @@ if( ! class_exists( 'AddMenuPage' ) ) {
                 add_menu_page( $this->get_menu_name(), $this->get_menu_title(), $this->get_capability(), $this->get_menu_slug(), array( $this, 'display_function' ), $this->get_menu_icon() );
             }
 
-//            foreach ($this->get_pages() as $panelsIndex=>$panels):
-//                add_submenu_page( $this->get_menu_slug(), $panels['page_nav'], $panels['page_nav'], $this->get_capability(),
-//                    $panelsIndex,
-//                    array( $this, 'display_function' ) );
-//            endforeach;
+            foreach ($this->get_pages() as $panelsIndex=>$panels):
+                add_submenu_page( $this->get_menu_slug(), $panels['page_nav'], $panels['page_nav'], $this->get_capability(),
+                    $panelsIndex,
+                    array( $this, 'display_function' ) );
+            endforeach;
 
         }
 

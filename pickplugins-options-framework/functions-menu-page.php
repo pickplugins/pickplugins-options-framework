@@ -255,7 +255,7 @@ $page_1_options = array(
 			)
 		),
 
-		
+
 	),
 );
 
