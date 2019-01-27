@@ -73,17 +73,27 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
     class FormFieldsGenerator {
 
 
+
+
+
+
+
+
+
         public function field_google_recaptcha( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
 
             $secret_key 	= isset( $option['secret_key'] ) ? $option['secret_key'] : "";
             $site_key 	    = isset( $option['site_key'] ) ? $option['site_key'] : "";
             $version 	    = isset( $option['version'] ) ? $option['version'] : "";
             $action_name 	= isset( $option['action_name'] ) ? $option['action_name'] : "action_name";
 
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-google-recaptcha-wrapper field-google-recaptcha-wrapper-<?php echo $id; ?>">
@@ -112,6 +122,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_img_select( $option ){
 
             $id				= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $width			= isset( $option['width'] ) ? $option['width'] : "";
             $height			= isset( $option['height'] ) ? $option['height'] : "";
             $default 		= isset( $option['default'] ) ? $option['default'] : '';
@@ -121,8 +134,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	        = isset( $option['value'] ) ? $option['value'] : '';
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_img_select_id', $id);
-            $field_name     = apply_filters('_field_img_select_name', $id);
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             //var_dump($value);
@@ -174,15 +187,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_submit( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
             ?>
             <div class="field-wrapper field-submit-wrapper field-submit-wrapper<?php echo $id; ?>">
                 <input type='submit' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
@@ -194,13 +209,14 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_nonce( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $action_name 	    = isset( $option['action_name'] ) ? $option['action_name'] : "";
 
-
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
             ?>
             <div class="field-wrapper field-nonce-wrapper field-nonce-wrapper<?php echo $id; ?>">
                 <?php wp_nonce_field( $action_name, $field_name ); ?>
@@ -213,15 +229,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_color( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
             ?>
             <div class="field-wrapper field-color-wrapper field-color-wrapper<?php echo $id; ?>">
                 <input type='color' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
@@ -235,15 +253,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_email( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
             ?>
             <div class="field-wrapper field-email-wrapper field-email-wrapper<?php echo $id; ?>">
                 <input type='email' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
@@ -256,15 +276,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_search( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
             ?>
             <div class="field-wrapper field-search-wrapper field-search-wrapper<?php echo $id; ?>">
                 <input type='search' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
@@ -275,15 +297,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_month( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
             ?>
             <div class="field-wrapper field-month-wrapper field-month-wrapper<?php echo $id; ?>">
                 <input type='time' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
@@ -294,15 +318,18 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_date( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
 
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
             ?>
             <div class="field-wrapper field-date-wrapper field-date-wrapper<?php echo $id; ?>">
                 <input type='date' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
@@ -313,14 +340,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_url( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-url-wrapper field-url-wrapper<?php echo $id; ?>">
@@ -334,14 +364,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_time( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-time-wrapper field-time-wrapper<?php echo $id; ?>">
@@ -354,14 +387,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_tel( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_text_id',$id);
-            $field_name     = apply_filters('_field_text_name',$id);
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-tel-wrapper field-tel-wrapper<?php echo $id; ?>">
@@ -385,9 +421,11 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_text_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_text_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            //var_dump($id);
+            //var_dump($field_name);
             ?>
 
 
@@ -412,8 +450,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $values 	    = isset( $option['value'] ) ? $option['value'] : "";
             $values         = !empty($values) ? $values : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_text_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_text_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
             ?>
 
 
@@ -467,6 +505,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
         }
 
+
+
+
+
         public function field_textarea( $option ){
 
             $id             = isset( $option['id'] ) ? $option['id'] : "";
@@ -481,8 +523,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_textarea_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_textarea_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             //var_dump('Gello');
 
@@ -508,10 +550,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value			= isset( $option['value'] ) ? $option['value'] : array();
             $value          = !empty($value) ?  $value : $default;
 
-
-            $field_id       = !empty( $id ) ? apply_filters('_field_checkbox_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_checkbox_name',$field_name.'[]') : $id.'[]';
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name.'[]' : $id.'[]';
 
             ?>
             <div class="field-wrapper field-checkbox-wrapper field-checkbox-wrapper-<?php echo $id; ?>">
@@ -543,8 +583,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_radio_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_radio_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-radio-wrapper field-radio-wrapper-<?php echo $id; ?>">
@@ -576,8 +616,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value      = !empty($value) ?  $value : $default;
 
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_select_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_select_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             ?>
@@ -625,8 +665,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $max            = isset( $args['max'] ) ? $args['max'] : 100;
             $step           = isset( $args['step'] ) ? $args['step'] : 1;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_range_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_range_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             ?>
@@ -651,8 +691,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $max            = isset( $args['max'] ) ? $args['max'] : 100;
             $step           = isset( $args['step'] ) ? $args['step'] : 1;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_range_input_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_range_input_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             ?>
@@ -690,8 +730,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_switch_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_switch_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             ?>
@@ -739,8 +779,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value			= isset( $option['value'] ) ? $option['value'] : array();
             $value      = !empty($value) ?  $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_switch_multi_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_switch_multi_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-switch-multi-wrapper field-switch-multi-wrapper-<?php echo
@@ -789,8 +829,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_switch_img_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_switch_img_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-switch-img-wrapper field-switch-img-wrapper-<?php echo $id; ?>">
@@ -836,8 +876,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	= isset( $option['value'] ) ? $option['value'] : "";
             $value 	 		= !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_time_format_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_time_format_name',$field_name) : $id;
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-time-format-wrapper field-time-format-wrapper-<?php echo $id; ?>">
@@ -895,10 +935,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	= isset( $option['value'] ) ? $option['value'] : "";
             $value 	 		= !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_date_format_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_date_format_name',$field_name) : $id;
-
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
             ?>
             <div class="field-wrapper field-date-format-wrapper field-date-format-wrapper-<?php echo $id; ?>">
                 <div class="format-list">
@@ -946,9 +984,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ?$value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_datepicker_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_datepicker_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             ?>
@@ -981,9 +1018,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_datepicker_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_datepicker_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-datepicker-wrapper field-datepicker-wrapper-<?php echo $id; ?>">
@@ -1007,10 +1043,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $values = !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_colorpicker_multi_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_colorpicker_multi_name',$field_name) : $id;
-
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             if(!empty($values)):
@@ -1061,9 +1095,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $args 	        = isset( $option['args'] ) ? $option['args'] : array('link'	=> '#1B2A41','hover' => '#3F3244','active' => '#60495A','visited' => '#7D8CA3' );
 
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_link_color_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_link_color_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-link-color-wrapper field-link-color-wrapper-<?php echo $id; ?>">
@@ -1109,9 +1142,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $values         = !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_user_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_user_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             ?>
@@ -1228,9 +1260,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $icons		    = is_array( $args ) ? $args : $this->args_from_string( $args );
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_icon_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_icon_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-icon-wrapper field-icon-wrapper-<?php echo $id; ?>">
@@ -1300,9 +1331,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $values         = !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_icon_multi_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_icon_multi_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
             ?>
             <div class="field-wrapper field-icon-multi-wrapper field-icon-multi-wrapper-<?php echo $id; ?>">
                 <div class="icons-wrapper" >
@@ -1388,10 +1418,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $values         = !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_dimensions_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_dimensions_name',$field_name) : $id;
-
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             if(!empty($args)):
                 ?>
@@ -1428,9 +1456,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 			= isset( $option['value '] ) ? $option['value '] : "";
             $value = !empty($value) ? $value : $default;
 
-            $field_id       = apply_filters('_field_colorpicker_multi_id', $id);
-            $field_name     = apply_filters('_field_colorpicker_multi_name', $id);
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
 
@@ -1458,9 +1485,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value 			= isset( $option['value '] ) ? $option['value '] : "";
             $value = !empty($value) ? $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_wp_editor_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_wp_editor_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ?>
             <div class="field-wrapper field-wp_editor-wrapper field-wp_editor-wrapper-<?php echo $id; ?>">
@@ -1490,9 +1516,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value		= isset( $option['value'] ) ? $option['value'] : '';
             $value      = !empty($value) ?  $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_select2_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_select2_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             if($multiple):
                 $value = !empty($value) ? $value : array();
@@ -1655,9 +1680,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value			= isset( $option['value'] ) ? $option['value'] : '';
             $value          = !empty($value) ?  $value : $default;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_select2_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_select2_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             ?>
@@ -1734,9 +1758,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $value          = !empty($value) ?  $value : $default;
 
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_select2_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_select2_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             ?>
@@ -1800,10 +1823,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $media_url = !empty($media_url) ? $media_url : $placeholder;
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_media_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_media_name',$field_name) : $id;
-
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             wp_enqueue_media();
 
@@ -1854,9 +1875,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $default			= isset( $option['default'] ) ? $option['default'] : '';
             $values			= isset( $option['value'] ) ? $option['value'] : '';
 
-            $field_id       = !empty( $id ) ? apply_filters('_field_media_multi_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_media_multi_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             wp_enqueue_media();
@@ -1924,7 +1944,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $args 			= isset( $option['args'] ) ? $option['args'] : "";
             $html 			= isset( $option['html'] ) ? $option['html'] : "";
 
-            echo apply_filters('_field_custom_html_output',$html);
+            echo $html;
 
 
 
@@ -1941,10 +1961,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $values			= isset( $option['value'] ) ? $option['value'] : '';
             $fields 			= isset( $option['fields'] ) ? $option['fields'] : array();
 
-
-            $field_id       = !empty( $id ) ? apply_filters('_field_media_multi_id',$id) : $id;
-            $field_name     = !empty( $field_name ) ? apply_filters('_field_media_multi_name',$field_name) : $id;
-
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
             //var_dump($collapsible);

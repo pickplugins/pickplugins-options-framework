@@ -48,10 +48,8 @@ if( ! class_exists( 'AddThemePage' ) ) {
 
             $data = isset( $section['callback'][0]->data ) ? $section['callback'][0]->data : array();
 
-            //var_export($section);
 
             ?>
-            <pre><?php //echo var_export($section, true);; ?></pre>
             <?php
             //$description = $section['description'];
 
@@ -95,6 +93,7 @@ if( ! class_exists( 'AddThemePage' ) ) {
 
             if( empty( $id ) ) return;
 
+            $FormFieldsGenerator = array();
             $prent_option_name = $this->get_option_name();
             $FormFieldsGenerator = new FormFieldsGenerator();
 
@@ -111,7 +110,6 @@ if( ! class_exists( 'AddThemePage' ) ) {
 
 
             ?>
-            <pre><?php //echo var_export($option, true)?></pre>
             <?php
 
 
@@ -221,33 +219,7 @@ if( ! class_exists( 'AddThemePage' ) ) {
         }
 
 
-        public function generate_field_text( $option ){
 
-            $prent_option_name = $this->get_option_name();
-
-            $id 			= isset( $option['id'] ) ? $option['id'] : "";
-            $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
-            $default 	= isset( $option['default'] ) ? $option['default'] : "";
-
-
-
-
-            if($prent_option_name):
-                $field_name = $prent_option_name.'['.$id.']';
-
-                $prent_option_value 	 		= get_option( $prent_option_name );
-                $value 	 		= $prent_option_value[$id];
-            else:
-                $field_name = $id;
-                $value 	 		= get_option( $id );
-            endif;
-
-            $value = !empty($value) ? $value : $default;
-
-
-
-            echo "<input type='text' name='$field_name' id='$id' placeholder='$placeholder' value='$value' />";
-        }
 
 
 
@@ -291,7 +263,7 @@ if( ! class_exists( 'AddThemePage' ) ) {
 
                 settings_errors();
 
-                $tab_count 	 = 0;
+
 
                 ?>
 

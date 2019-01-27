@@ -32,26 +32,22 @@ if( ! class_exists( 'AddMenuPage' ) ) {
                 add_menu_page( $this->get_menu_name(), $this->get_menu_title(), $this->get_capability(), $this->get_menu_slug(), array( $this, 'display_function' ), $this->get_menu_icon() );
             }
 
-            foreach ($this->get_pages() as $panelsIndex=>$panels):
-                add_submenu_page( $this->get_menu_slug(), $panels['page_nav'], $panels['page_nav'], $this->get_capability(),
-                    $panelsIndex,
-                    array( $this, 'display_function' ) );
-            endforeach;
+//            foreach ($this->get_pages() as $panelsIndex=>$panels):
+//                add_submenu_page( $this->get_menu_slug(), $panels['page_nav'], $panels['page_nav'], $this->get_capability(),
+//                    $panelsIndex,
+//                    array( $this, 'display_function' ) );
+//            endforeach;
 
         }
 
         public function section_callback( $section ) {
 
             $section_id = $section['id'];
-            //var_dump($section_id);
-
 
             $data = isset( $section['callback'][0]->data ) ? $section['callback'][0]->data : array();
 
-            //var_export($section);
 
             ?>
-            <pre><?php //echo var_export($section, true);; ?></pre>
             <?php
             //$description = $section['description'];
 
@@ -62,9 +58,6 @@ if( ! class_exists( 'AddMenuPage' ) ) {
         public function display_fields() {
 
             foreach ($this->get_pages() as $panelsIndex=>$panels):
-
-                //var_dump($panelsIndex);
-
                 foreach ($panels['page_settings'] as $sectionIndex=>$sections):
 
                     add_settings_section(
@@ -111,7 +104,8 @@ if( ! class_exists( 'AddMenuPage' ) ) {
 
 
             ?>
-            <pre><?php //echo var_export($option, true)?></pre>
+
+
             <?php
 
 
@@ -291,7 +285,7 @@ if( ! class_exists( 'AddMenuPage' ) ) {
 
                 settings_errors();
 
-                $tab_count 	 = 0;
+
 
                 ?>
 

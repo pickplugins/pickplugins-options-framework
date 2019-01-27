@@ -558,6 +558,126 @@ $page_4_options = array(
 
 
 
+$page_5_options = array(
+
+    'page_nav' 	=> __( '<i class="fas fa-bomb"></i> Tools', 'text-domain' ),
+    'priority' => 10,
+    'page_settings' => array(
+
+        'section_4' => array(
+            'title' 	=> 	__('This is Section Title 4','text-domain'),
+            'description' 	=> __('This is section details','text-domain'),
+            'options' 	=> array(
+
+                array(
+                    'id'		    => 'site_menus',
+                    'title'		    => __('Create Menu','text-domain'),
+                    'details'	    => __('You can register nav menus here. you can use these menu via <a target="_blank" href="https://developer.wordpress.org/reference/functions/wp_nav_menu/">wp_nav_menu()</a> function, example bellow.','pickthemes').'<br><code>&lt;?php wp_nav_menu( array("container" => false, "theme_location" => "header-menu", "menu_class" => "menu")); ?&gt; </code>',
+                    'collapsible'   =>true,
+                    'type'		    => 'repeatable',
+                    'fields'        => array(
+
+                        array('type'=>'text', 'default'=>'menu_id', 'item_id'=>'menu_id', 'name'=>'Menu ID'),
+                        array('type'=>'text', 'default'=>'Menu Name', 'item_id'=>'menu_name', 'name'=>'Menu Name'),
+
+
+                    ),
+                ),
+                array(
+                    'id'		=> 'site_sidebars',
+                    'title'		=> __('Site sidebars','pickthemes'),
+                    'details'	=> __('You can register sidebar here. you can display sidebar by <a href="https://codex.wordpress.org/Function_Reference/dynamic_sidebar">dynamic_sidebar()</a> function, example bellow.','pickthemes').'<br><code>&lt;?php if ( is_active_sidebar( \'sidebar-id\' )  ) : 
+    dynamic_sidebar( "sidebar-id" );
+endif; ?></code>',
+                    'type'		    => 'repeatable',
+                    'default'		=> '',
+                    'collapsible'   =>true,
+                    'fields'        => array(
+
+                        array('type'=>'text', 'item_id'=>'id', 'name'=>'Sidebar ID'),
+                        array('type'=>'text', 'item_id'=>'name', 'name'=>'Sidebar name'),
+                        array('type'=>'text', 'item_id'=>'description', 'name'=>'Sidebar description'),
+                        array('type'=>'text', 'item_id'=>'class', 'name'=>'Sidebar class'),
+                        array('type'=>'text', 'item_id'=>'before_widget', 'name'=>'before_widget'),
+                        array('type'=>'text', 'item_id'=>'after_widget', 'name'=>'after_widget'),
+                        array('type'=>'text', 'item_id'=>'before_title', 'name'=>'before_title'),
+                        array('type'=>'text', 'item_id'=>'after_title', 'name'=>'after_title'),
+
+                    ),
+                ),
+                array(
+                    'id'		=> 'site_post_types',
+                    'title'		=> __('Custom post types','pickthemes'),
+                    'details'	=> __('You can register custom post type here.','pickthemes'),
+                    'type'		=> 'repeatable',
+                    'default'		=> '',
+                    'collapsible'=>true,
+                    'fields'    => array(
+
+                        array('type'=>'text', 'item_id'=>'name', 'name'=>'name'),
+                        array('type'=>'text', 'item_id'=>'singular_name', 'name'=>'Singular name'),
+                        array('type'=>'text', 'item_id'=>'add_new', 'name'=>'Add new'),
+                        array('type'=>'text', 'item_id'=>'add_new_item', 'name'=>'add new item'),
+                        array('type'=>'text', 'item_id'=>'edit_item', 'name'=>'edit_item'),
+                        array('type'=>'text', 'item_id'=>'new_item', 'name'=>'new_item'),
+                        array('type'=>'text', 'item_id'=>'view_item', 'name'=>'view_item'),
+                        array('type'=>'text', 'item_id'=>'search_items', 'name'=>'search_items'),
+                        array('type'=>'text', 'item_id'=>'not_found', 'name'=>'not_found'),
+                        array('type'=>'text', 'item_id'=>'not_found_in_trash', 'name'=>'not_found_in_trash'),
+                        array('type'=>'text', 'item_id'=>'parent_item_colon', 'name'=>'parent_item_colon'),
+                        array('type'=>'text', 'item_id'=>'all_items', 'name'=>'all_items'),
+                        array('type'=>'text', 'item_id'=>'archives', 'name'=>'archives'),
+                        array('type'=>'text', 'item_id'=>'attributes', 'name'=>'attributes'),
+                        array('type'=>'text', 'item_id'=>'insert_into_item', 'name'=>'insert_into_item'),
+                        array('type'=>'text', 'item_id'=>'uploaded_to_this_item', 'name'=>'uploaded_to_this_item'),
+                        array('type'=>'text', 'item_id'=>'featured_image', 'name'=>'featured_image'),
+                        array('type'=>'text', 'item_id'=>'set_featured_image', 'name'=>'set_featured_image'),
+                        array('type'=>'text', 'item_id'=>'use_featured_image', 'name'=>'use_featured_image'),
+                        array('type'=>'text', 'item_id'=>'menu_name', 'name'=>'menu_name'),
+                        array('type'=>'text', 'item_id'=>'filter_items_list', 'name'=>'filter_items_list'),
+                        array('type'=>'text', 'item_id'=>'items_list_navigation', 'name'=>'items_list_navigation'),
+                        array('type'=>'text', 'item_id'=>'items_list', 'name'=>'items_list'),
+                        array('type'=>'text', 'item_id'=>'name_admin_bar', 'name'=>'name_admin_bar'),
+                        array('type'=>'text', 'item_id'=>'description', 'name'=>'description'),
+
+                        array('type'=>'select', 'item_id'=>'public', 'name'=>'Public', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'select', 'item_id'=>'exclude_from_search', 'name'=>'exclude_from_search', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'select', 'item_id'=>'publicly_queryable', 'name'=>'publicly_queryable', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'select', 'item_id'=>'show_ui', 'name'=>'show_ui', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'select', 'item_id'=>'show_in_nav_menus', 'name'=>'show_in_nav_menus', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'text', 'item_id'=>'show_in_menu', 'name'=>'show_in_menu'),
+                        array('type'=>'select', 'item_id'=>'show_in_admin_bar', 'name'=>'show_in_admin_bar', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'select', 'item_id'=>'menu_position', 'name'=>'menu_position', 'args'=>array('5'=>'below Posts', '10'=>'below Media','15'=>'below Links','20'=>'below Pages','25'=>'below comments','60'=>'below first separator','65'=>'below Plugins','70'=>'below Users','75'=>'below Tools','80'=>'below Settings','100'=>'below second separator'  )),
+                        array('type'=>'text', 'item_id'=>'menu_icon', 'name'=>'menu_icon'),
+                        array('type'=>'text', 'item_id'=>'capability_type', 'name'=>'capability_type'),
+                        array('type'=>'text', 'item_id'=>'capabilities', 'name'=>'capabilities'),
+                        array('type'=>'select', 'item_id'=>'map_meta_cap', 'name'=>'map_meta_cap', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'select', 'item_id'=>'hierarchical', 'name'=>'hierarchical', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'text', 'item_id'=>'supports', 'name'=>'supports'),
+                        array('type'=>'text', 'item_id'=>'register_meta_box_cb', 'name'=>'register_meta_box_cb'),
+                        array('type'=>'text', 'item_id'=>'taxonomies', 'name'=>'taxonomies'),
+                        array('type'=>'select', 'item_id'=>'has_archive', 'name'=>'has_archive', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'text', 'item_id'=>'rewrite', 'name'=>'rewrite'),
+                        array('type'=>'text', 'item_id'=>'permalink_epmask', 'name'=>'permalink_epmask'),
+                        array('type'=>'text', 'item_id'=>'query_var', 'name'=>'query_var'),
+                        array('type'=>'select', 'item_id'=>'can_export', 'name'=>'can_export', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'text', 'item_id'=>'delete_with_user', 'name'=>'delete_with_user'),
+                        array('type'=>'select', 'item_id'=>'show_in_rest', 'name'=>'show_in_rest', 'args'=>array('true'=>'True', 'false'=>'False')),
+                        array('type'=>'text', 'item_id'=>'rest_base', 'name'=>'rest_base'),
+                        array('type'=>'text', 'item_id'=>'rest_controller_class', 'name'=>'rest_controller_class'),
+
+
+
+
+                    ),
+                ),
+
+
+            )
+        ),
+    ),
+);
+
 
 $args = array(
 	'add_in_menu'       => true,
@@ -568,22 +688,23 @@ $args = array(
 	'menu_page_title'   => __( 'Theme Settings', 'text-domain' ),
 
 	'capability'        => "manage_options",
-	'menu_slug'         => "theme-pickoptions",
-    'option_name'       => "them_pickoptions",
+	'menu_slug'         => "theme-menu",
+    'option_name'       => "theme_pickoptions",
     'menu_icon'         => "dashicons-image-filter",
 
     'item_name'         => "PickPlugins",
     'item_version'      => "1.0.2",
     'panels' 	        => array(
-		'panelGroup-1'        => $page_1_options,
-        'panelGroup-2'        => $page_2_options,
-        'panelGroup-3'        => $page_3_options,
-        'panelGroup-4'        => $page_4_options,
+		'panelGroup-10'        => $page_1_options,
+        'panelGroup-20'        => $page_2_options,
+        'panelGroup-30'        => $page_3_options,
+        'panelGroup-40'        => $page_4_options,
+        'panelGroup-50'        => $page_5_options,
 
     ),
 );
 
-$AddMenuPage = new AddThemePage( $args );
+$AddThemePage = new AddThemePage( $args );
 
 
 

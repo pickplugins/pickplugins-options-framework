@@ -29,6 +29,10 @@ function pp_display_fileds(){
     echo '<link rel="stylesheet"  href="'.FFG_PLUGIN_URL.'css/fieldsGenerator.css">';
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
+
+
+
+
     $args = array(
         'id'		    => 'custom_html_field',
         //'field_name'	=> 'text_field', // optional

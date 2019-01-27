@@ -58,6 +58,7 @@ class pickpluginsOptionsFramework{
         require_once( FFG_PLUGIN_DIR . 'functions-theme-page.php');
 
 
+        require_once( FFG_PLUGIN_DIR . 'functions-tools.php');
 
 
     }
