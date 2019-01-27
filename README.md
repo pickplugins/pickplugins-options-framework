@@ -4,6 +4,7 @@ Basic class for generate form input fields dynamically, easy to to use anywhere 
 
 * **PickPlugins Options Framework** by  [PickPlugins](https://www.pickplugins.com)
 *  [Documentation](https://www.pickplugins.com/documentation/pickplugins-options-framework/)
+* [Fields](https://www.pickplugins.com/documentation/pickplugins-options-framework/fields/)
 * [How to create Custom Setting Page?](https://www.pickplugins.com/documentation/pickplugins-options-framework/faq/how-to-create-custom-setting-page/)
 * [How to create Theme Setting Page?](https://www.pickplugins.com/documentation/pickplugins-options-framework/faq/how-to-create-theme-setting-page/)
 * [How to Create Post Meta Box?](https://www.pickplugins.com/documentation/pickplugins-options-framework/faq/how-to-create-post-meta-box/)
