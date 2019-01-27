@@ -1959,8 +1959,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $collapsible 	= isset( $option['collapsible'] ) ? $option['collapsible'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $values			= isset( $option['value'] ) ? $option['value'] : '';
-            $fields 			= isset( $option['fields'] ) ? $option['fields'] : array();
-
+            $fields 		= isset( $option['fields'] ) ? $option['fields'] : array();
+            $title_field 	= isset( $option['title_field'] ) ? $option['title_field'] : '';
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
@@ -2071,13 +2071,18 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     if(!empty($values)):
                         $count = 1;
                         foreach ($values as $index=>$val):
+
+
+                            $title_field_val = isset($val[$title_field]) ? $val[$title_field] : '#'.$count;
+
+
                             ?>
                             <div class="item-wrap <?php if($collapsible) echo 'collapsible'; ?>">
                                 <?php if($collapsible):?>
                                 <div class="header">
                                     <?php endif; ?>
                                     <span class="button remove" onclick="jQuery(this).parent().parent().remove()">X</span>
-                                    <span>#<?php echo $count; ?></span>
+                                    <span class="title-text"><?php echo $title_field_val; ?></span>
                                     <?php if($collapsible):?>
                                 </div>
                             <?php endif; ?>

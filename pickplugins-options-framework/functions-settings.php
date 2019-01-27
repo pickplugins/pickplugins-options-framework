@@ -705,6 +705,7 @@ function pp_display_fileds(){
         'title'		=> __('Repeatable Field','text-domain'),
         'details'	=> __('Repeatable Description','text-domain'),
         'collapsible'=>true,
+        'title_field' => 'text_field',
         'fields'    => array(
 
             array('type'=>'hello_world', 'default'=>'Hello 3', 'item_id'=>'hello_world_field', 'name'=>'Hello world Field'),
