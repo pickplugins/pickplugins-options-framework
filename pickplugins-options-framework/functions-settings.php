@@ -49,6 +49,7 @@ function pp_display_fileds(){
         'title'		    => __('Text Field','text-domain'),
         'details'	    => __('Description of text field','text-domain'),
         'value'		    => 'Hello text value',
+
         'default'		=> __('Default Text Value','text-domain'),
         'placeholder'   => __('Text value','text-domain'),
     );
@@ -60,6 +61,7 @@ function pp_display_fileds(){
         'id'		    => 'text_multi_field',
         'title'		    => __('Multi Text Field','text-domain'),
         'details'	    => __('Description of multi text field','text-domain'),
+        'sortable'		    => true,
         'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
         'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
         'placeholder'   => __('Text value','text-domain'),
@@ -704,7 +706,8 @@ function pp_display_fileds(){
         'id'		=> 'repeatable_field5',
         'title'		=> __('Repeatable Field','text-domain'),
         'details'	=> __('Repeatable Description','text-domain'),
-        'collapsible'=>true,
+        'collapsible'=> true,
+        'sortable'	=> true,
         'title_field' => 'text_field',
         'fields'    => array(
 

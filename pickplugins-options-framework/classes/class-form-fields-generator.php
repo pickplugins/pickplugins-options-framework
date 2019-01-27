@@ -416,6 +416,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
+
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
@@ -432,6 +433,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div class="field-wrapper field-text-wrapper field-text-wrapper<?php echo $id; ?>">
                 <input type='text' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
+
+
             <?php
         }
 
@@ -444,7 +447,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $remove_text 	= isset( $option['remove_text'] ) ? $option['remove_text'] : "X";
-
+            $sortable 	    = isset( $option['sortable'] ) ? $option['sortable'] : true;
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
 
             $values 	    = isset( $option['value'] ) ? $option['value'] : "";
@@ -452,6 +455,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+
             ?>
 
 
@@ -469,7 +474,11 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             ?>
                             <div class="item">
                                 <input type='text' name='<?php echo $field_name?>[]'  placeholder='<?php echo $placeholder;
-                                ?>' value='<?php echo $value; ?>' /><span class="button remove" onclick="jQuery(this).parent().remove()"><?php echo $remove_text; ?></span>
+                                ?>' value='<?php echo $value; ?>' /><span class="button remove" onclick="jQuery(this)
+                                .parent().remove()"><?php echo $remove_text; ?></span>
+                                <?php if($sortable):?>
+                                <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
+                                <?php endif; ?>
                             </div>
                         <?php
                         endforeach;
@@ -479,24 +488,33 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             <input type='text' name='<?php echo $field_name?>[]'  placeholder='<?php echo $placeholder; ?>'
                                    value='' /><span class="button remove" onclick="jQuery(this).parent().remove()
 "><?php echo $remove_text; ?></span>
+                            <?php if($sortable):?>
+                                <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
+                            <?php endif; ?>
                         </div>
                     <?php
                     endif;
                     ?>
                 </div>
-                <script>
+                <script>jQuery(document).ready(function($) {
                     jQuery(document).on('click', '.field-text-multi-wrapper-<?php echo $id; ?> .add-item',function(){
 
                         html_<?php echo $id; ?> = '<div class="item">';
                         html_<?php echo $id; ?> += '<input type="text" name="<?php echo $field_name; ?>[]" placeholder="<?php
                             echo $placeholder; ?>" />';
                         html_<?php echo $id; ?> += '<span class="button remove" onclick="jQuery(this).parent().remove()' +
-                            '">X</span>';
+                            '"><?php echo $remove_text; ?></span>';
+                        <?php if($sortable):?>
+                        html_<?php echo $id; ?> += ' <span class="button sort" ><i class="fas fa-arrows-alt"></i></span>';
+                        <?php endif; ?>
                         html_<?php echo $id; ?> += '</div>';
 
 
                         jQuery('.field-text-multi-wrapper-<?php echo $id; ?> .field-list').append(html_<?php echo $id; ?>);
                     })
+
+                        jQuery( ".field-text-multi-wrapper-<?php echo $id; ?> .field-list" ).sortable({ handle: '.sort' });
+                })
                 </script>
             </div>
 
@@ -1955,8 +1973,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
-
-            $collapsible 	= isset( $option['collapsible'] ) ? $option['collapsible'] : "";
+            $sortable 	    = isset( $option['sortable'] ) ? $option['sortable'] : true;
+            $collapsible 	= isset( $option['collapsible'] ) ? $option['collapsible'] : true;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $values			= isset( $option['value'] ) ? $option['value'] : '';
             $fields 		= isset( $option['fields'] ) ? $option['fields'] : array();
@@ -1964,7 +1982,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
-
+            var_dump($sortable);
             //var_dump($collapsible);
             ?>
 
@@ -1979,10 +1997,19 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         }
                     })
                     jQuery(document).on('click', '.field-repeatable-wrapper-<?php echo $id; ?> .add-item', function() {
+
+
+
                         now = jQuery.now();
                         fields_arr = <?php echo json_encode($fields); ?>;
                         html = '<div class="item-wrap collapsible"><div class="header"><span class="button remove" ' +
-                            'onclick="jQuery(this).parent().remove()">X</span><span>#'+now+'</span></div>';
+                            'onclick="jQuery(this).parent().remove()">X</span>';
+
+                        <?php if($sortable):?>
+                        html += ' <span class="button sort" ><i class="fas fa-arrows-alt"></i></span>';
+                        <?php endif; ?>
+                        html += ' <span>#'+now+'</span></div>';
+
                         fields_arr.forEach(function(element) {
 
                             type = element.type;
@@ -2045,14 +2072,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                                     html+= args[argKey];
                                     html+='</label ><br/>';
                                 }
-
                             }
-
-
-
-
-
-
 
                             <?php if($collapsible):?>
                             html+='</div>';
@@ -2062,6 +2082,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         html+='</div>';
                         jQuery('.<?php echo 'field-repeatable-wrapper-'.$id; ?> .field-list').append(html);
                     })
+                    jQuery( ".field-repeatable-wrapper-<?php echo $id; ?> .field-list" ).sortable({ handle: '.sort' });
                 });
             </script>
             <div class="field-wrapper field-repeatable-wrapper field-repeatable-wrapper-<?php echo $id; ?>">
@@ -2076,12 +2097,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             $title_field_val = isset($val[$title_field]) ? $val[$title_field] : '#'.$count;
 
 
+
+
                             ?>
                             <div class="item-wrap <?php if($collapsible) echo 'collapsible'; ?>">
                                 <?php if($collapsible):?>
                                 <div class="header">
                                     <?php endif; ?>
                                     <span class="button remove" onclick="jQuery(this).parent().parent().remove()">X</span>
+                                    <?php if($sortable):?>
+                                        <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
+                                    <?php endif; ?>
                                     <span class="title-text"><?php echo $title_field_val; ?></span>
                                     <?php if($collapsible):?>
                                 </div>
@@ -2090,8 +2116,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                                     $type = $field['type'];
                                     $item_id = $field['item_id'];
                                     $name = $field['name'];
+
+                                    $title_field_class = ($title_field == $field_index) ? 'title-field':'';
                                     ?>
-                                    <div class="item">
+                                    <div class="item <?php echo $title_field_class; ?>">
                                         <?php if($collapsible):?>
                                         <div class="content">
                                             <?php endif; ?>

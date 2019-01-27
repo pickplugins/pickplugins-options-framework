@@ -119,6 +119,7 @@ class pickpluginsOptionsFramework{
 
         wp_enqueue_script('jquery');
         wp_enqueue_script( 'jquery-ui-core' );
+        wp_enqueue_script('jquery-ui-sortable');
         wp_enqueue_style( 'wp-color-picker' );
         wp_enqueue_script( 'wp-color-picker' );
         wp_enqueue_script('jquery-ui-datepicker');
@@ -134,6 +135,7 @@ class pickpluginsOptionsFramework{
 
         wp_enqueue_script('jquery');
         wp_enqueue_script( 'jquery-ui-core' );
+        wp_enqueue_script('jquery-ui-sortable');
         wp_enqueue_script( 'wp-color-picker' );
         wp_enqueue_script('jquery-ui-datepicker');
         wp_enqueue_style('fontawesome', FFG_PLUGIN_URL.'css/fontawesome.min.css');

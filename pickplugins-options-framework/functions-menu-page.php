@@ -574,6 +574,7 @@ $page_5_options = array(
                     'title'		    => __('Create Menu','text-domain'),
                     'details'	    => __('You can register nav menus here. you can use these menu via <a target="_blank" href="https://developer.wordpress.org/reference/functions/wp_nav_menu/">wp_nav_menu()</a> function, example bellow.','pickthemes').'<br><code>&lt;?php wp_nav_menu( array("container" => false, "theme_location" => "header-menu", "menu_class" => "menu")); ?&gt; </code>',
                     'collapsible'   =>true,
+                    'sortable'	=> false,
                     'type'		    => 'repeatable',
                     'title_field' => 'menu_name',
                     'fields'        => array(
@@ -593,6 +594,7 @@ endif; ?></code>',
                     'type'		    => 'repeatable',
                     'default'		=> '',
                     'collapsible'   =>true,
+                    'sortable'	=> true,
                     'title_field' => 'name',
                     'fields'        => array(
 
@@ -614,6 +616,7 @@ endif; ?></code>',
                     'type'		=> 'repeatable',
                     'default'		=> '',
                     'collapsible'=>true,
+                    'sortable'	=> false,
                     'title_field' => 'singular_name',
                     'fields'    => array(
 

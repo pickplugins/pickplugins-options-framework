@@ -29,6 +29,16 @@
     background-color: #ff584c;
     color: #fff;
 }
+
+.fieldsGenerator  .sort {
+    background-color: #2196F3;
+    color: #fff;
+    padding: 2px 10px;
+    cursor: move;
+}
+
+
+
 .fieldsGenerator  .remove:hover {
     background-color: #dc291d;
 

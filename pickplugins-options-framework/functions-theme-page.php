@@ -575,6 +575,7 @@ $page_5_options = array(
                     'details'	    => __('You can register nav menus here. you can use these menu via <a target="_blank" href="https://developer.wordpress.org/reference/functions/wp_nav_menu/">wp_nav_menu()</a> function, example bellow.','pickthemes').'<br><code>&lt;?php wp_nav_menu( array("container" => false, "theme_location" => "header-menu", "menu_class" => "menu")); ?&gt; </code>',
                     'collapsible'   =>true,
                     'type'		    => 'repeatable',
+                    'title_field' => 'menu_name',
                     'fields'        => array(
 
                         array('type'=>'text', 'default'=>'menu_id', 'item_id'=>'menu_id', 'name'=>'Menu ID'),
@@ -592,6 +593,7 @@ endif; ?></code>',
                     'type'		    => 'repeatable',
                     'default'		=> '',
                     'collapsible'   =>true,
+                    'title_field' => 'name',
                     'fields'        => array(
 
                         array('type'=>'text', 'item_id'=>'id', 'name'=>'Sidebar ID'),
@@ -612,6 +614,7 @@ endif; ?></code>',
                     'type'		=> 'repeatable',
                     'default'		=> '',
                     'collapsible'=>true,
+                    'title_field' => 'singular_name',
                     'fields'    => array(
 
                         array('type'=>'text', 'item_id'=>'name', 'name'=>'name'),
