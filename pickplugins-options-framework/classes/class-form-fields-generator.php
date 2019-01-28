@@ -95,6 +95,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            ob_start();
             ?>
             <div class="field-wrapper field-google-recaptcha-wrapper field-google-recaptcha-wrapper-<?php echo $id; ?>">
                 <?php if($version == 'v2'):?>
@@ -116,6 +117,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
             <?php
+
+            return ob_get_clean();
         }
 
 
@@ -139,6 +142,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
             //var_dump($value);
+            ob_start();
             ?>
             <div class="field-wrapper field-img-select-wrapper field-img-select-wrapper-<?php echo $id; ?>">
                 <div class="img-list">
@@ -177,6 +181,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </script>
 
             <?php
+            return ob_get_clean();
 
         }
 
@@ -198,11 +203,14 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
             ?>
             <div class="field-wrapper field-submit-wrapper field-submit-wrapper<?php echo $id; ?>">
                 <input type='submit' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -217,11 +225,15 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
             ?>
             <div class="field-wrapper field-nonce-wrapper field-nonce-wrapper<?php echo $id; ?>">
                 <?php wp_nonce_field( $action_name, $field_name ); ?>
             </div>
             <?php
+
+            return ob_get_clean();
         }
 
 
@@ -240,11 +252,15 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
             ?>
             <div class="field-wrapper field-color-wrapper field-color-wrapper<?php echo $id; ?>">
                 <input type='color' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
             <?php
+
+            return ob_get_clean();
         }
 
 
@@ -264,14 +280,107 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
             ?>
             <div class="field-wrapper field-email-wrapper field-email-wrapper<?php echo $id; ?>">
                 <input type='email' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
             <?php
+
+            return ob_get_clean();
         }
 
 
+        public function field_password( $option ){
+
+            $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
+            $default 	    = isset( $option['default'] ) ? $option['default'] : "";
+            $password_meter = isset( $option['password_meter'] ) ? $option['password_meter'] : true;
+            $value 	        = isset( $option['value'] ) ? $option['value'] : "";
+            $value          = !empty($value) ? $value : $default;
+
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+
+            ob_start();
+            ?>
+            <div class="field-wrapper field-password-wrapper field-password-wrapper-<?php echo $id; ?>">
+                <input type='password' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <?php if($password_meter): ?>
+                <div class="scorePassword"></div>
+                <div class="scoreText"></div>
+                <?php endif; ?>
+            </div>
+
+            <script>jQuery(document).ready(function($) {
+
+                    jQuery(document).on('keyup', '.field-password-wrapper-<?php echo $id; ?> input',function(){
+
+                        pass = $(this).val();
+
+
+                        var score = 0;
+                        if (!pass)
+                            return score;
+
+                        // award every unique letter until 5 repetitions
+                        var letters = new Object();
+                        for (var i=0; i<pass.length; i++) {
+                            letters[pass[i]] = (letters[pass[i]] || 0) + 1;
+                            score += 5.0 / letters[pass[i]];
+                        }
+
+                        // bonus points for mixing it up
+                        var variations = {
+                            digits: /\d/.test(pass),
+                            lower: /[a-z]/.test(pass),
+                            upper: /[A-Z]/.test(pass),
+                            nonWords: /\W/.test(pass),
+                        }
+
+                        variationCount = 0;
+                        for (var check in variations) {
+                            variationCount += (variations[check] == true) ? 1 : 0;
+                        }
+                        score += (variationCount - 1) * 10;
+
+                        if(score > 80){
+                            score_style = '#4CAF50;';
+                            score_text = 'Strong';
+                        }else if(score > 60){
+                            score_style = '#cddc39;';
+                            score_text = 'Good';
+                        }else if(score > 30){
+                            score_style = '#FF9800;';
+                            score_text = 'Normal';
+
+                        }else{
+                            score_style = '#F44336;';
+                            score_text = 'Week';
+
+                        }
+
+                        html = '<span style="width:'+parseInt(score)+'%;background-color: '+score_style+'"></span>';
+
+
+                        console.log(score_style);
+
+                        $(".field-password-wrapper-<?php echo $id; ?> .scorePassword").html(html)
+                        $(".field-password-wrapper-<?php echo $id; ?> .scoreText").html(score_text)
+
+                    })
+                })
+            </script>
+            <?php
+
+            return ob_get_clean();
+        }
 
         public function field_search( $option ){
 
@@ -287,11 +396,15 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
             ?>
             <div class="field-wrapper field-search-wrapper field-search-wrapper<?php echo $id; ?>">
                 <input type='search' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
             <?php
+
+            return ob_get_clean();
         }
 
         public function field_month( $option ){
@@ -308,11 +421,15 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
             ?>
             <div class="field-wrapper field-month-wrapper field-month-wrapper<?php echo $id; ?>">
                 <input type='time' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
             <?php
+
+            return ob_get_clean();
         }
 
         public function field_date( $option ){
@@ -330,11 +447,14 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
             ?>
             <div class="field-wrapper field-date-wrapper field-date-wrapper<?php echo $id; ?>">
                 <input type='date' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
             <?php
+            return ob_get_clean();
         }
 
         public function field_url( $option ){
@@ -352,11 +472,14 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+
+            ob_start();
             ?>
             <div class="field-wrapper field-url-wrapper field-url-wrapper<?php echo $id; ?>">
                 <input type='url' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -376,11 +499,14 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+
+            ob_start();
             ?>
             <div class="field-wrapper field-time-wrapper field-time-wrapper<?php echo $id; ?>">
                 <input type='time' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -399,11 +525,14 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+
+            ob_start();
             ?>
             <div class="field-wrapper field-tel-wrapper field-tel-wrapper<?php echo $id; ?>">
                 <input type='tel' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
             <?php
+            return ob_get_clean();
         }
 
         public function field_text( $option ){
@@ -427,15 +556,16 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             //var_dump($id);
             //var_dump($field_name);
+            ob_start();
             ?>
 
 
             <div class="field-wrapper field-text-wrapper field-text-wrapper<?php echo $id; ?>">
                 <input type='text' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
-
-
             <?php
+
+            return ob_get_clean();
         }
 
 
@@ -457,10 +587,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
+            ob_start();
             ?>
-
-
-
             <div class="field-wrapper field-text-multi-wrapper field-text-multi-wrapper-<?php echo $field_id; ?>">
                 <span class="button add-item">Add</span>
                 <div class="field-list" id="<?php echo $field_id; ?>">
@@ -520,6 +648,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
             <?php
+            return ob_get_clean();
 
         }
 
@@ -546,11 +675,13 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             //var_dump('Gello');
 
+            ob_start();
             ?>
             <div class="field-wrapper field-textarea-wrapper field-textarea-wrapper-<?php echo $field_id; ?>">
                 <textarea name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' cols='40' rows='5' placeholder='<?php echo $placeholder; ?>'><?php echo $value; ?></textarea>
             </div>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -571,6 +702,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name.'[]' : $id.'[]';
 
+            ob_start();
             ?>
             <div class="field-wrapper field-checkbox-wrapper field-checkbox-wrapper-<?php echo $id; ?>">
                 <?php
@@ -583,6 +715,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 ?>
             </div>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -604,6 +737,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+
+            ob_start();
             ?>
             <div class="field-wrapper field-radio-wrapper field-radio-wrapper-<?php echo $id; ?>">
                 <?php
@@ -616,6 +751,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 ?>
             </div>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -638,6 +774,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
+            ob_start();
             ?>
             <div class="field-wrapper field-select-wrapper field-select-wrapper-<?php echo $id; ?>">
                 <?php
@@ -664,6 +801,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 ?>
             </div>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -686,12 +824,13 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
-
+            ob_start();
             ?>
             <div class="field-wrapper field-range-wrapper field-range-wrapper-<?php echo $id; ?>">
                 <input type='range' min='<?php echo $min; ?>' max='<?php echo $max; ?>' step='<?php echo $args['step']; ?>' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' value='<?php echo $value; ?>' />
             </div>
             <?php
+            return ob_get_clean();
         }
 
         public function field_range_input( $option ){
@@ -712,7 +851,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
-
+            ob_start();
             ?>
             <div class="field-wrapper field-range-input-wrapper field-range-input-wrapper-<?php echo $id; ?>">
                 <input type="number" class="range-val" name='<?php echo $field_name; ?>' value="<?php echo $value; ?>">
@@ -733,6 +872,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </div>
 
             <?php
+            return ob_get_clean();
         }
 
 
@@ -751,7 +891,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
-
+            ob_start();
             ?>
             <div class="field-wrapper field-switch-wrapper field-switch-wrapper-<?php echo $id; ?>">
                 <?php
@@ -780,7 +920,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </script>
 
             <?php
-
+            return ob_get_clean();
         }
 
 
@@ -800,6 +940,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            ob_start();
             ?>
             <div class="field-wrapper field-switch-multi-wrapper field-switch-multi-wrapper-<?php echo
             $id; ?>">
@@ -828,7 +969,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </script>
 
             <?php
-
+            return ob_get_clean();
         }
 
 
@@ -850,6 +991,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            ob_start();
             ?>
             <div class="field-wrapper field-switch-img-wrapper field-switch-img-wrapper-<?php echo $id; ?>">
                 <?php
@@ -878,7 +1020,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </script>
 
             <?php
-
+            return ob_get_clean();
         }
 
 
@@ -897,6 +1039,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+
+            ob_start();
             ?>
             <div class="field-wrapper field-time-format-wrapper field-time-format-wrapper-<?php echo $id; ?>">
                 <div class="format-list">
@@ -935,6 +1079,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 });
             </script>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -955,6 +1100,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
             ?>
             <div class="field-wrapper field-date-format-wrapper field-date-format-wrapper-<?php echo $id; ?>">
                 <div class="format-list">
@@ -987,6 +1134,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     })
                 });</script>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -1006,6 +1154,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
+            ob_start();
             ?>
             <div class="field-wrapper field-datepicker-wrapper field-datepicker-wrapper-<?php echo $id; ?>">
                 <input type='text' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
@@ -1015,9 +1164,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     $('#<?php echo $field_id; ?>').datepicker({dateFormat : '<?php echo $date_format; ?>'})});
             </script>
             <?php
-
-
-            echo "";
+            return ob_get_clean();
         }
 
 
@@ -1039,6 +1186,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            ob_start();
             ?>
             <div class="field-wrapper field-datepicker-wrapper field-datepicker-wrapper-<?php echo $id; ?>">
                 <input type='text'  name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
@@ -1046,7 +1194,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <script>jQuery(document).ready(function($) { $('#<?php echo $field_id; ?>').wpColorPicker();});</script>
             <?php
 
-
+            return ob_get_clean();
         }
 
 
@@ -1065,6 +1213,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
+            ob_start();
             if(!empty($values)):
                 ?>
                 <div class="field-wrapper field-colorpicker-multi-wrapper
@@ -1098,6 +1247,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 $('.field-colorpicker-multi-wrapper-<?php echo $id; ?> input').wpColorPicker();
             });</script>
             <?php
+
+            return ob_get_clean();
         }
 
 
@@ -1116,6 +1267,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            ob_start();
             ?>
             <div class="field-wrapper field-link-color-wrapper field-link-color-wrapper-<?php echo $id; ?>">
             <?php
@@ -1140,6 +1292,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </div>
             <?php
             echo "<script>jQuery(document).ready(function($) { $('.$id').wpColorPicker();});</script>";
+
+            return ob_get_clean();
         }
 
 
@@ -1164,6 +1318,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
+            ob_start();
             ?>
             <div class="field-wrapper field-user-multi-wrapper field-user-multi-wrapper-<?php echo $id; ?>">
                 <div class="users-wrapper" >
@@ -1244,25 +1399,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </script>
 
             <?php
+
+            return ob_get_clean();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1281,6 +1420,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            ob_start();
             ?>
             <div class="field-wrapper field-icon-wrapper field-icon-wrapper-<?php echo $id; ?>">
                 <div class="icon-wrapper" >
@@ -1333,6 +1473,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             })
             </script>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -1351,6 +1492,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
             ?>
             <div class="field-wrapper field-icon-multi-wrapper field-icon-multi-wrapper-<?php echo $id; ?>">
                 <div class="icons-wrapper" >
@@ -1419,6 +1562,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </script>
 
             <?php
+            return ob_get_clean();
         }
 
 
@@ -1439,6 +1583,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            ob_start();
             if(!empty($args)):
                 ?>
                 <div class="field-wrapper field-dimensions-wrapper field-dimensions-wrapper-<?php echo $id; ?>">
@@ -1459,6 +1604,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 </div>
                 <?php
             endif;
+            return ob_get_clean();
         }
 
 
@@ -1477,16 +1623,14 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            ob_start();
             ?>
-
              <div class="field-wrapper field-number-wrapper field-number-wrapper-<?php echo $id; ?>">
                 <input type='number' class='' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-
             </div>
 
             <?php
-
-            echo "";
+            return ob_get_clean();
         }
 
 
@@ -1506,6 +1650,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            ob_start();
             ?>
             <div class="field-wrapper field-wp_editor-wrapper field-wp_editor-wrapper-<?php echo $id; ?>">
                 <?php
@@ -1514,7 +1659,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </div>
             <?php
 
-
+            return ob_get_clean();
         }
 
 
@@ -1541,8 +1686,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 $value = !empty($value) ? $value : array();
             endif;
 
-            //var_dump($value);
-
+            ob_start();
             ?>
             <div class="field-wrapper field-select2-wrapper field-select2-wrapper-<?php echo $id; ?>">
                 <?php
@@ -1584,6 +1728,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             });});</script>
             <?php
 
+            return ob_get_clean();
 
         }
 
@@ -1597,6 +1742,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $args			= isset( $option['args'] ) ? $option['args'] : array();
 
 
+            ob_start();
             ?>
             <script>
                 jQuery(document).ready(function($) {
@@ -1628,6 +1774,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </div>
 
             <?php
+            return ob_get_clean();
         }
 
 
@@ -1640,6 +1787,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $widths 		= isset( $option['width'] ) ? $option['width'] : array('768px'=>'100%','992px'=>'50%', '1200px'=>'30%', );
             $heights 		= isset( $option['height'] ) ? $option['height'] : array('768px'=>'auto','992px'=>'250px', '1200px'=>'250px', );
 
+            ob_start();
             ?>
             <div class="field-wrapper field-grid-wrapper field-grid-wrapper-<?php echo $id; ?>">
                 <?php
@@ -1676,6 +1824,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 ?>
             </style>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -1701,7 +1850,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
-
+            ob_start();
             ?>
             <div class="field-wrapper field-color-palette-wrapper field-color-palette-wrapper-<?php echo $id; ?>">
                 <?php
@@ -1732,12 +1881,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 .field-color-palette-wrapper-<?php echo $id; ?> label:hover .sw-button{
 
                 }
-
-
-
-
             </style>
-
             <script>jQuery(document).ready(function($) {
                     jQuery(document).on('click', '.field-color-palette-wrapper-<?php echo $id; ?> .sw-button', function() {
 
@@ -1750,10 +1894,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         }
                     })
                 })
-
             </script>
-
             <?php
+
+            return ob_get_clean();
 
         }
 
@@ -1779,7 +1923,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
-
+            ob_start();
             ?>
             <div class="field-wrapper field-color-palette-multi-wrapper field-color-palette-multi-wrapper-<?php echo $id; ?>">
                 <?php
@@ -1818,6 +1962,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 })
             </script>
             <?php
+
+            return ob_get_clean();
         }
 
 
@@ -1844,6 +1990,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            ob_start();
             wp_enqueue_media();
 
             echo "<div class='media_preview' style='width: 150px;margin-bottom: 10px;background: #eee;padding: 5px;    text-align: center;'>";
@@ -1879,6 +2026,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             })
             
             });	</script>";
+
+            return ob_get_clean();
         }
 
 
@@ -1896,7 +2045,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
-
+            ob_start();
             wp_enqueue_media();
 
             ?>
@@ -1951,6 +2100,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 });
             </script>
             <?php
+            return ob_get_clean();
         }
 
 
@@ -1962,8 +2112,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $args 			= isset( $option['args'] ) ? $option['args'] : "";
             $html 			= isset( $option['html'] ) ? $option['html'] : "";
 
+            ob_start();
             echo $html;
-
+            return ob_get_clean();
 
 
         }
@@ -1982,8 +2133,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
-            var_dump($sortable);
-            //var_dump($collapsible);
+            ob_start();
             ?>
 
 
@@ -2329,6 +2479,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             <?php
 
+            return ob_get_clean();
         }
 
 

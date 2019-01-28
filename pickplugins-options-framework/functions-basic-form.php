@@ -5,6 +5,149 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 
 
 
+add_shortcode('basic_form_display','basic_form_display_function');
+
+function basic_form_display_function(){
+
+    $FormFieldsGenerator = new FormFieldsGenerator();
+
+    $error = '';
+
+    if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
+
+        // Process
+        $_wpnonce = isset($_POST['nonce_field']) ? $_POST['nonce_field'] : '';
+
+        if(wp_verify_nonce( $_wpnonce, 'nonce_field_action' )) {
+
+            $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : '';
+            $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
+            $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
+
+            update_option('dummy_option_first_name', $first_name);
+            update_option('dummy_option_last_name', $last_name);
+            update_option('dummy_option_gender', $gender);
+            ?>
+            <pre><?php echo var_export($_POST, true); ?></pre>
+            <?php
+        }else{
+            $error = 'There is an error! 1';
+        }
+
+    }else{
+        // Error
+        $error = 'There is an error! 2';
+
+    }
+
+    ob_start();
+
+    ?>
+    <div class="fieldsGenerator">
+        <div class="error" style="color: #f00">
+            <?php
+
+            if(!empty($error)){
+                echo $error;
+            }
+            ?>
+        </div>
+        <form action="#" method="post">
+    <?php
+
+    echo '<link rel="stylesheet"  href="'.FFG_PLUGIN_URL.'css/fieldsGenerator.css">';
+    echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
+
+    $args = array(
+        'id'		    => 'first_name',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('First Name','text-domain'),
+        'details'	    => __('Description of first name','text-domain'),
+        'value'		    => '',
+        'default'		=> __('','text-domain'),
+        'placeholder'   => __('First Name','text-domain'),
+    );
+
+    echo $FormFieldsGenerator->field_text($args);
+
+    $args = array(
+        'id'		    => 'last_name',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('Last Name','text-domain'),
+        'details'	    => __('Description of last name','text-domain'),
+        'value'		    => '',
+        'default'		=> __('','text-domain'),
+        'placeholder'   => __('Last Name','text-domain'),
+    );
+    echo $FormFieldsGenerator->field_text($args);
+
+    $args = array(
+        'id'		=> 'gender',
+        'title'		=> __('Your Gender','text-domain'),
+        'details'	=> __('Description of gender','text-domain'),
+        'default'		=> '',
+        'value'		=> '',
+        'args'		=> array(
+            'male'	=> __('Male','text-domain'),
+            'famale'	=> __('Famale','text-domain'),
+            'others'	=> __('Others','text-domain'),
+
+        ),
+    );
+    echo $FormFieldsGenerator->field_radio($args);
+
+    $args = array(
+        'id'		    => 'google_recaptcha_field',
+        'title'		    => __('Google recaptcha Field','text-domain'),
+        'details'	    => __('Description of google recaptcha field','text-domain'),
+        'version'		=> 'v2', // v2, v3
+        'action_name'	=> 'action_name', // for v3
+        'site_key'		=> '6LeuYiUTAAAAAF5OmlN8CNQTavIuhbzth9oqC-vC',
+        'secret_key'    => '',
+    );
+    echo $FormFieldsGenerator->field_google_recaptcha($args);
+
+    $args = array(
+        'id'		    => 'nonce_field',
+        'title'		    => __('Nonce Field','text-domain'),
+        'details'	    => __('Description of nonce field','text-domain'),
+        'action_name'		=> 'nonce_field_action',
+    );
+    echo $FormFieldsGenerator->field_nonce($args);
+
+    $args = array(
+        'id'		    => 'submit_field',
+        'title'		    => __('Text Field','text-domain'),
+        'details'	    => __('Description of text field','text-domain'),
+        'value'		    => 'Submit',
+        'default'		=> __('Default Text Value','text-domain'),
+        'placeholder'   => __('Text value','text-domain'),
+    );
+    echo $FormFieldsGenerator->field_submit($args);
+
+    ?>
+    </form>
+    </div>
+    <?php
+
+    return ob_get_clean();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 add_shortcode('display_fields','pp_display_fileds');
 
 function pp_display_fileds(){
@@ -14,7 +157,7 @@ function pp_display_fileds(){
 
     ob_start();
 
-    $users = get_users();
+
 
 
 

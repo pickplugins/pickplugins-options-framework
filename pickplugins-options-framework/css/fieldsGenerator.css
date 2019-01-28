@@ -5,7 +5,7 @@
 
 
 
-.fieldsGenerator input[type="text"],.fieldsGenerator input[type="email"], .fieldsGenerator input[type="url"],.fieldsGenerator input[type="time"],.fieldsGenerator input[type="tel"],.fieldsGenerator input[type="date"],.fieldsGenerator input[type="search"], .fieldsGenerator input[type="month"], .fieldsGenerator input[type="color"], .fieldsGenerator textarea, .fieldsGenerator select, .fieldsGenerator input[type="range"], .fieldsGenerator input[type="number"],.fieldsGenerator .select2 {
+.fieldsGenerator input[type="text"],.fieldsGenerator input[type="email"],.fieldsGenerator input[type="password"],  .fieldsGenerator input[type="url"],.fieldsGenerator input[type="time"],.fieldsGenerator input[type="tel"],.fieldsGenerator input[type="date"],.fieldsGenerator input[type="search"], .fieldsGenerator input[type="month"], .fieldsGenerator input[type="color"], .fieldsGenerator textarea, .fieldsGenerator select, .fieldsGenerator input[type="range"], .fieldsGenerator input[type="number"],.fieldsGenerator .select2 {
     width: 320px;
 }
 
@@ -93,7 +93,26 @@
 }
 
 
+/*field-password-wrapper*/
 
+.field-password-wrapper{}
+
+.field-password-wrapper .scorePassword{
+    background: #eee;
+    height: 10px;
+    margin-top: 10px;
+    width: 200px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.field-password-wrapper .scorePassword span{
+    height: 15px;
+    display: block;
+    background: #ddd;
+    font-size: 12px;
+    line-height: normal;
+    color: #fff;
+}
 
 /*field-img-select-wrapper*/
 
