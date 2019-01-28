@@ -484,15 +484,7 @@ $page_4_options = array(
                         'height'	=> __('Height','text-domain'),
                     ),
                 ),
-                array(
-                    'id'		=> 'wp_editor_field',
-                    'title'		=> __('WP editor Field','text-domain'),
-                    'details'	=> __('Description of wp_editor field, please see detail here https://codex.wordpress.org/Function_Reference/wp_editor','text-domain'),
-                    'editor_settings'=>array('textarea_name'=>'wp_editor_field', 'editor_height'=>'150px'),
-                    'placeholder' => __('wp_editor value','text-domain'),
-                    'default'		=> 'Editor content',
-                    'type'		=> 'wp_editor',
-                ),
+
                 array(
                     'id'		=> 'select2_field5',
                     'title'		=> __('Select2 Single Field','text-domain'),
