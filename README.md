@@ -127,6 +127,7 @@ echo $FormFieldsGenerator->field_text($args);
 * field_icon_multi();
 * field_dimensions();
 * field_wp_editor();
+* field_code();
 * field_select2()
 * field_faq();
 * field_grid();
