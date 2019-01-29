@@ -114,6 +114,8 @@ echo $FormFieldsGenerator->field_text($args);
 * field_select_multi();
 * field_range();
 * field_range_input();
+* field_password();
+* field_hidden();
 * field_switch();
 * field_switch_multi();
 * field_switch_img();
