@@ -685,6 +685,45 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         }
 
 
+        public function field_code( $option ){
+
+            $id             = isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+
+            $placeholder    = isset( $option['placeholder'] ) ? $option['placeholder'] : "";
+            $default 	    = isset( $option['default'] ) ? $option['default'] : array();
+
+            $value 	        = isset( $option['value'] ) ? $option['value'] : "";
+            $value          = !empty($value) ? $value : $default;
+            $args	        = isset( $option['args'] ) ? $option['args'] : array(
+                'lineNumbers'	=> true,
+                'mode'	=> "javascript",
+            );
+
+
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
+            ob_start();
+            ?>
+            <div class="field-wrapper field-code-wrapper field-code-wrapper-<?php echo $field_id; ?>">
+                <textarea name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' cols='40' rows='5' placeholder='<?php echo $placeholder; ?>'><?php echo $value; ?></textarea>
+            </div>
+
+            <script>
+                var editor = CodeMirror.fromTextArea(document.getElementById("<?php echo $field_id; ?>"), {
+                    <?php
+                    foreach ($args as $argkey=>$arg):
+                        echo $argkey.':'.$arg.',';
+                    endforeach;
+
+                    ?>
+                });
+            </script>
+            <?php
+            return ob_get_clean();
+        }
+
 
         public function field_checkbox( $option ){
 
@@ -1513,9 +1552,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
                             foreach ($icons as $iconindex=>$iconTitle):
 
-                                ?>
-                                <li title="<?php echo $iconTitle; ?>" iconData="<?php echo $iconindex; ?>"><i class="<?php echo $iconindex; ?>"></i></li>
-                            <?php
+                                ?><li title="<?php echo $iconTitle; ?>" iconData="<?php echo $iconindex; ?>"><i class="<?php echo $iconindex; ?>"></i></li><?php
 
                             endforeach;
 
@@ -1554,7 +1591,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     })
                     jQuery(document).on('click', '.field-icon-multi-wrapper-<?php echo $id; ?> .icon-list li', function(){
                         iconData = jQuery(this).attr('iconData');
-                        html = '';
+                       
                         html = '<div class="item" title="click to remove"><span><i class="'+iconData+'"></i></span><input type="hidden" name="<?php echo $field_name; ?>[]" value="'+iconData+'"></div>';
                         jQuery('.field-icon-multi-wrapper-<?php echo $id; ?> .icons-wrapper').append(html);
                     })

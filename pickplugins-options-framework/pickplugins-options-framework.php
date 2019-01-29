@@ -69,7 +69,7 @@ class pickpluginsOptionsFramework{
     public function load_script() {
 
         add_action( 'admin_enqueue_scripts', 'wp_enqueue_media' );
-        add_action( 'wp_footer', array( $this, 'front_scripts' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'front_scripts' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
     }
 
@@ -129,6 +129,11 @@ class pickpluginsOptionsFramework{
 
         wp_enqueue_style('fontawesome', FFG_PLUGIN_URL.'css/fontawesome.min.css');
         wp_enqueue_style('fieldsGenerator', FFG_PLUGIN_URL.'css/fieldsGenerator.css');
+        wp_enqueue_style('codemirror.min', FFG_PLUGIN_URL.'css/codemirror.css');
+
+
+        wp_enqueue_script('codemirror.min', plugins_url( 'js/codemirror.min.js' , __FILE__ ) , array( 'jquery' ),null,
+            false);
 
         wp_enqueue_script('FormFieldsGenerator', plugins_url( 'js/FormFieldsGenerator.js' , __FILE__ ) , array( 'jquery' ));
         wp_localize_script( 'FormFieldsGenerator', 'FormFieldsGenerator_ajax', array( 'FormFieldsGenerator_ajaxurl' => admin_url( 'admin-ajax.php')));

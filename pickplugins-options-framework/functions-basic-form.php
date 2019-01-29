@@ -270,6 +270,24 @@ function pp_display_fileds(){
 
 
 
+
+    $args = array(
+        'id'		    => 'code_field',
+        'title'		    => __('Code Field','text-domain'),
+        'details'	    => __('Description of code field','text-domain'),
+        'value'		    => __('Textarea value','text-domain'),
+        'default'		=> __('Default Text Value','text-domain'),
+        'args'		=> array(
+            'lineNumbers'	=> 'true', // do not write true, write as string, ex: 'true'
+            'mode'	=> "'javascript'",
+        ),
+    );
+
+    echo $FormFieldsGenerator->field_code($args);
+
+
+
+
     $args = array(
         'id'		=> 'checkbox_field',
         'title'		=> __('Checkbox  Field','text-domain'),

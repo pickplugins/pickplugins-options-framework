@@ -329,7 +329,9 @@ if( ! class_exists( 'AddMetaBox' ) ) {
                 echo $FormFieldsGenerator->field_user($option);
             }
 
-
+            elseif( isset($option['type']) && $option['type'] === 'custom_html' ){
+                echo $FormFieldsGenerator->field_custom_html($option);
+            }
 
 
             elseif( isset($option['type']) && $option['type'] === $type ){
