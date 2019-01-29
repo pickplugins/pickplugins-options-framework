@@ -19,7 +19,7 @@ Ready to be Role
 * Taxonomy Edit Fields
 * User Profile Fields
 * Customizer Fields.
-* 40+ Input fields
+* 48+ Input fields
 
 
 
@@ -28,38 +28,54 @@ Ready to be Role
 
 ## Input fields
 
-* Text
-* Text multi
-* Select
-* Select multi
-* Select2
-* Checkbox
-* Radio
-* Textarea
-* Number
-* Range
-* Range with input
-* Color picker
-* Datepicker
-* Media
-* Media Gallery
-* Switch
-* Switch multi
-* Switch image
-* Dimensions (width, height, custom)
-* Editor
-* Link Color
-* Repeatable
-* Icon
-* Icon multi
-* Date format 
-* Time format 
-* FAQ
-* Grid
-* Custom_html
-* Color palette
-* Color Palette Multi
-* User Select
+1. Text
+2. Text multi
+3. Select
+4. Select multi
+5. Select2
+6. Checkbox
+7. Radio
+8. Textarea
+9. Number
+10. Hidden
+11. Range
+12. Range with input
+13. Color picker
+14. Datepicker
+15. Media
+16. Media Gallery
+17. Switch
+18. Switch multi
+19. Switch image
+20. Dimensions (width, height, custom)
+21. WP Editor
+22. Code Editor
+23. Link Color
+24. Repeatable
+25. Icon
+26. Icon multi
+27. Date format 
+28. Time format 
+29. FAQ
+30. Grid
+31. Custom_html
+32. Color palette
+33. Color Palette Multi
+34. User Select
+35. HTML5 Color
+36. Email
+37. URL
+38. Tel
+39. Search
+40. Month
+41. Week
+42. Date
+43. Time
+44. Color Picker Multi
+45. Google reCaptcha
+46. Nonce
+47. Submit
+
 
 #### Special Fields(Arguments)
 
@@ -105,54 +121,54 @@ echo $FormFieldsGenerator->field_text($args);
 #### Available methods
 
 ```php
-* field_text();
-* field_text_multi();
-* field_textarea();
-* field_checkbox();
-* field_radio();
-* field_select();
-* field_select_multi();
-* field_range();
-* field_range_input();
-* field_password();
-* field_hidden();
-* field_switch();
-* field_switch_multi();
-* field_switch_img();
-* field_time_format();
-* field_date_format();
-* field_datepicker();
-* field_colorpicker();
-* field_colorpicker_multi();
-* field_link_color();
-* field_icon();
-* field_icon_multi();
-* field_dimensions();
-* field_wp_editor();
-* field_code();
-* field_select2()
-* field_faq();
-* field_grid();
-* field_color_palette();
-* field_color_palette_multi();
-* field_media();
-* field_media_multi();
-* field_repeatable();
-* field_google_recaptcha();
-* field_img_select();
-* field_submit();
-* field_nonce();
-* field_number();
-* field_color();
-* field_email();
-* field_search();
-* field_month();
-* field_date();
-* field_url();
-* field_time();
-* field_tel();
-* field_user();
-* field_custom_html(); 
+1. field_text();
+2. field_text_multi();
+3. field_textarea();
+4. field_checkbox();
+5. field_radio();
+6. field_select();
+7. field_select_multi();
+8. field_range();
+9. field_range_input();
+10. field_password();
+11. field_hidden();
+12. field_switch();
+13. field_switch_multi();
+14. field_switch_img();
+15. field_time_format();
+16. field_date_format();
+17. field_datepicker();
+18. field_colorpicker();
+19. field_colorpicker_multi();
+20. field_link_color();
+21. field_icon();
+22. field_icon_multi();
+23. field_dimensions();
+24. field_wp_editor();
+25. field_code();
+26. field_select2()
+27. field_faq();
+28. field_grid();
+29. field_color_palette();
+30. field_color_palette_multi();
+31. field_media();
+32. field_media_multi();
+33. field_repeatable();
+34. field_google_recaptcha();
+35. field_img_select();
+36. field_submit();
+37. field_nonce();
+38. field_number();
+39. field_color();
+40. field_email();
+41. field_search();
+42. field_month();
+43. field_date();
+44. field_url();
+45. field_time();
+46. field_tel();
+47. field_user();
+48. field_custom_html(); 
 ```
 
 
