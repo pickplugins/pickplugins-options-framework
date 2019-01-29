@@ -48,18 +48,19 @@ class pickpluginsOptionsFramework{
 
     public function load_functions() {
 
-        require_once( FFG_PLUGIN_DIR . 'functions-customizer-edit.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-customizer-edit.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-basic-form.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-menu-page.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-meta-box.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-taxonomy-edit.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-user-profile-edit.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-theme-page.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-tools.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-user-form.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-post-type.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-taxonomy.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-user.php');
 
-        require_once( FFG_PLUGIN_DIR . 'functions-basic-form.php');
-        require_once( FFG_PLUGIN_DIR . 'functions-menu-page.php');
-        require_once( FFG_PLUGIN_DIR . 'functions-meta-box.php');
-        require_once( FFG_PLUGIN_DIR . 'functions-taxonomy-edit.php');
-        require_once( FFG_PLUGIN_DIR . 'functions-user-profile-edit.php');
-        require_once( FFG_PLUGIN_DIR . 'functions-theme-page.php');
-
-
-        require_once( FFG_PLUGIN_DIR . 'functions-tools.php');
-        require_once( FFG_PLUGIN_DIR . 'functions-create-user-form.php');
 
 
 
@@ -86,10 +87,10 @@ class pickpluginsOptionsFramework{
         require_once( FFG_PLUGIN_DIR . 'classes/class-theme-page.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-customizer-edit.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-user-form.php');
-
-
-
-
+        require_once( FFG_PLUGIN_DIR . 'classes/class-create-post-type.php');
+        require_once( FFG_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
+        require_once( FFG_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
+        require_once( FFG_PLUGIN_DIR . 'classes/class-create-user.php');
 
 
 

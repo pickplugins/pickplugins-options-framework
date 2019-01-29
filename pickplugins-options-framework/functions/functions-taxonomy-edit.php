@@ -498,7 +498,7 @@ $args = array(
     'options' 	        => $page_1_options,
 );
 
-$AddMenuPage = new TaxonomyEdit( $args );
+$TaxonomyEdit = new TaxonomyEdit( $args );
 
 
 
