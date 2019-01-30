@@ -19,6 +19,9 @@ Ready to be Role
 * Taxonomy Edit Fields
 * User Profile Fields
 * Customizer Fields.
+* Create Post Types
+* Create Custom Taxonomy
+* Create User with User Meta Fields
 * 48+ Input fields
 
 
