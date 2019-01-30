@@ -13,16 +13,17 @@ Basic class for generate form input fields dynamically, easy to to use anywhere 
 
 Ready to be Role
 
-* Theme Settings Page
-* Custom Settings Page
-* Post Meta Box/ Custom Field Box
-* Taxonomy Edit Fields
-* User Profile Fields
+* Theme Settings Page.
+* Custom Settings Page.
+* Post Meta Box/ Custom Field Box.
+* Taxonomy Edit Fields.
+* User Profile Fields.
 * Customizer Fields.
-* Create Post Types
-* Create Custom Taxonomy
-* Create User with User Meta Fields
-* 48+ Input fields
+* Create Post Types.
+* Create Custom Taxonomy.
+* Create User with User Meta Fields.
+* Upload File/Media from URL.
+* 48+ Input Fields.
 
 
 
