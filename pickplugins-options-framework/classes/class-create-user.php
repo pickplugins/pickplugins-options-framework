@@ -10,14 +10,23 @@ if( ! class_exists( 'CreateUser' ) ) {
 
         public function __construct(){
 
-            //$this->data = &$args;
-
-            //add_action( 'init', array( $this, 'create_user' ), 12 );
-
+            // Nothing to do
 
         }
 
 
+        public function update_user_meta($user_id){
+
+            $get_user_meta = $this->get_user_meta();
+
+            if(!empty($get_user_meta)):
+                foreach ($get_user_meta as $key=>$meta):
+                    $old_meta_val = get_user_meta($user_id, $key, true);
+                    update_user_meta( $user_id, $key, $meta, $old_meta_val );
+                endforeach;
+            endif;
+
+        }
 
 
 
@@ -33,19 +42,23 @@ if( ! class_exists( 'CreateUser' ) ) {
 
             if(!$this->is_email_exists()):
                 if($this->is_username_exists()):
-                    return array('user_exist'=>'Username already Exist.');
+                    $username = $this->regenerate_username_if_exist($get_username);
+
+
+                    $user_id = wp_create_user( $username, $this->generate_password(), $get_email );
                 else:
                     $user_id = wp_create_user( $get_username, $this->generate_password(), $get_email );
+
                 endif;
+
+                $this->update_user_meta($user_id);
+                return $user_id;
 
             else:
 
                 return array('user_exist'=>'User already Exist.');
 
             endif;
-
-
-            return $user_id;
 
         }
 
@@ -72,22 +85,26 @@ if( ! class_exists( 'CreateUser' ) ) {
 
         }
 
+        private function regenerate_username_if_exist($username){
+
+            if ( username_exists( $username ) ){
+                $x = 1;
+                while(username_exists( $username )){
+                    $username = $username.$x;
+                    $x++;
+                }
+            }
+
+            return $username;
+
+        }
         private function generate_username_from_email(){
             $get_email = $this->get_email();
             $email_arr = explode('@', $get_email);
 
             $email_username = isset($email_arr[0]) ? $email_arr[0] : '';
 
-            //var_dump($email_username);
-
-            if ( username_exists( $email_username ) ){
-                $x = 1;
-                while(username_exists( $email_username )){
-                    $username = $email_username.$x;
-                    $x++;
-                }
-            }
-
+            return $email_username;
         }
 
         private function generate_password(){
@@ -124,10 +141,7 @@ if( ! class_exists( 'CreateUser' ) ) {
             else return array();
         }
 
-        private function auto_genrate_username(){
-            if( isset( $this->data['auto_genrate_username'] ) ) return $this->data['auto_genrate_username'];
-            else return true;
-        }
+
 
 
     }

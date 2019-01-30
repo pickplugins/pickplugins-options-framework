@@ -19,9 +19,15 @@ function create_user_demo(){
     $args = array(
         'username'    => 'demo_post', // Optional
         'password' 	  => '', // Optional
-        'email'       => 'hasan@gmail.com', // Required
-        'auto_genrate_username'       => true,
+        'email'       => 'hasan@gmail50.com', // Required
         'user_meta' => array(
+            'nickname'=>'Dummy nickname',
+            'first_name'=>'My first_name',
+            'last_name'=>'My last_name',
+            'description'=>'My description',
+            'wp_user_level'=> 3,
+
+
 
         ),
     );
@@ -31,7 +37,7 @@ function create_user_demo(){
     $userId = $CreateUser->create_user($args);
 
     var_dump($userId);
-    //echo $userId;
+
 }
 
 
