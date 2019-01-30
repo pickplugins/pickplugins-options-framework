@@ -29,7 +29,7 @@ function pp_display_conditional_fields(){
 
 
     ?>
-    <pre><?php //echo var_export($_POST, true); ?></pre>
+<!--    <pre>--><?php ////echo var_export($_POST, true); ?><!--</pre>-->
     <div class="fieldsGenerator">
         <form action="#" method="post">
 
@@ -50,9 +50,7 @@ function pp_display_conditional_fields(){
         'value'		=> array('option_2'),
         //'multiple'		=> true,
         'args'		=> array(
-            ''	=> __('Select','text-domain'),
-            'option_1'	=> __('Hide Textarea','text-domain'),
-            'option_2'	=> __('Hide Text','text-domain'),
+            'option_2'	=> __('Show Code','text-domain'),
             'option_3'	=> __('Hide Code','text-domain'),
         ),
     );
@@ -67,9 +65,7 @@ function pp_display_conditional_fields(){
         'value'		=> 'option_2',
         'default'	=> 'option_2',
         'args'		=> array(
-            ''	=> __('Select','text-domain'),
-            'option_1'	=> __('Hide Textarea','text-domain'),
-            'option_2'	=> __('Hide Text','text-domain'),
+            'option_2'	=> __('Show Code','text-domain'),
             'option_3'	=> __('Hide Code','text-domain'),
         ),
     );
