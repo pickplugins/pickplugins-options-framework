@@ -61,6 +61,9 @@ class pickpluginsOptionsFramework{
         require_once( FFG_PLUGIN_DIR . 'functions/functions-create-taxonomy.php');
         require_once( FFG_PLUGIN_DIR . 'functions/functions-create-user.php');
         require_once( FFG_PLUGIN_DIR . 'functions/functions-media-upload-from-url.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-conditional-fields.php');
+
+
 
 
 
