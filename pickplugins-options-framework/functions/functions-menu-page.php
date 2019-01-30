@@ -39,7 +39,7 @@ $page_1_options = array(
                     'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
                     'placeholder'   => __('Text value','text-domain'),
                     'type'		    => 'text_multi',
-                    'remove_text'   => __('X','text-domain'),
+                    'remove_text'   => __('<i class="fas fa-times"></i>','text-domain'),
                 ),
                 array(
                     'id'		    => 'textarea_field',

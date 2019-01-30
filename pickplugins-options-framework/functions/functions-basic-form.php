@@ -400,7 +400,7 @@ function pp_display_fileds(){
         ),
     );
 
-
+    echo $FormFieldsGenerator->field_switch($args);
 
 
 

@@ -75,17 +75,13 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
 
-
-
-
-
-
         public function field_google_recaptcha( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
 
             $secret_key 	= isset( $option['secret_key'] ) ? $option['secret_key'] : "";
             $site_key 	    = isset( $option['site_key'] ) ? $option['site_key'] : "";
@@ -129,6 +125,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $width			= isset( $option['width'] ) ? $option['width'] : "";
             $height			= isset( $option['height'] ) ? $option['height'] : "";
             $default 		= isset( $option['default'] ) ? $option['default'] : '';
@@ -196,6 +193,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
@@ -222,6 +220,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $action_name 	    = isset( $option['action_name'] ) ? $option['action_name'] : "";
 
@@ -247,6 +246,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
@@ -276,6 +276,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
@@ -303,6 +304,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
             $password_meter = isset( $option['password_meter'] ) ? $option['password_meter'] : true;
@@ -393,6 +395,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
@@ -419,6 +422,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
@@ -445,6 +449,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
@@ -471,6 +476,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
@@ -498,6 +504,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
@@ -525,6 +532,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
@@ -554,6 +562,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $visible 	    = isset( $option['visible'] ) ? $option['visible'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
@@ -573,34 +582,6 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-text-wrapper field-text-wrapper-<?php echo $id; ?>">
                 <input type='text' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
-
-            <?php if(!empty($visible)):
-                $parentOptionId = !empty($visible[0]) ? $visible[0] : '';
-                $parentOptionLogic = !empty($visible[1]) ? $visible[1] : '';
-                $parentOptionValue = !empty($visible[2]) ? $visible[2] : '';
-            ?>
-            <script>
-                jQuery(document).ready(function($) {
-
-                    jQuery(document).on('change', '[name=<?php echo $parentOptionId; ?>]',function() {
-
-                        val = $(this).val();
-                        console.log(val);
-
-                        if(val <?php echo $parentOptionLogic; ?> '<?php echo $parentOptionValue; ?>'){
-                            jQuery('.field-text-wrapper-<?php echo $field_id; ?>').fadeOut();
-                        }
-                        else{
-                            jQuery('.field-text-wrapper-<?php echo $field_id; ?>').fadeIn();
-                        }
-
-
-
-                        })
-                })
-            </script>
-            <?php endif; ?>
-
             <?php
 
             return ob_get_clean();
@@ -616,6 +597,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
 
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
@@ -651,8 +633,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
-            $remove_text 	= isset( $option['remove_text'] ) ? $option['remove_text'] : "X";
+            $remove_text 	= isset( $option['remove_text'] ) ? $option['remove_text'] : '<i class="fas fa-times"></i>';
             $sortable 	    = isset( $option['sortable'] ) ? $option['sortable'] : true;
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
 
@@ -737,6 +720,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id             = isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $visible 	    = isset( $option['visible'] ) ? $option['visible'] : "";
             $placeholder    = isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
@@ -756,32 +740,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-textarea-wrapper field-textarea-wrapper-<?php echo $field_id; ?>">
                 <textarea name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' cols='40' rows='5' placeholder='<?php echo $placeholder; ?>'><?php echo $value; ?></textarea>
             </div>
-            <?php if(!empty($visible)):
-                $parentOptionId = !empty($visible[0]) ? $visible[0] : '';
-                $parentOptionLogic = !empty($visible[1]) ? $visible[1] : '';
-                $parentOptionValue = !empty($visible[2]) ? $visible[2] : '';
-                ?>
-                <script>
-                    jQuery(document).ready(function($) {
 
-                        jQuery(document).on('change', '[name=<?php echo $parentOptionId; ?>]',function() {
-
-                            val = $(this).val();
-                            console.log(val);
-
-                            if(val <?php echo $parentOptionLogic; ?> '<?php echo $parentOptionValue; ?>'){
-                                jQuery('.field-textarea-wrapper-<?php echo $field_id; ?>').fadeOut();
-                            }
-                        else{
-                                jQuery('.field-textarea-wrapper-<?php echo $field_id; ?>').fadeIn();
-                            }
-
-
-
-                        })
-                    })
-                </script>
-            <?php endif; ?>
             <?php
             return ob_get_clean();
         }
@@ -792,10 +751,12 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id             = isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
 
             $placeholder    = isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
-            $visible 	    = isset( $option['visible'] ) ? $option['visible'] : "";
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
+
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
             $args	        = isset( $option['args'] ) ? $option['args'] : array(
@@ -822,32 +783,62 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     ?>
                 });
             </script>
-            <?php if(!empty($visible)):
-                $parentOptionId = !empty($visible[0]) ? $visible[0] : '';
-                $parentOptionLogic = !empty($visible[1]) ? $visible[1] : '';
-                $parentOptionValue = !empty($visible[2]) ? $visible[2] : '';
-                ?>
-                <script>
-                    jQuery(document).ready(function($) {
 
-                        jQuery(document).on('change', '[name=<?php echo $parentOptionId; ?>]',function() {
+            <script>
+                jQuery(document).ready(function($) {
 
-                            val = $(this).val();
-                            console.log(val);
+                    <?php if(!empty($conditions)):
 
-                            if(val <?php echo $parentOptionLogic; ?> '<?php echo $parentOptionValue; ?>'){
-                                jQuery('.field-code-wrapper-<?php echo $field_id; ?>').fadeOut();
-                            }
-                        else{
-                                jQuery('.field-code-wrapper-<?php echo $field_id; ?>').fadeIn();
-                            }
+                        foreach ($conditions as $condition):
 
 
 
-                        })
+                            $relation = isset($condition['relation']) ? $condition['relation'] : '||';
+                            $fields = isset($condition['fields']) ? $condition['fields'] : array();
+
+                            //var_dump($fields);
+                            foreach ($fields as $fieldData):
+                                $field = $fieldData['field'];
+                                $value = $fieldData['value'];
+                                $compare = $fieldData['compare'];
+
+                            ?>
+                            jQuery(document).on('change', '[name=<?php echo $field; ?>]',function() {
+
+                                val = $(this).val();
+                                console.log(val);
+
+                                if(val <?php echo $compare; ?> '<?php echo $value; ?>'){
+                                    jQuery('.field-code-wrapper-<?php echo $field_id; ?>').fadeOut();
+                                }
+                            else{
+                                    jQuery('.field-code-wrapper-<?php echo $field_id; ?>').fadeIn();
+                                }
+
+
+
+                            })
+                            <?php
+                            endforeach;
+
+                        endforeach;
+                        ?>
+
+
+
                     })
+                <?php endif; ?>
                 </script>
-            <?php endif; ?>
+
+
+
+
+
+
+
+
+
+
             <?php
             return ob_get_clean();
         }
@@ -858,6 +849,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id				= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
 
             $default 		= isset( $option['default'] ) ? $option['default'] : array();
             $args			= isset( $option['args'] ) ? $option['args'] : array();
@@ -892,6 +885,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id				= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $default 		= isset( $option['default'] ) ? $option['default'] : array();
             $args			= isset( $option['args'] ) ? $option['args'] : array();
             $args			= is_array( $args ) ? $args : $this->args_from_string( $args );
@@ -927,6 +921,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 	    = isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
 
             $args 	        = isset( $option['args'] ) ? $option['args'] : "";
             $args	    = is_array( $args ) ? $args : $this->args_from_string( $args );
@@ -977,6 +972,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
 
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
             $args 	        = isset( $option['args'] ) ? $option['args'] : "";
@@ -1005,6 +1001,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $default 	= isset( $option['default'] ) ? $option['default'] : "";
             $args 	= isset( $option['args'] ) ? $option['args'] : "";
 
@@ -1048,6 +1045,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id				= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $default 		= isset( $option['default'] ) ? $option['default'] : '';
             $args			= isset( $option['args'] ) ? $option['args'] : array();
             $args			= is_array( $args ) ? $args : $this->args_from_string( $args );
@@ -1097,6 +1095,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id				= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $default 		= isset( $option['default'] ) ? $option['default'] : '';
             $args			= isset( $option['args'] ) ? $option['args'] : array();
             $args			= is_array( $args ) ? $args : $this->args_from_string( $args );
@@ -1146,6 +1145,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id				= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $width			= isset( $option['width'] ) ? $option['width'] : "";
             $height			= isset( $option['height'] ) ? $option['height'] : "";
             $default 		= isset( $option['default'] ) ? $option['default'] : '';
@@ -1197,6 +1197,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $default 	= isset( $option['default'] ) ? $option['default'] : "";
             $args 	= isset( $option['args'] ) ? $option['args'] : "";
 
@@ -1259,6 +1260,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $default 	= isset( $option['default'] ) ? $option['default'] : "";
             $args 	= isset( $option['args'] ) ? $option['args'] : "";
 
@@ -1310,6 +1312,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
             $date_format	= isset( $option['date_format'] ) ? $option['date_format'] : "dd-mm-yy";
@@ -1344,6 +1347,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
 
@@ -1370,6 +1374,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $default 	= isset( $option['default'] ) ? $option['default'] : array();
@@ -1426,6 +1431,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $args 	        = isset( $option['args'] ) ? $option['args'] : array('link'	=> '#1B2A41','hover' => '#3F3244','active' => '#60495A','visited' => '#7D8CA3' );
@@ -1473,6 +1479,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
 
             $args 			= isset( $option['args'] ) ? $option['args'] : array();
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
@@ -1577,6 +1584,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $args 			= isset( $option['args'] ) ? $option['args'] : array();
             $default 	    = isset( $option['default'] ) ? $option['default'] : "";
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
@@ -1650,6 +1658,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $args 			= isset( $option['args'] ) ? $option['args'] : array();
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
             $icons		    = is_array( $args ) ? $args :  $this->args_from_string( $args );
@@ -1738,6 +1747,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
             $args 	        = isset( $option['args'] ) ? $option['args'] : "";
@@ -1779,6 +1789,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         public function field_number( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $default 			= isset( $option['default'] ) ? $option['default'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
 
@@ -1805,6 +1818,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id = isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder = isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default = isset( $option['default'] ) ? $option['default'] : "";
             $editor_settings= isset( $option['editor_settings'] ) ? $option['editor_settings'] : array('textarea_name'=>$id);
@@ -1835,6 +1849,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 	    = isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
 
             $args 	        = isset( $option['args'] ) ? $option['args'] : "";
             $args	    = is_array( $args ) ? $args : $this->args_from_string( $args );
@@ -1906,7 +1921,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id				= isset( $option['id'] ) ? $option['id'] : "";
             $args			= isset( $option['args'] ) ? $option['args'] : array();
 
-
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             ob_start();
             ?>
             <script>
@@ -2002,6 +2017,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id				= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
 
             $args			= isset( $option['args'] ) ? $option['args'] : array();
             $width				= isset( $args['width'] ) ? $args['width'] : "";
@@ -2075,6 +2091,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
 
             $args			= isset( $option['args'] ) ? $option['args'] : array();
             $width				= isset( $args['width'] ) ? $args['width'] : "";
@@ -2139,6 +2156,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $placeholder	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
 
             $default			= isset( $option['default'] ) ? $option['default'] : '';
@@ -2203,6 +2221,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
 
             $default			= isset( $option['default'] ) ? $option['default'] : '';
             $values			= isset( $option['value'] ) ? $option['value'] : '';
@@ -2289,6 +2308,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $sortable 	    = isset( $option['sortable'] ) ? $option['sortable'] : true;
             $collapsible 	= isset( $option['collapsible'] ) ? $option['collapsible'] : true;
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";

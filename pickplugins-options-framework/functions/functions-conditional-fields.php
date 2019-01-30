@@ -51,16 +51,30 @@ function pp_display_conditional_fields(){
         //'multiple'		=> true,
         'args'		=> array(
             ''	=> __('Select','text-domain'),
-            'option_1'	=> __('Textarea','text-domain'),
-            'option_2'	=> __('Text','text-domain'),
-            'option_3'	=> __('Code','text-domain'),
+            'option_1'	=> __('Hide Textarea','text-domain'),
+            'option_2'	=> __('Hide Text','text-domain'),
+            'option_3'	=> __('Hide Code','text-domain'),
         ),
     );
 
     echo $FormFieldsGenerator->field_select($args);
 
 
+    $args = array(
+        'id'		=> 'switch_field',
+        'title'		=> __('Switch Field','text-domain'),
+        'details'	=> __('Description of switch field','text-domain'),
+        'value'		=> 'option_2',
+        'default'	=> 'option_2',
+        'args'		=> array(
+            ''	=> __('Select','text-domain'),
+            'option_1'	=> __('Hide Textarea','text-domain'),
+            'option_2'	=> __('Hide Text','text-domain'),
+            'option_3'	=> __('Hide Code','text-domain'),
+        ),
+    );
 
+    echo $FormFieldsGenerator->field_switch($args);
 
 
 
@@ -76,7 +90,7 @@ function pp_display_conditional_fields(){
 
         'default'		=> __('Default Text Value','text-domain'),
         'placeholder'   => __('Text value','text-domain'),
-        'visible' => array( 'select_field', '==', 'option_2' ),
+        'visible' => array( 'switch_field', '==', 'option_2' ),
     );
 
     echo $FormFieldsGenerator->field_text($args);
@@ -90,7 +104,7 @@ function pp_display_conditional_fields(){
         'value'		    => __('Textarea value','text-domain'),
         'default'		=> __('Default Text Value','text-domain'),
         'placeholder'   => __('Textarea placeholder','text-domain'),
-        'visible' => array( 'select_field', '==', 'option_1' ),
+        'visible' => array( 'switch_field', '==', 'option_1' ),
     );
 
     echo $FormFieldsGenerator->field_textarea($args);
@@ -108,7 +122,20 @@ function pp_display_conditional_fields(){
             'lineNumbers'	=> 'true', // do not write true, write as string, ex: 'true'
             'mode'	=> "'javascript'",
         ),
-        'visible' => array( 'select_field', '==', 'option_3' ),
+        //'visible' => array( 'switch_field', '==', 'option_3' ),
+        'conditions' => array(
+            array(
+                'relation' => 'or',
+                'fields' => array(
+                    array(
+                        'field' => 'switch_field','value' => 'option_3','compare' => '=='
+                    ),
+                    array(
+                        'field' => 'select_field','value' => 'option_3','compare' => '=='
+                    ),
+                ),
+            ),
+        )
     );
 
     echo $FormFieldsGenerator->field_code($args);
