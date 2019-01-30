@@ -14,7 +14,6 @@ if( ! class_exists( 'CreatePostType' ) ) {
 
             add_action( 'init', array( $this, 'generate_post_type' ), 12 );
 
-
         }
 
 

@@ -43,7 +43,7 @@ if( ! class_exists( 'AddMetaBox' ) ) {
                     foreach ($panel['sections'] as $sectionIndex=>$section):
                         foreach ($section['options'] as $option):
 
-                            $option_value = $_POST[$option['id']];
+                            $option_value = isset($_POST[$option['id']]) ? $_POST[$option['id']] : '';
 
                             if(is_array($option_value)){
                                 $option_value = serialize($option_value);

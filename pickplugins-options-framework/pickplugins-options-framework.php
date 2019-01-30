@@ -60,6 +60,8 @@ class pickpluginsOptionsFramework{
         require_once( FFG_PLUGIN_DIR . 'functions/functions-create-post-type.php');
         require_once( FFG_PLUGIN_DIR . 'functions/functions-create-taxonomy.php');
         require_once( FFG_PLUGIN_DIR . 'functions/functions-create-user.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-media-upload-from-url.php');
+
 
 
 
@@ -91,7 +93,7 @@ class pickpluginsOptionsFramework{
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-user.php');
-
+        require_once( FFG_PLUGIN_DIR . 'classes/class-media-upload-from-url.php');
 
 
 
