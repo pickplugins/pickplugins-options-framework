@@ -40,7 +40,21 @@ function pp_display_conditional_fields(){
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
 
+    $args = array(
+        'id'		=> 'select_field_1',
+        'title'		=> __('Select Field 1','text-domain'),
+        'details'	=> __('Description of select 1 field','text-domain'),
+        'default'		=> 'option_2',
+        'value'		=> array('option_2'),
+        'args'		=> array(
+            ''	=> __('Select','text-domain'),
+            'option_2'	=> __('Show Text','text-domain'),
+            'option_3'	=> __('Hide text','text-domain'),
 
+        ),
+    );
+
+    echo $FormFieldsGenerator->field_select($args);
 
     $args = array(
         'id'		=> 'select_field',
@@ -48,10 +62,10 @@ function pp_display_conditional_fields(){
         'details'	=> __('Description of select field','text-domain'),
         'default'		=> 'option_2',
         'value'		=> array('option_2'),
-        //'multiple'		=> true,
         'args'		=> array(
-            'option_2'	=> __('Show Code','text-domain'),
-            'option_3'	=> __('Hide Code','text-domain'),
+            ''	=> __('Select','text-domain'),
+            'option_2'	=> __('Hide text','text-domain'),
+            'option_3'	=> __('Show Text','text-domain'),
         ),
     );
 
@@ -73,7 +87,19 @@ function pp_display_conditional_fields(){
     echo $FormFieldsGenerator->field_switch($args);
 
 
+    $args = array(
+        'id'		=> 'checkbox_field',
+        'title'		=> __('Checkbox Field','text-domain'),
+        'details'	=> __('Description of checkbox field','text-domain'),
+        'value'		=> 'option_2',
+        'default'	=> 'option_2',
+        'args'		=> array(
+            'option_2'	=> __('Show Code','text-domain'),
+            'option_3'	=> __('Hide Code','text-domain'),
+        ),
+    );
 
+    echo $FormFieldsGenerator->field_checkbox($args);
 
 
 
@@ -86,7 +112,10 @@ function pp_display_conditional_fields(){
 
         'default'		=> __('Default Text Value','text-domain'),
         'placeholder'   => __('Text value','text-domain'),
-        'visible' => array( 'switch_field', '==', 'option_2' ),
+        //'visible' => array( 'switch_field', '==', 'option_2' ),
+        'conditions' => array(
+            'field' => 'checkbox_field[]','value' => 'option_2','compare' => '=='
+        )
     );
 
     echo $FormFieldsGenerator->field_text($args);
@@ -119,19 +148,7 @@ function pp_display_conditional_fields(){
             'mode'	=> "'javascript'",
         ),
         //'visible' => array( 'switch_field', '==', 'option_3' ),
-        'conditions' => array(
-            array(
-                'relation' => 'or',
-                'fields' => array(
-                    array(
-                        'field' => 'switch_field','value' => 'option_3','compare' => '=='
-                    ),
-                    array(
-                        'field' => 'select_field','value' => 'option_3','compare' => '=='
-                    ),
-                ),
-            ),
-        )
+
     );
 
     echo $FormFieldsGenerator->field_code($args);

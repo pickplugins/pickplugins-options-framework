@@ -76,6 +76,13 @@
     display: block;
 }
 
+/*dependency-field*/
+
+
+.fieldsGenerator .dependency-field{
+    display: none;
+}
+
 /*field-text-multi-wrapper*/
 
 .field-text-multi-wrapper .field-list{

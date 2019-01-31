@@ -63,7 +63,7 @@ class pickpluginsOptionsFramework{
         require_once( FFG_PLUGIN_DIR . 'functions/functions-media-upload-from-url.php');
         require_once( FFG_PLUGIN_DIR . 'functions/functions-conditional-fields.php');
 
-
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-sidebars.php');
 
 
 
@@ -97,6 +97,7 @@ class pickpluginsOptionsFramework{
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-user.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-media-upload-from-url.php');
+        require_once( FFG_PLUGIN_DIR . 'classes/class-create-sidebars.php');
 
 
 
@@ -138,8 +139,10 @@ class pickpluginsOptionsFramework{
         wp_enqueue_style('codemirror.min', FFG_PLUGIN_URL.'css/codemirror.css');
 
 
-        wp_enqueue_script('codemirror.min', plugins_url( 'js/codemirror.min.js' , __FILE__ ) , array( 'jquery' ),null,
-            false);
+        wp_enqueue_script('codemirror.min', plugins_url( 'js/codemirror.min.js' , __FILE__ ) , array( 'jquery' ),null, false);
+        wp_enqueue_script('form-field-dependency', plugins_url( 'js/form-field-dependency.js' , __FILE__ ) , array( 'jquery' ),null, false);
+
+
 
         wp_enqueue_script('FormFieldsGenerator', plugins_url( 'js/FormFieldsGenerator.js' , __FILE__ ) , array( 'jquery' ));
         wp_localize_script( 'FormFieldsGenerator', 'FormFieldsGenerator_ajax', array( 'FormFieldsGenerator_ajaxurl' => admin_url( 'admin-ajax.php')));
@@ -163,6 +166,7 @@ class pickpluginsOptionsFramework{
         wp_enqueue_style('jquery-ui', 'http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
         wp_enqueue_script('AdminMenu', plugins_url( 'js/AdminMenu.js' , __FILE__ ) , array( 'jquery' ));
 
+        wp_enqueue_script('form-field-dependency', plugins_url( 'js/form-field-dependency.js' , __FILE__ ) , array( 'jquery' ),null, false);
 
 
     }

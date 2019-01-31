@@ -559,7 +559,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
-            if(empty($id)) return;
+            if(empty($id))  return;
 
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
@@ -578,10 +578,51 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ob_start();
             ?>
 
+            <?php if(!empty($conditions)):
+                $depends = '';
+                $field = $conditions['field'];
+                $value = $conditions['value'];
+                $compare = $conditions['compare'];
 
-            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-text-wrapper field-text-wrapper-<?php echo $id; ?>">
+                //foreach ($conditions as $condition):
+                    //$relation = isset($condition['relation']) ? $condition['relation'] : '||';
+                    //$fields = isset($condition['fields']) ? $condition['fields'] : array();
+
+
+                    //foreach ($fields as $fieldData):
+
+
+                        $depends .= "{'[name=".$field."]':";
+                        $depends .= '{';
+                        $depends .= "'type':";
+                        $depends .= "'".$compare."',";
+                        $depends .= "'value':";
+                        $depends .= "'".$value."'";
+
+                        $depends .= '}}';
+
+                    //endforeach;
+                //endforeach;
+
+                //var_dump($count);
+
+                //echo "<br>";
+                //var_dump("{'#InputEmail':{'type':'equal', 'value':'lorem'}}");
+
+                ?>
+
+
+            <?php endif; ?>
+
+            <div data-depends="[<?php echo $depends; ?>]"  id="field-wrapper-<?php echo
+            $id; ?>" class="dependency-field field-wrapper field-text-wrapper
+            field-text-wrapper-<?php echo $id; ?>">
                 <input type='text' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
+
+            <script>
+                jQuery('.field-text-wrapper-<?php echo $id; ?>').formFieldDependency({});
+            </script>
             <?php
 
             return ob_get_clean();
@@ -755,8 +796,6 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $placeholder    = isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
-            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
-
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
             $args	        = isset( $option['args'] ) ? $option['args'] : array(
@@ -769,7 +808,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name     = !empty( $field_name ) ? $field_name : $id;
             ob_start();
             ?>
-            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-code-wrapper field-code-wrapper-<?php echo $field_id; ?>">
+            <div id="field-wrapper-<?php echo $id; ?>"  class="field-wrapper  field-code-wrapper
+            field-code-wrapper-<?php echo $field_id; ?>">
                 <textarea name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' cols='40' rows='5' placeholder='<?php echo $placeholder; ?>'><?php echo $value; ?></textarea>
             </div>
 
@@ -784,51 +824,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 });
             </script>
 
-            <script>
-                jQuery(document).ready(function($) {
-
-                    <?php if(!empty($conditions)):
-
-                        foreach ($conditions as $condition):
 
 
 
-                            $relation = isset($condition['relation']) ? $condition['relation'] : '||';
-                            $fields = isset($condition['fields']) ? $condition['fields'] : array();
 
-                            //var_dump($fields);
-                            foreach ($fields as $fieldData):
-                                $field = $fieldData['field'];
-                                $value = $fieldData['value'];
-                                $compare = $fieldData['compare'];
-
-                            ?>
-                            jQuery(document).on('change', '[name=<?php echo $field; ?>]',function() {
-
-                                val = $(this).val();
-                                console.log(val);
-
-                                if(val <?php echo $compare; ?> '<?php echo $value; ?>'){
-                                    jQuery('.field-code-wrapper-<?php echo $field_id; ?>').fadeOut();
-                                }
-                            else{
-                                    jQuery('.field-code-wrapper-<?php echo $field_id; ?>').fadeIn();
-                                }
-
-
-
-                            })
-                            <?php
-                            endforeach;
-
-                        endforeach;
-                        ?>
-
-
-
-                    })
-                <?php endif; ?>
-                </script>
 
 
 
