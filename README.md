@@ -23,7 +23,8 @@ Ready to be Role
 * Create Custom Taxonomy.
 * Create User with User Meta Fields.
 * Upload File/Media from URL.
-* Add Sidebars/Widget Area
+* Add Sidebars/Widget Area.
+* Create Post Status
 * 48+ Input Fields.
 
 
