@@ -24,7 +24,8 @@ Ready to be Role
 * Create User with User Meta Fields.
 * Upload File/Media from URL.
 * Add Sidebars/Widget Area.
-* Create Post Status
+* Create Post Status.
+* Register Nav Menus
 * 48+ Input Fields.
 
 
