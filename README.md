@@ -27,6 +27,7 @@ Ready to be Role
 * Create Post Status.
 * Register Nav Menus.
 * Insert Post.
+* Create Dashboard Widgets
 * 48+ Input Fields.
 
 
