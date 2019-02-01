@@ -25,7 +25,8 @@ Ready to be Role
 * Upload File/Media from URL.
 * Add Sidebars/Widget Area.
 * Create Post Status.
-* Register Nav Menus
+* Register Nav Menus.
+* Insert Post.
 * 48+ Input Fields.
 
 
