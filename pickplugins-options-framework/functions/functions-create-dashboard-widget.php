@@ -23,6 +23,12 @@ $CreateDashboardWidget = new CreateDashboardWidget($args);
 
 
 
+$args = array(
+    'widget_id' => 'lorem_ipsum',
+    'widget_name' => 'Lorem Ipsum',
+    'html' => '<p><b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>');
+
+$CreateDashboardWidget = new CreateDashboardWidget($args);
 
 
 
