@@ -12,19 +12,19 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 
 
 
-    $args = array(
-        'nav_menus' => array(
-            array(
-                'header-menu1' => esc_html__( 'Header Menu 1', 'dart-framework' ),
-            ),
-
-            array(
-                'header-menu2' => esc_html__( 'Header Menu 2', 'dart-framework' ),
-            ),
+$args = array(
+    'nav_menus' => array(
+        array(
+            'header-menu1' => esc_html__( 'Header Menu 1', 'dart-framework' ),
         ),
-    );
 
-    $CreateNavMenus = new CreateNavMenus($args);
+        array(
+            'header-menu2' => esc_html__( 'Header Menu 2', 'dart-framework' ),
+        ),
+    ),
+);
+
+$CreateNavMenus = new CreateNavMenus($args);
 
 
 

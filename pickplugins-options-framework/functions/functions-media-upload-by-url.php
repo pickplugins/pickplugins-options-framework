@@ -23,9 +23,9 @@ function upload_file_demo(){
 
     );
 
-    $MediaUploadFromURL = new MediaUploadFromURL();
+    $MediaUploadByURL = new MediaUploadByURL();
 
-    $fileId = $MediaUploadFromURL->upload_file($args);
+    $fileId = $MediaUploadByURL->upload_file($args);
 
     var_dump($fileId);
 

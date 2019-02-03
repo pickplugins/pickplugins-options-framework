@@ -2,9 +2,9 @@
 if ( ! defined('ABSPATH')) exit;  // if direct access 
 
 
-if( ! class_exists( 'MediaUploadFromURL' ) ) {
+if( ! class_exists( 'MediaUploadByURL' ) ) {
 
-    class MediaUploadFromURL {
+    class MediaUploadByURL {
 
         public $data = array();
 

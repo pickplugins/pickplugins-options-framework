@@ -60,7 +60,7 @@ class pickpluginsOptionsFramework{
         require_once( FFG_PLUGIN_DIR . 'functions/functions-create-post-type.php');
         require_once( FFG_PLUGIN_DIR . 'functions/functions-create-taxonomy.php');
         require_once( FFG_PLUGIN_DIR . 'functions/functions-create-user.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-media-upload-from-url.php');
+        require_once( FFG_PLUGIN_DIR . 'functions/functions-media-upload-by-url.php');
         require_once( FFG_PLUGIN_DIR . 'functions/functions-conditional-fields.php');
 
         require_once( FFG_PLUGIN_DIR . 'functions/functions-create-sidebars.php');
@@ -98,7 +98,7 @@ class pickpluginsOptionsFramework{
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-user.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-media-upload-from-url.php');
+        require_once( FFG_PLUGIN_DIR . 'classes/class-media-upload-by-url.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-sidebars.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-post-status.php');
         require_once( FFG_PLUGIN_DIR . 'classes/class-create-nav-menus.php');
