@@ -31,6 +31,7 @@ function Pickplugins_register_sidebars(){
     $site_sidebars_arr = get_option('theme_pickoptions');
     $site_sidebars = $site_sidebars_arr['site_sidebars'];
 
+    if(!empty($site_sidebars))
     foreach ($site_sidebars as $sidebar){
         register_sidebar($sidebar);
     }
@@ -45,6 +46,7 @@ function Pickplugins_register_post_types(){
     $site_post_types_arr = get_option('theme_pickoptions');
     $site_post_types = $site_post_types_arr['site_post_types'];
 
+    if(!empty($site_post_types))
     foreach ($site_post_types as $post_type){
 
         //var_dump($post_type);

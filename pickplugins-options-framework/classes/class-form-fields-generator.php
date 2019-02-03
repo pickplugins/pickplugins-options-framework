@@ -576,10 +576,11 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             //var_dump($id);
 
             ob_start();
+            $depends = '';
             ?>
 
             <?php if(!empty($conditions)):
-                $depends = '';
+
                 $field = $conditions['field'];
                 $value = $conditions['value'];
                 $compare = $conditions['compare'];
