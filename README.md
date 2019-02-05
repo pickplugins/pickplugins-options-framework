@@ -84,6 +84,9 @@ Ready to be Role
 45. Google reCaptcha
 46. Nonce
 47. Submit
+48. Border
+50. Margin
+51. Padding
 
 
 #### Special Fields(Arguments)
