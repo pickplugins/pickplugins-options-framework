@@ -173,8 +173,82 @@ function pp_display_fileds(){
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
 
+    $args = array(
+        'id'		    => 'border_field',
+        'title'		    => __('Margin Field','text-domain'),
+        'details'	    => __('Description of margin field','text-domain'),
+        'value'		    => array('width'=>'54', 'unit'=>'%' , 'style'=>'solid', 'color'=>'#ddd'),
+        'default'		=> array('width'=>'54', 'unit'=>'px' , 'style'=>'solid', 'color'=>'#ddd'),
+
+    );
+
+    echo $FormFieldsGenerator->field_border($args);
 
 
+    $args = array(
+        'id'		    => 'margin_field',
+        'title'		    => __('Margin Field','text-domain'),
+        'details'	    => __('Description of margin field','text-domain'),
+        'value'		=> array(
+            'top'	    => array('val'=>'54', 'unit'=>'px' ),
+            'right'	    => array('val'=>'54', 'unit'=>'px' ),
+            'bottom'	=> array('val'=>'54', 'unit'=>'px' ),
+            'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+        ),
+        'default'		=> array(
+            'top'	    => array('val'=>'54', 'unit'=>'px' ),
+            'right'	    => array('val'=>'54', 'unit'=>'px' ),
+            'bottom'	=> array('val'=>'54', 'unit'=>'px' ),
+            'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+        ),
+
+
+        'args'		=> array(
+            'top'	=> array('name'=>__('Top','text-domain'), 'unit'=>'px'),
+            'right'	=> array('name'=>__('Right','text-domain'), 'unit'=>'px'),
+            'bottom'	=> array('name'=>__('Bottom','text-domain'), 'unit'=>'px'),
+            'left'	=> array('name'=>__('Left','text-domain'), 'unit'=>'px'),
+
+        ),
+    );
+
+    echo $FormFieldsGenerator->field_padding($args);
+
+
+
+
+    $args = array(
+        'id'		    => 'padding_field',
+        'title'		    => __('Margin Field','text-domain'),
+        'details'	    => __('Description of margin field','text-domain'),
+        'value'		=> array(
+            'top'	    => array('val'=>'54', 'unit'=>'px' ),
+            'right'	    => array('val'=>'54', 'unit'=>'%' ),
+            'bottom'	=> array('val'=>'54', 'unit'=>'em' ),
+            'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+        ),
+        'default'		=> array(
+            'top'	    => array('val'=>'54', 'unit'=>'px' ),
+            'right'	    => array('val'=>'54', 'unit'=>'px' ),
+            'bottom'	=> array('val'=>'54', 'unit'=>'px' ),
+            'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+        ),
+
+
+        'args'		=> array(
+            'top'	=> array('name'=>__('Top','text-domain'), 'unit'=>'px'),
+            'right'	=> array('name'=>__('Right','text-domain'), 'unit'=>'px'),
+            'bottom'	=> array('name'=>__('Bottom','text-domain'), 'unit'=>'px'),
+            'left'	=> array('name'=>__('Left','text-domain'), 'unit'=>'px'),
+
+        ),
+    );
+
+    echo $FormFieldsGenerator->field_margin($args);
 
     $args = array(
         'id'		    => 'custom_html_field',

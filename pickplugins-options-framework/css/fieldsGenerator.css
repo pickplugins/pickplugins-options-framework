@@ -99,6 +99,27 @@
     padding: 2px 10px;
 }
 
+
+/*field-margin-wrapper*/
+.field-margin-wrapper{}
+
+
+.field-margin-wrapper .item{
+    margin-bottom: 5px;
+}
+
+.field-margin-wrapper .field-title{
+    min-width: 110px;
+    display: inline-block;
+}
+.field-margin-wrapper .input-wrapper{
+    display: inline-block;
+}
+.field-margin-wrapper .input-wrapper input, .field-margin-wrapper select{
+    width: 70px;
+}
+
+
 /*field-code-wrapper*/
 
 .field-code-wrapper{}
@@ -653,7 +674,9 @@
 .field-dimensions-wrapper{}
 
 
-.field-dimensions-wrapper .item{}
+.field-dimensions-wrapper .item{
+    margin-bottom: 5px;
+}
 
 .field-dimensions-wrapper .field-title{
     min-width: 110px;
