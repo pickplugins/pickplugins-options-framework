@@ -87,6 +87,7 @@ Ready to be Role
 48. Border
 50. Margin
 51. Padding
+52. Google Map
 
 
 #### Special Fields(Arguments)
