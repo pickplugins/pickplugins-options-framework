@@ -486,6 +486,73 @@ $page_4_options = array(
                     ),
                 ),
                 array(
+                    'id'		    => 'border_field',
+                    'title'		    => __('Border Field','text-domain'),
+                    'details'	    => __('Description of border field','text-domain'),
+                    'value'		    => array('width'=>'54', 'unit'=>'%' , 'style'=>'solid', 'color'=>'#ddd'),
+                    'default'		=> array('width'=>'54', 'unit'=>'px' , 'style'=>'solid', 'color'=>'#ddd'),
+                    'type'		    => 'border',
+
+                ),
+                array(
+                    'id'		    => 'margin_field',
+                    'title'		    => __('Margin Field','text-domain'),
+                    'details'	    => __('Description of margin field','text-domain'),
+                    'type'		=> 'margin',
+                    'value'		=> array(
+                        'top'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'right'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'bottom'	=> array('val'=>'54', 'unit'=>'px' ),
+                        'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+                    ),
+                    'default'		=> array(
+                        'top'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'right'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'bottom'	=> array('val'=>'54', 'unit'=>'px' ),
+                        'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+                    ),
+
+
+                    'args'		=> array(
+                        'top'	=> array('name'=>__('Top','text-domain'), 'unit'=>'px'),
+                        'right'	=> array('name'=>__('Right','text-domain'), 'unit'=>'px'),
+                        'bottom'	=> array('name'=>__('Bottom','text-domain'), 'unit'=>'px'),
+                        'left'	=> array('name'=>__('Left','text-domain'), 'unit'=>'px'),
+
+                    ),
+                ),
+                array(
+                    'id'		    => 'padding_field',
+                    'title'		    => __('Padding Field','text-domain'),
+                    'details'	    => __('Description of padding field','text-domain'),
+                    'type'		=> 'padding',
+                    'value'		=> array(
+                        'top'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'right'	    => array('val'=>'54', 'unit'=>'%' ),
+                        'bottom'	=> array('val'=>'54', 'unit'=>'em' ),
+                        'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+                    ),
+                    'default'		=> array(
+                        'top'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'right'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'bottom'	=> array('val'=>'54', 'unit'=>'px' ),
+                        'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+                    ),
+
+
+                    'args'		=> array(
+                        'top'	=> array('name'=>__('Top','text-domain'), 'unit'=>'px'),
+                        'right'	=> array('name'=>__('Right','text-domain'), 'unit'=>'px'),
+                        'bottom'	=> array('name'=>__('Bottom','text-domain'), 'unit'=>'px'),
+                        'left'	=> array('name'=>__('Left','text-domain'), 'unit'=>'px'),
+
+                    ),
+                ),
+                array(
                     'id'		=> 'wp_editor_field',
                     'title'		=> __('WP editor Field','text-domain'),
                     'details'	=> __('Description of wp_editor field, please see detail here https://codex.wordpress.org/Function_Reference/wp_editor','text-domain'),

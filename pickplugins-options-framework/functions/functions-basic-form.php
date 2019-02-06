@@ -175,8 +175,8 @@ function pp_display_fileds(){
 
     $args = array(
         'id'		    => 'border_field',
-        'title'		    => __('Margin Field','text-domain'),
-        'details'	    => __('Description of margin field','text-domain'),
+        'title'		    => __('Border Field','text-domain'),
+        'details'	    => __('Description of border field','text-domain'),
         'value'		    => array('width'=>'54', 'unit'=>'%' , 'style'=>'solid', 'color'=>'#ddd'),
         'default'		=> array('width'=>'54', 'unit'=>'px' , 'style'=>'solid', 'color'=>'#ddd'),
 
@@ -221,8 +221,8 @@ function pp_display_fileds(){
 
     $args = array(
         'id'		    => 'padding_field',
-        'title'		    => __('Margin Field','text-domain'),
-        'details'	    => __('Description of margin field','text-domain'),
+        'title'		    => __('Padding Field','text-domain'),
+        'details'	    => __('Description of padding field','text-domain'),
         'value'		=> array(
             'top'	    => array('val'=>'54', 'unit'=>'px' ),
             'right'	    => array('val'=>'54', 'unit'=>'%' ),
@@ -708,7 +708,7 @@ function pp_display_fileds(){
 
     );
 
-    //echo $FormFieldsGenerator->field_colorpicker($args);
+    echo $FormFieldsGenerator->field_colorpicker($args);
 
 
 

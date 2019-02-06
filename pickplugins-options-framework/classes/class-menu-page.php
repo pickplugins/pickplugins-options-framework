@@ -202,9 +202,15 @@ if( ! class_exists( 'AddMenuPage' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'user' ){
                 echo $FormFieldsGenerator->field_user($option);
             }
-
-
-
+            elseif( isset($option['type']) && $option['type'] === 'margin' ){
+                echo $FormFieldsGenerator->field_margin($option);
+            }
+            elseif( isset($option['type']) && $option['type'] === 'padding' ){
+                echo $FormFieldsGenerator->field_padding($option);
+            }
+            elseif( isset($option['type']) && $option['type'] === 'border' ){
+                echo $FormFieldsGenerator->field_border($option);
+            }
 
             elseif( isset($option['type']) && $option['type'] === $type ){
                 do_action( "wp_theme_settings_field_$type", $option );

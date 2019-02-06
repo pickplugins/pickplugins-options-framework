@@ -136,8 +136,9 @@ class pickpluginsOptionsFramework{
         wp_enqueue_script('jquery-ui-sortable');
         wp_enqueue_style( 'wp-color-picker' );
         wp_enqueue_script( 'wp-color-picker' );
-        wp_enqueue_script('jquery-ui-datepicker');
 
+        wp_enqueue_script('jquery-ui-datepicker');
+        wp_enqueue_style( 'wp-color-picker' );
         wp_enqueue_style('fontawesome', FFG_PLUGIN_URL.'css/fontawesome.min.css');
         wp_enqueue_style('fieldsGenerator', FFG_PLUGIN_URL.'css/fieldsGenerator.css');
         wp_enqueue_style('codemirror.min', FFG_PLUGIN_URL.'css/codemirror.css');

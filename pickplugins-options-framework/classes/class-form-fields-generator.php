@@ -96,52 +96,55 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             ob_start();
 
-                ?>
-                <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-margin-wrapper field-margin-wrapper-<?php echo $id; ?>">
-                    <div class="item-list">
+            ?>
+            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-border-wrapper field-border-wrapper-<?php echo $id; ?>">
+                <div class="item-list">
 
-                            <div class="item">
-                                <span class="field-title">Width</span>
-                                <span class="input-wrapper"><input type='number' name='<?php echo $field_name;?>[width]' value='<?php
-                                    echo $width; ?>' /></span>
-                                <select name="<?php echo $field_name;?>[unit]">
-                                    <option <?php if($unit == 'px') echo 'selected'; ?> value="px">px</option>
-                                    <option <?php if($unit == '%') echo 'selected'; ?> value="%">%</option>
-                                    <option <?php if($unit == 'em') echo 'selected'; ?> value="em">em</option>
-                                    <option <?php if($unit == 'cm') echo 'selected'; ?> value="cm">cm</option>
-                                    <option <?php if($unit == 'mm') echo 'selected'; ?> value="mm">mm</option>
-                                    <option <?php if($unit == 'in') echo 'selected'; ?> value="in">in</option>
-                                    <option <?php if($unit == 'pt') echo 'selected'; ?> value="pt">pt</option>
-                                    <option <?php if($unit == 'pc') echo 'selected'; ?> value="pc">pc</option>
-                                    <option <?php if($unit == 'ex') echo 'selected'; ?> value="ex">ex</option>
-
-                                </select>
-                            </div>
-                            <div class="item">
-                                <span class="field-title">Style</span>
-
-                                <select name="<?php echo $field_name;?>[style]">
-                                    <option <?php if($style == 'dotted') echo 'selected'; ?> value="dotted">dotted</option>
-                                    <option <?php if($style == 'dashed') echo 'selected'; ?> value="dashed">dashed</option>
-                                    <option <?php if($style == 'solid') echo 'selected'; ?> value="solid">solid</option>
-                                    <option <?php if($style == 'double') echo 'selected'; ?> value="double">double</option>
-                                    <option <?php if($style == 'groove') echo 'selected'; ?> value="groove">groove</option>
-                                    <option <?php if($style == 'ridge') echo 'selected'; ?> value="ridge">ridge</option>
-                                    <option <?php if($style == 'inset') echo 'selected'; ?> value="inset">inset</option>
-                                    <option <?php if($style == 'outset') echo 'selected'; ?> value="outset">outset</option>
-                                    <option <?php if($style == 'none') echo 'selected'; ?> value="none">none</option>
-
-                                </select>
-                            </div>
                         <div class="item">
-                            <span class="field-title">Color</span>
-                            <span class="input-wrapper"><input type='text' name='<?php echo $field_name;?>[color]'
-                                                               value='<?php
-                                echo $color; ?>' /></span>
+                            <span class="field-title">Width</span>
+                            <span class="input-wrapper"><input type='number' name='<?php echo $field_name;?>[width]' value='<?php
+                                echo $width; ?>' /></span>
+                            <select name="<?php echo $field_name;?>[unit]">
+                                <option <?php if($unit == 'px') echo 'selected'; ?> value="px">px</option>
+                                <option <?php if($unit == '%') echo 'selected'; ?> value="%">%</option>
+                                <option <?php if($unit == 'em') echo 'selected'; ?> value="em">em</option>
+                                <option <?php if($unit == 'cm') echo 'selected'; ?> value="cm">cm</option>
+                                <option <?php if($unit == 'mm') echo 'selected'; ?> value="mm">mm</option>
+                                <option <?php if($unit == 'in') echo 'selected'; ?> value="in">in</option>
+                                <option <?php if($unit == 'pt') echo 'selected'; ?> value="pt">pt</option>
+                                <option <?php if($unit == 'pc') echo 'selected'; ?> value="pc">pc</option>
+                                <option <?php if($unit == 'ex') echo 'selected'; ?> value="ex">ex</option>
 
+                            </select>
                         </div>
+                        <div class="item">
+                            <span class="field-title">Style</span>
+
+                            <select name="<?php echo $field_name;?>[style]">
+                                <option <?php if($style == 'dotted') echo 'selected'; ?> value="dotted">dotted</option>
+                                <option <?php if($style == 'dashed') echo 'selected'; ?> value="dashed">dashed</option>
+                                <option <?php if($style == 'solid') echo 'selected'; ?> value="solid">solid</option>
+                                <option <?php if($style == 'double') echo 'selected'; ?> value="double">double</option>
+                                <option <?php if($style == 'groove') echo 'selected'; ?> value="groove">groove</option>
+                                <option <?php if($style == 'ridge') echo 'selected'; ?> value="ridge">ridge</option>
+                                <option <?php if($style == 'inset') echo 'selected'; ?> value="inset">inset</option>
+                                <option <?php if($style == 'outset') echo 'selected'; ?> value="outset">outset</option>
+                                <option <?php if($style == 'none') echo 'selected'; ?> value="none">none</option>
+
+                            </select>
+                        </div>
+                    <div class="item">
+                        <span class="field-title">Color</span>
+                        <span class="input-wrapper"><input class="colorpicker" type='text' name='<?php echo $field_name;
+                        ?>[color]'
+                                                           value='<?php
+                            echo $color; ?>' /></span>
+
                     </div>
                 </div>
+            </div>
+            <script>jQuery(document).ready(function($) { $('.field-border-wrapper-<?php echo $id; ?> .colorpicker').wpColorPicker
+                ();});</script>
             <?php
             return ob_get_clean();
         }
@@ -1553,7 +1556,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             ob_start();
             ?>
-            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-datepicker-wrapper field-datepicker-wrapper-<?php echo $id; ?>">
+            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-colorpicker-wrapper field-colorpicker-wrapper-<?php echo $id; ?>">
                 <input type='text'  name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
             </div>
             <script>jQuery(document).ready(function($) { $('#<?php echo $field_id; ?>').wpColorPicker();});</script>
