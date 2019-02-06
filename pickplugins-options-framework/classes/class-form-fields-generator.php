@@ -74,6 +74,88 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
 
+        public function field_google_map( $option ){
+
+            $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
+            $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
+            $default 	    = isset( $option['default'] ) ? $option['default'] : array();
+            $args 	        = isset( $option['args'] ) ? $option['args'] : "";
+            $preview 	        = isset( $option['preview'] ) ? $option['preview'] : false;
+            $value 	        = isset( $option['value'] ) ? $option['value'] : "";
+            $values         = !empty($value) ? $value : $default;
+
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+
+            $lat  = isset($values['lat']) ? $values['lat'] : '';
+            $lng   = isset($values['lng']) ? $values['lng'] :'';
+            $zoom  = isset($values['zoom']) ? $values['zoom'] : '';
+            $title  = isset($values['title']) ? $values['title'] : '';
+            $apikey  = isset($values['apikey']) ? $values['apikey'] : '';
+
+            ob_start();
+            if(!empty($args)):
+            ?>
+
+            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-google-map-wrapper
+            field-google-map-wrapper-<?php echo $id; ?>">
+                <div class="item-list">
+                    <?php
+                    foreach ($args as $index=>$name):
+                        ?>
+                        <div class="item">
+                            <span class="field-title"><?php echo $name; ?></span>
+                            <span class="input-wrapper"><input type='text' name='<?php echo $field_name;?>[<?php
+                                echo $index; ?>]' value='<?php
+                                echo $values[$index]; ?>' /></span>
+                        </div>
+                    <?php
+                    endforeach;
+                    ?>
+                </div>
+            </div>
+
+            <?php
+            if($preview):
+                ?>
+                <div id="map-<?php echo $field_id; ?>"></div>
+                <script>
+
+                    function initMap() {
+                        var myLatLng = {lat: <?php echo $lat; ?>, lng: <?php echo $lng; ?>};
+
+                        var map = new google.maps.Map(document.getElementById('map-<?php echo $field_id; ?>'), {
+                            zoom: <?php echo $zoom; ?>,
+                            center: myLatLng
+                        });
+
+                        var marker = new google.maps.Marker({
+                            position: myLatLng,
+                            map: map,
+                            title: '<?php echo $title; ?>'
+                        });
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apikey; ?>&callback=initMap">
+                </script>
+                <?php
+
+            endif;
+            ?>
+
+
+            <?php
+            endif;
+            return ob_get_clean();
+        }
+
+
+
         public function field_border( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";

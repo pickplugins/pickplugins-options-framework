@@ -173,6 +173,42 @@ function pp_display_fileds(){
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
 
+
+
+    $args = array(
+        'id'		    => 'dimensions_field5',
+        'title'		    => __('Dimensions Field','text-domain'),
+        'details'	    => __('Description of Dimensions field','text-domain'),
+        'placeholder'   => __('Text value','text-domain'),
+        'preview'       => true,
+        'value'		=> array(
+            'lat'	=> '25.75',
+            'lng'	=> '89.25',
+            'zoom'	=> '5',
+            'title'	=> 'Map Title',
+            'apikey'	=> 'AIzaSyA0rVrLQM6A_TRPht6MnJFEb4DtXZr4yTo',
+        ),
+        'default'	=> array(
+            'lat'	=> '25.75',
+            'lng'	=> '89.25',
+            'zoom'	=> '5',
+            'title'	=> 'Map Title',
+            'apikey'	=> 'AIzaSyA0rVrLQM6A_TRPht6MnJFEb4DtXZr4yTo',
+
+        ),
+        'args'		=> array(
+            'lat'	=> __('Latitude','text-domain'),
+            'lng'	=> __('Longitude','text-domain'),
+            'zoom'	=> __('Zoom','text-domain'),
+            'title'	=> __('Title','text-domain'),
+            'apikey'	=> __('API key','text-domain'),
+        ),
+    );
+
+    echo $FormFieldsGenerator->field_google_map($args);
+
+
+
     $args = array(
         'id'		    => 'border_field',
         'title'		    => __('Border Field','text-domain'),
@@ -182,7 +218,7 @@ function pp_display_fileds(){
 
     );
 
-    echo $FormFieldsGenerator->field_border($args);
+    //echo $FormFieldsGenerator->field_border($args);
 
 
     $args = array(
@@ -708,7 +744,7 @@ function pp_display_fileds(){
 
     );
 
-    echo $FormFieldsGenerator->field_colorpicker($args);
+    //echo $FormFieldsGenerator->field_colorpicker($args);
 
 
 
