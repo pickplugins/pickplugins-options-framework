@@ -183,6 +183,11 @@ echo $FormFieldsGenerator->field_text($args);
 46. field_tel();
 47. field_user();
 48. field_custom_html(); 
+49. field_switcher();
+50. field_google_map();
+51. field_border();
+52. field_padding();
+53. field_margin();
 ```
 
 
