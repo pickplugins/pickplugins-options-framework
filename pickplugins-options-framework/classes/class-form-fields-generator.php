@@ -82,8 +82,6 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $default 		= isset( $option['default'] ) ? $option['default'] : '';
-            $args			= isset( $option['args'] ) ? $option['args'] : array();
-            $args			= is_array( $args ) ? $args : $this->args_from_string( $args );
 
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
@@ -99,15 +97,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     <input type="checkbox" id="<?php echo $id; ?>" value="<?php echo $value; ?>" name="<?php echo $field_name; ?>" <?php echo $checked; ?>>
                     <span class="slider"></span>
                 </label>
-
-
             </div>
-
-
             <?php
             return ob_get_clean();
         }
-
 
 
 

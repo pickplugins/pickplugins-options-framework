@@ -129,6 +129,15 @@ $page_1_options = array(
                     'args'		=> array('min' => '0','max' => '100','step' => '1'),
                 ),
                 array(
+                    'id'		    => 'switcher_field',
+                    'title'		    => __('Switcher Field','text-domain'),
+                    'details'	    => __('Description of switcher field','text-domain'),
+                    'value'		    => '',
+                    'default'		=> '1',
+                    'type'		=> 'switcher',
+
+                ),
+                array(
                     'id'		=> 'switch_field',
                     'title'		=> __('Switch Field','text-domain'),
                     'details'	=> __('Description of switch field','text-domain'),

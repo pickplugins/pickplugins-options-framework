@@ -211,6 +211,11 @@ if( ! class_exists( 'AddMenuPage' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'border' ){
                 echo $FormFieldsGenerator->field_border($option);
             }
+            elseif( isset($option['type']) && $option['type'] === 'switcher' ){
+                echo $FormFieldsGenerator->field_switcher($option);
+            }
+
+
 
             elseif( isset($option['type']) && $option['type'] === $type ){
                 do_action( "wp_theme_settings_field_$type", $option );
