@@ -201,14 +201,14 @@ function pp_display_fileds(){
             'lng'	=> '89.25',
             'zoom'	=> '5',
             'title'	=> 'Map Title',
-            'apikey'	=> 'AIzaSyA0rVrLQM6A_TRPht6MnJFEb4DtXZr4yTo',
+            'apikey'	=> '',
         ),
         'default'	=> array(
             'lat'	=> '25.75',
             'lng'	=> '89.25',
             'zoom'	=> '5',
             'title'	=> 'Map Title',
-            'apikey'	=> 'AIzaSyA0rVrLQM6A_TRPht6MnJFEb4DtXZr4yTo',
+            'apikey'	=> '',
 
         ),
         'args'		=> array(
