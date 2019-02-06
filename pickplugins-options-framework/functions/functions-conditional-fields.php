@@ -40,36 +40,76 @@ function pp_display_conditional_fields(){
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
 
-    $args = array(
-        'id'		=> 'select_field_1',
-        'title'		=> __('Select Field 1','text-domain'),
-        'details'	=> __('Description of select 1 field','text-domain'),
-        'default'		=> 'option_2',
-        'value'		=> array('option_2'),
-        'args'		=> array(
-            ''	=> __('Select','text-domain'),
-            'option_2'	=> __('Show Text','text-domain'),
-            'option_3'	=> __('Hide text','text-domain'),
 
+
+    $args = array(
+        'id'		=> 'radio_field',
+        'title'		=> __('Checkbox Field','text-domain'),
+        'details'	=> __('Description of checkbox field','text-domain'),
+        'value'		=> 'option_2',
+        'default'	=> 'option_2',
+        'args'		=> array(
+            'option_2'	=> __('Show text field','text-domain'),
+            'option_3'	=> __('Hide text field','text-domain'),
         ),
     );
 
-    echo $FormFieldsGenerator->field_select($args);
+    echo $FormFieldsGenerator->field_radio($args);
+
+    $args = array(
+        'id'		    => 'text_field',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('Text Field 1','text-domain'),
+        'details'	    => __('Description of text field','text-domain'),
+        'value'		    => 'Hello text value',
+        'default'		=> __('Default Text Value','text-domain'),
+        'placeholder'   => __('Text value','text-domain'),
+        //'visible' => array( 'switch_field', '==', 'option_2' ),
+        'conditions' => array(
+            'field' => 'radio_field','value' => 'option_2','type' => '='
+        )
+    );
+
+    echo $FormFieldsGenerator->field_text($args);
+
+
+
+    echo '<hr>';
+
+
 
     $args = array(
         'id'		=> 'select_field',
-        'title'		=> __('Select Field','text-domain'),
-        'details'	=> __('Description of select field','text-domain'),
-        'default'		=> 'option_2',
-        'value'		=> array('option_2'),
+        'title'		=> __('Checkbox Field','text-domain'),
+        'details'	=> __('Description of checkbox field','text-domain'),
+        'value'		=> 'option_1',
+        'default'	=> 'option_2',
         'args'		=> array(
-            ''	=> __('Select','text-domain'),
-            'option_2'	=> __('Hide text','text-domain'),
-            'option_3'	=> __('Show Text','text-domain'),
+            'option_1'	=> __('Show text field','text-domain'),
+            'option_2'	=> __('Hide text field','text-domain'),
         ),
     );
 
     echo $FormFieldsGenerator->field_select($args);
+
+    $args = array(
+        'id'		    => 'text_field_2',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('Text Field 2','text-domain'),
+        'details'	    => __('Description of text field','text-domain'),
+        'value'		    => 'Hello text value',
+        'default'		=> __('Default Text Value','text-domain'),
+        'placeholder'   => __('Text value','text-domain'),
+        //'visible' => array( 'switch_field', '==', 'option_2' ),
+        'conditions' => array(
+            'field' => 'select_field','value' => 'option_1','type' => '='
+        )
+    );
+
+    echo $FormFieldsGenerator->field_text($args);
+
+
+    echo '<hr>';
 
 
     $args = array(
@@ -79,8 +119,8 @@ function pp_display_conditional_fields(){
         'value'		=> 'option_2',
         'default'	=> 'option_2',
         'args'		=> array(
-            'option_2'	=> __('Show Code','text-domain'),
-            'option_3'	=> __('Hide Code','text-domain'),
+            'option_1'	=> __('Show text field','text-domain'),
+            'option_2'	=> __('Hide text field','text-domain'),
         ),
     );
 
@@ -88,40 +128,28 @@ function pp_display_conditional_fields(){
 
 
     $args = array(
-        'id'		=> 'checkbox_field',
-        'title'		=> __('Checkbox Field','text-domain'),
-        'details'	=> __('Description of checkbox field','text-domain'),
-        'value'		=> 'option_2',
-        'default'	=> 'option_2',
-        'args'		=> array(
-            'option_2'	=> __('Show Code','text-domain'),
-            'option_3'	=> __('Hide Code','text-domain'),
-        ),
-    );
-
-    echo $FormFieldsGenerator->field_checkbox($args);
-
-
-
-    $args = array(
-        'id'		    => 'text_field',
+        'id'		    => 'text_field_3',
         //'field_name'	=> 'text_field', // optional
-        'title'		    => __('Text Field','text-domain'),
+        'title'		    => __('Text Field 3','text-domain'),
         'details'	    => __('Description of text field','text-domain'),
         'value'		    => 'Hello text value',
-
         'default'		=> __('Default Text Value','text-domain'),
         'placeholder'   => __('Text value','text-domain'),
         //'visible' => array( 'switch_field', '==', 'option_2' ),
         'conditions' => array(
-            'field' => 'checkbox_field[]','value' => 'option_2','compare' => '=='
+            'field' => 'switch_field','value' => 'option_1','type' => '='
         )
     );
 
     echo $FormFieldsGenerator->field_text($args);
 
 
+    echo '<hr>';
 
+
+
+
+echo 'Write word "apple" text field will appear';
     $args = array(
         'id'		    => 'textarea_field',
         'title'		    => __('Textarea Field','text-domain'),
@@ -135,23 +163,93 @@ function pp_display_conditional_fields(){
     echo $FormFieldsGenerator->field_textarea($args);
 
 
+    $args = array(
+        'id'		    => 'text_field_5',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('Text Field 4','text-domain'),
+        'details'	    => __('Description of text field','text-domain'),
+        'value'		    => 'Hello text value',
+        'default'		=> __('Default Text Value','text-domain'),
+        'placeholder'   => __('Text value','text-domain'),
+        //'visible' => array( 'switch_field', '==', 'option_2' ),
+        'conditions' => array(
+            'field' => 'textarea_field','value' => 'apple','type' => 'equal'
+        )
+    );
+
+    echo $FormFieldsGenerator->field_text($args);
+
+
+    echo '<hr>';
+
+
+
+    echo 'Keep this field not empty, text field will hide';
+    $args = array(
+        'id'		    => 'textarea_field_1',
+        'title'		    => __('Textarea Field','text-domain'),
+        'details'	    => __('Description of textarea field','text-domain'),
+        'value'		    => '',
+        'default'		=> '',
+        'placeholder'   => __('Textarea placeholder','text-domain'),
+    );
+
+    echo $FormFieldsGenerator->field_textarea($args);
 
 
     $args = array(
-        'id'		    => 'code_field',
-        'title'		    => __('Code Field','text-domain'),
-        'details'	    => __('Description of code field','text-domain'),
-        'value'		    => __('Textarea value','text-domain'),
+        'id'		    => 'text_field_6',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('Text Field 4','text-domain'),
+        'details'	    => __('Description of text field','text-domain'),
+        'value'		    => 'Hello text value',
         'default'		=> __('Default Text Value','text-domain'),
-        'args'		=> array(
-            'lineNumbers'	=> 'true', // do not write true, write as string, ex: 'true'
-            'mode'	=> "'javascript'",
-        ),
-        //'visible' => array( 'switch_field', '==', 'option_3' ),
-
+        'placeholder'   => __('Text value','text-domain'),
+        //'visible' => array( 'switch_field', '==', 'option_2' ),
+        'conditions' => array(
+            'field' => 'textarea_field_1','type' => 'empty'
+        )
     );
 
-    echo $FormFieldsGenerator->field_code($args);
+    echo $FormFieldsGenerator->field_text($args);
+
+
+    echo '<hr>';
+
+
+
+
+//    echo 'Write an email address';
+//    $args = array(
+//        'id'		    => 'email_field',
+//        'title'		    => __('Textarea Field','text-domain'),
+//        'details'	    => __('Description of textarea field','text-domain'),
+//        'value'		    => '',
+//        'default'		=> '',
+//        'placeholder'   => __('hello@hi.com','text-domain'),
+//    );
+//
+//    echo $FormFieldsGenerator->field_email($args);
+//
+//
+//    $args = array(
+//        'id'		    => 'text_field_7',
+//        //'field_name'	=> 'text_field', // optional
+//        'title'		    => __('Text Field 4','text-domain'),
+//        'details'	    => __('Description of text field','text-domain'),
+//        'value'		    => 'Hello text value',
+//        'default'		=> __('Default Text Value','text-domain'),
+//        'placeholder'   => __('Text value','text-domain'),
+//        //'visible' => array( 'switch_field', '==', 'option_2' ),
+//        'conditions' => array(
+//            'field' => 'email_field','type' => 'regexp','pattern' => '[a-z]+@[a-z]+.[a-z]+','modifier' => 'gi'
+//        )
+//    );
+//
+//    echo $FormFieldsGenerator->field_text($args);
+
+
+    //echo '<hr>';
 
 
 

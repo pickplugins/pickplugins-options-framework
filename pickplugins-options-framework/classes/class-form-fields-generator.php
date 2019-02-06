@@ -891,9 +891,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             <?php if(!empty($conditions)):
 
-                $field = $conditions['field'];
-                $value = $conditions['value'];
-                $compare = $conditions['compare'];
+                $field = isset($conditions['field']) ? $conditions['field'] :'';
+                $cond_value = isset($conditions['value']) ? $conditions['value']: '';
+                $type = isset($conditions['type']) ? $conditions['type'] : '';
+                $pattern = isset($conditions['pattern']) ? $conditions['pattern'] : '';
+                $modifier = isset($conditions['modifier']) ? $conditions['modifier'] : '';
+                $like = isset($conditions['like']) ? $conditions['like'] : '';
+                $strict = isset($conditions['strict']) ? $conditions['strict'] : '';
+                $empty = isset($conditions['empty']) ? $conditions['empty'] : '';
+                $sign = isset($conditions['sign']) ? $conditions['sign'] : '';
+                $min = isset($conditions['min']) ? $conditions['min'] : '';
+                $max = isset($conditions['max']) ? $conditions['max'] : '';
 
                 //foreach ($conditions as $condition):
                     //$relation = isset($condition['relation']) ? $condition['relation'] : '||';
@@ -902,15 +910,87 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
                     //foreach ($fields as $fieldData):
 
+                $depends .= "{'[name=".$field."]':";
+                $depends .= '{';
 
-                        $depends .= "{'[name=".$field."]':";
-                        $depends .= '{';
-                        $depends .= "'type':";
-                        $depends .= "'".$compare."',";
-                        $depends .= "'value':";
-                        $depends .= "'".$value."'";
 
-                        $depends .= '}}';
+                if(!empty($type)):
+                    $depends .= "'type':";
+                    $depends .= "'".$type."'";
+                endif;
+
+                if(!empty($modifier)):
+                    $depends .= ",'modifier':";
+                    $depends .= "'".$modifier."'";
+                endif;
+
+                if(!empty($like)):
+                    $depends .= ",'like':";
+                    $depends .= "'".$like."'";
+                endif;
+
+                if(!empty($strict)):
+                    $depends .= ",'strict':";
+                    $depends .= "'".$strict."'";
+                endif;
+
+                if(!empty($empty)):
+                    $depends .= ",'empty':";
+                    $depends .= "'".$empty."'";
+                endif;
+
+                if(!empty($sign)):
+                    $depends .= ",'sign':";
+                    $depends .= "'".$sign."'";
+                endif;
+
+                if(!empty($min)):
+                    $depends .= ",'min':";
+                    $depends .= "'".$min."'";
+                endif;
+
+                if(!empty($max)):
+                    $depends .= ",'max':";
+                    $depends .= "'".$max."'";
+                endif;
+
+
+                if(!empty($cond_value)):
+
+                    $depends .= ",'value':";
+                    if(is_array($cond_value)):
+
+
+                        $count= count($cond_value);
+                        $i = 1;
+                        $depends .= "[";
+                        foreach ($cond_value as $val):
+                            $depends .= "'".$val."'";
+
+                            if($i<$count)
+                                $depends .= ",";
+
+                            $i++;
+                        endforeach;
+                        $depends .= "]";
+                    else:
+
+                        $depends .= "[";
+                        $depends .= "'".$cond_value."'";
+                        $depends .= "]";
+                    endif;
+
+
+                endif;
+
+
+
+
+
+
+
+
+                $depends .= '}}';
 
                     //endforeach;
                 //endforeach;
@@ -932,7 +1012,11 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </div>
 
             <script>
-                jQuery('.field-text-wrapper-<?php echo $id; ?>').formFieldDependency({});
+                jQuery('.field-text-wrapper-<?php echo $id; ?>').formFieldDependency({
+
+
+
+                });
             </script>
             <?php
 
@@ -1179,7 +1263,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 foreach( $args as $key => $argName ):
                     $checked = is_array( $value ) && in_array( $key, $value ) ? "checked" : "";
                     ?>
-                    <label for='<?php echo $field_id.'-'.$key; ?>'><input name='<?php echo $field_name; ?>' type='checkbox' id='<?php echo $field_id.'-'.$key; ?>' value='<?php echo $key; ?>' <?php echo $checked; ?>><?php echo $argName; ?></label><br>
+                    <label for='<?php echo $field_id.'-'.$key; ?>'><input class="<?php echo $field_id; ?>" name='<?php
+                        echo
+                        $field_name; ?>'
+                                                                           type='checkbox' id='<?php echo $field_id.'-'.$key; ?>' value='<?php echo $key; ?>' <?php echo $checked; ?>><?php echo $argName; ?></label><br>
                     <?php
                 endforeach;
                 ?>

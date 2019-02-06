@@ -325,7 +325,7 @@
         var typeEqualDependency = function (element, depObject, parent, useEvent) {
 
 
-
+            alert('Hello');
 
             if (typeof useEvent == 'undefined') {
                 useEvent = false;
@@ -354,6 +354,9 @@
                 var eqname = eqtag + ':' + eqtype;
 
                 if (eqname == 'input:checkbox' || eqname == 'input:radio') {
+
+
+
                     depObject.value = $(depObject.like + ':checked').map(function () {
                         return this.value;
                     }).get();

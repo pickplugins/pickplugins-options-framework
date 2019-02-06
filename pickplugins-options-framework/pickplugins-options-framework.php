@@ -148,7 +148,6 @@ class pickpluginsOptionsFramework{
         wp_enqueue_script('form-field-dependency', plugins_url( 'js/form-field-dependency.js' , __FILE__ ) , array( 'jquery' ),null, false);
 
 
-
         wp_enqueue_script('FormFieldsGenerator', plugins_url( 'js/FormFieldsGenerator.js' , __FILE__ ) , array( 'jquery' ));
         wp_localize_script( 'FormFieldsGenerator', 'FormFieldsGenerator_ajax', array( 'FormFieldsGenerator_ajaxurl' => admin_url( 'admin-ajax.php')));
 
