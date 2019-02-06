@@ -88,6 +88,7 @@ Ready to be Role
 50. Margin
 51. Padding
 52. Google Map
+53. Switcher
 
 
 #### Special Fields(Arguments)

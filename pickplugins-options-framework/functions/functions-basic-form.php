@@ -176,6 +176,21 @@ function pp_display_fileds(){
 
 
     $args = array(
+        'id'		    => 'switcher_field',
+        'title'		    => __('Switcher Field','text-domain'),
+        'details'	    => __('Description of switcher field','text-domain'),
+        'value'		    => '',
+        'default'		=> '2',
+
+    );
+
+    echo $FormFieldsGenerator->field_switcher($args);
+
+
+
+
+
+    $args = array(
         'id'		    => 'dimensions_field5',
         'title'		    => __('Dimensions Field','text-domain'),
         'details'	    => __('Description of Dimensions field','text-domain'),

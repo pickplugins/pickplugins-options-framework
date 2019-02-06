@@ -74,6 +74,44 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
 
+
+        public function field_switcher( $option ){
+
+            $id				= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
+            $default 		= isset( $option['default'] ) ? $option['default'] : '';
+            $args			= isset( $option['args'] ) ? $option['args'] : array();
+            $args			= is_array( $args ) ? $args : $this->args_from_string( $args );
+
+            $value 	        = isset( $option['value'] ) ? $option['value'] : "";
+            $value          = !empty($value) ? $value : $default;
+
+            $checked = !empty($value) ? 'checked':'';
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
+            ?>
+            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-switcher-wrapper field-switcher-wrapper-<?php echo $id; ?>">
+                <label class="switch">
+                    <input type="checkbox" id="<?php echo $id; ?>" value="<?php echo $value; ?>" name="<?php echo $field_name; ?>" <?php echo $checked; ?>>
+                    <span class="slider"></span>
+                </label>
+
+
+            </div>
+
+
+            <?php
+            return ob_get_clean();
+        }
+
+
+
+
+
         public function field_google_map( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
