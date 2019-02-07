@@ -2303,8 +2303,6 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-select2-wrapper field-select2-wrapper-<?php echo $id; ?>">
                 <?php
 
-                wp_enqueue_style('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css' );
-                wp_enqueue_script('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js', array('jquery') );
 
 
                 if($multiple):
@@ -2608,40 +2606,48 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ob_start();
             wp_enqueue_media();
 
-            echo "<div class='media_preview' style='width: 150px;margin-bottom: 10px;background: #eee;padding: 5px;    text-align: center;'>";
+            ?>
+            <div class='media_preview' style='width: 150px;margin-bottom: 10px;background: #eee;padding: 5px;    text-align: center;'>
+            <?php
 
             if( "audio/mpeg" == $media_type ){
-
-                echo "<div id='media_preview_$id' class='dashicons dashicons-format-audio' style='font-size: 70px;display: inline;'></div>";
-                echo "<div>$media_title</div>";
+                ?>
+                <div id='media_preview_$id' class='dashicons dashicons-format-audio' style='font-size: 70px;display: inline;'></div>
+                <div><?php echo $media_title; ?></div>
+                <?php
             }
             else {
-                echo "<img id='media_preview_$id' src='$media_url' style='width:100%'/>";
+                ?>
+                <img id='media_preview_<?php echo $id; ?>' src='<?php echo $media_url; ?>' style='width:100%'/>
+                <?php
             }
 
-            echo "</div>";
-            echo "<input type='hidden' name='$field_name' id='media_input_$id' value='$value' />";
-            echo "<div class='button' id='media_upload_$id'>Upload</div><div class='button clear' id='media_clear_$id'>Clear</div>";
 
-            echo "<script>jQuery(document).ready(function($){
-            $('#media_upload_$id').click(function() {
-                var send_attachment_bkp = wp.media.editor.send.attachment;
-                wp.media.editor.send.attachment = function(props, attachment) {
-                    $('#media_preview_$id').attr('src', attachment.url);
-                    $('#media_input_$id').val(attachment.id);
-                    wp.media.editor.send.attachment = send_attachment_bkp;
-                }
-                wp.media.editor.open($(this));
-                return false;
-            });
 
-            $('#media_clear_$id').click(function() {
-                $('#media_input_$id').val('');
-                $('#media_preview_$id').attr('src','');
-            })
-            
-            });	</script>";
+            ?>
+            </div>
+            <input type='hidden' name='<?php echo $field_name; ?>' id='media_input_<?php echo $id; ?>' value='<?php echo $value; ?>' />
+            <div class='button' id='media_upload_<?php echo $id; ?>'>Upload</div><div class='button clear' id='media_clear_<?php echo $id; ?>'>Clear</div>
+            <script>jQuery(document).ready(function($){
+                    $('#media_upload_<?php echo $id; ?>').click(function() {
+                        var send_attachment_bkp = wp.media.editor.send.attachment;
+                        wp.media.editor.send.attachment = function(props, attachment) {
+                            $('#media_preview_<?php echo $id; ?>').attr('src', attachment.url);
+                            $('#media_input_<?php echo $id; ?>').val(attachment.id);
+                            wp.media.editor.send.attachment = send_attachment_bkp;
+                        }
+                        wp.media.editor.open($(this));
+                        return false;
+                    });
 
+                    $('#media_clear_<?php echo $id; ?>').click(function() {
+                        $('#media_input_<?php echo $id; ?>').val('');
+                        $('#media_preview_<?php echo $id; ?>').attr('src','');
+                    })
+
+                });	</script>
+
+            <?php
             return ob_get_clean();
         }
 
@@ -2665,7 +2671,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             wp_enqueue_media();
 
             ?>
-            <div  id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-media-wrapper field-media-wrapper-<?php echo $id; ?>">
+            <div  id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-media-multi-wrapper
+            field-media-multi-wrapper-<?php echo $id; ?>">
                 <div class='button' id='media_upload_<?php echo $id; ?>'>Upload</div><div class='button clear'
                                                                                           id='media_clear_<?php echo
                                                                                           $id;
@@ -2713,6 +2720,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         $('.media-list-<?php echo $id; ?> .item').remove();
 
                     })
+
+                    jQuery( ".field-media-multi-wrapper-<?php echo $id; ?> .media-list" ).sortable();
                 });
             </script>
             <?php

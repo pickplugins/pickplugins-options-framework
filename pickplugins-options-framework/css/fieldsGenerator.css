@@ -817,7 +817,7 @@
 
 
 
-
+/*field-media-wrapper*/
 .field-media-wrapper .media-list{
     margin-top: 10px;
 }
@@ -850,6 +850,52 @@
     padding: 3px 10px;
     cursor: pointer;
 }
+
+
+
+
+/*field-media-multi-wrapper*/
+.field-media-multi-wrapper .media-list{
+    margin-top: 10px;
+}
+.field-media-multi-wrapper .media-list .item{
+    width: 150px;
+    display: inline-block;
+    margin: 5px;
+    background: #eee;
+    padding: 5px;
+    position: relative;
+    vertical-align: top;
+    min-height: 80px;
+    overflow: hidden;
+}
+
+.field-media-multi-wrapper .media-list .item.empty .item-title{
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-37%,-50%);
+    width: 100%;
+}
+
+
+.field-media-multi-wrapper .media-list .item .remove{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
 
 /*field-colorpicker-multi-wrapper*/
 

@@ -143,6 +143,8 @@ class pickpluginsOptionsFramework{
         wp_enqueue_style('fieldsGenerator', FFG_PLUGIN_URL.'css/fieldsGenerator.css');
         wp_enqueue_style('codemirror.min', FFG_PLUGIN_URL.'css/codemirror.css');
 
+        wp_enqueue_style('select2.min', FFG_PLUGIN_URL.'css/select2.min.css');
+        wp_enqueue_script('select2.min', plugins_url( 'js/select2.min.js' , __FILE__ ) , array( 'jquery' ));
 
         wp_enqueue_script('codemirror.min', plugins_url( 'js/codemirror.min.js' , __FILE__ ) , array( 'jquery' ),null, false);
         wp_enqueue_script('form-field-dependency', plugins_url( 'js/form-field-dependency.js' , __FILE__ ) , array( 'jquery' ),null, false);
@@ -165,6 +167,9 @@ class pickpluginsOptionsFramework{
         wp_enqueue_style('menu-page', FFG_PLUGIN_URL.'css/menu-page.css');
         wp_enqueue_style('meta-box', FFG_PLUGIN_URL.'css/meta-box.css');
 
+
+        wp_enqueue_style('select2.min', FFG_PLUGIN_URL.'css/select2.min.css');
+        wp_enqueue_script('select2.min', plugins_url( 'js/select2.min.js' , __FILE__ ) , array( 'jquery' ));
 
         wp_enqueue_style('fieldsGenerator', FFG_PLUGIN_URL.'css/fieldsGenerator.css');
         wp_enqueue_style('jquery-ui', 'http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');

@@ -403,7 +403,7 @@ if( ! class_exists( 'AddMenuPage' ) ) {
                             <div class="pp-row">
                                 <div class="pp-col pp-col-50">
                                     <div class=""></div>
-                                    <span><a target="_blank" href="https://github.com/pickplugins/wp-theme-settings">WP Theme Settings</a> | Developed by : <a class="" href="http://pickplugins.com">PickPlugins</a> | Version: 1.0.0</span>
+                                    <span><a target="_blank" href="https://github.com/pickplugins/pickplugins-options-framework">PickPlugins Options Framework</a> | Developed by : <a class="" href="http://pickplugins.com">PickPlugins</a> | Version: 1.0.0</span>
                                 </div>
                                 <div class="pp-col pp-col-50 text-align-right">
                                     <?php submit_button(null,'primary', null, false); ?>
