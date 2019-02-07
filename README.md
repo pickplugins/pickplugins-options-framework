@@ -28,7 +28,7 @@ Ready to be Role
 * Register Nav Menus.
 * Insert Post.
 * Create Dashboard Widgets
-* 48+ Input Fields.
+* 53+ Input Fields.
 
 
 
@@ -37,58 +37,59 @@ Ready to be Role
 
 ## Input fields
 
-1. Text
-2. Text multi
-3. Select
-4. Select multi
-5. Select2
-6. Checkbox
-7. Radio
-8. Textarea
-9. Number
-10. Hidden
-11. Range
-12. Range with input
-13. Color picker
-14. Datepicker
-15. Media
-16. Media Gallery
-17. Switch
-18. Switch multi
-19. Switch image
-20. Dimensions (width, height, custom)
-21. WP Editor
-22. Code Editor
-23. Link Color
-24. Repeatable
-25. Icon
-26. Icon multi
-27. Date format 
-28. Time format 
-29. FAQ
-30. Grid
-31. Custom_html
-32. Color palette
-33. Color Palette Multi
-34. User Select
-35. HTML5 Color
-36. Email
-37. URL
-38. Tel
-39. Search
-40. Month
-41. Week
-42. Date
-43. Time
-44. Color Picker Multi
-45. Google reCaptcha
-46. Nonce
-47. Submit
-48. Border
-50. Margin
-51. Padding
-52. Google Map
-53. Switcher
+*  Text
+*  Text multi
+*  Select
+*  Select multi
+*  Select2
+*  Checkbox
+*  Checkbox Multi
+*  Radio
+*  Textarea
+*  Number
+*  Hidden
+*  Range
+*  Range with input
+*  Color picker
+*  Datepicker
+*  Media
+*  Media Gallery
+*  Switch
+*  Switch multi
+*  Switch image
+*  Dimensions (width, height, custom)
+*  WP Editor
+*  Code Editor
+*  Link Color
+*  Repeatable
+*  Icon
+*  Icon multi
+*  Date format 
+*  Time format 
+*  FAQ
+*  Grid
+*  Custom_html
+*  Color palette
+*  Color Palette Multi
+*  User Select
+*  HTML5 Color
+*  Email
+*  URL
+*  Tel
+*  Search
+*  Month
+*  Week
+*  Date
+*  Time
+*  Color Picker Multi
+*  Google reCaptcha
+*  Nonce
+*  Submit
+*  Border
+*  Margin
+*  Padding
+*  Google Map
+*  Switcher
 
 
 #### Special Fields(Arguments)
