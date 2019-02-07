@@ -52,13 +52,13 @@ $page_1_options = array(
                     'placeholder'   => __('Textarea placeholder','text-domain'),
                 ),
                 array(
-                    'id'		=> 'checkbox_field',
+                    'id'		=> 'checkbox_multi_field',
                     //'field_name'		    => 'text_multi_field',
-                    'title'		=> __('Checkbox  Field','text-domain'),
-                    'details'	=> __('Description of checkbox field','text-domain'),
+                    'title'		=> __('Checkbox Multi Field','text-domain'),
+                    'details'	=> __('Description of checkbox multi field','text-domain'),
                     'default'		=> array('option_3','option_2'),
                     'value'		=> array('option_2'),
-                    'type'		    => 'checkbox',
+                    'type'		    => 'checkbox_multi',
                     'args'		=> array(
                         'option_1'	=> __('Option 1','text-domain'),
                         'option_2'	=> __('Option 2','text-domain'),
@@ -66,6 +66,21 @@ $page_1_options = array(
                         'option_4'	=> __('Option 4','text-domain'),
                     ),
                 ),
+
+                array(
+                    'id'		=> 'checkbox_field',
+                    //'field_name'		    => 'text_multi_field',
+                    'title'		=> __('Checkbox  Field','text-domain'),
+                    'details'	=> __('Description of checkbox field','text-domain'),
+                    'default'		=> array('option_3','option_2'),
+                    'value'		=> 'option_1',
+                    'type'		    => 'checkbox',
+                    'args'		=> array(
+                        'option_1'	=> __('Option 1','text-domain'),
+                    ),
+                ),
+
+
                 array(
                     'id'		=> 'radio_field',
                     //'field_name'		    => 'text_multi_field',

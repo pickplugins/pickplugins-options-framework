@@ -40,6 +40,111 @@ function pp_display_conditional_fields(){
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
 
+    echo 'Uncheck to hide the text box';
+
+
+    $args = array(
+        'id'		=> 'checkbox_field',
+        'title'		=> __('Checkbox  Field','text-domain'),
+        'details'	=> __('Description of checkbox field','text-domain'),
+        'default'		=> array('option_3','option_2'),
+        'value'		=> 'option_1',
+        'args'		=> array(
+            'option_1'	=> __('Option 1','text-domain'),
+        ),
+    );
+
+    echo $FormFieldsGenerator->field_checkbox($args);
+
+    $args = array(
+        'id'		    => 'text_field',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('Text Field 1','text-domain'),
+        'details'	    => __('Description of text field','text-domain'),
+        'value'		    => 'Hello text value',
+        'default'		=> __('Default Text Value','text-domain'),
+        'placeholder'   => __('Text value','text-domain'),
+        //'visible' => array( 'switch_field', '==', 'option_2' ),
+        'conditions' => array(
+            'field' => 'checkbox_field','value' => 'option_1','type' => '='
+        )
+    );
+
+    echo $FormFieldsGenerator->field_text($args);
+
+
+
+    echo '<hr>';
+
+
+
+    $args = array(
+        'id'		    => 'switcher_field',
+        'title'		    => __('Switcher Field','text-domain'),
+        'details'	    => __('Description of switcher field','text-domain'),
+        'value'		    => 'option_2',
+        'default'		=> 'option_2',
+
+    );
+
+    echo $FormFieldsGenerator->field_switcher($args);
+
+    $args = array(
+        'id'		    => 'text_field',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('Text Field 1','text-domain'),
+        'details'	    => __('Description of text field','text-domain'),
+        'value'		    => 'Hello text value',
+        'default'		=> __('Default Text Value','text-domain'),
+        'placeholder'   => __('Text value','text-domain'),
+        //'visible' => array( 'switch_field', '==', 'option_2' ),
+        'conditions' => array(
+            'field' => 'switcher_field','value' => 'option_2','type' => '='
+        )
+    );
+
+    echo $FormFieldsGenerator->field_text($args);
+
+
+
+    echo '<hr>';
+
+
+
+    $args = array(
+        'id'		    => 'checkbox_field',
+        'title'		    => __('Switcher Field','text-domain'),
+        'details'	    => __('Description of switcher field','text-domain'),
+        'value'		    => 'option_2',
+        'default'		=> 'option_2',
+        'args'		=> array(
+            'option_2'	=> __('Show text field','text-domain'),
+            'option_3'	=> __('Hide text field','text-domain'),
+        ),
+
+    );
+
+    echo $FormFieldsGenerator->field_checkbox($args);
+
+    $args = array(
+        'id'		    => 'text_field_10',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('Text Field 10','text-domain'),
+        'details'	    => __('Description of text field','text-domain'),
+        'value'		    => 'Hello text value',
+        'default'		=> __('Default Text Value','text-domain'),
+        'placeholder'   => __('Text value','text-domain'),
+        //'visible' => array( 'switch_field', '==', 'option_2' ),
+        'conditions' => array(
+            'field' => 'checkbox_field','value' => array('option_2'),'type' => '='
+        )
+    );
+
+    echo $FormFieldsGenerator->field_text($args);
+
+
+
+    echo '<hr>';
 
 
     $args = array(

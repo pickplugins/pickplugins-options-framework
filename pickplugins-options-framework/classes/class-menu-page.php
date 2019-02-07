@@ -121,6 +121,9 @@ if( ! class_exists( 'AddMenuPage' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'checkbox' ){
                 echo $FormFieldsGenerator->field_checkbox($option);
             }
+            elseif( isset($option['type']) && $option['type'] === 'checkbox_multi' ){
+                echo $FormFieldsGenerator->field_checkbox_multi($option);
+            }
             elseif( isset($option['type']) && $option['type'] === 'radio' ){
                 echo $FormFieldsGenerator->field_radio($option);
             }

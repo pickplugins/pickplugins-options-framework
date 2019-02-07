@@ -418,7 +418,21 @@ function pp_display_fileds(){
         'title'		=> __('Checkbox  Field','text-domain'),
         'details'	=> __('Description of checkbox field','text-domain'),
         'default'		=> array('option_3','option_2'),
-        'value'		=> array('option_2'),
+        'value'		=> 'option_1',
+        'args'		=> array(
+            'option_1'	=> __('Option 1','text-domain'),
+        ),
+    );
+
+    echo $FormFieldsGenerator->field_checkbox($args);
+
+
+    $args = array(
+        'id'		=> 'checkbox_multi_field',
+        'title'		=> __('Checkbox multi Field','text-domain'),
+        'details'	=> __('Description of checkbox multi field','text-domain'),
+        'default'		=> 'option_2',
+        'value'		=> 'option_2',
         'args'		=> array(
             'option_1'	=> __('Option 1','text-domain'),
             'option_2'	=> __('Option 2','text-domain'),
@@ -427,8 +441,7 @@ function pp_display_fileds(){
         ),
     );
 
-    echo $FormFieldsGenerator->field_checkbox($args);
-
+    echo $FormFieldsGenerator->field_checkbox_multi($args);
 
 
     $args = array(

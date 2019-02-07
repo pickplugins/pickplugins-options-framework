@@ -1237,8 +1237,43 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             return ob_get_clean();
         }
 
-
         public function field_checkbox( $option ){
+
+            $id				= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
+
+            $default 		= isset( $option['default'] ) ? $option['default'] : array();
+            $args			= isset( $option['args'] ) ? $option['args'] : array();
+            $args			= is_array( $args ) ? $args : $this->args_from_string( $args );
+
+            $value			= isset( $option['value'] ) ? $option['value'] : array();
+            $value          = !empty($value) ?  $value : $default;
+
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
+            ?>
+            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-checkbox-wrapper field-checkbox-wrapper-<?php echo $id; ?>">
+                <?php
+                foreach( $args as $key => $argName ):
+                    $checked = (  $key == $value ) ? "checked" : "";
+
+
+                    ?>
+                    <label for='<?php echo $field_id; ?>'><input class="<?php echo $field_id; ?>" name='<?php echo $field_name; ?>' type='checkbox' id='<?php echo $field_id; ?>' value='<?php echo $key; ?>' <?php echo $checked; ?>><?php echo $argName; ?></label><br>
+                <?php
+                endforeach;
+                ?>
+            </div>
+            <?php
+            return ob_get_clean();
+        }
+
+        public function field_checkbox_multi( $option ){
 
             $id				= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id)) return;
