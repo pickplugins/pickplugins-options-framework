@@ -35,13 +35,10 @@ Ready to be Role
 
 
 
-## Input fields
+## Basic Input fields
 
 *  Text
-*  Text multi
 *  Select
-*  Select multi
-*  Select2
 *  Checkbox
 *  Checkbox Multi
 *  Radio
@@ -49,11 +46,28 @@ Ready to be Role
 *  Number
 *  Hidden
 *  Range
+*  Color
+*  Email
+*  URL
+*  Tel
+*  Search
+*  Month
+*  Week
+*  Date
+*  Time
+*  Submit
+
+## Custom Input Fields
+
+*  Text multi
+*  Select multi
+*  Select2
 *  Range with input
 *  Color picker
 *  Datepicker
 *  Media
 *  Media Gallery
+*  Switcher
 *  Switch
 *  Switch multi
 *  Switch image
@@ -70,26 +84,18 @@ Ready to be Role
 *  Grid
 *  Custom_html
 *  Color palette
-*  Color Palette Multi
-*  User Select
-*  HTML5 Color
-*  Email
-*  URL
-*  Tel
-*  Search
-*  Month
-*  Week
-*  Date
-*  Time
-*  Color Picker Multi
+*  Color palette multi
+*  User select
+*  Color picker multi
 *  Google reCaptcha
 *  Nonce
-*  Submit
 *  Border
 *  Margin
 *  Padding
 *  Google Map
-*  Switcher
+
+
+
 
 
 #### Special Fields(Arguments)
