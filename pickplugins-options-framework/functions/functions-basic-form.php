@@ -13,6 +13,9 @@ function basic_form_display_function(){
 
     $error = '';
 
+    $option_name = '';
+
+
     //if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
 
         // Process
@@ -20,15 +23,12 @@ function basic_form_display_function(){
 
         if(wp_verify_nonce( $_wpnonce, 'nonce_field_action' )) {
 
-            $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : '';
-            $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : '';
-            $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
+            $option_name = isset($_POST['option_name']) ? wp_unslash($_POST['option_name']) : '';
 
-            update_option('dummy_option_first_name', $first_name);
-            update_option('dummy_option_last_name', $last_name);
-            update_option('dummy_option_gender', $gender);
+
+
             ?>
-            <pre><?php echo var_export($_POST, true); ?></pre>
+            <pre><?php echo var_export($option_name, true); ?></pre>
             <?php
         }else{
             $error = 'There is an error! 1';
@@ -55,49 +55,24 @@ function basic_form_display_function(){
         <form action="#" method="post">
     <?php
 
-    echo '<link rel="stylesheet"  href="'.FFG_PLUGIN_URL.'css/fieldsGenerator.css">';
+    //echo '<link rel="stylesheet"  href="'.FFG_PLUGIN_URL.'css/fieldsGenerator.css">';
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
 
 
 
     $args = array(
-        'id'		    => 'first_name',
-        //'field_name'	=> 'text_field', // optional
-        'title'		    => __('First Name','text-domain'),
-        'details'	    => __('Description of first name','text-domain'),
-        'value'		    => '',
-        'default'		=> __('','text-domain'),
-        'placeholder'   => __('First Name','text-domain'),
+        'id'		    => 'option_name',
+        'title'		    => __('Textarea Field','text-domain'),
+        'details'	    => __('Description of textarea field','text-domain'),
+        'value'		    => $option_name,
+        'default'		=> __('Default Text Value','text-domain'),
+        'placeholder'   => __('Textarea placeholder','text-domain'),
     );
 
-    echo $FormFieldsGenerator->field_text($args);
+    echo $FormFieldsGenerator->field_textarea($args);
 
-    $args = array(
-        'id'		    => 'last_name',
-        //'field_name'	=> 'text_field', // optional
-        'title'		    => __('Last Name','text-domain'),
-        'details'	    => __('Description of last name','text-domain'),
-        'value'		    => '',
-        'default'		=> __('','text-domain'),
-        'placeholder'   => __('Last Name','text-domain'),
-    );
-    echo $FormFieldsGenerator->field_text($args);
 
-    $args = array(
-        'id'		=> 'gender',
-        'title'		=> __('Your Gender','text-domain'),
-        'details'	=> __('Description of gender','text-domain'),
-        'default'		=> '',
-        'value'		=> '',
-        'args'		=> array(
-            'male'	=> __('Male','text-domain'),
-            'famale'	=> __('Famale','text-domain'),
-            'others'	=> __('Others','text-domain'),
-
-        ),
-    );
-    echo $FormFieldsGenerator->field_radio($args);
 
     $args = array(
         'id'		    => 'google_recaptcha_field',
@@ -105,7 +80,7 @@ function basic_form_display_function(){
         'details'	    => __('Description of google recaptcha field','text-domain'),
         'version'		=> 'v2', // v2, v3
         'action_name'	=> 'action_name', // for v3
-        'site_key'		=> '6LeuYiUTAAAAAF5OmlN8CNQTavIuhbzth9oqC-vC',
+        'site_key'		=> '',
         'secret_key'    => '',
     );
     //echo $FormFieldsGenerator->field_google_recaptcha($args);
@@ -218,14 +193,14 @@ function pp_display_fileds(){
             'lng'	=> '89.25',
             'zoom'	=> '5',
             'title'	=> 'Map Title',
-            'apikey'	=> 'AIzaSyDzMyg9xnFgrhqxrAa1aGACL-VWaaSEVUA',
+            'apikey'	=> '',
         ),
         'default'	=> array(
             'lat'	=> '25.75',
             'lng'	=> '89.25',
             'zoom'	=> '5',
             'title'	=> 'Map Title',
-            'apikey'	=> 'AIzaSyDzMyg9xnFgrhqxrAa1aGACL-VWaaSEVUA',
+            'apikey'	=> '',
 
         ),
         'args'		=> array(

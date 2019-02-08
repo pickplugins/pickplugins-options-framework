@@ -87,16 +87,18 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             ob_start();
             ?>
-            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-switcher-wrapper field-switcher-wrapper-<?php echo $id; ?>">
+            <div id="field-wrapper-<?php echo esc_attr($id); ?>" class="field-wrapper field-switcher-wrapper
+            field-switcher-wrapper-<?php echo esc_attr($id); ?>">
                 <label class="switcher <?php echo $checked; ?>">
-                    <input type="checkbox" id="<?php echo $id; ?>" value="<?php echo $value; ?>" name="<?php echo $field_name; ?>" <?php echo $checked; ?>>
+                    <input type="checkbox" id="<?php echo esc_attr($id); ?>" value="<?php echo esc_attr($value); ?>"
+                           name="<?php echo esc_attr($field_name); ?>" <?php echo esc_attr($checked); ?>>
                     <span class="layer"></span>
                     <span class="slider"></span>
                     <?php
                     if(!empty($args))
                     foreach ($args as $index=>$arg):
                         ?>
-                        <span class="switcher-text <?php echo $index; ?>"><?php echo $arg; ?></span>
+                        <span class="switcher-text <?php echo esc_attr($index); ?>"><?php echo esc_html($arg); ?></span>
                     <?php
                     endforeach;
                     ?>
@@ -887,9 +889,6 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
         public function field_text( $option ){
 
-
-
-
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
             if(empty($id))  return;
 
@@ -905,12 +904,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
-            //var_dump($id);
-
             ob_start();
             $depends = '';
             ?>
-
             <?php if(!empty($conditions)):
 
                 $field = isset($conditions['field']) ? $conditions['field'] :'';
@@ -925,16 +921,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 $min = isset($conditions['min']) ? $conditions['min'] : '';
                 $max = isset($conditions['max']) ? $conditions['max'] : '';
 
-                //foreach ($conditions as $condition):
-                    //$relation = isset($condition['relation']) ? $condition['relation'] : '||';
-                    //$fields = isset($condition['fields']) ? $condition['fields'] : array();
-
-
-                    //foreach ($fields as $fieldData):
-
                 $depends .= "{'[name=".$field."]':";
                 $depends .= '{';
-
 
                 if(!empty($type)):
                     $depends .= "'type':";
@@ -975,61 +963,35 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     $depends .= ",'max':";
                     $depends .= "'".$max."'";
                 endif;
-
-
                 if(!empty($cond_value)):
-
                     $depends .= ",'value':";
                     if(is_array($cond_value)):
-
-
                         $count= count($cond_value);
                         $i = 1;
                         $depends .= "[";
                         foreach ($cond_value as $val):
                             $depends .= "'".$val."'";
-
                             if($i<$count)
                                 $depends .= ",";
-
                             $i++;
                         endforeach;
                         $depends .= "]";
                     else:
-
                         $depends .= "[";
                         $depends .= "'".$cond_value."'";
                         $depends .= "]";
                     endif;
-
-
                 endif;
-
-
-
-
-
-
-
-
                 $depends .= '}}';
-
-                    //endforeach;
-                //endforeach;
-
-                //var_dump($count);
-
-                //echo "<br>";
-                //var_dump("{'#InputEmail':{'type':'equal', 'value':'lorem'}}");
 
                 ?>
 
 
             <?php endif; ?>
 
-            <div data-depends="[<?php echo $depends; ?>]"  id="field-wrapper-<?php echo
-            $id; ?>" class="dependency-field field-wrapper field-text-wrapper
-            field-text-wrapper-<?php echo $id; ?>">
+            <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?>
+                    id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-text-wrapper
+         field-text-wrapper-<?php echo $id; ?>">
                 <input type='text' name='<?php echo esc_attr($field_name); ?>' id='<?php echo esc_attr($field_id); ?>'
                        placeholder='<?php
                 echo esc_attr($placeholder); ?>' value='<?php echo esc_attr($value); ?>' />
@@ -1154,7 +1116,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         html_<?php echo $id; ?> += '<input type="text" name="<?php echo esc_attr($field_name); ?>[]" placeholder="<?php
                             echo esc_attr($placeholder); ?>" />';
                         html_<?php echo $id; ?> += '<span class="button remove" onclick="jQuery(this).parent().remove()' +
-                            '"><?php echo esc_html($remove_text); ?></span>';
+                            '"><?php echo ($remove_text); ?></span>';
                         <?php if($sortable):?>
                         html_<?php echo $id; ?> += ' <span class="button sort" ><i class="fas fa-arrows-alt"></i></span>';
                         <?php endif; ?>
@@ -1202,8 +1164,11 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ob_start();
             ?>
             <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-textarea-wrapper field-textarea-wrapper-<?php echo $field_id; ?>">
-                <textarea name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' cols='40' rows='5' placeholder='<?php echo $placeholder; ?>'><?php echo $value; ?></textarea>
+                <textarea name='<?php echo esc_attr($field_name); ?>' id='<?php echo esc_attr($field_id); ?>'
+                          cols='40' rows='5'
+                          placeholder='<?php echo $placeholder; ?>'><?php echo esc_attr($value); ?></textarea>
             </div>
+
 
             <?php
             return ob_get_clean();
