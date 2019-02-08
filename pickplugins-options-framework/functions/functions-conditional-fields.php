@@ -84,6 +84,10 @@ function pp_display_conditional_fields(){
         'details'	    => __('Description of switcher field','text-domain'),
         'value'		    => 'option_2',
         'default'		=> 'option_2',
+        'args'		=> array(
+            'on'	=> __('On','text-domain'),
+            'off'	=> __('Off','text-domain'),
+        ),
 
     );
 
@@ -112,7 +116,7 @@ function pp_display_conditional_fields(){
 
 
     $args = array(
-        'id'		    => 'checkbox_field',
+        'id'		    => 'checkbox_multi_field',
         'title'		    => __('Switcher Field','text-domain'),
         'details'	    => __('Description of switcher field','text-domain'),
         'value'		    => 'option_2',
@@ -124,7 +128,7 @@ function pp_display_conditional_fields(){
 
     );
 
-    echo $FormFieldsGenerator->field_checkbox($args);
+    echo $FormFieldsGenerator->field_checkbox_multi($args);
 
     $args = array(
         'id'		    => 'text_field_10',
@@ -136,7 +140,7 @@ function pp_display_conditional_fields(){
         'placeholder'   => __('Text value','text-domain'),
         //'visible' => array( 'switch_field', '==', 'option_2' ),
         'conditions' => array(
-            'field' => 'checkbox_field','value' => array('option_2'),'type' => '='
+            'field' => 'checkbox_multi_field','value' => array('option_2'),'type' => '='
         )
     );
 

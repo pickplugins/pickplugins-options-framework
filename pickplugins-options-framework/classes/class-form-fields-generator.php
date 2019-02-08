@@ -3,63 +3,61 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 
 
 /*Input fields
-
- * Text
- * Multi Text
- * Textarea
- * Checkbox
- * Radio
- * Select
- * Range
- * Range with Input
+*  Text
+*  Select
+*  Checkbox
+*  Checkbox Multi
+*  Radio
+*  Textarea
+*  Number
+*  Hidden
+*  Range
+*  Color
+*  Email
+*  URL
+*  Tel
+*  Search
+*  Month
+*  Week
+*  Date
+*  Time
+*  Submit
  *
- * Button Set
- * Button Set icon
- * Button Set image
- * Button Set html
- * Switch
  *
- * ColorPicker
- * Color RGBA
- * Link Color
- * Palette Colors
- *
- * WordPress Editor
- * ACE Editor
- *
- * Border
- * Background
- * Dimensions
- * Spacing
- *
- * Media
- *
- * Info
- *
- * Section
- *
- * Select2
- *
- * Categories Select
- * Pages Select
- * Tags Select
- * Menus Select
- * Post Type Select
- * Posts Select
- * Posts Select
- * User Role Select
- * Capabilities Select
- * Icons Select
- * Users Select
- * Sidebar Select
- * Widgets Select
- *
- * Typography
- *
- * Date picker
- * Time picker
- * Date format
- * Time format
+*  Text multi
+*  Select multi
+*  Select2
+*  Range with input
+*  Color picker
+*  Datepicker
+*  Media
+*  Media Gallery
+*  Switcher
+*  Switch
+*  Switch multi
+*  Switch image
+*  Dimensions (width, height, custom)
+*  WP Editor
+*  Code Editor
+*  Link Color
+*  Repeatable
+*  Icon
+*  Icon multi
+*  Date format
+*  Time format
+*  FAQ
+*  Grid
+*  Custom_html
+*  Color palette
+*  Color palette multi
+*  User select
+*  Color picker multi
+*  Google reCaptcha
+*  Nonce
+*  Border
+*  Margin
+*  Padding
+*  Google Map
  *
 */
 
@@ -72,9 +70,6 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
     class FormFieldsGenerator {
 
-
-
-
         public function field_switcher( $option ){
 
             $id				= isset( $option['id'] ) ? $option['id'] : "";
@@ -82,7 +77,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
             $default 		= isset( $option['default'] ) ? $option['default'] : '';
-
+            $args 	        = isset( $option['args'] ) ? $option['args'] : "";
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $value          = !empty($value) ? $value : $default;
 
@@ -93,11 +88,38 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ob_start();
             ?>
             <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-switcher-wrapper field-switcher-wrapper-<?php echo $id; ?>">
-                <label class="switch">
+                <label class="switcher <?php echo $checked; ?>">
                     <input type="checkbox" id="<?php echo $id; ?>" value="<?php echo $value; ?>" name="<?php echo $field_name; ?>" <?php echo $checked; ?>>
+                    <span class="layer"></span>
                     <span class="slider"></span>
+                    <?php
+                    if(!empty($args))
+                    foreach ($args as $index=>$arg):
+                        ?>
+                        <span class="switcher-text <?php echo $index; ?>"><?php echo $arg; ?></span>
+                    <?php
+                    endforeach;
+                    ?>
+
+
                 </label>
             </div>
+
+            <script>jQuery(document).ready(function($) {
+                    jQuery(document).on('click', '.field-switcher-wrapper-<?php echo $id; ?> .switcher .layer', function
+                        () {
+
+                        if(jQuery(this).parent().hasClass('checked')){
+                            jQuery(this).parent().removeClass('checked');
+                        }else{
+                            jQuery(this).parent().addClass('checked');
+                        }
+                    })
+                })
+
+            </script>
+
+
             <?php
             return ob_get_clean();
         }
@@ -1008,7 +1030,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div data-depends="[<?php echo $depends; ?>]"  id="field-wrapper-<?php echo
             $id; ?>" class="dependency-field field-wrapper field-text-wrapper
             field-text-wrapper-<?php echo $id; ?>">
-                <input type='text' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <input type='text' name='<?php echo esc_attr($field_name); ?>' id='<?php echo esc_attr($field_id); ?>'
+                       placeholder='<?php
+                echo esc_attr($placeholder); ?>' value='<?php echo esc_attr($value); ?>' />
             </div>
 
             <script>
@@ -1075,11 +1099,14 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $sortable 	    = isset( $option['sortable'] ) ? $option['sortable'] : true;
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
 
-            $values 	    = isset( $option['value'] ) ? $option['value'] : "";
+            $values 	    = isset( $option['value'] ) ? $option['value'] : array();
             $values         = !empty($values) ? $values : $default;
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+
+            //var_dump($remove_text);
 
 
             ob_start();
@@ -1096,9 +1123,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         foreach ($values as $value):
                             ?>
                             <div class="item">
-                                <input type='text' name='<?php echo $field_name?>[]'  placeholder='<?php echo $placeholder;
-                                ?>' value='<?php echo $value; ?>' /><span class="button remove" onclick="jQuery(this)
-                                .parent().remove()"><?php echo $remove_text; ?></span>
+                                <input type='text' name='<?php echo esc_attr($field_name); ?>[]'  placeholder='<?php
+                                echo esc_attr($placeholder); ?>' value="<?php echo esc_attr($value); ?>" /><span class="button remove" onclick="jQuery(this)
+                                .parent().remove()"><?php echo ($remove_text); ?></span>
                                 <?php if($sortable):?>
                                 <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
                                 <?php endif; ?>
@@ -1108,9 +1135,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     else:
                         ?>
                         <div class="item">
-                            <input type='text' name='<?php echo $field_name?>[]'  placeholder='<?php echo $placeholder; ?>'
+                            <input type='text' name='<?php echo esc_attr($field_name); ?>[]'  placeholder='<?php echo
+                            esc_attr($placeholder); ?>'
                                    value='' /><span class="button remove" onclick="jQuery(this).parent().remove()
-"><?php echo $remove_text; ?></span>
+"><?php echo ($remove_text); ?></span>
                             <?php if($sortable):?>
                                 <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
                             <?php endif; ?>
@@ -1123,10 +1151,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     jQuery(document).on('click', '.field-text-multi-wrapper-<?php echo $id; ?> .add-item',function(){
 
                         html_<?php echo $id; ?> = '<div class="item">';
-                        html_<?php echo $id; ?> += '<input type="text" name="<?php echo $field_name; ?>[]" placeholder="<?php
-                            echo $placeholder; ?>" />';
+                        html_<?php echo $id; ?> += '<input type="text" name="<?php echo esc_attr($field_name); ?>[]" placeholder="<?php
+                            echo esc_attr($placeholder); ?>" />';
                         html_<?php echo $id; ?> += '<span class="button remove" onclick="jQuery(this).parent().remove()' +
-                            '"><?php echo $remove_text; ?></span>';
+                            '"><?php echo esc_html($remove_text); ?></span>';
                         <?php if($sortable):?>
                         html_<?php echo $id; ?> += ' <span class="button sort" ><i class="fas fa-arrows-alt"></i></span>';
                         <?php endif; ?>

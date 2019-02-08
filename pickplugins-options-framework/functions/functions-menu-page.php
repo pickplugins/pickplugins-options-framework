@@ -39,7 +39,7 @@ $page_1_options = array(
                     'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
                     'placeholder'   => __('Text value','text-domain'),
                     'type'		    => 'text_multi',
-                    'remove_text'   => __('<i class="fas fa-times"></i>','text-domain'),
+                    'remove_text'   => '<i class="fas fa-times"></i>',
                 ),
                 array(
                     'id'		    => 'textarea_field',
@@ -150,6 +150,10 @@ $page_1_options = array(
                     'value'		    => '',
                     'default'		=> '1',
                     'type'		=> 'switcher',
+                    'args'		=> array(
+                        'on'	=> __('On','text-domain'),
+                        'off'	=> __('Off','text-domain'),
+                    ),
 
                 ),
                 array(

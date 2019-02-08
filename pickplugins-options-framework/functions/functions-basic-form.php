@@ -13,7 +13,7 @@ function basic_form_display_function(){
 
     $error = '';
 
-    if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
+    //if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
 
         // Process
         $_wpnonce = isset($_POST['nonce_field']) ? $_POST['nonce_field'] : '';
@@ -34,11 +34,11 @@ function basic_form_display_function(){
             $error = 'There is an error! 1';
         }
 
-    }else{
-        // Error
-        $error = 'There is an error! 2';
-
-    }
+//    }else{
+//        // Error
+//        $error = 'There is an error! 2';
+//
+//    }
 
     ob_start();
 
@@ -57,6 +57,9 @@ function basic_form_display_function(){
 
     echo '<link rel="stylesheet"  href="'.FFG_PLUGIN_URL.'css/fieldsGenerator.css">';
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
+
+
+
 
     $args = array(
         'id'		    => 'first_name',
@@ -105,7 +108,7 @@ function basic_form_display_function(){
         'site_key'		=> '6LeuYiUTAAAAAF5OmlN8CNQTavIuhbzth9oqC-vC',
         'secret_key'    => '',
     );
-    echo $FormFieldsGenerator->field_google_recaptcha($args);
+    //echo $FormFieldsGenerator->field_google_recaptcha($args);
 
     $args = array(
         'id'		    => 'nonce_field',
@@ -169,18 +172,20 @@ function pp_display_fileds(){
 
     <?php
 
-    echo '<link rel="stylesheet"  href="'.FFG_PLUGIN_URL.'css/fieldsGenerator.css">';
+    //echo '<link rel="stylesheet"  href="'.FFG_PLUGIN_URL.'css/fieldsGenerator.css">';
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
 
-
-
     $args = array(
-        'id'		    => 'switcher_field',
+        'id'		    => 'switcher_2_field',
         'title'		    => __('Switcher Field','text-domain'),
         'details'	    => __('Description of switcher field','text-domain'),
         'value'		    => '',
         'default'		=> '2',
+        'args'		=> array(
+            'on'	=> __('On','text-domain'),
+            'off'	=> __('Off','text-domain'),
+        ),
 
     );
 
@@ -188,6 +193,18 @@ function pp_display_fileds(){
 
 
 
+    $args = array(
+        'id'		    => 'field_password',
+        //'field_name'	=> 'text_field', // optional
+        'title'		    => __('First Name','text-domain'),
+        'details'	    => __('Description of first name','text-domain'),
+        'value'		    => '',
+        'password_meter'		    => true,
+        'default'		=> __('','text-domain'),
+        'placeholder'   => __('First Name','text-domain'),
+    );
+
+    echo $FormFieldsGenerator->field_password($args);
 
 
     $args = array(
@@ -201,14 +218,14 @@ function pp_display_fileds(){
             'lng'	=> '89.25',
             'zoom'	=> '5',
             'title'	=> 'Map Title',
-            'apikey'	=> '',
+            'apikey'	=> 'AIzaSyDzMyg9xnFgrhqxrAa1aGACL-VWaaSEVUA',
         ),
         'default'	=> array(
             'lat'	=> '25.75',
             'lng'	=> '89.25',
             'zoom'	=> '5',
             'title'	=> 'Map Title',
-            'apikey'	=> '',
+            'apikey'	=> 'AIzaSyDzMyg9xnFgrhqxrAa1aGACL-VWaaSEVUA',
 
         ),
         'args'		=> array(
@@ -333,7 +350,7 @@ function pp_display_fileds(){
         'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
         'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
         'placeholder'   => __('Text value','text-domain'),
-        'remove_text'   => __('X','text-domain'),
+        'remove_text'   => '<i class="fas fa-times"></i>',
     );
 
     echo $FormFieldsGenerator->field_text_multi($args);
