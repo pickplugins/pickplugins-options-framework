@@ -1,4 +1,4 @@
-x<?php
+<?php
 if ( ! defined('ABSPATH')) exit;  // if direct access 
 
 
@@ -23,8 +23,9 @@ function basic_form_display_function(){
 
         if(wp_verify_nonce( $_wpnonce, 'nonce_field_action' )) {
 
-            $option_name = isset($_POST['option_name']) ? wp_unslash($_POST['option_name']) : '';
+            $option_name = isset($_POST['option_name']) ? esc_html(wp_unslash($_POST['option_name'])) : '';
 
+            update_option('option_name_dummy', $option_name);
 
 
             ?>
@@ -152,6 +153,30 @@ function pp_display_fileds(){
 
 
     $args = array(
+        'id'		    => 'post_objects',
+        'title'		    => __('Multi Text Field','text-domain'),
+        'details'	    => __('Description of multi text field','text-domain'),
+        'sortable'		    => true,
+        'value'		    => array(),
+        'default'		=> array('post_title','post_author'),
+        'args'		=> array(
+            'post_title'	=> __('Post Title','text-domain'),
+            'post_content'	=> __('Post Content','text-domain'),
+            'post_excerpt'	=> __('Post Excerpt','text-domain'),
+            'post_author'	=> __('Post Author','text-domain'),
+            'post_date'	    => __('Post Date','text-domain'),
+            'comment_count'	=> __('Comment Count','text-domain'),
+            'menu_order'	=> __('Menu Order','text-domain'),
+
+
+
+        ),
+    );
+
+    echo $FormFieldsGenerator->field_post_objects($args);
+
+
+    $args = array(
         'id'		    => 'switcher_2_field',
         'title'		    => __('Switcher Field','text-domain'),
         'details'	    => __('Description of switcher field','text-domain'),
@@ -183,9 +208,9 @@ function pp_display_fileds(){
 
 
     $args = array(
-        'id'		    => 'dimensions_field5',
-        'title'		    => __('Dimensions Field','text-domain'),
-        'details'	    => __('Description of Dimensions field','text-domain'),
+        'id'		    => 'google_map_field',
+        'title'		    => __('Google Map Field','text-domain'),
+        'details'	    => __('Description of google map field','text-domain'),
         'placeholder'   => __('Text value','text-domain'),
         'preview'       => true,
         'value'		=> array(
@@ -225,7 +250,7 @@ function pp_display_fileds(){
 
     );
 
-    //echo $FormFieldsGenerator->field_border($args);
+    echo $FormFieldsGenerator->field_border($args);
 
 
     $args = array(

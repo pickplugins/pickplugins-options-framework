@@ -70,6 +70,91 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
     class FormFieldsGenerator {
 
+
+
+
+        public function field_post_objects( $option ){
+
+            $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
+            $sortable 	    = isset( $option['sortable'] ) ? $option['sortable'] : true;
+            $default 	    = isset( $option['default'] ) ? $option['default'] : array();
+            $args 	        = isset( $option['args'] ) ? $option['args'] : array();
+
+            $values 	    = !empty( $option['value'] ) ? $option['value'] : array();
+            $values         = !empty($values) ? $values : $default;
+
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+
+            //svar_dump($values);
+
+
+            ob_start();
+            ?>
+            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-text-multi-wrapper field-text-multi-wrapper-<?php echo $field_id; ?>">
+
+                <div class="field-list" id="<?php echo $field_id; ?>">
+
+                    <?php
+
+                    //var_dump($values);
+
+                    if(!empty($args)):
+                        foreach ($args as $argsKey=>$arg):
+                            ?>
+                            <div class="item">
+                                <?php if($sortable):?>
+                                    <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
+                                <?php endif; ?>
+                                <label>
+                                    <input type="checkbox" <?php if(in_array($argsKey,$values)) echo 'checked';?>  value="<?php
+                                    echo esc_attr($argsKey); ?>" name="<?php echo esc_attr($field_name); ?>[]">
+                                    <span><?php echo esc_attr($arg); ?></span>
+                                </label>
+
+
+
+
+                            </div>
+                        <?php
+                        endforeach;
+                    endif;
+                    ?>
+                </div>
+                <script>jQuery(document).ready(function($) {
+
+                        jQuery( ".field-text-multi-wrapper-<?php echo $id; ?> .field-list" ).sortable({ handle: '.sort' });
+                    })
+                </script>
+            </div>
+
+
+            <?php
+            return ob_get_clean();
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public function field_switcher( $option ){
 
             $id				= isset( $option['id'] ) ? $option['id'] : "";
@@ -98,7 +183,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     if(!empty($args))
                     foreach ($args as $index=>$arg):
                         ?>
-                        <span class="switcher-text <?php echo esc_attr($index); ?>"><?php echo esc_html($arg); ?></span>
+                        <span  unselectable="on" class="switcher-text <?php echo esc_attr($index); ?>"><?php echo esc_html($arg);
+                        ?></span>
                     <?php
                     endforeach;
                     ?>
