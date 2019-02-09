@@ -217,12 +217,22 @@ if( ! class_exists( 'AddMenuPage' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'switcher' ){
                 echo $FormFieldsGenerator->field_switcher($option);
             }
-
-
+            elseif( isset($option['type']) && $option['type'] === 'password' ){
+                echo $FormFieldsGenerator->field_password($option);
+            }
+            elseif( isset($option['type']) && $option['type'] === 'post_objects' ){
+                echo $FormFieldsGenerator->field_post_objects($option);
+            }
+            elseif( isset($option['type']) && $option['type'] === 'google_map' ){
+                echo $FormFieldsGenerator->field_google_map($option);
+            }
 
             elseif( isset($option['type']) && $option['type'] === $type ){
                 do_action( "wp_theme_settings_field_$type", $option );
             }
+
+
+
             if( !empty( $details ) ) echo "<p class='description'>$details</p>";
 
 

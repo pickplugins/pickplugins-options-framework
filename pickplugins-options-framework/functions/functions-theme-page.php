@@ -466,22 +466,28 @@ $page_4_options = array(
             'options' 	=> array(
 
                 array(
-                    'id'		    => 'dimensions_field5',
+                    'id'		    => 'dimensions_field',
                     'title'		    => __('Dimensions Field','text-domain'),
-                    'details'	    => __('Description of Dimensions field','text-domain'),
-                    'placeholder'   => __('Text value','text-domain'),
+                    'details'	    => __('Description of dimensions field','text-domain'),
                     'type'		=> 'dimensions',
                     'value'		=> array(
-                        'width'	    => '45',
-                        'height'	=> '45',
+                        'width'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'height'	    => array('val'=>'54', 'unit'=>'px' ),
+
+
                     ),
                     'default'		=> array(
-                        'width'	    => '45',
-                        'height'	=> '45',
+                        'width'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'height'	    => array('val'=>'54', 'unit'=>'px' ),
+
                     ),
+
+
                     'args'		=> array(
-                        'width'	=> __('Width','text-domain'),
-                        'height'	=> __('Height','text-domain'),
+                        'width'	=> array('name'=>__('Width','text-domain'), 'unit'=>'px'),
+                        'height'	=> array('name'=>__('Height','text-domain'), 'unit'=>'px'),
+
+
                     ),
                 ),
                 array(

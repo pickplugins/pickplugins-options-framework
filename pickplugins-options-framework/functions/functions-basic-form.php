@@ -156,10 +156,11 @@ function pp_display_fileds(){
         'id'		    => 'post_objects',
         'title'		    => __('Multi Text Field','text-domain'),
         'details'	    => __('Description of multi text field','text-domain'),
-        'sortable'		    => true,
+        'sortable'		=> true,
         'value'		    => array(),
-        'default'		=> array('post_title','post_author'),
+        'default'		=> array('post_title','menu_order','post_author'),
         'args'		=> array(
+            'thumbnail'	=> __('Post Thumbnail','text-domain'),
             'post_title'	=> __('Post Title','text-domain'),
             'post_content'	=> __('Post Content','text-domain'),
             'post_excerpt'	=> __('Post Excerpt','text-domain'),
@@ -167,9 +168,6 @@ function pp_display_fileds(){
             'post_date'	    => __('Post Date','text-domain'),
             'comment_count'	=> __('Comment Count','text-domain'),
             'menu_order'	=> __('Menu Order','text-domain'),
-
-
-
         ),
     );
 
@@ -250,7 +248,7 @@ function pp_display_fileds(){
 
     );
 
-    echo $FormFieldsGenerator->field_border($args);
+    //echo $FormFieldsGenerator->field_border($args);
 
 
     $args = array(
@@ -853,22 +851,29 @@ function pp_display_fileds(){
     echo $FormFieldsGenerator->field_user($args);
 
 
-    $args = array(
-        'id'		    => 'dimensions_field5',
+    $args =                 array(
+        'id'		    => 'dimensions_field',
         'title'		    => __('Dimensions Field','text-domain'),
-        'details'	    => __('Description of Dimensions field','text-domain'),
-        'placeholder'   => __('Text value','text-domain'),
+        'details'	    => __('Description of dimensions field','text-domain'),
+        'type'		=> 'dimensions',
         'value'		=> array(
-            'width'	    => '45',
-            'height'	=> '45',
+            'width'	    => array('val'=>'54', 'unit'=>'px' ),
+            'height'	    => array('val'=>'54', 'unit'=>'px' ),
+
+
         ),
         'default'		=> array(
-            'width'	    => '45',
-            'height'	=> '45',
+            'width'	    => array('val'=>'54', 'unit'=>'px' ),
+            'height'	    => array('val'=>'54', 'unit'=>'px' ),
+
         ),
+
+
         'args'		=> array(
-            'width'	=> __('Width','text-domain'),
-            'height'	=> __('Height','text-domain'),
+            'width'	=> array('name'=>__('Width','text-domain'), 'unit'=>'px'),
+            'height'	=> array('name'=>__('Height','text-domain'), 'unit'=>'px'),
+
+
         ),
     );
 

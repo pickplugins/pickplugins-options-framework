@@ -201,6 +201,17 @@ $page_1_options = array(
                     ),
                 ),
                 array(
+                    'id'		    => 'field_password',
+                    //'field_name'	=> 'text_field', // optional
+                    'title'		    => __('Password','text-domain'),
+                    'details'	    => __('Description of password','text-domain'),
+                    'value'		    => '',
+                    'password_meter'		    => true,
+                    'type'		=> 'password',
+                    'default'		=> __('','text-domain'),
+                    'placeholder'   => __('Password','text-domain'),
+                ),
+                array(
                     'id'		=> 'time_format_field',
                     'title'		=> __('Time format Field','text-domain'),
                     'details'	=> __('Description of time format field','text-domain'),
@@ -495,32 +506,80 @@ $page_4_options = array(
             'options' 	=> array(
 
                 array(
-                    'id'		    => 'dimensions_field5',
-                    'title'		    => __('Dimensions Field','text-domain'),
-                    'details'	    => __('Description of Dimensions field','text-domain'),
+                    'id'		    => 'google_map_field',
+                    'title'		    => __('Google Map Field','text-domain'),
+                    'details'	    => __('Description of google map field','text-domain'),
                     'placeholder'   => __('Text value','text-domain'),
-                    'type'		=> 'dimensions',
+                    'preview'       => true,
+                    'type'		    => 'google_map',
                     'value'		=> array(
-                        'width'	    => '45',
-                        'height'	=> '45',
+                        'lat'	=> '25.75',
+                        'lng'	=> '89.25',
+                        'zoom'	=> '5',
+                        'title'	=> 'Map Title',
+                        'apikey'	=> '',
                     ),
-                    'default'		=> array(
-                        'width'	    => '45',
-                        'height'	=> '45',
+                    'default'	=> array(
+                        'lat'	=> '25.75',
+                        'lng'	=> '89.25',
+                        'zoom'	=> '5',
+                        'title'	=> 'Map Title',
+                        'apikey'	=> '',
+
                     ),
                     'args'		=> array(
-                        'width'	=> __('Width','text-domain'),
-                        'height'	=> __('Height','text-domain'),
+                        'lat'	=> __('Latitude','text-domain'),
+                        'lng'	=> __('Longitude','text-domain'),
+                        'zoom'	=> __('Zoom','text-domain'),
+                        'title'	=> __('Title','text-domain'),
+                        'apikey'	=> __('API key','text-domain'),
                     ),
                 ),
                 array(
-                    'id'		    => 'border_field',
-                    'title'		    => __('Border Field','text-domain'),
-                    'details'	    => __('Description of border field','text-domain'),
-                    'value'		    => array('width'=>'54', 'unit'=>'%' , 'style'=>'solid', 'color'=>'#ddd'),
-                    'default'		=> array('width'=>'54', 'unit'=>'px' , 'style'=>'solid', 'color'=>'#ddd'),
-                    'type'		    => 'border',
+                    'id'		    => 'post_objects',
+                    'title'		    => __('Post Objects Field','text-domain'),
+                    'details'	    => __('Description of Post Objects field','text-domain'),
+                    'sortable'		=> true,
+                    'value'		    => array(),
+                    'default'		=> array('post_title','menu_order','post_author'),
+                    'type'		    => 'post_objects',
+                    'args'		=> array(
+                        'thumbnail'	=> __('Post Thumbnail','text-domain'),
+                        'post_title'	=> __('Post Title','text-domain'),
+                        'post_content'	=> __('Post Content','text-domain'),
+                        'post_excerpt'	=> __('Post Excerpt','text-domain'),
+                        'post_author'	=> __('Post Author','text-domain'),
+                        'post_date'	    => __('Post Date','text-domain'),
+                        'comment_count'	=> __('Comment Count','text-domain'),
+                        'menu_order'	=> __('Menu Order','text-domain'),
+                    ),
+                ),
 
+
+                array(
+                    'id'		    => 'dimensions_field',
+                    'title'		    => __('Dimensions Field','text-domain'),
+                    'details'	    => __('Description of dimensions field','text-domain'),
+                    'type'		=> 'dimensions',
+                    'value'		=> array(
+                        'width'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'height'	    => array('val'=>'54', 'unit'=>'px' ),
+
+
+                    ),
+                    'default'		=> array(
+                        'width'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'height'	    => array('val'=>'54', 'unit'=>'px' ),
+
+                    ),
+
+
+                    'args'		=> array(
+                        'width'	=> array('name'=>__('Width','text-domain'), 'unit'=>'px'),
+                        'height'	=> array('name'=>__('Height','text-domain'), 'unit'=>'px'),
+
+
+                    ),
                 ),
                 array(
                     'id'		    => 'margin_field',

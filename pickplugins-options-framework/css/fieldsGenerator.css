@@ -158,7 +158,7 @@
     display: inline-block;
 }
 .field-google-map-wrapper .input-wrapper input, .field-google-map-wrapper select{
-    width: 70px;
+    width: 120px;
 }
 
 /*field-switcher-wrapper*/

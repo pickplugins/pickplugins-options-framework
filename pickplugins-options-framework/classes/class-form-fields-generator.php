@@ -91,8 +91,16 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
 
-            //svar_dump($values);
+            //var_dump($values);
 
+            if(!empty($values)):
+
+                foreach ($values as $value):
+                    $values_sort[$value] = $value;
+                endforeach;
+
+                $args = array_replace($values_sort, $args);
+            endif;
 
             ob_start();
             ?>
@@ -373,6 +381,68 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         }
 
 
+
+        public function field_dimensions( $option ){
+
+            $id 			= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
+            $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
+            $default 	    = isset( $option['default'] ) ? $option['default'] : array();
+            $args 	        = isset( $option['args'] ) ? $option['args'] : "";
+
+            $value 	        = isset( $option['value'] ) ? $option['value'] : array();
+            $values         = !empty($value) ? $value : $default;
+
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+            ob_start();
+            if(!empty($args)):
+                ?>
+                <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-margin-wrapper field-margin-wrapper-<?php echo $id; ?>">
+                    <div class="item-list">
+                        <?php
+                        foreach ($args as $index=>$arg):
+
+                            $name = $arg['name'];
+                            $unit = $values[$index]['unit'];
+
+
+
+
+                            ?>
+                            <div class="item">
+                                <span class="field-title"><?php echo $name; ?></span>
+                                <span class="input-wrapper"><input type='number' name='<?php echo $field_name;?>[<?php
+                                    echo $index; ?>][val]' value='<?php
+                                    echo $values[$index]['val']; ?>' /></span>
+                                <select name="<?php echo $field_name;?>[<?php echo $index; ?>][unit]">
+                                    <option <?php if($unit == 'px') echo 'selected'; ?> value="px">px</option>
+                                    <option <?php if($unit == '%') echo 'selected'; ?> value="%">%</option>
+                                    <option <?php if($unit == 'em') echo 'selected'; ?> value="em">em</option>
+                                    <option <?php if($unit == 'cm') echo 'selected'; ?> value="cm">cm</option>
+                                    <option <?php if($unit == 'mm') echo 'selected'; ?> value="mm">mm</option>
+                                    <option <?php if($unit == 'in') echo 'selected'; ?> value="in">in</option>
+                                    <option <?php if($unit == 'pt') echo 'selected'; ?> value="pt">pt</option>
+                                    <option <?php if($unit == 'pc') echo 'selected'; ?> value="pc">pc</option>
+                                    <option <?php if($unit == 'ex') echo 'selected'; ?> value="ex">ex</option>
+
+                                </select>
+                            </div>
+                        <?php
+                        endforeach;
+                        ?>
+                    </div>
+                </div>
+            <?php
+            endif;
+            return ob_get_clean();
+        }
+
+
+
         public function field_padding( $option ){
 
             $id 			= isset( $option['id'] ) ? $option['id'] : "";
@@ -383,7 +453,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
             $args 	        = isset( $option['args'] ) ? $option['args'] : "";
 
-            $value 	        = isset( $option['value'] ) ? $option['value'] : "";
+            $value 	        = isset( $option['value'] ) ? $option['value'] : array();
             $values         = !empty($value) ? $value : $default;
 
             $field_id       = $id;
@@ -444,7 +514,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
             $args 	        = isset( $option['args'] ) ? $option['args'] : "";
 
-            $value 	        = isset( $option['value'] ) ? $option['value'] : "";
+            $value 	        = isset( $option['value'] ) ? $option['value'] : array();
             $values         = !empty($value) ? $value : $default;
 
             $field_id       = $id;
@@ -2253,45 +2323,6 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
 
-        public function field_dimensions( $option ){
-
-            $id 			= isset( $option['id'] ) ? $option['id'] : "";
-            if(empty($id)) return;
-            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
-            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : "";
-            $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
-            $default 	    = isset( $option['default'] ) ? $option['default'] : array();
-            $args 	        = isset( $option['args'] ) ? $option['args'] : "";
-
-            $value 	        = isset( $option['value'] ) ? $option['value'] : "";
-            $values         = !empty($value) ? $value : $default;
-
-            $field_id       = $id;
-            $field_name     = !empty( $field_name ) ? $field_name : $id;
-
-            ob_start();
-            if(!empty($args)):
-                ?>
-                <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-dimensions-wrapper field-dimensions-wrapper-<?php echo $id; ?>">
-                    <div class="item-list">
-                        <?php
-                        foreach ($args as $index=>$name):
-                            ?>
-                            <div class="item">
-                                <span class="field-title"><?php echo $name; ?></span>
-                                <span class="input-wrapper"><input type='number' name='<?php echo $field_name;?>[<?php
-                                    echo $index; ?>]' value='<?php
-                                    echo $values[$index]; ?>' /></span>
-                            </div>
-                            <?php
-                        endforeach;
-                        ?>
-                    </div>
-                </div>
-                <?php
-            endif;
-            return ob_get_clean();
-        }
 
 
 
