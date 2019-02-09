@@ -402,6 +402,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(!empty($args)):
                 ?>
                 <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-margin-wrapper field-margin-wrapper-<?php echo $id; ?>">
+
                     <div class="item-list">
                         <?php
                         foreach ($args as $index=>$arg):
@@ -462,7 +463,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ob_start();
             if(!empty($args)):
                 ?>
-                <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-margin-wrapper field-margin-wrapper-<?php echo $id; ?>">
+                <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-padding-wrapper field-padding-wrapper-<?php echo $id; ?>">
+                    <label><input type="checkbox" class="change-together">Apply for all</label>
                     <div class="item-list">
                         <?php
                         foreach ($args as $index=>$arg):
@@ -497,6 +499,55 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         ?>
                     </div>
                 </div>
+
+                <script>
+                    jQuery(document).ready(function($) {
+                        jQuery(document).on('keyup change', '.field-padding-wrapper-<?php echo $id; ?>  input[type="number"]',
+                            function() {
+                                is_checked = jQuery('.field-padding-wrapper-<?php echo $id; ?> .change-together').attr('checked');
+
+                                if(is_checked == 'checked'){
+                                    val = jQuery(this).val();
+
+                                    i = 0;
+                                    $('.field-padding-wrapper-<?php echo $id; ?> input[type="number"]').each(function( index ) {
+                                        if(i > 0){
+                                            jQuery(this).val(val);
+                                        }
+                                        i++;
+                                    });
+                                }
+                            })
+
+                        jQuery(document).on('click', '.field-padding-wrapper-<?php echo $id; ?> .change-together', function() {
+                            is_checked = this.checked;
+                            if(is_checked){
+                                i = 0;
+                                $('.field-padding-wrapper-<?php echo $id; ?> input[type="number"]').each(function( index ) {
+                                    if(i > 0){
+                                        jQuery(this).attr('readonly','readonly');
+                                    }
+                                    i++;
+                                });
+
+                                i = 0;
+                                $('.field-padding-wrapper-<?php echo $id; ?> select').each(function( index ) {
+                                    if(i > 0){
+                                        //jQuery(this).attr('disabled','disabled');
+                                    }
+                                    i++;
+                                });
+
+                            }else{
+                                jQuery('.field-padding-wrapper-<?php echo $id; ?> input[type="number"]').removeAttr('readonly');
+                                //jQuery('.field-margin-wrapper-<?php echo $id; ?> select').removeAttr('disabled');
+                            }
+
+
+                        })
+                    })
+
+                </script>
             <?php
             endif;
             return ob_get_clean();
@@ -524,20 +575,21 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(!empty($args)):
                 ?>
                 <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-margin-wrapper field-margin-wrapper-<?php echo $id; ?>">
+                    <label><input type="checkbox" class="change-together">Apply for all</label>
                     <div class="item-list">
                         <?php
                         foreach ($args as $index=>$arg):
 
                             $name = $arg['name'];
                             $unit = $values[$index]['unit'];
-
-
-
-
+                            
                             ?>
                             <div class="item">
                                 <span class="field-title"><?php echo $name; ?></span>
-                                <span class="input-wrapper"><input type='number' name='<?php echo $field_name;?>[<?php
+                                <span class="input-wrapper"><input class="<?php echo $index; ?>" type='number'
+                                                                   name='<?php echo
+                                    $field_name;
+                                ?>[<?php
                                     echo $index; ?>][val]' value='<?php
                                     echo $values[$index]['val']; ?>' /></span>
                                 <select name="<?php echo $field_name;?>[<?php echo $index; ?>][unit]">
@@ -558,6 +610,55 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         ?>
                     </div>
                 </div>
+
+                <script>
+                    jQuery(document).ready(function($) {
+                        jQuery(document).on('keyup change', '.field-margin-wrapper-<?php echo $id; ?>  input[type="number"]',
+                            function() {
+                                is_checked = jQuery('.field-margin-wrapper-<?php echo $id; ?> .change-together').attr('checked');
+
+                                if(is_checked == 'checked'){
+                                    val = jQuery(this).val();
+
+                                    i = 0;
+                                    $('.field-margin-wrapper-<?php echo $id; ?> input[type="number"]').each(function( index ) {
+                                        if(i > 0){
+                                            jQuery(this).val(val);
+                                        }
+                                        i++;
+                                    });
+                                }
+                            })
+
+                        jQuery(document).on('click', '.field-margin-wrapper-<?php echo $id; ?> .change-together', function() {
+                            is_checked = this.checked;
+                            if(is_checked){
+                                i = 0;
+                                $('.field-margin-wrapper-<?php echo $id; ?> input[type="number"]').each(function( index ) {
+                                    if(i > 0){
+                                        jQuery(this).attr('readonly','readonly');
+                                    }
+                                    i++;
+                                });
+
+                                i = 0;
+                                $('.field-margin-wrapper-<?php echo $id; ?> select').each(function( index ) {
+                                    if(i > 0){
+                                        //jQuery(this).attr('disabled','disabled');
+                                    }
+                                    i++;
+                                });
+
+                            }else{
+                                jQuery('.field-margin-wrapper-<?php echo $id; ?> input[type="number"]').removeAttr('readonly');
+                                //jQuery('.field-margin-wrapper-<?php echo $id; ?> select').removeAttr('disabled');
+                            }
+
+
+                        })
+                    })
+
+                </script>
             <?php
             endif;
             return ob_get_clean();
@@ -2811,6 +2912,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     $('#media_upload_<?php echo $id; ?>').click(function() {
                         var send_attachment_bkp = wp.media.editor.send.attachment;
                         wp.media.editor.send.attachment = function(props, attachment) {
+
+                            console.log(attachment);
+
                             attachment_id = attachment.id;
                             attachment_url = attachment.url;
                             html = '<div class="item">';

@@ -21,15 +21,15 @@ $page_1_options = array(
 			'description' 	=> __('This is section details','text-domain'),
 			'options' 	=> array(
 
-                array(
-                    'id'		    => 'text_field',
-                    //'field_name'		    => 'some_id_text_field_1',
-                    'title'		    => __('Text Field','text-domain'),
-                    'details'	    => __('Description of text field','text-domain'),
-                    'type'		    => 'text',
-                    'default'		=> 'Default Text',
-                    'placeholder'   => __('Text value','text-domain'),
-                ),
+//                array(
+//                    'id'		    => 'text_field',
+//                    //'field_name'		    => 'some_id_text_field_1',
+//                    'title'		    => __('Text Field','text-domain'),
+//                    'details'	    => __('Description of text field','text-domain'),
+//                    'type'		    => 'text',
+//                    'default'		=> 'Default Text',
+//                    'placeholder'   => __('Text value','text-domain'),
+//                ),
                 array(
                     'id'		    => 'text_multi_field',
                     //'field_name'		    => 'text_multi_field',
@@ -155,6 +155,18 @@ $page_1_options = array(
                         'off'	=> __('Off','text-domain'),
                     ),
 
+                ),
+                array(
+                    'id'		=> 'switch_icon_field',
+                    'title'		=> __('Switch icon Field','text-domain'),
+                    'details'	=> __('Description of switch icon field','text-domain'),
+                    'value'		=> 'option_2',
+                    'type'		=> 'switch',
+                    'args'		=> array(
+                        'option_1'	=> __('<i class="fas fa-align-left"></i>','text-domain'),
+                        'option_2'	=> __('<i class="fas fa-align-center"></i>','text-domain'),
+                        'option_3'	=> __('<i class="fas fa-align-right"></i>','text-domain'),
+                    ),
                 ),
                 array(
                     'id'		=> 'switch_field',

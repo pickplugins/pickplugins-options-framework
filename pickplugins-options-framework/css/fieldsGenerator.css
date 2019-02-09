@@ -100,6 +100,25 @@
 }
 
 
+/*field-padding-wrapper*/
+.field-padding-wrapper{}
+
+
+.field-padding-wrapper .item{
+    margin-bottom: 5px;
+}
+
+.field-padding-wrapper .field-title{
+    min-width: 110px;
+    display: inline-block;
+}
+.field-padding-wrapper .input-wrapper{
+    display: inline-block;
+}
+.field-padding-wrapper .input-wrapper input, .field-padding-wrapper select{
+    width: 70px;
+}
+
 /*field-margin-wrapper*/
 .field-margin-wrapper{}
 
@@ -118,8 +137,6 @@
 .field-margin-wrapper .input-wrapper input, .field-margin-wrapper select{
     width: 70px;
 }
-
-
 
 /*field-border-wrapper*/
 .field-border-wrapper{}
@@ -173,7 +190,7 @@
     background-color: #eee;
     overflow: hidden;
     position: relative;
-    height: 30px;
+    height: 24px;
     cursor: pointer;
 }
 .field-switcher-wrapper .switcher .layer {
