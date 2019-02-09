@@ -11,13 +11,16 @@ add_action( 'after_setup_theme', 'PickPlugins_theme_setup' );
 function PickPlugins_theme_setup(){
 
     $site_sidebars_arr = get_option('theme_pickoptions');
-    $site_menus = $site_sidebars_arr['site_menus'];
+    $site_menus = isset($site_sidebars_arr['site_menus']) ? $site_sidebars_arr['site_menus'] : array();
 
-    //var_dump($site_menus);
-    //register_nav_menus(  $site_menus );
+    if(!empty($site_menus))
+    foreach ($site_menus as $menuData){
 
-
-
+        $menu_id = $menuData['menu_id'];
+        $menu_name = $menuData['menu_name'];
+        $site_menu_arr[$menu_id] = $menu_name;
+        register_nav_menus($site_menu_arr);
+    }
 
 }
 
@@ -29,7 +32,7 @@ add_action( 'widgets_init', 'Pickplugins_register_sidebars' );
 function Pickplugins_register_sidebars(){
 
     $site_sidebars_arr = get_option('theme_pickoptions');
-    $site_sidebars = $site_sidebars_arr['site_sidebars'];
+    $site_sidebars = isset($site_sidebars_arr['site_sidebars']) ? $site_sidebars_arr['site_sidebars'] : array();
 
     if(!empty($site_sidebars))
     foreach ($site_sidebars as $sidebar){
@@ -44,7 +47,8 @@ add_action( 'init', 'Pickplugins_register_post_types' );
 function Pickplugins_register_post_types(){
 
     $site_post_types_arr = get_option('theme_pickoptions');
-    $site_post_types = $site_post_types_arr['site_post_types'];
+    $site_post_types = isset($site_post_types_arr['site_post_types']) ? $site_post_types_arr['site_post_types'] :
+        array();
 
     if(!empty($site_post_types))
     foreach ($site_post_types as $post_type){
