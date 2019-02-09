@@ -582,7 +582,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
                             $name = $arg['name'];
                             $unit = $values[$index]['unit'];
-                            
+
                             ?>
                             <div class="item">
                                 <span class="field-title"><?php echo $name; ?></span>
@@ -2910,10 +2910,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </div>
             <script>jQuery(document).ready(function($){
                     $('#media_upload_<?php echo $id; ?>').click(function() {
-                        var send_attachment_bkp = wp.media.editor.send.attachment;
+                        //var send_attachment_bkp = wp.media.editor.send.attachment;
                         wp.media.editor.send.attachment = function(props, attachment) {
 
-                            console.log(attachment);
+                            //console.log(attachment);
 
                             attachment_id = attachment.id;
                             attachment_url = attachment.url;
@@ -2923,7 +2923,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             html += '<input type="hidden" name="<?php echo $field_name; ?>[]" value="'+attachment_id+'" />';
                             html += '</div>';
                             $('.media-list-<?php echo $id; ?>').append(html);
-                            wp.media.editor.send.attachment = send_attachment_bkp;
+                            //wp.media.editor.send.attachment = send_attachment_bkp;
                         }
                         wp.media.editor.open($(this));
                         return false;
