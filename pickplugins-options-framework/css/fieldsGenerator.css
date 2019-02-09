@@ -1013,6 +1013,20 @@
     width: 113px;
 }
 
+.field-colorpicker-multi-wrapper .item-list{}
+
+.field-colorpicker-multi-wrapper .item-list .item{
+    margin-bottom: 5px;
+}
+.field-colorpicker-multi-wrapper .item-list .item .remove{
+    display: inline-block;
+}
+
+.field-colorpicker-multi-wrapper .item-list .item .wp-picker-container{
+    display: inline-block;
+}
+
+
 /*field-colorpicker-wrapper*/
 
 .field-colorpicker-wrapper{}

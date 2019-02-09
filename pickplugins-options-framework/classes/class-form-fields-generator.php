@@ -2079,6 +2079,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         foreach ($values as $value):
                             ?>
                             <div class="item">
+                                <span class="button remove">X</span>
                                 <input type='text' name='<?php echo $field_name; ?>[]' value='<?php echo $value; ?>' />
                             </div>
                         <?php
@@ -2091,9 +2092,15 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ?>
             <script>
                 jQuery(document).ready(function($) {
+
+                    jQuery(document).on('click', '.field-colorpicker-multi-wrapper-<?php echo $id; ?> .item-list .remove', function(){
+                        jQuery(this).parent().remove();
+                    })
+
+
                     jQuery(document).on('click', '.field-colorpicker-multi-wrapper-<?php echo $id; ?> .add', function() {
                         html='<div class="item">';
-                        html+='<input type="text"  name="<?php echo $field_name; ?>[]" value="" />';
+                        html+='<span class="button remove">X</span> <input type="text"  name="<?php echo $field_name; ?>[]" value="" />';
                         html+='</div>';
                         $('.field-colorpicker-multi-wrapper-<?php echo $id; ?> .item-list').append(html);
                         $('.field-colorpicker-multi-wrapper-<?php echo $id; ?> input').wpColorPicker();
