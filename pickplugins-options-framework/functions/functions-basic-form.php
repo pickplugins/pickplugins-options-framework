@@ -1,4 +1,4 @@
-<?php
+x<?php
 if ( ! defined('ABSPATH')) exit;  // if direct access 
 
 
@@ -338,8 +338,8 @@ function pp_display_fileds(){
         'details'	    => __('Description of google recaptcha field','text-domain'),
         'version'		=> 'v2', // v2, v3
         'action_name'	=> 'action_name', // for v3
-        'site_key'		=> '6LeuYiUTAAAAAF5OmlN8CNQTavIuhbzth9oqC-vC',
-        'secret_key'    => '6Lf4-IUUAAAAALzXCaSlToyNBzdHMrim9sdvJoK5',
+        'site_key'		=> '',
+        'secret_key'    => '',
     );
 
     echo $FormFieldsGenerator->field_google_recaptcha($args);
