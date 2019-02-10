@@ -301,21 +301,21 @@ div > .ppof-metabox {
     width: 320px;
 }
 
-.ppof-settings .button{
-    border: 1px solid #ddd;
-    display: inline-block;
-    padding: 3px 15px;
-    border-radius: 3px;
-    background-color: #eee;
-    cursor: pointer;
-    transition: ease all 0.3s;
-}
+/*.ppof-settings .button{*/
+    /*border: 1px solid #ddd;*/
+    /*display: inline-block;*/
+    /*padding: 3px 15px;*/
+    /*border-radius: 3px;*/
+    /*background-color: #eee;*/
+    /*cursor: pointer;*/
+    /*transition: ease all 0.3s;*/
+/*}*/
 
-.ppof-settings .button:hover{
+/*.ppof-settings .button:hover{*/
 
-    background-color: #ddd;
+    /*background-color: #ddd;*/
 
-}
+/*}*/
 
 .ppof-settings  .remove {
     background-color: #ff584c;

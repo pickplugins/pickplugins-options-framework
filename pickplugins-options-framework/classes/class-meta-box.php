@@ -123,7 +123,11 @@ if( ! class_exists( 'AddMetaBox' ) ) {
                         <?php
 
                         $current_page = 1;
+
                         foreach ($this->get_panels() as $panelsIndex=>$panel):
+
+
+
                             ?>
                             <div class="tab-content <?php if($current_page==1) echo 'active'; ?>  tab-content-<?php
                             echo $panelsIndex; ?>">
@@ -184,6 +188,7 @@ if( ! class_exists( 'AddMetaBox' ) ) {
                             </div>
                             <?php
 
+                            $current_page++;
                         endforeach;
 
                         ?>
