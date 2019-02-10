@@ -36,7 +36,7 @@ function pp_display_conditional_fields(){
 
     <?php
 
-    echo '<link rel="stylesheet"  href="'.PPOF_PLUGIN_URL.'css/fieldsGenerator.css">';
+    //echo '<link rel="stylesheet"  href="'.PPOF_PLUGIN_URL.'css/fieldsGenerator.css">';
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
 
@@ -55,6 +55,41 @@ function pp_display_conditional_fields(){
     );
 
     echo $FormFieldsGenerator->field_checkbox($args);
+
+
+
+
+    $args = array(
+        'id'		    => 'post_objects',
+        'title'		    => __('Multi Text Field','text-domain'),
+        'details'	    => __('Description of multi text field','text-domain'),
+        'sortable'		=> true,
+        'value'		    => array(),
+        'default'		=> array('post_title','menu_order','post_author'),
+        'args'		=> array(
+            'thumbnail'	=> __('Post Thumbnail','text-domain'),
+            'post_title'	=> __('Post Title','text-domain'),
+            'post_content'	=> __('Post Content','text-domain'),
+            'post_excerpt'	=> __('Post Excerpt','text-domain'),
+            'post_author'	=> __('Post Author','text-domain'),
+            'post_date'	    => __('Post Date','text-domain'),
+            'comment_count'	=> __('Comment Count','text-domain'),
+            'menu_order'	=> __('Menu Order','text-domain'),
+        ),
+        'conditions' => array(
+            'field' => 'test_1_checkbox_field','value' => 'option_1','type' => '='
+        )
+    );
+
+    echo $FormFieldsGenerator->field_post_objects($args);
+
+
+
+
+
+
+
+
 
     $args = array(
         'id'		    => 'test_1_text_field',
