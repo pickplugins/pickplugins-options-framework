@@ -48,27 +48,27 @@ class pickpluginsOptionsFramework{
 
     public function load_functions() {
 
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-customizer-edit.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-basic-form.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-menu-page.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-meta-box.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-taxonomy-edit.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-user-profile-edit.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-theme-page.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-tools.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-user-form.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-post-type.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-taxonomy.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-user.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-media-upload-by-url.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-conditional-fields.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-customizer-edit.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-basic-form.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-menu-page.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-meta-box.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-taxonomy-edit.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-user-profile-edit.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-theme-page.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-tools.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-user-form.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-post-type.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-taxonomy.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-user.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-media-upload-by-url.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-conditional-fields.php');
 
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-sidebars.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-post-status.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-nav-menus.php');
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-insert-post.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-sidebars.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-post-status.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-nav-menus.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-insert-post.php');
 
-        require_once( FFG_PLUGIN_DIR . 'functions/functions-create-dashboard-widget.php');
+        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-dashboard-widget.php');
 
 
     }
@@ -85,25 +85,25 @@ class pickpluginsOptionsFramework{
 
     public function declare_classes() {
 
-        require_once( FFG_PLUGIN_DIR . 'classes/class-customizer-custom-control.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-form-fields-generator.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-menu-page.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-meta-box.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-taxonomy-edit.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-user-profile-edit.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-theme-page.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-customizer-edit.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-create-user-form.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-create-post-type.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-create-user.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-media-upload-by-url.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-create-sidebars.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-create-post-status.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-create-nav-menus.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-insert-post.php');
-        require_once( FFG_PLUGIN_DIR . 'classes/class-create-dashboard-widget.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-customizer-custom-control.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-form-fields-generator.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-menu-page.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-meta-box.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-taxonomy-edit.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-user-profile-edit.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-theme-page.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-customizer-edit.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-create-user-form.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-create-post-type.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-create-taxonomy.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-create-user.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-media-upload-by-url.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-create-sidebars.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-create-post-status.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-create-nav-menus.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-insert-post.php');
+        require_once( PPOF_PLUGIN_DIR . 'classes/class-create-dashboard-widget.php');
 
 
 
@@ -111,10 +111,10 @@ class pickpluginsOptionsFramework{
 
     public function define_constants() {
 
-        $this->define('FFG_PLUGIN_URL', plugins_url('/', __FILE__)  );
-        $this->define('FFG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-        $this->define('FFG_PLUGIN_NAME', __('PickPlugins Options Framework', 'pickplugins-options-framework') );
-        $this->define('FFG_PLUGIN_SUPPORT', 'http://www.pickplugins.com/questions/'  );
+        $this->define('PPOF_PLUGIN_URL', plugins_url('/', __FILE__)  );
+        $this->define('PPOF_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+        $this->define('PPOF_PLUGIN_NAME', __('PickPlugins Options Framework', 'pickplugins-options-framework') );
+        $this->define('PPOF_PLUGIN_SUPPORT', 'http://www.pickplugins.com/questions/'  );
 
     }
 
@@ -131,50 +131,71 @@ class pickpluginsOptionsFramework{
 
     public function front_scripts(){
 
+        // Core CSS & JS
         wp_enqueue_script('jquery');
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script('jquery-ui-sortable');
         wp_enqueue_style( 'wp-color-picker' );
         wp_enqueue_script( 'wp-color-picker' );
-
         wp_enqueue_script('jquery-ui-datepicker');
-        wp_enqueue_style( 'wp-color-picker' );
-        wp_enqueue_style('fontawesome', FFG_PLUGIN_URL.'css/fontawesome.min.css');
-        wp_enqueue_style('fieldsGenerator', FFG_PLUGIN_URL.'css/fieldsGenerator.css');
-        wp_enqueue_style('codemirror.min', FFG_PLUGIN_URL.'css/codemirror.css');
 
-        wp_enqueue_style('select2.min', FFG_PLUGIN_URL.'css/select2.min.css');
+        // Main CSS
+        wp_enqueue_style('pickplugins-options-framework', PPOF_PLUGIN_URL.'css/pickplugins-options-framework.css');
+
+        // Main JS
+        wp_enqueue_script('pickplugins-options-framework', plugins_url( 'js/pickplugins-options-framework.js' , __FILE__ ) , array( 'jquery' ));
+        wp_localize_script( 'PickpluginsOptionsFramework', 'PickpluginsOptionsFramework_ajax', array( 'PickpluginsOptionsFramework_ajaxurl' => admin_url( 'admin-ajax.php')));
+
+        // 3rd party CSS & JS
+        wp_enqueue_style('jquery-ui', PPOF_PLUGIN_URL.'css/jquery-ui.css');
+        wp_enqueue_style('fontawesome', PPOF_PLUGIN_URL.'css/fontawesome.min.css');
+
+        // select2
+        wp_enqueue_style('select2.min', PPOF_PLUGIN_URL.'css/select2.min.css');
         wp_enqueue_script('select2.min', plugins_url( 'js/select2.min.js' , __FILE__ ) , array( 'jquery' ));
 
+
+        // codemirror
+        wp_enqueue_style('codemirror', PPOF_PLUGIN_URL.'css/codemirror.css');
         wp_enqueue_script('codemirror.min', plugins_url( 'js/codemirror.min.js' , __FILE__ ) , array( 'jquery' ),null, false);
+
+        // form-field-dependency
         wp_enqueue_script('form-field-dependency', plugins_url( 'js/form-field-dependency.js' , __FILE__ ) , array( 'jquery' ),null, false);
 
-
-        wp_enqueue_script('FormFieldsGenerator', plugins_url( 'js/FormFieldsGenerator.js' , __FILE__ ) , array( 'jquery' ));
-        wp_localize_script( 'FormFieldsGenerator', 'FormFieldsGenerator_ajax', array( 'FormFieldsGenerator_ajaxurl' => admin_url( 'admin-ajax.php')));
 
     }
 
     public function admin_scripts(){
 
+        // Core CSS & JS
         wp_enqueue_script('jquery');
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script('jquery-ui-sortable');
+        wp_enqueue_style( 'wp-color-picker' );
         wp_enqueue_script( 'wp-color-picker' );
         wp_enqueue_script('jquery-ui-datepicker');
-        wp_enqueue_style('fontawesome', FFG_PLUGIN_URL.'css/fontawesome.min.css');
 
-        wp_enqueue_style('menu-page', FFG_PLUGIN_URL.'css/menu-page.css');
-        wp_enqueue_style('meta-box', FFG_PLUGIN_URL.'css/meta-box.css');
+        // Main CSS
+        wp_enqueue_style('pickplugins-options-framework', PPOF_PLUGIN_URL.'css/pickplugins-options-framework.css');
 
+        // Main JS
+        wp_enqueue_script('pickplugins-options-framework', plugins_url( 'js/pickplugins-options-framework.js' , __FILE__ ) , array( 'jquery' ));
+        wp_localize_script( 'PickpluginsOptionsFramework', 'PickpluginsOptionsFramework_ajax', array( 'PickpluginsOptionsFramework_ajaxurl' => admin_url( 'admin-ajax.php')));
 
-        wp_enqueue_style('select2.min', FFG_PLUGIN_URL.'css/select2.min.css');
+        // 3rd party CSS & JS
+        wp_enqueue_style('jquery-ui', PPOF_PLUGIN_URL.'css/jquery-ui.css');
+        wp_enqueue_style('fontawesome', PPOF_PLUGIN_URL.'css/fontawesome.min.css');
+
+        // select2
+        wp_enqueue_style('select2.min', PPOF_PLUGIN_URL.'css/select2.min.css');
         wp_enqueue_script('select2.min', plugins_url( 'js/select2.min.js' , __FILE__ ) , array( 'jquery' ));
 
-        wp_enqueue_style('fieldsGenerator', FFG_PLUGIN_URL.'css/fieldsGenerator.css');
-        wp_enqueue_style('jquery-ui', 'http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
-        wp_enqueue_script('AdminMenu', plugins_url( 'js/AdminMenu.js' , __FILE__ ) , array( 'jquery' ));
 
+        // codemirror
+        wp_enqueue_style('codemirror', PPOF_PLUGIN_URL.'css/codemirror.css');
+        wp_enqueue_script('codemirror.min', plugins_url( 'js/codemirror.min.js' , __FILE__ ) , array( 'jquery' ),null, false);
+
+        // form-field-dependency
         wp_enqueue_script('form-field-dependency', plugins_url( 'js/form-field-dependency.js' , __FILE__ ) , array( 'jquery' ),null, false);
 
 

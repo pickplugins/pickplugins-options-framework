@@ -479,23 +479,139 @@ $page_4_options = array(
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
 
+
                 array(
-                    'id'		    => 'dimensions_field5',
-                    'title'		    => __('Dimensions Field','text-domain'),
-                    'details'	    => __('Description of Dimensions field','text-domain'),
-                    'placeholder'   => __('Text value','text-domain'),
-                    'type'		=> 'dimensions',
-                    'value'		=> array(
-                        'width'	    => '45',
-                        'height'	=> '45',
+                    'id'		    => 'post_objects',
+                    'title'		    => __('Post Objects Field','text-domain'),
+                    'details'	    => __('Description of Post Objects field','text-domain'),
+                    'sortable'		=> true,
+                    'value'		    => array(),
+                    'default'		=> array('post_title','menu_order','post_author'),
+                    'type'		    => 'post_objects',
+                    'args'		=> array(
+                        'thumbnail'	=> __('Post Thumbnail','text-domain'),
+                        'post_title'	=> __('Post Title','text-domain'),
+                        'post_content'	=> __('Post Content','text-domain'),
+                        'post_excerpt'	=> __('Post Excerpt','text-domain'),
+                        'post_author'	=> __('Post Author','text-domain'),
+                        'post_date'	    => __('Post Date','text-domain'),
+                        'comment_count'	=> __('Comment Count','text-domain'),
+                        'menu_order'	=> __('Menu Order','text-domain'),
                     ),
-                    'default'		=> array(
-                        'width'	    => '45',
-                        'height'	=> '45',
+                ),
+
+
+                array(
+                    'id'		    => 'google_map_field',
+                    'title'		    => __('Google Map Field','text-domain'),
+                    'details'	    => __('Description of google map field','text-domain'),
+                    'placeholder'   => __('Text value','text-domain'),
+                    'preview'       => true,
+                    'type'		    => 'google_map',
+                    'value'		=> array(
+                        'lat'	=> '25.75',
+                        'lng'	=> '89.25',
+                        'zoom'	=> '5',
+                        'title'	=> 'Map Title',
+                        'apikey'	=> '',
+                    ),
+                    'default'	=> array(
+                        'lat'	=> '25.75',
+                        'lng'	=> '89.25',
+                        'zoom'	=> '5',
+                        'title'	=> 'Map Title',
+                        'apikey'	=> '',
+
                     ),
                     'args'		=> array(
-                        'width'	=> __('Width','text-domain'),
-                        'height'	=> __('Height','text-domain'),
+                        'lat'	=> __('Latitude','text-domain'),
+                        'lng'	=> __('Longitude','text-domain'),
+                        'zoom'	=> __('Zoom','text-domain'),
+                        'title'	=> __('Title','text-domain'),
+                        'apikey'	=> __('API key','text-domain'),
+                    ),
+                ),
+                array(
+                    'id'		    => 'dimensions_field',
+                    'title'		    => __('Dimensions Field','text-domain'),
+                    'details'	    => __('Description of dimensions field','text-domain'),
+                    'type'		=> 'dimensions',
+                    'value'		=> array(
+                        'width'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'height'	    => array('val'=>'54', 'unit'=>'px' ),
+
+
+                    ),
+                    'default'		=> array(
+                        'width'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'height'	    => array('val'=>'54', 'unit'=>'px' ),
+
+                    ),
+
+
+                    'args'		=> array(
+                        'width'	=> array('name'=>__('Width','text-domain'), 'unit'=>'px'),
+                        'height'	=> array('name'=>__('Height','text-domain'), 'unit'=>'px'),
+
+
+                    ),
+                ),
+                array(
+                    'id'		    => 'margin_field',
+                    'title'		    => __('Margin Field','text-domain'),
+                    'details'	    => __('Description of margin field','text-domain'),
+                    'type'		=> 'margin',
+                    'value'		=> array(
+                        'top'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'right'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'bottom'	=> array('val'=>'54', 'unit'=>'px' ),
+                        'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+                    ),
+                    'default'		=> array(
+                        'top'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'right'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'bottom'	=> array('val'=>'54', 'unit'=>'px' ),
+                        'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+                    ),
+
+
+                    'args'		=> array(
+                        'top'	=> array('name'=>__('Top','text-domain'), 'unit'=>'px'),
+                        'right'	=> array('name'=>__('Right','text-domain'), 'unit'=>'px'),
+                        'bottom'	=> array('name'=>__('Bottom','text-domain'), 'unit'=>'px'),
+                        'left'	=> array('name'=>__('Left','text-domain'), 'unit'=>'px'),
+
+                    ),
+                ),
+                array(
+                    'id'		    => 'padding_field',
+                    'title'		    => __('Padding Field','text-domain'),
+                    'details'	    => __('Description of padding field','text-domain'),
+                    'type'		=> 'padding',
+                    'value'		=> array(
+                        'top'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'right'	    => array('val'=>'54', 'unit'=>'%' ),
+                        'bottom'	=> array('val'=>'54', 'unit'=>'em' ),
+                        'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+                    ),
+                    'default'		=> array(
+                        'top'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'right'	    => array('val'=>'54', 'unit'=>'px' ),
+                        'bottom'	=> array('val'=>'54', 'unit'=>'px' ),
+                        'left'	    => array('val'=>'54', 'unit'=>'px' ),
+
+                    ),
+
+
+                    'args'		=> array(
+                        'top'	=> array('name'=>__('Top','text-domain'), 'unit'=>'px'),
+                        'right'	=> array('name'=>__('Right','text-domain'), 'unit'=>'px'),
+                        'bottom'	=> array('name'=>__('Bottom','text-domain'), 'unit'=>'px'),
+                        'left'	=> array('name'=>__('Left','text-domain'), 'unit'=>'px'),
+
                     ),
                 ),
 

@@ -44,7 +44,7 @@ function basic_form_display_function(){
     ob_start();
 
     ?>
-    <div class="fieldsGenerator">
+    <div class="ppof-settings">
         <div class="error" style="color: #f00">
             <?php
 
@@ -56,7 +56,7 @@ function basic_form_display_function(){
         <form action="#" method="post">
     <?php
 
-    //echo '<link rel="stylesheet"  href="'.FFG_PLUGIN_URL.'css/fieldsGenerator.css">';
+    //echo '<link rel="stylesheet"  href="'.PPOF_PLUGIN_URL.'css/fieldsGenerator.css">';
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
 
@@ -142,13 +142,13 @@ function pp_display_fileds(){
 
     ?>
     <pre><?php echo var_export($_POST, true); ?></pre>
-    <div class="fieldsGenerator">
+    <div class="ppof-settings">
         <form action="#" method="post">
 
 
     <?php
 
-    //echo '<link rel="stylesheet"  href="'.FFG_PLUGIN_URL.'css/fieldsGenerator.css">';
+    //echo '<link rel="stylesheet"  href="'.PPOF_PLUGIN_URL.'css/fieldsGenerator.css">';
     echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
 
 

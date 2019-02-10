@@ -68,7 +68,7 @@ if( ! class_exists( 'AddMetaBox' ) ) {
 
             ?>
 
-            <div class='wrap wpadminsettings ffg-metabox'>
+            <div class='wrap ppof-settings ppof-metabox'>
                 <div class='navigation'>
 
                     <div class="nav-header">
@@ -250,7 +250,6 @@ if( ! class_exists( 'AddMetaBox' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'checkbox_multi' ){
                 echo $FormFieldsGenerator->field_checkbox_multi($option);
             }
-
             elseif( isset($option['type']) && $option['type'] === 'radio' ){
                 echo $FormFieldsGenerator->field_radio($option);
             }
@@ -332,11 +331,27 @@ if( ! class_exists( 'AddMetaBox' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'user' ){
                 echo $FormFieldsGenerator->field_user($option);
             }
-
-            elseif( isset($option['type']) && $option['type'] === 'custom_html' ){
-                echo $FormFieldsGenerator->field_custom_html($option);
+            elseif( isset($option['type']) && $option['type'] === 'margin' ){
+                echo $FormFieldsGenerator->field_margin($option);
             }
-
+            elseif( isset($option['type']) && $option['type'] === 'padding' ){
+                echo $FormFieldsGenerator->field_padding($option);
+            }
+            elseif( isset($option['type']) && $option['type'] === 'border' ){
+                echo $FormFieldsGenerator->field_border($option);
+            }
+            elseif( isset($option['type']) && $option['type'] === 'switcher' ){
+                echo $FormFieldsGenerator->field_switcher($option);
+            }
+            elseif( isset($option['type']) && $option['type'] === 'password' ){
+                echo $FormFieldsGenerator->field_password($option);
+            }
+            elseif( isset($option['type']) && $option['type'] === 'post_objects' ){
+                echo $FormFieldsGenerator->field_post_objects($option);
+            }
+            elseif( isset($option['type']) && $option['type'] === 'google_map' ){
+                echo $FormFieldsGenerator->field_google_map($option);
+            }
 
             elseif( isset($option['type']) && $option['type'] === $type ){
                 do_action( "wp_theme_settings_field_$type", $option );

@@ -298,7 +298,7 @@ if( ! class_exists( 'AddMenuPage' ) ) {
         public function display_function(){
 
             ?>
-            <div class='wrap wpadminsettings'>
+            <div class='wrap ppof-settings'>
 
                 <?php
 

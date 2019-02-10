@@ -1053,9 +1053,11 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
             ob_start();
-            $depends = '';
-            ?>
-            <?php if(!empty($conditions)):
+
+
+            if(!empty($conditions)):
+
+                $depends = '';
 
                 $field = isset($conditions['field']) ? $conditions['field'] :'';
                 $cond_value = isset($conditions['value']) ? $conditions['value']: '';
@@ -1132,10 +1134,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 endif;
                 $depends .= '}}';
 
-                ?>
+            endif; ?>
 
 
-            <?php endif; ?>
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?>
                     id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-text-wrapper
          field-text-wrapper-<?php echo $id; ?>">
@@ -1144,7 +1145,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 echo esc_attr($placeholder); ?>' value='<?php echo esc_attr($value); ?>' />
             </div>
             <script>
-                jQuery('.field-text-wrapper-<?php echo $id; ?>').formFieldDependency({});
+                jQuery('#field-wrapper-<?php echo $id; ?>').formFieldDependency({});
             </script>
             <?php
 
@@ -1283,13 +1284,106 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+
+
+            if(!empty($conditions)):
+
+                $depends = '';
+
+                $field = isset($conditions['field']) ? $conditions['field'] :'';
+                $cond_value = isset($conditions['value']) ? $conditions['value']: '';
+                $type = isset($conditions['type']) ? $conditions['type'] : '';
+                $pattern = isset($conditions['pattern']) ? $conditions['pattern'] : '';
+                $modifier = isset($conditions['modifier']) ? $conditions['modifier'] : '';
+                $like = isset($conditions['like']) ? $conditions['like'] : '';
+                $strict = isset($conditions['strict']) ? $conditions['strict'] : '';
+                $empty = isset($conditions['empty']) ? $conditions['empty'] : '';
+                $sign = isset($conditions['sign']) ? $conditions['sign'] : '';
+                $min = isset($conditions['min']) ? $conditions['min'] : '';
+                $max = isset($conditions['max']) ? $conditions['max'] : '';
+
+                $depends .= "{'[name=".$field."]':";
+                $depends .= '{';
+
+                if(!empty($type)):
+                    $depends .= "'type':";
+                    $depends .= "'".$type."'";
+                endif;
+
+                if(!empty($modifier)):
+                    $depends .= ",'modifier':";
+                    $depends .= "'".$modifier."'";
+                endif;
+
+                if(!empty($like)):
+                    $depends .= ",'like':";
+                    $depends .= "'".$like."'";
+                endif;
+
+                if(!empty($strict)):
+                    $depends .= ",'strict':";
+                    $depends .= "'".$strict."'";
+                endif;
+
+                if(!empty($empty)):
+                    $depends .= ",'empty':";
+                    $depends .= "'".$empty."'";
+                endif;
+
+                if(!empty($sign)):
+                    $depends .= ",'sign':";
+                    $depends .= "'".$sign."'";
+                endif;
+
+                if(!empty($min)):
+                    $depends .= ",'min':";
+                    $depends .= "'".$min."'";
+                endif;
+
+                if(!empty($max)):
+                    $depends .= ",'max':";
+                    $depends .= "'".$max."'";
+                endif;
+                if(!empty($cond_value)):
+                    $depends .= ",'value':";
+                    if(is_array($cond_value)):
+                        $count= count($cond_value);
+                        $i = 1;
+                        $depends .= "[";
+                        foreach ($cond_value as $val):
+                            $depends .= "'".$val."'";
+                            if($i<$count)
+                                $depends .= ",";
+                            $i++;
+                        endforeach;
+                        $depends .= "]";
+                    else:
+                        $depends .= "[";
+                        $depends .= "'".$cond_value."'";
+                        $depends .= "]";
+                    endif;
+                endif;
+                $depends .= '}}';
+
+            endif;
+
+
+
             ob_start();
             ?>
-            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-textarea-wrapper field-textarea-wrapper-<?php echo $field_id; ?>">
+            <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?>
+                    id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-textarea-wrapper field-textarea-wrapper-<?php echo $field_id; ?>">
                 <textarea name='<?php echo esc_attr($field_name); ?>' id='<?php echo esc_attr($field_id); ?>'
                           cols='40' rows='5'
                           placeholder='<?php echo $placeholder; ?>'><?php echo esc_attr($value); ?></textarea>
             </div>
+
+            <script>
+                <?php if(!empty($depends)) {?>
+                jQuery('.field-textarea-wrapper-<?php echo $field_id; ?>').formFieldDependency({});
+                <?php } ?>
+            </script>
+
             <?php
             return ob_get_clean();
         }
@@ -1351,9 +1445,94 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
+
+            if(!empty($conditions)):
+
+                $depends = '';
+
+                $field = isset($conditions['field']) ? $conditions['field'] :'';
+                $cond_value = isset($conditions['value']) ? $conditions['value']: '';
+                $type = isset($conditions['type']) ? $conditions['type'] : '';
+                $pattern = isset($conditions['pattern']) ? $conditions['pattern'] : '';
+                $modifier = isset($conditions['modifier']) ? $conditions['modifier'] : '';
+                $like = isset($conditions['like']) ? $conditions['like'] : '';
+                $strict = isset($conditions['strict']) ? $conditions['strict'] : '';
+                $empty = isset($conditions['empty']) ? $conditions['empty'] : '';
+                $sign = isset($conditions['sign']) ? $conditions['sign'] : '';
+                $min = isset($conditions['min']) ? $conditions['min'] : '';
+                $max = isset($conditions['max']) ? $conditions['max'] : '';
+
+                $depends .= "{'[name=".$field."]':";
+                $depends .= '{';
+
+                if(!empty($type)):
+                    $depends .= "'type':";
+                    $depends .= "'".$type."'";
+                endif;
+
+                if(!empty($modifier)):
+                    $depends .= ",'modifier':";
+                    $depends .= "'".$modifier."'";
+                endif;
+
+                if(!empty($like)):
+                    $depends .= ",'like':";
+                    $depends .= "'".$like."'";
+                endif;
+
+                if(!empty($strict)):
+                    $depends .= ",'strict':";
+                    $depends .= "'".$strict."'";
+                endif;
+
+                if(!empty($empty)):
+                    $depends .= ",'empty':";
+                    $depends .= "'".$empty."'";
+                endif;
+
+                if(!empty($sign)):
+                    $depends .= ",'sign':";
+                    $depends .= "'".$sign."'";
+                endif;
+
+                if(!empty($min)):
+                    $depends .= ",'min':";
+                    $depends .= "'".$min."'";
+                endif;
+
+                if(!empty($max)):
+                    $depends .= ",'max':";
+                    $depends .= "'".$max."'";
+                endif;
+                if(!empty($cond_value)):
+                    $depends .= ",'value':";
+                    if(is_array($cond_value)):
+                        $count= count($cond_value);
+                        $i = 1;
+                        $depends .= "[";
+                        foreach ($cond_value as $val):
+                            $depends .= "'".$val."'";
+                            if($i<$count)
+                                $depends .= ",";
+                            $i++;
+                        endforeach;
+                        $depends .= "]";
+                    else:
+                        $depends .= "[";
+                        $depends .= "'".$cond_value."'";
+                        $depends .= "]";
+                    endif;
+                endif;
+                $depends .= '}}';
+
+            endif;
+
+
             ob_start();
             ?>
-            <div id="field-wrapper-<?php echo $id; ?>" class="field-wrapper field-checkbox-wrapper field-checkbox-wrapper-<?php echo $id; ?>">
+            <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?>
+                    id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-checkbox-wrapper
+            field-checkbox-wrapper-<?php echo $id; ?>">
                 <?php
                 foreach( $args as $key => $argName ):
                     $checked = (  $key == $value ) ? "checked" : "";
@@ -1363,6 +1542,12 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 endforeach;
                 ?>
             </div>
+
+            <script>
+                <?php if(!empty($depends)) {?>
+                jQuery('.field-checkbox-wrapper-<?php echo $field_id; ?>').formFieldDependency({});
+                <?php } ?>
+            </script>
             <?php
             return ob_get_clean();
         }
