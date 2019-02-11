@@ -204,7 +204,13 @@ echo $FormFieldsGenerator->field_text($args);
 
 
 
+#### Credit
 
+*  [CodeMirror](https://codemirror.net/)
+*  [Form Field Dependency](http://emranahmed.github.io/Form-Field-Dependency/)
+*  [Select2](https://select2.org/)
+*  [Font Awesome](https://fontawesome.com/)
+*  [jQuery UI](https://jqueryui.com/)
 
 
 
