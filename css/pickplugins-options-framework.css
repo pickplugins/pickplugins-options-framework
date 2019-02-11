@@ -64,7 +64,9 @@ div > .ppof-metabox {
 
 }
 .ppof-settings .nav-header{
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #2b2828f0;
+    background: #3a3939f0;
+    color: #fff;
 }
 
 
@@ -76,7 +78,7 @@ div > .ppof-metabox {
     box-shadow: none;
 }
 .ppof-settings .nav-items .nav-item.active{
-    background: #ffffff5e;
+    background: #3a3939f0;
     outline: none;
 }
 
@@ -88,9 +90,10 @@ div > .ppof-metabox {
 
 .ppof-settings .form-header{
     padding: 20px;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+    background: #3a3939f0;
+    border-bottom: 1px solid #2b2828f0;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 .ppof-settings .form-header .submit{
@@ -101,7 +104,8 @@ div > .ppof-metabox {
 
 .ppof-settings .form-footer{
     padding: 20px;
-    background: #fff;
+    background: #3a3939f0;
+    color: #fff;
     margin-bottom: 20px;
     margin-top: 30px;
     border-top: 1px solid #ddd;
@@ -144,18 +148,41 @@ div > .ppof-metabox {
 .ppof-settings .navigation .nav-item{
     padding: 12px 10px;
     margin: 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #312f2ff0;
     cursor: pointer;
     font-size: 13px;
-    background: #ffffff;
+    background: #2b2828f0;
     display: block;
     text-decoration: none;
+    position: relative;
+    color: #fff;
 }
 
-.ppof-settings .navigation .nav-item-active{
-    background: #ffffff5e;
 
+
+
+
+.ppof-settings .navigation .nav-item.active:after {
+    right: 0%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(252, 252, 252, 0);
+    border-right-color: #ffffff;
+    border-width: 9px;
+    margin-top: -9px;
 }
+
+
+
+
+
+
+
 
 
 
