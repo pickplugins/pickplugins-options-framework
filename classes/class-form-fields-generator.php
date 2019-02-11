@@ -213,7 +213,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 </div>
                 <script>
                     jQuery(document).ready(function($) {
-                        jQuery( ".field-text-multi-wrapper-<?php echo $id; ?> .field-list" ).sortable({ handle: '.sort' });
+                        jQuery( ".field-post-objects-wrapper-<?php echo $id; ?> .field-list" ).sortable({ handle: '.sort' });
                     })
                 </script>
                 <script>

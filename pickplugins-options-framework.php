@@ -48,27 +48,27 @@ class pickpluginsOptionsFramework{
 
     public function load_functions() {
 
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-customizer-edit.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-basic-form.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-menu-page.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-meta-box.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-taxonomy-edit.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-user-profile-edit.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-theme-page.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-tools.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-user-form.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-post-type.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-taxonomy.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-user.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-media-upload-by-url.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-conditional-fields.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-customizer-edit.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-basic-form.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-menu-page.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-meta-box.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-taxonomy-edit.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-user-profile-edit.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-theme-page.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-tools.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-create-user-form.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-create-post-type.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-create-taxonomy.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-create-user.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-media-upload-by-url.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-conditional-fields.php');
 
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-sidebars.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-post-status.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-nav-menus.php');
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-insert-post.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-create-sidebars.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-create-post-status.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-create-nav-menus.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-insert-post.php');
 
-        require_once( PPOF_PLUGIN_DIR . 'functions/functions-create-dashboard-widget.php');
+        require_once( PPOF_PLUGIN_DIR . 'example/functions-create-dashboard-widget.php');
 
 
     }
