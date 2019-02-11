@@ -1,6 +1,8 @@
 # PickPlugins Options Framework
 
-Basic class for generate form input fields dynamically, easy to to use anywhere to build any type forms and input fields. This class is created for using WordPress options page and meta box.
+Not just to build a option page, but your development task easier and fast with create post types, create taxonomy, 
+edit user fields, edit taxonomy fields, create sidebar and nav menus. you can also generate form input fields 
+dynamically.
 
 * **PickPlugins Options Framework** by  [PickPlugins](https://www.pickplugins.com)
 *  [Documentation](https://www.pickplugins.com/documentation/pickplugins-options-framework/)
