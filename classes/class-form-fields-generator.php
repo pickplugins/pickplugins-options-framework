@@ -7395,7 +7395,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?>
                     id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-custom-html-wrapper
             field-custom-html-wrapper-<?php echo $id; ?>">
-                echo $html;<?php
+                <?php
+                echo $html;
                 ?>
             </div>
             <script>

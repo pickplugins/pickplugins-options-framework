@@ -29,7 +29,7 @@ if( ! class_exists( 'CreateUserForm' ) ) {
             ?>
             <pre><?php //echo var_export($get_field_template, true); ?></pre>
 
-            <div class="fieldsGenerator contact-form">
+            <div class="ppof-settings contact-form">
                 <form method="post" action="#">
 
                 <?php

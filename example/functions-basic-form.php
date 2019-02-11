@@ -56,11 +56,6 @@ function basic_form_display_function(){
         <form action="#" method="post">
     <?php
 
-    //echo '<link rel="stylesheet"  href="'.PPOF_PLUGIN_URL.'css/fieldsGenerator.css">';
-    echo '<link rel="stylesheet"  href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">';
-
-
-
 
     $args = array(
         'id'		    => 'option_name',
