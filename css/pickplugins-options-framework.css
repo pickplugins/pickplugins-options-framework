@@ -26,6 +26,51 @@ div > .ppof-metabox {
 .ppof-metabox .navigation.none{
     display: none;
 }
+.ppof-metabox .navigation.top{
+    position: relative;
+    width: 100%;
+    float: none;
+    clear: both;
+    top: 0;
+}
+
+
+.ppof-metabox .navigation.top .nav-header{
+    width: 250px;
+    float: left;
+}
+
+.ppof-metabox .navigation.top .nav-items{
+
+}
+.ppof-metabox .navigation.top .nav-item{
+    display: inline-block;
+    margin: 0;
+    padding: 16px 25px;
+    float: left;
+}
+
+.ppof-metabox .navigation.top  .themeName {
+    font-size: 15px;
+    line-height: normal;
+    display: inline-block;
+}
+
+.ppof-metabox .navigation.top .themeVersion {
+    color: #a0a5aa;
+    font-style: italic;
+    margin: 0px 0;
+    font-size: 13px;
+    display: inline-block;
+}
+
+
+.ppof-metabox .navigation.top .nav-item.active:after{
+    display: none;
+}
+
+
+
 .ppof-metabox .navigation.right .nav-item{
     padding-left: 22px;
 }
@@ -34,11 +79,20 @@ div > .ppof-metabox {
     display: none;
 }
 
+.ppof-metabox .form-wrapper.full-width-top{
+    float: none;
+    margin-left: 0;
+    width: 100%;
+    margin-top: 30px;
+    clear: both;
+}
 
 .ppof-metabox .form-wrapper.full-width{
     float: none;
     margin-left: 0;
     width: 100%;
+    margin-top: 30px;
+    clear: both;
 }
 
 .ppof-metabox .form-wrapper.full-width .tab-content{

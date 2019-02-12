@@ -126,7 +126,11 @@ if( ! class_exists( 'AddMetaBox' ) ) {
                 }
                 elseif($get_nav_position == 'left'){
                     $form_wrapper_position = 'right';
-                }else{
+                }
+                elseif($get_nav_position == 'top'){
+                    $form_wrapper_position = 'full-width-top';
+                }
+                else{
                     $form_wrapper_position = 'full-width';
                 }
                 ?>
