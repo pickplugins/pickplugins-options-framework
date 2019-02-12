@@ -87,6 +87,9 @@ if( ! class_exists( 'AddMetaBox' ) ) {
 
                     <div class="nav-items">
                         <?php
+                        do_action('nav_nav_items_top');
+                        ?>
+                        <?php
 
 
                         $current_page = 1;
@@ -104,7 +107,9 @@ if( ! class_exists( 'AddMetaBox' ) ) {
                             $current_page++;
                         endforeach;
                         ?>
-
+                        <?php
+                        do_action('nav_nav_items_bottom');
+                        ?>
                     </div>
 
                     <div class="nav-footer">
