@@ -731,7 +731,7 @@ $page_5_options = array(
     'page_settings' => array(
 
         'section_4' => array(
-            'title' 	=> 	__('This is Section Title 4','text-domain'),
+            'title' 	=> 	__('This is Section Title 5','text-domain'),
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
 
@@ -747,8 +747,6 @@ $page_5_options = array(
 
                         array('type'=>'text', 'default'=>'menu_id', 'item_id'=>'menu_id', 'name'=>'Menu ID'),
                         array('type'=>'text', 'default'=>'Menu Name', 'item_id'=>'menu_name', 'name'=>'Menu Name'),
-
-
                     ),
                 ),
                 array(

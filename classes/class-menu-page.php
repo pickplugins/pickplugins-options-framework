@@ -363,7 +363,12 @@ if( ! class_exists( 'AddMenuPage' ) ) {
                 </div>
                 <div class="form-wrapper">
 
+                    <script>jQuery(document).ready(function($){
 
+
+
+                        })
+                    </script>
 
 
                     <form class="" action='options.php' method='post'>
@@ -373,6 +378,9 @@ if( ! class_exists( 'AddMenuPage' ) ) {
                                     <div class="pagename"> # <?php echo $this->get_menu_page_title(); ?></div>
                                 </div>
                                 <div class="pp-col pp-col-50 text-align-right">
+                                    <input type="search" class="search-options" placeholder="Search Option..." value="">
+
+<!--                                    <input type="submit" value="Reset" class="button button-secondary reset-options">-->
                                     <?php submit_button(null,'primary', null, false); ?>
                                 </div>
 
@@ -389,7 +397,7 @@ if( ! class_exists( 'AddMenuPage' ) ) {
 
                             foreach ($this->get_pages() as $panelsIndex=>$panels):
                                 ?>
-                                <div class="tab-content <?php if($current_page==$panelsIndex) echo 'active'; ?>  tab-content-<?php echo
+                                <div id="<?php echo $panelsIndex; ?>" class="tab-content <?php if($current_page==$panelsIndex) echo 'active'; ?>  tab-content-<?php echo
                                 $panelsIndex;
                                 ?>">
                                     <?php

@@ -13,8 +13,55 @@ div > .ppof-metabox {
 
 }
 
-@media screen and (max-width: 768px) {
+.ppof-metabox .navigation.right{
+    float: right;
+    width: 25%;
+}
 
+.ppof-metabox .form-wrapper.left{
+    float: left;
+    margin-left: 0;
+    width: 75%;
+}
+.ppof-metabox .navigation.none{
+    display: none;
+}
+.ppof-metabox .navigation.right .nav-item{
+    padding-left: 22px;
+}
+
+.ppof-metabox .navigation.right .nav-item.active:after {
+    display: none;
+}
+
+
+.ppof-metabox .form-wrapper.full-width{
+    float: none;
+    margin-left: 0;
+    width: 100%;
+}
+
+.ppof-metabox .form-wrapper.full-width .tab-content{
+    display: block;
+}
+
+
+
+
+
+
+@media screen and (max-width: 1100px) {
+    .ppof-metabox .navigation.right{
+        float: none;
+        width: 100%;
+        position: relative;
+    }
+
+    .ppof-metabox .form-wrapper.left{
+        float: none;
+        margin-top: 30px;
+        width: 100%;
+    }
 
 }
 
@@ -100,6 +147,10 @@ div > .ppof-metabox {
 
 }
 
+.ppof-settings .form-header .search-options{
+    width: 200px;
+    border-radius: 3px;
+}
 
 
 .ppof-settings .form-footer{
@@ -173,8 +224,8 @@ div > .ppof-metabox {
     pointer-events: none;
     border-color: rgba(252, 252, 252, 0);
     border-right-color: #ffffff;
-    border-width: 9px;
-    margin-top: -9px;
+    border-width: 6px;
+    margin-top: -6px;
 }
 
 
@@ -187,7 +238,7 @@ div > .ppof-metabox {
 
 
 .ppof-settings .form-wrapper {
-    margin-left: 251px;
+    margin-left: 250px;
     background: #fff;
 }
 

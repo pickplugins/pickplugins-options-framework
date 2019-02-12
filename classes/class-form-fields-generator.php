@@ -1136,8 +1136,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ob_start();
             if(!empty($args)):
                 ?>
-                <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-margin-wrapper
-                field-margin-wrapper-<?php echo $id; ?>">
+                <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-margin-wrapper field-margin-wrapper-<?php echo $id; ?>">
                     <label><input type="checkbox" class="change-together">Apply for all</label>
                     <div class="item-list">
                         <?php
@@ -5629,7 +5628,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     jQuery(document).on('keyup', '.field-user-multi-wrapper-<?php echo $id; ?> .search-user input', function(){
                         text = jQuery(this).val();
                         $('.field-user-multi-wrapper-<?php echo $id; ?> .user-list li').each(function( index ) {
-                            console.log( index + ": " + $( this ).attr('title') );
+                            //console.log( index + ": " + $( this ).attr('title') );
                             title = $( this ).attr('title');
                             n = title.indexOf(text);
                             if(n<0){

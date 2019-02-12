@@ -66,10 +66,13 @@ if( ! class_exists( 'AddMetaBox' ) ) {
 
         public function meta_box_callback(){
 
+            $get_nav_position = $this->get_nav_position();
+
+            //var_dump($get_nav_position);
             ?>
 
             <div class='wrap ppof-settings ppof-metabox'>
-                <div class='navigation'>
+                <div class='navigation <?php echo $get_nav_position; ?>'>
 
                     <div class="nav-header">
                         <?php
@@ -116,8 +119,19 @@ if( ! class_exists( 'AddMetaBox' ) ) {
 
                 </div>
 
+                <?php
 
-                <div class="form-wrapper">
+                if($get_nav_position == 'right'){
+                    $form_wrapper_position = 'left';
+                }
+                elseif($get_nav_position == 'left'){
+                    $form_wrapper_position = 'right';
+                }else{
+                    $form_wrapper_position = 'full-width';
+                }
+                ?>
+
+                <div class="form-wrapper <?php echo $form_wrapper_position; ?>">
 
                     <div class="form-section">
                         <?php
@@ -418,6 +432,13 @@ if( ! class_exists( 'AddMetaBox' ) ) {
             if( isset( $this->data['option_name'] )) return $this->data['option_name'];
             else return false;
         }
+
+        private function get_nav_position(){
+            if( isset( $this->data['nav_position'] )) return $this->data['nav_position'];
+            else return 'left';
+        }
+
+
         private function get_post_id(){
 
             $post_id = get_the_ID();
