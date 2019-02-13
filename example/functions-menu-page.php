@@ -16,8 +16,38 @@ $page_1_options = array(
     'priority' => 10,
 	'page_settings' => array(
 
+        'section_0' => array(
+            'title' 	=> 	__('This is Section Title 0','text-domain'),
+            //'nav_title' 	=> 	__('This is nav Title 00','text-domain'),
+            'description' 	=> __('This is section details','text-domain'),
+            'options' 	=> array(
+
+//                array(
+//                    'id'		    => 'text_field',
+//                    //'field_name'		    => 'some_id_text_field_1',
+//                    'title'		    => __('Text Field','text-domain'),
+//                    'details'	    => __('Description of text field','text-domain'),
+//                    'type'		    => 'text',
+//                    'default'		=> 'Default Text',
+//                    'placeholder'   => __('Text value','text-domain'),
+//                ),
+                array(
+                    'id'		    => 'text_multi_field_0',
+                    //'field_name'		    => 'text_multi_field',
+                    'title'		    => __('Multi Text Field','text-domain'),
+                    'details'	    => __('Description of multi text field','text-domain'),
+                    'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
+                    'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
+                    'placeholder'   => __('Text value','text-domain'),
+                    'type'		    => 'text_multi',
+                    'remove_text'   => '<i class="fas fa-times"></i>',
+                ),
+            )
+        ),
+
 		'section_1' => array(
 			'title' 	=> 	__('This is Section Title 1','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 01','text-domain'),
 			'description' 	=> __('This is section details','text-domain'),
 			'options' 	=> array(
 
@@ -318,8 +348,39 @@ $page_2_options = array(
     'priority' => 10,
     'page_settings' => array(
 
+        'section_20' => array(
+            'title' 	=> 	__('This is Section Title 10','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 10','text-domain'),
+            'description' 	=> __('This is section details','text-domain'),
+            'options' 	=> array(
+
+//                array(
+//                    'id'		    => 'text_field',
+//                    //'field_name'		    => 'some_id_text_field_1',
+//                    'title'		    => __('Text Field','text-domain'),
+//                    'details'	    => __('Description of text field','text-domain'),
+//                    'type'		    => 'text',
+//                    'default'		=> 'Default Text',
+//                    'placeholder'   => __('Text value','text-domain'),
+//                ),
+                array(
+                    'id'		    => 'text_multi_field_20',
+                    //'field_name'		    => 'text_multi_field',
+                    'title'		    => __('Multi Text Field','text-domain'),
+                    'details'	    => __('Description of multi text field','text-domain'),
+                    'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
+                    'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
+                    'placeholder'   => __('Text value','text-domain'),
+                    'type'		    => 'text_multi',
+                    'remove_text'   => '<i class="fas fa-times"></i>',
+                ),
+            )
+        ),
+
+
         'section_2' => array(
-            'title' 	=> 	__('This is Section Title 2','text-domain'),
+            'title' 	=> 	__('This is Section Title 12','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 12','text-domain'),
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
 
@@ -428,7 +489,8 @@ $page_3_options = array(
     'page_settings' => array(
 
         'section_3' => array(
-            'title' 	=> 	__('This is Section Title 3','text-domain'),
+            'title' 	=> 	__('This is Section Title 20','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 20','text-domain'),
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
                 array(
@@ -513,7 +575,8 @@ $page_4_options = array(
     'page_settings' => array(
 
         'section_4' => array(
-            'title' 	=> 	__('This is Section Title 4','text-domain'),
+            'title' 	=> 	__('This is Section Title 30','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 30','text-domain'),
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
 
@@ -731,7 +794,8 @@ $page_5_options = array(
     'page_settings' => array(
 
         'section_4' => array(
-            'title' 	=> 	__('This is Section Title 5','text-domain'),
+            'title' 	=> 	__('This is Section Title 40','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 40','text-domain'),
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
 

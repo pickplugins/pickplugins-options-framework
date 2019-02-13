@@ -43,6 +43,10 @@ div > .ppof-metabox {
 .ppof-metabox .navigation.top .nav-items{
 
 }
+
+
+
+
 .ppof-metabox .navigation.top .nav-item{
     display: inline-block;
     margin: 0;
@@ -156,6 +160,49 @@ div > .ppof-metabox {
 }
 
 
+.ppof-settings .navigation {
+    width: 250px;
+    float: left;
+    position: sticky;
+    top: 30px;
+}
+.ppof-settings .navigation .nav-item-wrap{
+    padding:0px;
+    margin: 0;
+    border-bottom: 1px solid #312f2ff0;
+    cursor: pointer;
+    font-size: 13px;
+    background: #2b2828f0;
+    display: block;
+    text-decoration: none;
+    position: relative;
+    color: #fff;
+}
+
+.ppof-settings .navigation  a{
+    margin: 0;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 12px 10px;
+}
+
+
+
+/*.ppof-settings .navigation .nav-item.active:after {*/
+    /*right: 0%;*/
+    /*top: 50%;*/
+    /*border: solid transparent;*/
+    /*content: " ";*/
+    /*height: 0;*/
+    /*width: 0;*/
+    /*position: absolute;*/
+    /*pointer-events: none;*/
+    /*border-color: rgba(252, 252, 252, 0);*/
+    /*border-right-color: #ffffff;*/
+    /*border-width: 6px;*/
+    /*margin-top: -6px;*/
+/*}*/
 
 
 
@@ -172,8 +219,46 @@ div > .ppof-metabox {
 
 
 .ppof-settings .nav-items {
+    margin: 0;
+}
+
+
+.ppof-settings .child-navs li {
+    padding-left: 15px;
+}
+
+
+.ppof-settings .child-navs{
+    display: none;
+}
+
+.ppof-settings .nav-items li {
+    margin: 0;
+}
+
+.ppof-settings .nav-item-wrap.active .child-navs {
+
+    display: block;
+}
+.ppof-settings .nav-items li.has-child {
 
 }
+
+.ppof-settings .nav-items .has-child.active .child-nav-icon {
+    transform: rotate(-90deg);
+    transition: all 0.4s;
+}
+
+
+.ppof-settings .nav-items .child-nav-icon {
+    float: right;
+    font-size: 17px;
+    color: #d4d4d4;
+    margin-right: 14px;
+}
+
+
+
 .ppof-settings .nav-items .nav-item{
     outline: none;
     box-shadow: none;
@@ -244,43 +329,6 @@ div > .ppof-metabox {
 
 
 
-.ppof-settings .navigation {
-    width: 250px;
-    float: left;
-    position: sticky;
-    top: 30px;
-}
-.ppof-settings .navigation .nav-item{
-    padding: 12px 10px;
-    margin: 0;
-    border-bottom: 1px solid #312f2ff0;
-    cursor: pointer;
-    font-size: 13px;
-    background: #2b2828f0;
-    display: block;
-    text-decoration: none;
-    position: relative;
-    color: #fff;
-}
-
-
-
-
-
-.ppof-settings .navigation .nav-item.active:after {
-    right: 0%;
-    top: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-color: rgba(252, 252, 252, 0);
-    border-right-color: #ffffff;
-    border-width: 6px;
-    margin-top: -6px;
-}
 
 
 
