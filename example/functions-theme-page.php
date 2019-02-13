@@ -14,22 +14,52 @@ $page_1_options = array(
 
     'page_nav' 	=> __( '<i class="far fa-dot-circle"></i> Nav Title 1', 'text-domain' ),
     'priority' => 10,
-	'page_settings' => array(
+    'page_settings' => array(
 
-		'section_1' => array(
-			'title' 	=> 	__('This is Section Title 1','text-domain'),
-			'description' 	=> __('This is section details','text-domain'),
-			'options' 	=> array(
+        'section_0' => array(
+            'title' 	=> 	__('This is Section Title 0','text-domain'),
+            //'nav_title' 	=> 	__('This is nav Title 00','text-domain'),
+            'description' 	=> __('This is section details','text-domain'),
+            'options' 	=> array(
 
+//                array(
+//                    'id'		    => 'text_field',
+//                    //'field_name'		    => 'some_id_text_field_1',
+//                    'title'		    => __('Text Field','text-domain'),
+//                    'details'	    => __('Description of text field','text-domain'),
+//                    'type'		    => 'text',
+//                    'default'		=> 'Default Text',
+//                    'placeholder'   => __('Text value','text-domain'),
+//                ),
                 array(
-                    'id'		    => 'some_id_text_field_1',
-                    //'field_name'		    => 'some_id_text_field_1',
-                    'title'		    => __('Text Field','text-domain'),
-                    'details'	    => __('Description of text field','text-domain'),
-                    'type'		    => 'text',
-                    'default'		=> 'Default Text',
+                    'id'		    => 'text_multi_field_0',
+                    //'field_name'		    => 'text_multi_field',
+                    'title'		    => __('Multi Text Field','text-domain'),
+                    'details'	    => __('Description of multi text field','text-domain'),
+                    'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
+                    'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
                     'placeholder'   => __('Text value','text-domain'),
+                    'type'		    => 'text_multi',
+                    'remove_text'   => '<i class="fas fa-times"></i>',
                 ),
+            )
+        ),
+
+        'section_1' => array(
+            'title' 	=> 	__('This is Section Title 1','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 01','text-domain'),
+            'description' 	=> __('This is section details','text-domain'),
+            'options' 	=> array(
+
+//                array(
+//                    'id'		    => 'text_field',
+//                    //'field_name'		    => 'some_id_text_field_1',
+//                    'title'		    => __('Text Field','text-domain'),
+//                    'details'	    => __('Description of text field','text-domain'),
+//                    'type'		    => 'text',
+//                    'default'		=> 'Default Text',
+//                    'placeholder'   => __('Text value','text-domain'),
+//                ),
                 array(
                     'id'		    => 'text_multi_field',
                     //'field_name'		    => 'text_multi_field',
@@ -39,7 +69,7 @@ $page_1_options = array(
                     'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
                     'placeholder'   => __('Text value','text-domain'),
                     'type'		    => 'text_multi',
-                    'remove_text'   => __('X','text-domain'),
+                    'remove_text'   => '<i class="fas fa-times"></i>',
                 ),
                 array(
                     'id'		    => 'textarea_field',
@@ -52,13 +82,13 @@ $page_1_options = array(
                     'placeholder'   => __('Textarea placeholder','text-domain'),
                 ),
                 array(
-                    'id'		=> 'checkbox_field',
+                    'id'		=> 'checkbox_multi_field',
                     //'field_name'		    => 'text_multi_field',
-                    'title'		=> __('Checkbox  Field','text-domain'),
-                    'details'	=> __('Description of checkbox field','text-domain'),
+                    'title'		=> __('Checkbox Multi Field','text-domain'),
+                    'details'	=> __('Description of checkbox multi field','text-domain'),
                     'default'		=> array('option_3','option_2'),
                     'value'		=> array('option_2'),
-                    'type'		    => 'checkbox',
+                    'type'		    => 'checkbox_multi',
                     'args'		=> array(
                         'option_1'	=> __('Option 1','text-domain'),
                         'option_2'	=> __('Option 2','text-domain'),
@@ -66,6 +96,21 @@ $page_1_options = array(
                         'option_4'	=> __('Option 4','text-domain'),
                     ),
                 ),
+
+                array(
+                    'id'		=> 'checkbox_field',
+                    //'field_name'		    => 'text_multi_field',
+                    'title'		=> __('Checkbox  Field','text-domain'),
+                    'details'	=> __('Description of checkbox field','text-domain'),
+                    'default'		=> array('option_3','option_2'),
+                    'value'		=> 'option_1',
+                    'type'		    => 'checkbox',
+                    'args'		=> array(
+                        'option_1'	=> __('Option 1','text-domain'),
+                    ),
+                ),
+
+
                 array(
                     'id'		=> 'radio_field',
                     //'field_name'		    => 'text_multi_field',
@@ -129,6 +174,31 @@ $page_1_options = array(
                     'args'		=> array('min' => '0','max' => '100','step' => '1'),
                 ),
                 array(
+                    'id'		    => 'switcher_field',
+                    'title'		    => __('Switcher Field','text-domain'),
+                    'details'	    => __('Description of switcher field','text-domain'),
+                    'value'		    => '',
+                    'default'		=> '1',
+                    'type'		=> 'switcher',
+                    'args'		=> array(
+                        'on'	=> __('On','text-domain'),
+                        'off'	=> __('Off','text-domain'),
+                    ),
+
+                ),
+                array(
+                    'id'		=> 'switch_icon_field',
+                    'title'		=> __('Switch icon Field','text-domain'),
+                    'details'	=> __('Description of switch icon field','text-domain'),
+                    'value'		=> 'option_2',
+                    'type'		=> 'switch',
+                    'args'		=> array(
+                        'option_1'	=> __('<i class="fas fa-align-left"></i>','text-domain'),
+                        'option_2'	=> __('<i class="fas fa-align-center"></i>','text-domain'),
+                        'option_3'	=> __('<i class="fas fa-align-right"></i>','text-domain'),
+                    ),
+                ),
+                array(
                     'id'		=> 'switch_field',
                     'title'		=> __('Switch Field','text-domain'),
                     'details'	=> __('Description of switch field','text-domain'),
@@ -171,6 +241,17 @@ $page_1_options = array(
                         'option_2'	=> array('src'=>'https://i.imgur.com/tWGz0EU.png'),
                         'option_3'	=> array('src'=>'https://i.imgur.com/GT3VkYX.png'),
                     ),
+                ),
+                array(
+                    'id'		    => 'field_password',
+                    //'field_name'	=> 'text_field', // optional
+                    'title'		    => __('Password','text-domain'),
+                    'details'	    => __('Description of password','text-domain'),
+                    'value'		    => '',
+                    'password_meter'		    => true,
+                    'type'		=> 'password',
+                    'default'		=> __('','text-domain'),
+                    'placeholder'   => __('Password','text-domain'),
                 ),
                 array(
                     'id'		=> 'time_format_field',
@@ -252,11 +333,11 @@ $page_1_options = array(
 
 
 
-			)
-		),
+            )
+        ),
 
-		
-	),
+
+    ),
 );
 
 
@@ -267,8 +348,39 @@ $page_2_options = array(
     'priority' => 10,
     'page_settings' => array(
 
+        'section_20' => array(
+            'title' 	=> 	__('This is Section Title 10','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 10','text-domain'),
+            'description' 	=> __('This is section details','text-domain'),
+            'options' 	=> array(
+
+//                array(
+//                    'id'		    => 'text_field',
+//                    //'field_name'		    => 'some_id_text_field_1',
+//                    'title'		    => __('Text Field','text-domain'),
+//                    'details'	    => __('Description of text field','text-domain'),
+//                    'type'		    => 'text',
+//                    'default'		=> 'Default Text',
+//                    'placeholder'   => __('Text value','text-domain'),
+//                ),
+                array(
+                    'id'		    => 'text_multi_field_20',
+                    //'field_name'		    => 'text_multi_field',
+                    'title'		    => __('Multi Text Field','text-domain'),
+                    'details'	    => __('Description of multi text field','text-domain'),
+                    'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
+                    'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
+                    'placeholder'   => __('Text value','text-domain'),
+                    'type'		    => 'text_multi',
+                    'remove_text'   => '<i class="fas fa-times"></i>',
+                ),
+            )
+        ),
+
+
         'section_2' => array(
-            'title' 	=> 	__('This is Section Title 2','text-domain'),
+            'title' 	=> 	__('This is Section Title 12','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 12','text-domain'),
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
 
@@ -377,7 +489,8 @@ $page_3_options = array(
     'page_settings' => array(
 
         'section_3' => array(
-            'title' 	=> 	__('This is Section Title 3','text-domain'),
+            'title' 	=> 	__('This is Section Title 20','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 20','text-domain'),
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
                 array(
@@ -424,6 +537,7 @@ $page_3_options = array(
                     'details'	=> __('Repeatable Description','text-domain'),
                     'collapsible'=>true,
                     'type'		=> 'repeatable',
+                    'title_field' => 'text_field',
                     'fields'    => array(
 
                         array('type'=>'hello_world', 'default'=>'Hello 3', 'item_id'=>'hello_world_field', 'name'=>'Hello world Field'),
@@ -446,28 +560,25 @@ $page_3_options = array(
                             array('option_1'=>'Option 1', 'option_2'=>'Option 2', 'option_3'=>'Option 3')),
                         array('type'=>'checkbox', 'default'=>array('option_1','option_3'), 'item_id'=>'checkbox_field', 'name'=>'Checkbox Field', 'args'=> array('option_1'=>'Option 1', 'option_2'=>'Option 2', 'option_3'=>'Option 3')),
                     ),
-                ),
+                )
 
-                array(
-                    'id'		    => 'post_objects',
-                    'title'		    => __('Post Objects Field','text-domain'),
-                    'details'	    => __('Description of Post Objects field','text-domain'),
-                    'sortable'		=> true,
-                    'value'		    => array(),
-                    'default'		=> array('post_title','menu_order','post_author'),
-                    'type'		    => 'post_objects',
-                    'args'		=> array(
-                        'thumbnail'	=> __('Post Thumbnail','text-domain'),
-                        'post_title'	=> __('Post Title','text-domain'),
-                        'post_content'	=> __('Post Content','text-domain'),
-                        'post_excerpt'	=> __('Post Excerpt','text-domain'),
-                        'post_author'	=> __('Post Author','text-domain'),
-                        'post_date'	    => __('Post Date','text-domain'),
-                        'comment_count'	=> __('Comment Count','text-domain'),
-                        'menu_order'	=> __('Menu Order','text-domain'),
-                    ),
-                ),
+            )
+        ),
+    ),
+);
 
+
+$page_4_options = array(
+
+    'page_nav' 	=> __( '<i class="fas fa-bomb"></i> Nav Title 4', 'text-domain' ),
+    'priority' => 10,
+    'page_settings' => array(
+
+        'section_4' => array(
+            'title' 	=> 	__('This is Section Title 30','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 30','text-domain'),
+            'description' 	=> __('This is section details','text-domain'),
+            'options' 	=> array(
 
                 array(
                     'id'		    => 'google_map_field',
@@ -499,6 +610,27 @@ $page_3_options = array(
                         'apikey'	=> __('API key','text-domain'),
                     ),
                 ),
+                array(
+                    'id'		    => 'post_objects',
+                    'title'		    => __('Post Objects Field','text-domain'),
+                    'details'	    => __('Description of Post Objects field','text-domain'),
+                    'sortable'		=> true,
+                    'value'		    => array(),
+                    'default'		=> array('post_title','menu_order','post_author'),
+                    'type'		    => 'post_objects',
+                    'args'		=> array(
+                        'thumbnail'	=> __('Post Thumbnail','text-domain'),
+                        'post_title'	=> __('Post Title','text-domain'),
+                        'post_content'	=> __('Post Content','text-domain'),
+                        'post_excerpt'	=> __('Post Excerpt','text-domain'),
+                        'post_author'	=> __('Post Author','text-domain'),
+                        'post_date'	    => __('Post Date','text-domain'),
+                        'comment_count'	=> __('Comment Count','text-domain'),
+                        'menu_order'	=> __('Menu Order','text-domain'),
+                    ),
+                ),
+
+
                 array(
                     'id'		    => 'dimensions_field',
                     'title'		    => __('Dimensions Field','text-domain'),
@@ -582,49 +714,6 @@ $page_3_options = array(
 
                     ),
                 ),
-
-            )
-        ),
-    ),
-);
-
-
-$page_4_options = array(
-
-    'page_nav' 	=> __( '<i class="fas fa-bomb"></i> Nav Title 4', 'text-domain' ),
-    'priority' => 10,
-    'page_settings' => array(
-
-        'section_4' => array(
-            'title' 	=> 	__('This is Section Title 4','text-domain'),
-            'description' 	=> __('This is section details','text-domain'),
-            'options' 	=> array(
-
-                array(
-                    'id'		    => 'dimensions_field',
-                    'title'		    => __('Dimensions Field','text-domain'),
-                    'details'	    => __('Description of dimensions field','text-domain'),
-                    'type'		=> 'dimensions',
-                    'value'		=> array(
-                        'width'	    => array('val'=>'54', 'unit'=>'px' ),
-                        'height'	    => array('val'=>'54', 'unit'=>'px' ),
-
-
-                    ),
-                    'default'		=> array(
-                        'width'	    => array('val'=>'54', 'unit'=>'px' ),
-                        'height'	    => array('val'=>'54', 'unit'=>'px' ),
-
-                    ),
-
-
-                    'args'		=> array(
-                        'width'	=> array('name'=>__('Width','text-domain'), 'unit'=>'px'),
-                        'height'	=> array('name'=>__('Height','text-domain'), 'unit'=>'px'),
-
-
-                    ),
-                ),
                 array(
                     'id'		=> 'wp_editor_field',
                     'title'		=> __('WP editor Field','text-domain'),
@@ -698,7 +787,6 @@ $page_4_options = array(
 );
 
 
-
 $page_5_options = array(
 
     'page_nav' 	=> __( '<i class="fas fa-bomb"></i> Tools', 'text-domain' ),
@@ -706,7 +794,8 @@ $page_5_options = array(
     'page_settings' => array(
 
         'section_4' => array(
-            'title' 	=> 	__('This is Section Title 4','text-domain'),
+            'title' 	=> 	__('This is Section Title 40','text-domain'),
+            'nav_title' 	=> 	__('This is nav Title 40','text-domain'),
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
 
@@ -715,14 +804,13 @@ $page_5_options = array(
                     'title'		    => __('Create Menu','text-domain'),
                     'details'	    => __('You can register nav menus here. you can use these menu via <a target="_blank" href="https://developer.wordpress.org/reference/functions/wp_nav_menu/">wp_nav_menu()</a> function, example bellow.','pickthemes').'<br><code>&lt;?php wp_nav_menu( array("container" => false, "theme_location" => "header-menu", "menu_class" => "menu")); ?&gt; </code>',
                     'collapsible'   =>true,
+                    'sortable'	=> false,
                     'type'		    => 'repeatable',
                     'title_field' => 'menu_name',
                     'fields'        => array(
 
                         array('type'=>'text', 'default'=>'menu_id', 'item_id'=>'menu_id', 'name'=>'Menu ID'),
                         array('type'=>'text', 'default'=>'Menu Name', 'item_id'=>'menu_name', 'name'=>'Menu Name'),
-
-
                     ),
                 ),
                 array(
@@ -734,6 +822,7 @@ endif; ?></code>',
                     'type'		    => 'repeatable',
                     'default'		=> '',
                     'collapsible'   =>true,
+                    'sortable'	=> true,
                     'title_field' => 'name',
                     'fields'        => array(
 
@@ -755,6 +844,7 @@ endif; ?></code>',
                     'type'		=> 'repeatable',
                     'default'		=> '',
                     'collapsible'=>true,
+                    'sortable'	=> false,
                     'title_field' => 'singular_name',
                     'fields'    => array(
 
@@ -821,6 +911,7 @@ endif; ?></code>',
         ),
     ),
 );
+
 
 
 $args = array(
