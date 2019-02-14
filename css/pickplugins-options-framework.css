@@ -1001,18 +1001,19 @@ div > .ppof-metabox {
 }
 
 .field-color-sets-wrapper .color-srick{
-    width: 20px;
+    width: 25px;
     display: inline-block;
     margin: 0;
     padding: 0;
     float: left;
-    height: 40px;
+    height: 60px;
 }
 
 .field-color-sets-wrapper label{
     margin: 8px 8px;
     display: inline-block;
     border: 2px dashed rgba(0,0,0,0);
+    position: relative;
 }
 .field-color-sets-wrapper label.checked{
     border: 2px dashed #b7b7b7;
@@ -1021,6 +1022,26 @@ div > .ppof-metabox {
     background: #ddd;
     border: 1px dashed #DDE;
 }
+
+.field-color-sets-wrapper .checked-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%,-50%);
+    background: #dddddd94;
+    /* padding: 5px; */
+    border-radius: 21px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.6s;
+}
+.field-color-sets-wrapper label.checked .checked-icon{opacity: 0.7;}
+
+
+
 
 .field-color-sets-wrapper label:hover .sw-button {
     transform: scale(1.4);
@@ -1044,14 +1065,38 @@ div > .ppof-metabox {
     margin: 0;
     border: 1px solid rgba(0,0,0,0);
     display: inline-block;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
 
+}
+
+.field-color-palette-wrapper label{
+    position: relative;
+    display: inline-block;
 }
 
 .field-color-palette-wrapper label.checked{
 
 }
+
+.field-color-palette-wrapper .checked-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%,-50%);
+    background: #dddddd94;
+    /* padding: 5px; */
+    border-radius: 21px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.6s;
+}
+.field-color-palette-wrapper label.checked .checked-icon{opacity: 0.7;}
+
+
 .field-color-palette-wrapper label.checked .sw-button {
     background: #ddd;
     border: 1px dashed #DDE;
@@ -1092,14 +1137,20 @@ div > .ppof-metabox {
     margin: 0;
     border: 1px solid rgba(0,0,0,0);
     display: inline-block;
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
 
 }
 
 .field-color-palette-multi-wrapper label.checked{
 
 }
+
+.field-color-palette-multi-wrapper label{
+    position: relative;
+    display: inline-block;
+}
+
 .field-color-palette-multi-wrapper label.checked .sw-button {
     background: #ddd;
     border: 1px dashed #DDE;
@@ -1109,6 +1160,23 @@ div > .ppof-metabox {
     transform: scale(1.4);
 }
 
+
+.field-color-palette-multi-wrapper .checked-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%,-50%);
+    background: #dddddd94;
+    /* padding: 5px; */
+    border-radius: 21px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.6s;
+}
+.field-color-palette-multi-wrapper label.checked .checked-icon{opacity: 0.7;}
 
 /*field-switch-img-wrapper*/
 

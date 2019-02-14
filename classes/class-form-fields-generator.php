@@ -6907,6 +6907,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         ?>
 
 
+                        <span class="checked-icon"><i class="fas fa-check"></i></span>
+
                     </label><?php
                 endforeach;
                 ?>
@@ -7067,7 +7069,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     ?><label  class="<?php echo $checked; ?>" for='<?php echo $id; ?>-<?php echo $key; ?>'><input
                             name='<?php echo $field_name; ?>' type='radio' id='<?php echo $id; ?>-<?php echo $key; ?>'
                             value='<?php echo $key; ?>' <?php echo $checked; ?>><span title="<?php echo $color; ?>" style="background-color: <?php
-                    echo $color; ?>" class="sw-button"></span></label><?php
+                    echo $color; ?>" class="sw-button"></span>
+                    <span class="checked-icon"><i class="fas fa-check"></i></span>
+                    </label><?php
                 endforeach;
                 ?>
                 <div class="error-mgs"></div>
@@ -7224,7 +7228,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     ?><label  class="<?php echo $checked; ?>" for='<?php echo $id; ?>-<?php echo $key; ?>'><input
                             name='<?php echo $field_name; ?>[]' type='checkbox' id='<?php echo $id; ?>-<?php echo $key; ?>'
                             value='<?php echo $key; ?>' <?php echo $checked; ?>><span title="<?php echo $color; ?>" style="background-color: <?php
-                    echo $color; ?>" class="sw-button"></span></label><?php
+                    echo $color; ?>" class="sw-button"></span>
+                    <span class="checked-icon"><i class="fas fa-check"></i></span>
+                    </label><?php
                 endforeach;
                 ?>
                 <div class="error-mgs"></div>

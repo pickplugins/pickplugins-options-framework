@@ -543,8 +543,8 @@ $page_3_options = array(
                     'colors'		=> array('#dd3333','#1e73be','#8224e3','#e07000','#1e73be','#8224e3'),
                     'type'		=> 'color_palette',
                     'args'		=> array(
-                        'width'	    => '30px',
-                        'height'	=> '30px',
+                        'width'	    => '50px',
+                        'height'	=> '50px',
                         'style'	    => '',
                     ),
                 ),
@@ -555,8 +555,8 @@ $page_3_options = array(
                     'colors'		=> array('#dd3333','#1e73be','#8224e3','#e07000','#1e73be','#8224e3'),
                     'type'		=> 'color_palette_multi',
                     'args'		=> array(
-                        'width'	    => '30px',
-                        'height'	=> '30px',
+                        'width'	    => '40px',
+                        'height'	=> '40px',
                         'style'	=> '',
                     ),
 
@@ -575,8 +575,8 @@ $page_3_options = array(
                     'value'		=> 'option_2',
                     'default'		=> 'option_1',
                     'args'		=> array(
-                        'width'	    => '30px',
-                        'height'	=> '30px',
+                        'width'	    => '40px',
+                        'height'	=> '40px',
                         'style'	=> '',
                     ),
 
