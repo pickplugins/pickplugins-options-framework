@@ -426,7 +426,7 @@ if( ! class_exists( 'AddMenuPage' ) ) {
                                     <div class="pagename"> # <?php echo $this->get_menu_page_title(); ?></div>
                                 </div>
                                 <div class="pp-col pp-col-50 text-align-right">
-                                    <input type="search" class="search-options" placeholder="Search Option..." value="">
+<!--                                    <input type="search" class="search-options" placeholder="Search Option..." value="">-->
 
 <!--                                    <input type="submit" value="Reset" class="button button-secondary reset-options">-->
                                     <?php submit_button(null,'primary', null, false); ?>

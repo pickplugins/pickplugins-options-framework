@@ -95,13 +95,56 @@ if( ! class_exists( 'AddMetaBox' ) ) {
                         $current_page = 1;
                         foreach( $this->get_panels() as $page_id => $page ):
 
-                            //var_dump($page_id);
 
+                            $page_settings = !empty($page['sections']) ? $page['sections'] : array();
+
+
+                            $page_settings_count = count($page_settings);
+                            //var_dump($page_settings);
                             ?>
-                            <a dataid="<?php echo $page_id; ?>" href='#<?php //echo $pagenow.'?'.$nav_menu_url; ?><?php echo
-                            $page_id; ?>' class='nav-item <?php if($current_page==1) echo 'active'; ?>'><?php echo
-                                $page['page_nav']; ?></a>
-                        <?php
+                            <li class="nav-item-wrap <?php if(($page_settings_count > 1)) echo 'has-child'; ?> <?php if($current_page==$page_id) echo 'active'; ?>">
+                                <a dataid="<?php echo $page_id; ?>" href='#<?php //echo $pagenow.'?'.$nav_menu_url; ?><?php echo
+                                $page_id; ?>' class='nav-item'><?php echo $page['page_nav']; ?>
+
+                                    <?php if(($page_settings_count > 1)) echo '<i class="child-nav-icon fas fa-angle-down"></i>'; ?>
+                                </a>
+                                <?php
+                                if(($page_settings_count > 1)):
+                                    ?>
+                                    <ul class="child-navs">
+                                        <?php
+                                        foreach ($page_settings as $section_id=>$nav_sections):
+                                            $nav_sections_title = !empty($nav_sections['nav_title']) ? $nav_sections['nav_title'] : $nav_sections['title'];
+
+                                            //var_dump($nav_sections_title);
+                                            ?>
+                                            <li>
+
+                                                <a sectionId="<?php echo $section_id; ?>" dataid="<?php echo $page_id; ?>" href='#<?php //echo $pagenow.'?'.$nav_menu_url; ?><?php echo
+                                                $page_id; ?>' class='nav-item <?php if($current_page==$page_id) echo 'active'; ?>'><?php echo $nav_sections_title; ?>
+
+
+                                                </a>
+
+
+                                            </li>
+                                        <?php
+
+                                        endforeach;
+                                        ?>
+                                    </ul>
+                                <?php
+                                endif;
+                                ?>
+
+
+
+
+
+                            </li>
+
+                            <?php
+
 
 
                             $current_page++;
@@ -158,7 +201,7 @@ if( ! class_exists( 'AddMetaBox' ) ) {
                                 foreach ($panel['sections'] as $sectionIndex=>$section):
                                     ?>
                                     <div class="section">
-                                        <h1 class="section-title"><?php echo $section['title']; ?></h1>
+                                        <h1 id="<?php echo $sectionIndex; ?>" class="section-title"><?php echo $section['title']; ?></h1>
                                         <p class="description"><?php echo $section['description']; ?></p>
 
                                         <table class="form-table">
