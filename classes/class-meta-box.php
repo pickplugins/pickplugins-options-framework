@@ -309,7 +309,9 @@ if( ! class_exists( 'AddMetaBox' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'datepicker' ){
                 echo $FormFieldsGenerator->field_datepicker($option);
             }
-
+            elseif( isset($option['type']) && $option['type'] === 'color_sets' ){
+                echo $FormFieldsGenerator->field_color_sets($option);
+            }
             elseif( isset($option['type']) && $option['type'] === 'colorpicker' ){
                 echo $FormFieldsGenerator->field_colorpicker($option);
             }

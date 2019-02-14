@@ -187,6 +187,10 @@ if( ! class_exists( 'AddMenuPage' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'grid' ){
                 echo $FormFieldsGenerator->field_grid($option);
             }
+            elseif( isset($option['type']) && $option['type'] === 'color_sets' ){
+                echo $FormFieldsGenerator->field_color_sets($option);
+            }
+
             elseif( isset($option['type']) && $option['type'] === 'color_palette' ){
                 echo $FormFieldsGenerator->field_color_palette($option);
             }

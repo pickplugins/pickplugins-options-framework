@@ -169,6 +169,7 @@ $page_1_options = array(
                     'details'	=> __('Description of select field','text-domain'),
                     'default'		=> 'option_2',
                     'value'		=> 'option_2',
+
                     'type'		    => 'select',
                     'args'		=> array(
                         'option_1'	=> __('Option 1','text-domain'),
@@ -184,11 +185,14 @@ $page_1_options = array(
                     'default'		=> 'option_2',
                     'value'		=> 'option_2',
                     'multiple'		=> true,
+                    'limit'		=> '3',
                     'type'		    => 'select',
                     'args'		=> array(
                         'option_1'	=> __('Option 1','text-domain'),
                         'option_2'	=> __('Option 2','text-domain'),
                         'option_3'	=> __('Option 3','text-domain'),
+                        'option_4'	=> __('Option 4','text-domain'),
+                        'option_5'	=> __('Option 5','text-domain'),
                     ),
                 ),
                 array(
@@ -334,6 +338,8 @@ $page_1_options = array(
                     'default'		=> array('#dd3333','#1e73be','#8224e3'),
                     'value'		=> array('#ff0000','#1e73be','#8224e3'),
                     'type'		=> 'colorpicker_multi',
+                    'limit'		=> '5',
+                    'remove_text'		=> '<i class="fas fa-times"></i>',
                 ),
                 array(
                     'id'		=> 'link_color_field',
@@ -357,6 +363,7 @@ $page_1_options = array(
                     'default'	=> array('fas fa-bomb','fas fa-address-book'),
                     'args'		=> 'FONTAWESOME_ARRAY',
                     'type'		=> 'icon_multi',
+                    'limit'		=> '5',
                 ),
 
 
@@ -554,6 +561,29 @@ $page_3_options = array(
                     ),
 
                 ),
+
+                array(
+                    'id'		=> 'color_sets_multi_field',
+                    'title'		=> __('Color sets Field','text-domain'),
+                    'details'	=> __('Description of color sets field','text-domain'),
+                    'sets'		=> array(
+                        'option_1'=> array('#dd3333','#1e73be','#8224e3'),
+                        'option_2'=> array('#e07000','#1e73be','#8224e3'),
+                        'option_3'=> array('#e07000','#1e73be','#8224e3'),
+                    ),
+                    'type'		=> 'color_sets',
+                    'value'		=> 'option_2',
+                    'default'		=> 'option_1',
+                    'args'		=> array(
+                        'width'	    => '30px',
+                        'height'	=> '30px',
+                        'style'	=> '',
+                    ),
+
+                ),
+
+
+
                 array(
                     'id'		    => 'field_media',
                     'title'		    => __('Media ','text-domain'),

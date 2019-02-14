@@ -964,8 +964,26 @@ function pp_display_fileds(){
 
     echo $FormFieldsGenerator->field_grid($args);
 
+    $args = array(
+        'id'		=> 'color_sets_multi_field',
+        'title'		=> __('Color sets Field','text-domain'),
+        'details'	=> __('Description of color sets field','text-domain'),
+        'sets'		=> array(
+            'option_1'=> array('#dd3333','#1e73be','#8224e3'),
+            'option_2'=> array('#e07000','#1e73be','#8224e3'),
+            'option_3'=> array('#e07000','#1e73be','#8224e3'),
+        ),
+        'type'		=> 'color_sets',
+        'value'		=> 'option_2',
+        'default'		=> 'option_1',
+        'args'		=> array(
+            'width'	    => '30px',
+            'height'	=> '30px',
+            'style'	=> '',
+        ),
 
-
+    );
+    echo $FormFieldsGenerator->field_color_sets($args);
 
     $args = array(
         'id'		=> 'color_palette_field',

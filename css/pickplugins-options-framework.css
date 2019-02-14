@@ -980,6 +980,52 @@ div > .ppof-metabox {
 }
 
 
+/*field-color-sets-wrapper*/
+
+.field-color-sets-wrapper{
+    margin-bottom: 15px;
+}
+
+.field-color-sets-wrapper input[type='radio']{
+    display: none;
+}
+
+.field-color-sets-wrapper .sw-button{
+    background: #eee;
+    margin: 0;
+    border: 1px solid rgba(0,0,0,0);
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+
+}
+
+.field-color-sets-wrapper .color-srick{
+    width: 20px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    float: left;
+    height: 40px;
+}
+
+.field-color-sets-wrapper label{
+    margin: 8px 8px;
+    display: inline-block;
+    border: 2px dashed rgba(0,0,0,0);
+}
+.field-color-sets-wrapper label.checked{
+    border: 2px dashed #b7b7b7;
+}
+.field-color-sets-wrapper label.checked .sw-button {
+    background: #ddd;
+    border: 1px dashed #DDE;
+}
+
+.field-color-sets-wrapper label:hover .sw-button {
+    transform: scale(1.4);
+}
+
 
 
 
@@ -1014,6 +1060,20 @@ div > .ppof-metabox {
 .field-color-palette-wrapper label:hover .sw-button {
     transform: scale(1.4);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -493,6 +493,27 @@ $page_3_options = array(
             'nav_title' 	=> 	__('This is nav Title 20','text-domain'),
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
+
+                array(
+                    'id'		=> 'color_sets_multi_field',
+                    'title'		=> __('Color sets Field','text-domain'),
+                    'details'	=> __('Description of color sets field','text-domain'),
+                    'sets'		=> array(
+                        'option_1'=> array('#dd3333','#1e73be','#8224e3'),
+                        'option_2'=> array('#e07000','#1e73be','#8224e3'),
+                        'option_3'=> array('#e07000','#1e73be','#8224e3'),
+                    ),
+                    'type'		=> 'color_sets',
+                    'value'		=> 'option_2',
+                    'default'		=> 'option_1',
+                    'args'		=> array(
+                        'width'	    => '30px',
+                        'height'	=> '30px',
+                        'style'	=> '',
+                    ),
+
+                ),
+
                 array(
                     'id'		=> 'color_palette_field',
                     'title'		=> __('Color palette Field','text-domain'),

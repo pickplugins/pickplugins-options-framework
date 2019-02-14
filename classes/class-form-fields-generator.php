@@ -59,6 +59,14 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 *  Padding
 *  Google Map
  *
+ *
+ *
+ * Background
+ * Color set
+ * Typography
+ * Spinner
+ * Image Select
+
 */
 
 
@@ -3956,7 +3964,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $args	    = is_array( $args ) ? $args : $this->args_from_string( $args );
             $default    = isset( $option['default'] ) ? $option['default'] : "";
             $multiple 	= isset( $option['multiple'] ) ? $option['multiple'] : false;
-
+            $limit 	    = !empty( $option['limit'] ) ? $option['limit'] : '';
             $value		= isset( $option['value'] ) ? $option['value'] : '';
             $value      = !empty($value) ?  $value : $default;
 
@@ -3993,6 +4001,47 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             </div>
             <script>
+                jQuery(document).ready(function($) {
+
+                    <?php
+                    if($limit > 0):
+                        ?>
+                        jQuery(document).on('change', '.field-select-wrapper-<?php echo $id; ?> select', function() {
+
+                            last_value = $('.field-select-wrapper-<?php echo $id; ?> select :selected').last().val();
+
+                            var node_count = $( ".field-select-wrapper-<?php echo $id; ?> select :selected" ).size();
+
+                            console.log(last_value);
+
+                            var limit = <?php  echo $limit; ?>;
+                            //var node_count = $(".field-select-wrapper-<?php echo $id; ?> select :selected").length;
+                            //var node_count = $( ".field-select-wrapper-<?php echo $id; ?> .field-list .item-wrap" ).size();
+                            //console.log(node_count);
+                            if(limit >= node_count){
+
+                                //jQuery('.<?php echo 'field-select-wrapper-'.$id; ?> .field-list').append(html);
+                            }else{
+                                $(".field-select-wrapper-<?php echo $id; ?> select option[value='"+last_value+"']").prop("selected", false);
+                                jQuery('.field-select-wrapper-<?php echo $id; ?> .error-mgs').html('Sorry! you can select max '+limit+' item').stop().fadeIn(400).delay(3000).fadeOut(400);
+                            }
+
+                        })
+                        <?php
+
+                    endif;
+                    ?>
+
+
+
+
+
+                })
+
+
+
+
+
                 <?php if(!empty($depends)) {?>
                 jQuery('#field-wrapper-<?php echo $id; ?>').formFieldDependency({});
                 <?php } ?>
@@ -5210,6 +5259,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : array();
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
+            $limit 	        = isset( $option['limit'] ) ? $option['limit'] : "";
+            $remove_text 	= isset( $option['remove_text'] ) ? $option['remove_text'] : "X";
             $default 	= isset( $option['default'] ) ? $option['default'] : array();
 
             $values = !empty($value) ? $value : $default;
@@ -5313,7 +5364,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         foreach ($values as $value):
                             ?>
                             <div class="item">
-                                <span class="button remove">X</span>
+                                <span class="button remove"><?php echo $remove_text; ?></span>
                                 <input type='text' name='<?php echo $field_name; ?>[]' value='<?php echo $value; ?>' />
                             </div>
                         <?php
@@ -5332,10 +5383,32 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     })
                     jQuery(document).on('click', '.field-colorpicker-multi-wrapper-<?php echo $id; ?> .add', function() {
                         html='<div class="item">';
-                        html+='<span class="button remove">X</span> <input type="text"  name="<?php echo $field_name; ?>[]" value="" />';
+                        html+='<span class="button remove"><?php echo $remove_text; ?></span> <input type="text"  name="<?php echo $field_name; ?>[]" value="" />';
                         html+='</div>';
-                        $('.field-colorpicker-multi-wrapper-<?php echo $id; ?> .item-list').append(html);
-                        $('.field-colorpicker-multi-wrapper-<?php echo $id; ?> input').wpColorPicker();
+
+
+                        <?php
+                        if(!empty($limit)):
+                        ?>
+                        var limit = <?php  echo $limit; ?>;
+                        var node_count = $( ".field-colorpicker-multi-wrapper-<?php echo $id; ?> .item-list .item" ).size();
+                        if(limit > node_count){
+
+                            $('.field-colorpicker-multi-wrapper-<?php echo $id; ?> .item-list').append(html);
+                            $('.field-colorpicker-multi-wrapper-<?php echo $id; ?> input').wpColorPicker();
+
+
+                        }else{
+                            jQuery('.field-colorpicker-multi-wrapper-<?php echo $id; ?> .error-mgs').html('Sorry! you can add max '+limit+' item').stop().fadeIn(400).delay(3000).fadeOut(400);
+                        }
+                        <?php
+                        endif;
+                        ?>
+
+
+
+
+
                     })
                     $('.field-colorpicker-multi-wrapper-<?php echo $id; ?> input').wpColorPicker();
                 });
@@ -5849,6 +5922,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $default 	    = isset( $option['default'] ) ? $option['default'] : array();
             $icons		    = is_array( $args ) ? $args :  $this->args_from_string( $args );
 
+            $limit 	        = isset( $option['limit'] ) ? $option['limit'] : "";
             $value 	        = isset( $option['value'] ) ? $option['value'] : "";
             $values         = !empty($value) ? $value : $default;
 
@@ -5995,7 +6069,28 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     jQuery(document).on('click', '.field-icon-multi-wrapper-<?php echo $id; ?> .icon-list li', function(){
                         iconData = jQuery(this).attr('iconData');
                         html = '<div class="item" title="click to remove"><span><i class="'+iconData+'"></i></span><input type="hidden" name="<?php echo $field_name; ?>[]" value="'+iconData+'"></div>';
-                        jQuery('.field-icon-multi-wrapper-<?php echo $id; ?> .icons-wrapper').append(html);
+
+
+                        <?php
+                        if(!empty($limit)):
+                        ?>
+                        var limit = <?php  echo $limit; ?>;
+                        var node_count = $( ".field-icon-multi-wrapper-<?php echo $id; ?> .icons-wrapper .item" ).size();
+                        if(limit > node_count){
+
+                            jQuery('.field-icon-multi-wrapper-<?php echo $id; ?> .icons-wrapper').append(html);
+
+
+                        }else{
+                            jQuery('.field-icon-multi-wrapper-<?php echo $id; ?> .error-mgs').html('Sorry! you can add max '+limit+' item').stop().fadeIn(400).delay(3000).fadeOut(400);
+                        }
+                        <?php
+                        endif;
+                        ?>
+
+
+
+
                     })
                 })
             </script>
@@ -6683,6 +6778,177 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
 
 
+
+
+        public function field_color_sets( $option ){
+
+            $id				= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : array();
+
+            $args			= isset( $option['args'] ) ? $option['args'] : array();
+            $width			= isset( $args['width'] ) ? $args['width'] : "";
+            $height			= isset( $args['height'] ) ? $args['height'] : "";
+            $sets		    = isset( $option['sets'] ) ? $option['sets'] : array();
+            //$option_value	= get_option( $id );
+            $default		= isset( $option['default'] ) ? $option['default'] : '';
+            $value			= isset( $option['value'] ) ? $option['value'] : '';
+            $value          = !empty($value) ?  $value : $default;
+
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+
+
+            if(!empty($conditions)):
+
+                $depends = '';
+
+                $field = isset($conditions['field']) ? $conditions['field'] :'';
+                $cond_value = isset($conditions['value']) ? $conditions['value']: '';
+                $type = isset($conditions['type']) ? $conditions['type'] : '';
+                $pattern = isset($conditions['pattern']) ? $conditions['pattern'] : '';
+                $modifier = isset($conditions['modifier']) ? $conditions['modifier'] : '';
+                $like = isset($conditions['like']) ? $conditions['like'] : '';
+                $strict = isset($conditions['strict']) ? $conditions['strict'] : '';
+                $empty = isset($conditions['empty']) ? $conditions['empty'] : '';
+                $sign = isset($conditions['sign']) ? $conditions['sign'] : '';
+                $min = isset($conditions['min']) ? $conditions['min'] : '';
+                $max = isset($conditions['max']) ? $conditions['max'] : '';
+
+                $depends .= "{'[name=".$field."]':";
+                $depends .= '{';
+
+                if(!empty($type)):
+                    $depends .= "'type':";
+                    $depends .= "'".$type."'";
+                endif;
+
+                if(!empty($modifier)):
+                    $depends .= ",'modifier':";
+                    $depends .= "'".$modifier."'";
+                endif;
+
+                if(!empty($like)):
+                    $depends .= ",'like':";
+                    $depends .= "'".$like."'";
+                endif;
+
+                if(!empty($strict)):
+                    $depends .= ",'strict':";
+                    $depends .= "'".$strict."'";
+                endif;
+
+                if(!empty($empty)):
+                    $depends .= ",'empty':";
+                    $depends .= "'".$empty."'";
+                endif;
+
+                if(!empty($sign)):
+                    $depends .= ",'sign':";
+                    $depends .= "'".$sign."'";
+                endif;
+
+                if(!empty($min)):
+                    $depends .= ",'min':";
+                    $depends .= "'".$min."'";
+                endif;
+
+                if(!empty($max)):
+                    $depends .= ",'max':";
+                    $depends .= "'".$max."'";
+                endif;
+                if(!empty($cond_value)):
+                    $depends .= ",'value':";
+                    if(is_array($cond_value)):
+                        $count= count($cond_value);
+                        $i = 1;
+                        $depends .= "[";
+                        foreach ($cond_value as $val):
+                            $depends .= "'".$val."'";
+                            if($i<$count)
+                                $depends .= ",";
+                            $i++;
+                        endforeach;
+                        $depends .= "]";
+                    else:
+                        $depends .= "[";
+                        $depends .= "'".$cond_value."'";
+                        $depends .= "]";
+                    endif;
+                endif;
+                $depends .= '}}';
+
+            endif;
+
+
+
+            ob_start();
+            ?>
+            <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-color-sets-wrapper
+            field-color-sets-wrapper-<?php echo $id; ?>">
+                <?php
+                foreach( $sets as $key => $set ):
+
+                    //var_dump($value);
+
+                    $checked = ( $key == $value ) ? "checked" : "";
+                    ?>
+                    <label  class="<?php echo $checked; ?>" for='<?php echo $id; ?>-<?php echo $key; ?>'>
+                        <input name='<?php echo $field_name; ?>' type='radio' id='<?php echo $id; ?>-<?php echo $key; ?>' value='<?php echo $key; ?>' <?php echo $checked; ?>>
+                        <?php
+                        foreach ($set as $color):
+                            ?>
+                            <span class="color-srick" style="background-color: <?php echo $color; ?>;"></span>
+                            <?php
+
+                        endforeach;
+                        ?>
+
+
+                    </label><?php
+                endforeach;
+                ?>
+                <div class="error-mgs"></div>
+            </div>
+            <style type="text/css">
+                .field-color-palette-wrapper-<?php echo $id; ?> .sw-button{
+                    transition: ease all 1s;
+                <?php if(!empty($width)):  ?>
+                    width: <?php echo $width; ?>;
+                <?php endif; ?>
+                <?php if(!empty($height)):  ?>
+                    height: <?php echo $height; ?>;
+                <?php endif; ?>
+                }
+                .field-color-palette-wrapper-<?php echo $id; ?> label:hover .sw-button{
+                }
+            </style>
+            <script>
+                jQuery(document).ready(function($) {
+                    jQuery(document).on('click', '.field-color-sets-wrapper-<?php echo $id; ?> .color-srick', function() {
+
+                        jQuery('.field-color-sets-wrapper-<?php echo $id; ?> label').removeClass('checked');
+                        if(jQuery(this).parent().hasClass('checked')){
+                            jQuery(this).parent().removeClass('checked');
+                        }else{
+                            jQuery(this).parent().addClass('checked');
+                        }
+
+
+                    })
+                })
+            </script>
+            <script>
+                <?php if(!empty($depends)) {?>
+                jQuery('#field-wrapper-<?php echo $id; ?>').formFieldDependency({});
+                <?php } ?>
+            </script>
+            <?php
+            return ob_get_clean();
+
+        }
 
 
 
@@ -7543,11 +7809,11 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ?>
             <script>
                 jQuery(document).ready(function($) {
-                    jQuery(document).on('click', '.field-repeatable-wrapper-<?php echo $id; ?> .collapsible .header', function() {
-                        if(jQuery(this).parent().hasClass('active')){
-                            jQuery(this).parent().removeClass('active');
+                    jQuery(document).on('click', '.field-repeatable-wrapper-<?php echo $id; ?> .collapsible .header .title-text', function() {
+                        if(jQuery(this).parent().parent().hasClass('active')){
+                            jQuery(this).parent().parent().removeClass('active');
                         }else{
-                            jQuery(this).parent().addClass('active');
+                            jQuery(this).parent().parent().addClass('active');
                         }
                     })
 
@@ -7567,6 +7833,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
                         <?php
                         if(!empty($limit)):
+
+
                         ?>
                         var limit = <?php  echo $limit; ?>;
                         var node_count = $( ".field-repeatable-wrapper-<?php echo $id; ?> .field-list .item-wrap" ).size();
@@ -7589,6 +7857,18 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         ?>
 
                         //$( this ).parent().appendTo( '.field-text-multi-wrapper-<?php echo $id; ?> .field-list' );
+
+
+                        //$('.field-repeatable-wrapper-<?php //echo $id; ?>// .field-list .item-wrap').each(function( index ) {
+                        //
+                        //    $(this).children('.item .content').each(function( index2 ) {
+                        //        console.log(index2);
+                        //    })
+                        //
+                        //
+                        //});
+
+
 
 
                     })
@@ -7618,7 +7898,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         <?php if($sortable):?>
                         html += '<span class="button sort" ><i class="fas fa-arrows-alt"></i></span>';
                         <?php endif; ?>
-                        html += ' <span>#'+now+'</span></div>';
+                        html += ' <span  class="title-text">#'+now+'</span></div>';
                         fields_arr.forEach(function(element) {
                             type = element.type;
                             item_id = element.item_id;
