@@ -3236,7 +3236,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     ?>
                 </div>
                 <div class="error-mgs"></div>
-                <script>jQuery(document).ready(function($) {
+                <script>
+                    jQuery(document).ready(function($) {
                         jQuery(document).on('click', '.field-text-multi-wrapper-<?php echo $id; ?> .clone',function(){
 
 
@@ -3270,6 +3271,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             echo esc_attr($placeholder); ?>" />';
                         html_<?php echo $id; ?> += '<span class="button remove" onclick="jQuery(this).parent().remove()' +
                             '"><?php echo ($remove_text); ?></span>';
+                        html_<?php echo $id; ?> += '<span class="button clone"><i class="far fa-clone"></i></span>';
                         <?php if($sortable):?>
                         html_<?php echo $id; ?> += ' <span class="button sort" ><i class="fas fa-arrows-alt"></i></span>';
                         <?php endif; ?>
@@ -7548,14 +7550,73 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             jQuery(this).parent().addClass('active');
                         }
                     })
+
+
+
+
+
+
+                    jQuery(document).on('click', '.field-repeatable-wrapper-<?php echo $id; ?> .clone',function(){
+
+                        //event.preventDefault();
+
+                        index_id = $(this).attr('index_id');
+                        now = jQuery.now();
+
+
+
+                        <?php
+                        if(!empty($limit)):
+                        ?>
+                        var limit = <?php  echo $limit; ?>;
+                        var node_count = $( ".field-repeatable-wrapper-<?php echo $id; ?> .field-list .item-wrap" ).size();
+                        if(limit > node_count){
+                            $( this ).parent().parent().clone().appendTo('.field-repeatable-wrapper-<?php echo $id; ?> .field-list' );
+                           // html = $( this ).parent().parent().clone();
+                            //var html_new = html.replace(index_id, now);
+                            //jQuery('.<?php echo 'field-repeatable-wrapper-'.$id; ?> .field-list').append(html_new);
+                            //console.log(html);
+
+                        }else{
+                            jQuery('.field-repeatable-wrapper-<?php echo $id; ?> .error-mgs').html('Sorry! you can add max '+limit+' item').stop().fadeIn(400).delay(3000).fadeOut(400);
+                        }
+                        <?php
+                        else:
+                        ?>
+                        $( this ).parent().clone().appendTo('.field-repeatable-wrapper-<?php echo $id; ?> .field-list' );
+                        <?php
+                        endif;
+                        ?>
+
+                        //$( this ).parent().appendTo( '.field-text-multi-wrapper-<?php echo $id; ?> .field-list' );
+
+
+                    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     jQuery(document).on('click', '.field-repeatable-wrapper-<?php echo $id; ?> .add-item', function() {
                         now = jQuery.now();
                         fields_arr = <?php echo json_encode($fields); ?>;
                         html = '<div class="item-wrap collapsible"><div class="header"><span class="button remove" ' +
                             'onclick="jQuery(this).parent().parent().remove()">X</span>';
 
+                        //html += '<span index_id="" class="button clone"><i class="far fa-clone"></i></span>';
+
                         <?php if($sortable):?>
-                        html += ' <span class="button sort" ><i class="fas fa-arrows-alt"></i></span>';
+                        html += '<span class="button sort" ><i class="fas fa-arrows-alt"></i></span>';
                         <?php endif; ?>
                         html += ' <span>#'+now+'</span></div>';
                         fields_arr.forEach(function(element) {
@@ -7657,6 +7718,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                                 <div class="header">
                                     <?php endif; ?>
                                     <span class="button remove" onclick="jQuery(this).parent().parent().remove()">X</span>
+<!--                                    <span index_id="--><?php //echo $index; ?><!--" class="button clone"><i class="far fa-clone"></i></span>-->
                                     <?php if($sortable):?>
                                         <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
                                     <?php endif; ?>
