@@ -40,6 +40,7 @@ $page_1_options = array(
                     'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
                     'placeholder'   => __('Text value','text-domain'),
                     'type'		    => 'text_multi',
+                    'limit'		    => '5',
                     'remove_text'   => '<i class="fas fa-times"></i>',
                 ),
             )

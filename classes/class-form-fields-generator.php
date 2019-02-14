@@ -211,6 +211,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     endif;
                     ?>
                 </div>
+                <div class="error-mgs"></div>
                 <script>
                     jQuery(document).ready(function($) {
                         jQuery( ".field-post-objects-wrapper-<?php echo $id; ?> .field-list" ).sortable({ handle: '.sort' });
@@ -350,6 +351,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     endforeach;
                     ?>
                 </label>
+                <div class="error-mgs"></div>
             </div>
 
             <script>
@@ -504,6 +506,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         endforeach;
                         ?>
                     </div>
+                    <div class="error-mgs"></div>
                 </div>
                 <script>
                     <?php if(!empty($depends)) {?>
@@ -685,6 +688,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         ?>[color]' value='<?php echo $color; ?>' /></span>
                     </div>
                 </div>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -834,6 +838,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         endforeach;
                         ?>
                     </div>
+                    <div class="error-mgs"></div>
                 </div>
                 <script>
                     <?php if(!empty($depends)) {?>
@@ -980,6 +985,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         endforeach;
                         ?>
                     </div>
+                    <div class="error-mgs"></div>
                 </div>
                 <script>
                     <?php if(!empty($depends)) {?>
@@ -1166,6 +1172,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         endforeach;
                         ?>
                     </div>
+                    <div class="error-mgs"></div>
                 </div>
                 <script>
                     jQuery(document).ready(function($) {
@@ -1339,6 +1346,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     </script>
 
                 <?php endif;?>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -1471,6 +1479,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 <div class="img-val">
                     <input type="text" name="<?php echo $field_name; ?>" value="<?php echo $value; ?>">
                 </div>
+                <div class="error-mgs"></div>
             </div>
             <script>jQuery(document).ready(function($) {
                     jQuery(document).on('click', '.field-img-select-wrapper-<?php echo $id; ?> .sw-button img', function() {
@@ -1604,6 +1613,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-submit-wrapper
             field-submit-wrapper-<?php echo $id; ?>">
                 <input type='submit' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -1717,6 +1727,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-nonce-wrapper
             field-nonce-wrapper-<?php echo $id; ?>">
                 <?php wp_nonce_field( $action_name, $field_name ); ?>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -1835,6 +1846,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-color-wrapper
             field-color-wrapper-<?php echo $id; ?>">
                 <input type='color' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -1954,6 +1966,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-email-wrapper
             field-email-wrapper-<?php echo $id; ?>">
                 <input type='email' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -2074,6 +2087,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 <div class="scorePassword"></div>
                 <div class="scoreText"></div>
                 <?php endif; ?>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -2234,6 +2248,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-search-wrapper
             field-search-wrapper-<?php echo $id; ?>">
                 <input type='search' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -2350,6 +2365,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-month-wrapper
             field-month-wrapper-<?php echo $id; ?>">
                 <input type='time' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -2466,6 +2482,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-date-wrapper
             field-date-wrapper-<?php echo $id; ?>">
                 <input type='date' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -2580,6 +2597,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ?>
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-url-wrapper field-url-wrapper-<?php echo $id; ?>">
                 <input type='url' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -2697,6 +2715,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-time-wrapper
             field-time-wrapper-<?php echo $id; ?>">
                 <input type='time' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -2813,6 +2832,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-tel-wrapper field-tel-wrapper-<?php
             echo $id; ?>">
                 <input type='tel' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -2927,86 +2947,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ob_start();
 
 
-            if(!empty($conditions)):
 
-                $depends = '';
 
-                $field = isset($conditions['field']) ? $conditions['field'] :'';
-                $cond_value = isset($conditions['value']) ? $conditions['value']: '';
-                $type = isset($conditions['type']) ? $conditions['type'] : '';
-                $pattern = isset($conditions['pattern']) ? $conditions['pattern'] : '';
-                $modifier = isset($conditions['modifier']) ? $conditions['modifier'] : '';
-                $like = isset($conditions['like']) ? $conditions['like'] : '';
-                $strict = isset($conditions['strict']) ? $conditions['strict'] : '';
-                $empty = isset($conditions['empty']) ? $conditions['empty'] : '';
-                $sign = isset($conditions['sign']) ? $conditions['sign'] : '';
-                $min = isset($conditions['min']) ? $conditions['min'] : '';
-                $max = isset($conditions['max']) ? $conditions['max'] : '';
-
-                $depends .= "{'[name=".$field."]':";
-                $depends .= '{';
-
-                if(!empty($type)):
-                    $depends .= "'type':";
-                    $depends .= "'".$type."'";
-                endif;
-
-                if(!empty($modifier)):
-                    $depends .= ",'modifier':";
-                    $depends .= "'".$modifier."'";
-                endif;
-
-                if(!empty($like)):
-                    $depends .= ",'like':";
-                    $depends .= "'".$like."'";
-                endif;
-
-                if(!empty($strict)):
-                    $depends .= ",'strict':";
-                    $depends .= "'".$strict."'";
-                endif;
-
-                if(!empty($empty)):
-                    $depends .= ",'empty':";
-                    $depends .= "'".$empty."'";
-                endif;
-
-                if(!empty($sign)):
-                    $depends .= ",'sign':";
-                    $depends .= "'".$sign."'";
-                endif;
-
-                if(!empty($min)):
-                    $depends .= ",'min':";
-                    $depends .= "'".$min."'";
-                endif;
-
-                if(!empty($max)):
-                    $depends .= ",'max':";
-                    $depends .= "'".$max."'";
-                endif;
-                if(!empty($cond_value)):
-                    $depends .= ",'value':";
-                    if(is_array($cond_value)):
-                        $count= count($cond_value);
-                        $i = 1;
-                        $depends .= "[";
-                        foreach ($cond_value as $val):
-                            $depends .= "'".$val."'";
-                            if($i<$count)
-                                $depends .= ",";
-                            $i++;
-                        endforeach;
-                        $depends .= "]";
-                    else:
-                        $depends .= "[";
-                        $depends .= "'".$cond_value."'";
-                        $depends .= "]";
-                    endif;
-                endif;
-                $depends .= '}}';
-
-            endif; ?>
+            ?>
 
 
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?>
@@ -3015,6 +2958,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 <input type='text' name='<?php echo esc_attr($field_name); ?>' id='<?php echo esc_attr($field_id); ?>'
                        placeholder='<?php
                 echo esc_attr($placeholder); ?>' value='<?php echo esc_attr($value); ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 jQuery('#field-wrapper-<?php echo $id; ?>').formFieldDependency({});
@@ -3136,6 +3080,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             field-hidden-wrapper-<?php echo $id; ?>">
                 <input type='hidden' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php
                 echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -3164,6 +3109,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
             $values 	    = isset( $option['value'] ) ? $option['value'] : array();
             $values         = !empty($values) ? $values : $default;
+            $limit 	        = !empty( $option['limit'] ) ? $option['limit'] : '';
 
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
@@ -3288,8 +3234,11 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     endif;
                     ?>
                 </div>
+                <div class="error-mgs"></div>
                 <script>jQuery(document).ready(function($) {
                     jQuery(document).on('click', '.field-text-multi-wrapper-<?php echo $id; ?> .add-item',function(){
+
+
                         html_<?php echo $id; ?> = '<div class="item">';
                         html_<?php echo $id; ?> += '<input type="text" name="<?php echo esc_attr($field_name); ?>[]" placeholder="<?php
                             echo esc_attr($placeholder); ?>" />';
@@ -3299,7 +3248,32 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         html_<?php echo $id; ?> += ' <span class="button sort" ><i class="fas fa-arrows-alt"></i></span>';
                         <?php endif; ?>
                         html_<?php echo $id; ?> += '</div>';
-                        jQuery('.field-text-multi-wrapper-<?php echo $id; ?> .field-list').append(html_<?php echo $id; ?>);
+
+
+                        <?php
+                        if(!empty($limit)):
+                            ?>
+                            var limit = <?php  echo $limit; ?>;
+                            var node_count = $( ".field-text-multi-wrapper-<?php echo $id; ?> .field-list .item" ).size();
+                            if(limit > node_count){
+                                jQuery('.field-text-multi-wrapper-<?php echo $id; ?> .field-list').append(html_<?php echo $id; ?>);
+                            }else{
+                                jQuery('.field-text-multi-wrapper-<?php echo $id; ?> .error-mgs').html('Sorry! you can add max '+limit+' item').stop().fadeIn(400).delay(3000).fadeOut(400);
+                            }
+
+                            <?php
+                        else:
+                            ?>
+                            jQuery('.field-text-multi-wrapper-<?php echo $id; ?> .field-list').append(html_<?php echo $id; ?>);
+                            <?php
+
+                        endif;
+
+                        ?>
+
+
+
+
                     })
                     jQuery( ".field-text-multi-wrapper-<?php echo $id; ?> .field-list" ).sortable({ handle: '.sort' });
                 })
@@ -3425,6 +3399,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 <textarea name='<?php echo esc_attr($field_name); ?>' id='<?php echo esc_attr($field_id); ?>'
                           cols='40' rows='5'
                           placeholder='<?php echo $placeholder; ?>'><?php echo esc_attr($value); ?></textarea>
+                <div class="error-mgs"></div>
             </div>
 
             <script>
@@ -3546,6 +3521,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>"  class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper  field-code-wrapper
             field-code-wrapper-<?php echo $field_id; ?>">
                 <textarea name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' cols='40' rows='5' placeholder='<?php echo $placeholder; ?>'><?php echo $value; ?></textarea>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 var editor = CodeMirror.fromTextArea(document.getElementById("<?php echo $field_id; ?>"), {
@@ -3679,6 +3655,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 <?php
                 endforeach;
                 ?>
+                <div class="error-mgs"></div>
             </div>
 
             <script>
@@ -3806,6 +3783,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     <?php
                 endforeach;
                 ?>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -3930,6 +3908,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 <?php
                 endforeach;
                 ?>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -3983,8 +3962,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 endforeach;
                 ?>
                 </select>
-                <?php
-                ?>
+
+
+                <div class="error-mgs"></div>
+
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -4106,6 +4087,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-range-wrapper
             field-range-wrapper-<?php echo $id; ?>">
                 <input type='range' min='<?php echo $min; ?>' max='<?php echo $max; ?>' step='<?php echo $args['step']; ?>' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -4238,6 +4220,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         })
                     })
                 </script>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -4359,7 +4342,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     ?><label class="<?php echo $checked; ?>" for='<?php echo $id; ?>-<?php echo $key; ?>'><input name='<?php echo $field_name; ?>' type='radio' id='<?php echo $id; ?>-<?php echo $key; ?>' value='<?php echo $key; ?>' <?php echo $checked; ?>><span class="sw-button"><?php echo $argName; ?></span></label><?php
                 endforeach;
                 ?>
-
+                <div class="error-mgs"></div>
             </div>
             <script>jQuery(document).ready(function($) {
                     jQuery(document).on('click', '.field-switch-wrapper-<?php echo $id; ?> .sw-button', function() {
@@ -4494,6 +4477,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     ?><label class="<?php echo $checked; ?>" for='<?php echo $field_id; ?>-<?php echo $key; ?>'><input name='<?php echo $field_name; ?>[]' type='checkbox' id='<?php echo $field_id; ?>-<?php echo $key; ?>' value='<?php echo $key; ?>' <?php echo $checked; ?>><span class="sw-button"><?php echo $argName; ?></span></label><?php
                 endforeach;
                 ?>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 jQuery(document).ready(function($) {
@@ -4633,6 +4617,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
                 endforeach;
                 ?>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 jQuery(document).ready(function($) {
@@ -4784,6 +4769,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     endif;
                     ?>
                 </div>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 jQuery(document).ready(function($) {
@@ -4931,6 +4917,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     endif;
                     ?>
                 </div>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 jQuery(document).ready(function($) {
@@ -5054,6 +5041,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-datepicker-wrapper
             field-datepicker-wrapper-<?php echo $id; ?>">
                 <input type='text' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>
                 jQuery(document).ready(function($) {
@@ -5176,6 +5164,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-colorpicker-wrapper
             field-colorpicker-wrapper-<?php echo $id; ?>">
                 <input type='text'  name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
+                <div class="error-mgs"></div>
             </div>
             <script>jQuery(document).ready(function($) { $('#<?php echo $field_id; ?>').wpColorPicker();});</script>
             <script>
@@ -5306,6 +5295,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         endforeach;
                         ?>
                     </div>
+                    <div class="error-mgs"></div>
                 </div>
                 <?php
             endif;
@@ -5439,25 +5429,26 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ?>
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-link-color-wrapper
             field-link-color-wrapper-<?php echo $id; ?>">
-            <?php
-            if(!empty($values) && is_array($values)):
-                foreach ($args as $argindex=>$value):
-                    ?>
-                    <div>
-                        <div class="item"><span class="title">a:<?php echo $argindex; ?> Color</span><div class="colorpicker"><input type='text' class='<?php echo $id; ?>' name='<?php echo $field_name; ?>[<?php echo $argindex; ?>]'   value='<?php echo $values[$argindex]; ?>' /></div></div>
-                    </div>
-                    <?php
-                endforeach;
-            else:
-                foreach ($args as $argindex=>$value):
-                    ?>
-                    <div>
-                        <div class="item"><span class="title">a:<?php echo $argindex; ?> Color</span><div class="colorpicker"><input type='text' class='<?php echo $id; ?>' name='<?php echo $field_name; ?>[<?php echo $argindex; ?>]'   value='<?php echo $value; ?>' /></div></div>
-                    </div>
                 <?php
-                endforeach;
-            endif;
-            ?>
+                if(!empty($values) && is_array($values)):
+                    foreach ($args as $argindex=>$value):
+                        ?>
+                        <div>
+                            <div class="item"><span class="title">a:<?php echo $argindex; ?> Color</span><div class="colorpicker"><input type='text' class='<?php echo $id; ?>' name='<?php echo $field_name; ?>[<?php echo $argindex; ?>]'   value='<?php echo $values[$argindex]; ?>' /></div></div>
+                        </div>
+                        <?php
+                    endforeach;
+                else:
+                    foreach ($args as $argindex=>$value):
+                        ?>
+                        <div>
+                            <div class="item"><span class="title">a:<?php echo $argindex; ?> Color</span><div class="colorpicker"><input type='text' class='<?php echo $id; ?>' name='<?php echo $field_name; ?>[<?php echo $argindex; ?>]'   value='<?php echo $value; ?>' /></div></div>
+                        </div>
+                    <?php
+                    endforeach;
+                endif;
+                ?>
+                <div class="error-mgs"></div>
             </div>
             <script>jQuery(document).ready(function($) { $('.<?php echo $id; ?>').wpColorPicker();});</script>
             <script>
@@ -5609,7 +5600,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         ?>
                     </ul>
                 </div>
-
+                <div class="error-mgs"></div>
             </div>
 
 
@@ -5781,6 +5772,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         ?>
                     </ul>
                 </div>
+                <div class="error-mgs"></div>
             </div>
             <script>jQuery(document).ready(function($){
                 jQuery(document).on('click', '.field-icon-wrapper-<?php echo $id; ?> .select-icon', function(){
@@ -5946,6 +5938,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         ?>
                     </ul>
                 </div>
+                <div class="error-mgs"></div>
             </div>
 
 
@@ -6102,7 +6095,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
              <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-number-wrapper
              field-number-wrapper-<?php echo $id; ?>">
                 <input type='number' class='' name='<?php echo $field_name; ?>' id='<?php echo $field_id; ?>' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-            </div>
+                 <div class="error-mgs"></div>
+             </div>
             <script>
                 <?php if(!empty($depends)) {?>
                 jQuery('#field-wrapper-<?php echo $id; ?>').formFieldDependency({});
@@ -6221,6 +6215,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 <?php
                 wp_editor( $value, $id, $settings = $editor_settings);
                 ?>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -6363,6 +6358,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         <?php
                         endforeach;
                         ?>
+                <div class="error-mgs"></div>
             </div>
             </select>
             <script>
@@ -6506,6 +6502,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     endforeach;
                     ?>
                 </div>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -6629,6 +6626,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     <?php
                 }
                 ?>
+                <div class="error-mgs"></div>
             </div>
             <style type="text/css">
                 <?php
@@ -6781,6 +6779,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     echo $color; ?>" class="sw-button"></span></label><?php
                 endforeach;
                 ?>
+                <div class="error-mgs"></div>
             </div>
             <style type="text/css">
                 .field-color-palette-wrapper-<?php echo $id; ?> .sw-button{
@@ -6937,6 +6936,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     echo $color; ?>" class="sw-button"></span></label><?php
                 endforeach;
                 ?>
+                <div class="error-mgs"></div>
             </div>
             <style type="text/css">
                 .field-color-palette-multi-wrapper-<?php echo $id; ?> .sw-button{
@@ -7103,6 +7103,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 </div>
                 <input type='hidden' name='<?php echo $field_name; ?>' id='media_input_<?php echo $id; ?>' value='<?php echo $value; ?>' />
                 <div class='button' id='media_upload_<?php echo $id; ?>'>Upload</div><div class='button clear' id='media_clear_<?php echo $id; ?>'>Clear</div>
+                <div class="error-mgs"></div>
             </div>
 
             <script>jQuery(document).ready(function($){
@@ -7261,6 +7262,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     endif;
                     ?>
                 </div>
+                <div class="error-mgs"></div>
             </div>
             <script>jQuery(document).ready(function($){
                     $('#media_upload_<?php echo $id; ?>').click(function() {
@@ -7397,6 +7399,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 <?php
                 echo $html;
                 ?>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
@@ -7742,6 +7745,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     endif;
                     ?>
                 </div>
+                <div class="error-mgs"></div>
             </div>
             <script>
                 <?php if(!empty($depends)) {?>
