@@ -3212,7 +3212,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             <div class="item">
                                 <input type='text' name='<?php echo esc_attr($field_name); ?>[]'  placeholder='<?php
                                 echo esc_attr($placeholder); ?>' value="<?php echo esc_attr($value); ?>" /><span class="button remove" onclick="jQuery(this)
-                                .parent().remove()"><?php echo ($remove_text); ?></span>
+                                .parent().remove()"><?php echo ($remove_text); ?></span><span class="button clone"><i class="far fa-clone"></i></span>
                                 <?php if($sortable):?>
                                 <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
                                 <?php endif; ?>
@@ -3229,6 +3229,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             <?php if($sortable):?>
                                 <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
                             <?php endif; ?>
+                            <span class="button clone"><i class="far fa-clone"></i></span>
                         </div>
                     <?php
                     endif;
@@ -3236,6 +3237,31 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 </div>
                 <div class="error-mgs"></div>
                 <script>jQuery(document).ready(function($) {
+                        jQuery(document).on('click', '.field-text-multi-wrapper-<?php echo $id; ?> .clone',function(){
+
+
+                            <?php
+                            if(!empty($limit)):
+                            ?>
+                            var limit = <?php  echo $limit; ?>;
+                            var node_count = $( ".field-text-multi-wrapper-<?php echo $id; ?> .field-list .item" ).size();
+                            if(limit > node_count){
+                                $( this ).parent().clone().appendTo('.field-text-multi-wrapper-<?php echo $id; ?> .field-list' );
+                            }else{
+                                jQuery('.field-text-multi-wrapper-<?php echo $id; ?> .error-mgs').html('Sorry! you can add max '+limit+' item').stop().fadeIn(400).delay(3000).fadeOut(400);
+                            }
+                            <?php
+                            else:
+                            ?>
+                            $( this ).parent().clone().appendTo('.field-text-multi-wrapper-<?php echo $id; ?> .field-list' );
+                            <?php
+                            endif;
+                            ?>
+
+                            //$( this ).parent().appendTo( '.field-text-multi-wrapper-<?php echo $id; ?> .field-list' );
+
+
+                        })
                     jQuery(document).on('click', '.field-text-multi-wrapper-<?php echo $id; ?> .add-item',function(){
 
 
@@ -3260,15 +3286,12 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             }else{
                                 jQuery('.field-text-multi-wrapper-<?php echo $id; ?> .error-mgs').html('Sorry! you can add max '+limit+' item').stop().fadeIn(400).delay(3000).fadeOut(400);
                             }
-
                             <?php
                         else:
                             ?>
                             jQuery('.field-text-multi-wrapper-<?php echo $id; ?> .field-list').append(html_<?php echo $id; ?>);
                             <?php
-
                         endif;
-
                         ?>
 
 
@@ -7425,6 +7448,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $values			= isset( $option['value'] ) ? $option['value'] : '';
             $fields 		= isset( $option['fields'] ) ? $option['fields'] : array();
             $title_field 	= isset( $option['title_field'] ) ? $option['title_field'] : '';
+            $limit 	        = isset( $option['limit'] ) ? $option['limit'] : '';
             $field_id       = $id;
             $field_name     = !empty( $field_name ) ? $field_name : $id;
 
@@ -7528,7 +7552,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                         now = jQuery.now();
                         fields_arr = <?php echo json_encode($fields); ?>;
                         html = '<div class="item-wrap collapsible"><div class="header"><span class="button remove" ' +
-                            'onclick="jQuery(this).parent().remove()">X</span>';
+                            'onclick="jQuery(this).parent().parent().remove()">X</span>';
 
                         <?php if($sortable):?>
                         html += ' <span class="button sort" ><i class="fas fa-arrows-alt"></i></span>';
@@ -7595,7 +7619,25 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             html+='</div>';
                         });
                         html+='</div>';
-                        jQuery('.<?php echo 'field-repeatable-wrapper-'.$id; ?> .field-list').append(html);
+
+                        <?php
+                        if(!empty($limit)):
+                            ?>
+                            var limit = <?php  echo $limit; ?>;
+                            var node_count = $( ".field-repeatable-wrapper-<?php echo $id; ?> .field-list .item-wrap" ).size();
+                            if(limit > node_count){
+                                jQuery('.<?php echo 'field-repeatable-wrapper-'.$id; ?> .field-list').append(html);
+                            }else{
+                                jQuery('.field-repeatable-wrapper-<?php echo $id; ?> .error-mgs').html('Sorry! you can add max '+limit+' item').stop().fadeIn(400).delay(3000).fadeOut(400);
+                            }
+
+                            <?php
+                        else:
+                            ?>
+                            jQuery('.<?php echo 'field-repeatable-wrapper-'.$id; ?> .field-list').append(html);
+                            <?php
+                        endif;
+                        ?>
                     })
                     jQuery( ".field-repeatable-wrapper-<?php echo $id; ?> .field-list" ).sortable({ handle: '.sort' });
                 });

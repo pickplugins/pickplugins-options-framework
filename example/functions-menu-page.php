@@ -43,6 +43,41 @@ $page_1_options = array(
                     'limit'		    => '5',
                     'remove_text'   => '<i class="fas fa-times"></i>',
                 ),
+                array(
+                    'id'		=> 'repeatable_field',
+                    'title'		=> __('Repeatable Field','text-domain'),
+                    'details'	=> __('Repeatable Description','text-domain'),
+                    'collapsible'=> true,
+                    'sortable'	=> true,
+                    'limit'	=> 3,
+                    'title_field' => 'text_field',
+                    'type'		    => 'repeatable',
+                    'fields'    => array(
+
+                        array('type'=>'hello_world', 'default'=>'Hello 3', 'item_id'=>'hello_world_field', 'name'=>'Hello world Field'),
+                        array('type'=>'text', 'default'=>'Hello 3', 'item_id'=>'text_field', 'name'=>'Text Field'),
+                        array('type'=>'number', 'default'=>'123456', 'item_id'=>'number_field', 'name'=>'Number Field'),
+                        array('type'=>'tel', 'default'=>'', 'item_id'=>'tel_field', 'name'=>'Tel Field'),
+                        array('type'=>'time', 'default'=>'', 'item_id'=>'time_field', 'name'=>'Time Field'),
+                        array('type'=>'url', 'default'=>'', 'item_id'=>'url_field', 'name'=>'URL Field'),
+
+                        array('type'=>'date', 'default'=>'', 'item_id'=>'date_field', 'name'=>'Date Field'),
+                        array('type'=>'month', 'default'=>'', 'item_id'=>'month_field', 'name'=>'Month Field'),
+                        array('type'=>'search', 'default'=>'', 'item_id'=>'search_field', 'name'=>'Search Field'),
+
+
+                        array('type'=>'color', 'default'=>'', 'item_id'=>'color_field', 'name'=>'Color Field'),
+                        array('type'=>'email', 'default'=>'support@hello.com', 'item_id'=>'email_field', 'name'=>'Email Field'),
+                        array('type'=>'textarea', 'default'=>'Textarea content', 'item_id'=>'textarea_field', 'name'=>'Textarea Field'),
+                        array('type'=>'select', 'default'=>'option_1', 'item_id'=>'select_field', 'name'=>'Select Field', 'args'=> array('option_1'=>'Option 1', 'option_2'=>'Option 2', 'option_3'=>'Option 3')),
+                        array('type'=>'radio', 'default'=>'option_1', 'item_id'=>'radio_field', 'name'=>'Radio Field', 'args'=>
+                            array('option_1'=>'Option 1', 'option_2'=>'Option 2', 'option_3'=>'Option 3')),
+                        array('type'=>'checkbox', 'default'=>array('option_1','option_3'), 'item_id'=>'checkbox_field', 'name'=>'Checkbox Field', 'args'=> array('option_1'=>'Option 1', 'option_2'=>'Option 2', 'option_3'=>'Option 3')),
+                    ),
+                )
+
+
+
             )
         ),
 
