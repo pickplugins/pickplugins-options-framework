@@ -59,14 +59,14 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 *  Margin
 *  Padding
 *  Google Map
- *
+* Image Select
  *
  *
  * Background
  *
  * Typography
  * Spinner
- * Image Select
+
 
 */
 
@@ -7072,7 +7072,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 <?php
                 foreach( $links as $key => $link ):
 
-                    $checked = ( $key == $value ) ? "checked" : "";
+                    $checked = ( $link == $value ) ? "checked" : "";
                     ?><label  class="<?php echo $checked; ?>" for='<?php echo $id; ?>-<?php echo $key; ?>'><input
                              type='radio' id='<?php echo $id; ?>-<?php echo $key; ?>'
                             value='<?php echo $key; ?>' <?php echo $checked; ?>>
@@ -7082,7 +7082,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 endforeach;
                 ?>
                 <div class="val-wrap">
-                    <input class="link-val" name='<?php echo $field_name; ?>' type="text" value="<?php echo $value; ?>">
+                    <input class="link-val" name='<?php echo $field_name; ?>' type="text" value="<?php echo $value; ?>"><span class="ppof-button clear">Clear</span>
                 </div>
                 <div class="error-mgs"></div>
             </div>
@@ -7101,6 +7101,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </style>
             <script>
                 jQuery(document).ready(function($) {
+                    jQuery(document).on('click', '.field-image-link-wrapper-<?php echo $id; ?> .clear', function() {
+                        jQuery('.field-image-link-wrapper-<?php echo $id; ?> .link-val').val("");
+                    })
+
                     jQuery(document).on('click', '.field-image-link-wrapper-<?php echo $id; ?> img', function() {
 
                         var src = $(this).attr('src');
@@ -7611,7 +7615,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             if(empty($id)) return;
             $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
             $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : array();
-
+            $remove_text			= isset( $option['remove_text'] ) ? $option['remove_text'] : '<i class="fas fa-times"></i>';
             $default			= isset( $option['default'] ) ? $option['default'] : '';
             $values			= isset( $option['value'] ) ? $option['value'] : '';
 
@@ -7721,7 +7725,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             $media_title= get_the_title( $value );
                             ?>
                             <div class="item">
-                                <span class="remove" onclick="jQuery(this).parent().remove()">X</span>
+                                <span class="remove" onclick="jQuery(this).parent().remove()"><?php echo $remove_text; ?></span>
                                 <img id='media_preview_<?php echo $id; ?>' src='<?php echo $media_url; ?>' style='width:100%'/>
                                 <div class="item-title"><?php echo $media_title; ?></div>
                                 <input type='hidden' name='<?php echo $field_name; ?>[]' value='<?php echo $value; ?>' />
@@ -7740,7 +7744,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             attachment_id = attachment.id;
                             attachment_url = attachment.url;
                             html = '<div class="item">';
-                            html += '<span class="remove" onclick="jQuery(this).parent().remove()">X</span>';
+                            html += '<span class="remove" onclick="jQuery(this).parent().remove()"><?php echo $remove_text; ?></span>';
                             html += '<img src="'+attachment_url+'" style="width:100%"/>';
                             html += '<input type="hidden" name="<?php echo $field_name; ?>[]" value="'+attachment_id+'" />';
                             html += '</div>';

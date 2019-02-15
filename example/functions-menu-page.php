@@ -537,18 +537,7 @@ $page_3_options = array(
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
 
-                array(
-                    'id'		=> 'field_image_link',
-                    'title'		=> __('Image link Field','text-domain'),
-                    'details'	=> __('Description of image link field','text-domain'),
-                    'links'		=> array('https://i.imgur.com/YiUyAgA.png','https://i.imgur.com/tWGz0EU.png','https://i.imgur.com/GT3VkYX.png'),
-                    'type'		=> 'image_link',
-                    'args'		=> array(
-                        'width'	    => '80px',
-                        'height'	=> '80px',
-                        'style'	    => '',
-                    ),
-                ),
+
 
                 array(
                     'id'		=> 'color_palette_field',
@@ -596,7 +585,18 @@ $page_3_options = array(
 
                 ),
 
-
+                array(
+                    'id'		=> 'field_image_link',
+                    'title'		=> __('Image link Field','text-domain'),
+                    'details'	=> __('Description of image link field','text-domain'),
+                    'links'		=> array('https://i.imgur.com/LS08A4Y.png','https://i.imgur.com/PqtRiXA.png','https://i.imgur.com/y3hbnd0.png','https://i.imgur.com/SevsAxW.png','https://i.imgur.com/BoH0vP3.png'),
+                    'type'		=> 'image_link',
+                    'args'		=> array(
+                        'width'	    => '80px',
+                        'height'	=> '80px',
+                        'style'	    => '',
+                    ),
+                ),
 
                 array(
                     'id'		    => 'field_media',
