@@ -1113,6 +1113,64 @@ div > .ppof-metabox {
 
 
 
+/*field-image-link-wrapper*/
+
+.field-image-link-wrapper{
+    margin-bottom: 15px;
+}
+
+.field-image-link-wrapper input[type='radio']{
+    display: none;
+}
+
+.field-image-link-wrapper .sw-button{
+    background: #eee;
+    margin: 0;
+    border: 1px solid rgba(0,0,0,0);
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+
+}
+
+.field-image-link-wrapper label{
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+}
+
+.field-image-link-wrapper label.checked{
+
+}
+
+.field-image-link-wrapper .checked-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%,-50%);
+    background: #484848e3;
+    /* padding: 5px; */
+    border-radius: 21px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.6s;
+}
+.field-image-link-wrapper label.checked .checked-icon{opacity: 0.7;}
+
+
+.field-image-link-wrapper label.checked .sw-button {
+    background: #ddd;
+    border: 1px dashed #DDE;
+}
+
+.field-image-link-wrapper label:hover .sw-button {
+    transform: scale(1.4);
+}
+
+
 
 
 

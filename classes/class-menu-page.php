@@ -230,6 +230,10 @@ if( ! class_exists( 'AddMenuPage' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'google_map' ){
                 echo $FormFieldsGenerator->field_google_map($option);
             }
+            elseif( isset($option['type']) && $option['type'] === 'image_link' ){
+                echo $FormFieldsGenerator->field_image_link($option);
+            }
+
 
             elseif( isset($option['type']) && $option['type'] === $type ){
                 do_action( "wp_theme_settings_field_$type", $option );

@@ -536,6 +536,20 @@ $page_3_options = array(
             'nav_title' 	=> 	__('This is nav Title 20','text-domain'),
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
+
+                array(
+                    'id'		=> 'field_image_link',
+                    'title'		=> __('Image link Field','text-domain'),
+                    'details'	=> __('Description of image link field','text-domain'),
+                    'links'		=> array('https://i.imgur.com/YiUyAgA.png','https://i.imgur.com/tWGz0EU.png','https://i.imgur.com/GT3VkYX.png'),
+                    'type'		=> 'image_link',
+                    'args'		=> array(
+                        'width'	    => '80px',
+                        'height'	=> '80px',
+                        'style'	    => '',
+                    ),
+                ),
+
                 array(
                     'id'		=> 'color_palette_field',
                     'title'		=> __('Color palette Field','text-domain'),

@@ -50,6 +50,7 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 *  Custom_html
 *  Color palette
 *  Color palette multi
+ * Color set
 *  User select
 *  Color picker multi
 *  Google reCaptcha
@@ -62,7 +63,7 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
  *
  *
  * Background
- * Color set
+ *
  * Typography
  * Spinner
  * Image Select
@@ -6959,6 +6960,170 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
         }
 
+
+        public function field_image_link( $option ){
+
+            $id				= isset( $option['id'] ) ? $option['id'] : "";
+            if(empty($id)) return;
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : array();
+
+            $args			= isset( $option['args'] ) ? $option['args'] : array();
+            $width				= isset( $args['width'] ) ? $args['width'] : "";
+            $height				= isset( $args['height'] ) ? $args['height'] : "";
+            $links		= isset( $option['links'] ) ? $option['links'] : array();
+            //$option_value	= get_option( $id );
+            $default			= isset( $option['default'] ) ? $option['default'] : '';
+            $value			= isset( $option['value'] ) ? $option['value'] : '';
+            $value          = !empty($value) ?  $value : $default;
+
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+
+
+            if(!empty($conditions)):
+
+                $depends = '';
+
+                $field = isset($conditions['field']) ? $conditions['field'] :'';
+                $cond_value = isset($conditions['value']) ? $conditions['value']: '';
+                $type = isset($conditions['type']) ? $conditions['type'] : '';
+                $pattern = isset($conditions['pattern']) ? $conditions['pattern'] : '';
+                $modifier = isset($conditions['modifier']) ? $conditions['modifier'] : '';
+                $like = isset($conditions['like']) ? $conditions['like'] : '';
+                $strict = isset($conditions['strict']) ? $conditions['strict'] : '';
+                $empty = isset($conditions['empty']) ? $conditions['empty'] : '';
+                $sign = isset($conditions['sign']) ? $conditions['sign'] : '';
+                $min = isset($conditions['min']) ? $conditions['min'] : '';
+                $max = isset($conditions['max']) ? $conditions['max'] : '';
+
+                $depends .= "{'[name=".$field."]':";
+                $depends .= '{';
+
+                if(!empty($type)):
+                    $depends .= "'type':";
+                    $depends .= "'".$type."'";
+                endif;
+
+                if(!empty($modifier)):
+                    $depends .= ",'modifier':";
+                    $depends .= "'".$modifier."'";
+                endif;
+
+                if(!empty($like)):
+                    $depends .= ",'like':";
+                    $depends .= "'".$like."'";
+                endif;
+
+                if(!empty($strict)):
+                    $depends .= ",'strict':";
+                    $depends .= "'".$strict."'";
+                endif;
+
+                if(!empty($empty)):
+                    $depends .= ",'empty':";
+                    $depends .= "'".$empty."'";
+                endif;
+
+                if(!empty($sign)):
+                    $depends .= ",'sign':";
+                    $depends .= "'".$sign."'";
+                endif;
+
+                if(!empty($min)):
+                    $depends .= ",'min':";
+                    $depends .= "'".$min."'";
+                endif;
+
+                if(!empty($max)):
+                    $depends .= ",'max':";
+                    $depends .= "'".$max."'";
+                endif;
+                if(!empty($cond_value)):
+                    $depends .= ",'value':";
+                    if(is_array($cond_value)):
+                        $count= count($cond_value);
+                        $i = 1;
+                        $depends .= "[";
+                        foreach ($cond_value as $val):
+                            $depends .= "'".$val."'";
+                            if($i<$count)
+                                $depends .= ",";
+                            $i++;
+                        endforeach;
+                        $depends .= "]";
+                    else:
+                        $depends .= "[";
+                        $depends .= "'".$cond_value."'";
+                        $depends .= "]";
+                    endif;
+                endif;
+                $depends .= '}}';
+
+            endif;
+
+
+
+            ob_start();
+            ?>
+            <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-image-link-wrapper
+            field-image-link-wrapper-<?php echo $id; ?>">
+                <?php
+                foreach( $links as $key => $link ):
+
+                    $checked = ( $key == $value ) ? "checked" : "";
+                    ?><label  class="<?php echo $checked; ?>" for='<?php echo $id; ?>-<?php echo $key; ?>'><input
+                             type='radio' id='<?php echo $id; ?>-<?php echo $key; ?>'
+                            value='<?php echo $key; ?>' <?php echo $checked; ?>>
+                    <img src="<?php echo $link; ?>">
+                    <span class="checked-icon"><i class="fas fa-check"></i></span>
+                    </label><?php
+                endforeach;
+                ?>
+                <div class="val-wrap">
+                    <input class="link-val" name='<?php echo $field_name; ?>' type="text" value="<?php echo $value; ?>">
+                </div>
+                <div class="error-mgs"></div>
+            </div>
+            <style type="text/css">
+                .field-image-link-wrapper-<?php echo $id; ?> img{
+                    transition: ease all 1s;
+                <?php if(!empty($width)):  ?>
+                    width: <?php echo $width; ?>;
+                <?php endif; ?>
+                <?php if(!empty($height)):  ?>
+                    height: <?php echo $height; ?>;
+                <?php endif; ?>
+                }
+                .field-color-palette-wrapper-<?php echo $id; ?> label:hover .sw-button{
+                }
+            </style>
+            <script>
+                jQuery(document).ready(function($) {
+                    jQuery(document).on('click', '.field-image-link-wrapper-<?php echo $id; ?> img', function() {
+
+                        var src = $(this).attr('src');
+                        jQuery('.field-image-link-wrapper-<?php echo $id; ?> .link-val').val(src);
+
+                        jQuery('.field-image-link-wrapper-<?php echo $id; ?> label').removeClass('checked');
+                        if(jQuery(this).parent().hasClass('checked')){
+                            jQuery(this).parent().removeClass('checked');
+                        }else{
+                            jQuery(this).parent().addClass('checked');
+                        }
+                    })
+                })
+            </script>
+            <script>
+                <?php if(!empty($depends)) {?>
+                jQuery('#field-wrapper-<?php echo $id; ?>').formFieldDependency({});
+                <?php } ?>
+            </script>
+            <?php
+            return ob_get_clean();
+
+        }
 
 
         public function field_color_palette( $option ){
