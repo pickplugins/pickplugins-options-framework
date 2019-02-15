@@ -16,26 +16,11 @@ $page_1_options = array(
     'priority' => 10,
 	'sections' => array(
 
-        'section_0' => array(
-            'title' 	=> 	__('This is Section Title 0','text-domain'),
-            'description' 	=> __('This is section details','text-domain'),
-            'options' 	=> array(
-
-                array(
-                    'id'		    => 'text_field_0',
-                    //'field_name'		    => 'some_id_text_field_1',
-                    'title'		    => __('Text Field 0','text-domain'),
-                    'details'	    => __('Description of text field','text-domain'),
-                    'type'		    => 'text',
-                    'default'		=> 'Default Text',
-                    'placeholder'   => __('Text value','text-domain'),
-                ),
-            )
-        ),
 
 
-		'section_1' => array(
-			'title' 	=> 	__('This is Section Title 1','text-domain'),
+
+		'section_0' => array(
+			'title' 	=> 	__('This is Section Title 0','text-domain'),
 			'description' 	=> __('This is section details','text-domain'),
 			'options' 	=> array(
 
@@ -275,18 +260,24 @@ $page_1_options = array(
                 ),
 
 
-
-
-
-
-
-
-
-
-
 			)
 		),
+        'section_1' => array(
+            'title' 	=> 	__('This is Section Title 1','text-domain'),
+            'description' 	=> __('This is section details','text-domain'),
+            'options' 	=> array(
 
+                array(
+                    'id'		    => 'text_field_0',
+                    //'field_name'		    => 'some_id_text_field_1',
+                    'title'		    => __('Text Field 0','text-domain'),
+                    'details'	    => __('Description of text field','text-domain'),
+                    'type'		    => 'text',
+                    'default'		=> 'Default Text',
+                    'placeholder'   => __('Text value','text-domain'),
+                ),
+            )
+        ),
 
 	),
 );

@@ -112,7 +112,7 @@ jQuery(document).ready(function($) {
         $('.tab-content-'+dataid).addClass('active');
 
         if(sectionId != null){
-            $('html, body').animate({
+            $('html, body, .edit-post-layout__content').animate({
                 scrollTop: ($("#"+sectionId).offset().top - 80)
             }, 500);
         }

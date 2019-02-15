@@ -103,7 +103,7 @@ if( ! class_exists( 'AddMetaBox' ) ) {
                             //var_dump($page_settings);
                             ?>
                             <li class="nav-item-wrap <?php if(($page_settings_count > 1)) echo 'has-child'; ?> <?php if($current_page==$page_id) echo 'active'; ?>">
-                                <a dataid="<?php echo $page_id; ?>" href='#<?php //echo $pagenow.'?'.$nav_menu_url; ?><?php echo
+                                <a dataid="<?php echo $page_id; ?>" href='#<?php //echo $pagenow.'?'.$section_id; ?><?php echo
                                 $page_id; ?>' class='nav-item'><?php echo $page['page_nav']; ?>
 
                                     <?php if(($page_settings_count > 1)) echo '<i class="child-nav-icon fas fa-angle-down"></i>'; ?>
@@ -120,8 +120,7 @@ if( ! class_exists( 'AddMetaBox' ) ) {
                                             ?>
                                             <li>
 
-                                                <a sectionId="<?php echo $section_id; ?>" dataid="<?php echo $page_id; ?>" href='#<?php //echo $pagenow.'?'.$nav_menu_url; ?><?php echo
-                                                $page_id; ?>' class='nav-item <?php if($current_page==$page_id) echo 'active'; ?>'><?php echo $nav_sections_title; ?>
+                                                <a sectionId="<?php echo $section_id; ?>" dataid="<?php echo $page_id; ?>" href='#<?php echo $section_id; ?>' class='nav-item <?php if($current_page==$page_id) echo 'active'; ?>'><?php echo $nav_sections_title; ?>
 
 
                                                 </a>
