@@ -4,7 +4,7 @@ Not just to build a option page, but your development task easier and fast with 
 edit user fields, edit taxonomy fields, create sidebar and nav menus. you can also generate form input fields 
 dynamically.
 
-![WordPress Options Framework](https://i.imgur.com/w4AnbAy.png)
+![WordPress Options Framework](https://i.imgur.com/vryy4NY.png)
 
 * **PickPlugins Options Framework** by  [PickPlugins](https://www.pickplugins.com)
 *  [Documentation](https://www.pickplugins.com/documentation/pickplugins-options-framework/)
@@ -98,6 +98,7 @@ Ready to be Role
 *  Padding
 *  Google Map
 * Post Objects
+* Image Select
 
 
 

@@ -59,7 +59,7 @@ if ( ! defined('ABSPATH')) exit;  // if direct access
 *  Margin
 *  Padding
 *  Google Map
-* Image Select
+*  Image Select
  *
  *
  * Background
