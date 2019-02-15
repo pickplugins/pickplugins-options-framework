@@ -149,6 +149,29 @@ div > .ppof-metabox {
     display: none;
 }
 
+.ppof-button{
+    color: #555;
+    border-color: #ccc;
+    background: #f7f7f7;
+    box-shadow: 0 1px 0 #ccc;
+    vertical-align: top;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 26px;
+    height: 28px;
+    margin: 0;
+    padding: 0 10px 1px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+
 
 .ppof-settings .text-align-right{
     text-align: right;
@@ -432,7 +455,6 @@ div > .ppof-metabox {
 .ppof-settings .collapsible .header span{
     display: inline-block;
     vertical-align: middle;
-    margin-right: 2px;
 }
 
 .ppof-settings .collapsible .content{
@@ -445,7 +467,6 @@ div > .ppof-metabox {
 .ppof-settings .collapsible.active .content{
     display: block;
 }
-
 
 
 
@@ -506,14 +527,14 @@ div > .ppof-metabox {
 /*}*/
 
 .ppof-settings  .remove {
-    background-color: #ff584c;
+    background-color: #e14d43;
     color: #fff;
 }
 
 .ppof-settings  .sort {
-    background-color: #2196F3;
-    color: #fff;
-    padding: 2px 10px;
+    /*background-color: #2196F3;*/
+    /*color: #fff;*/
+    /*padding: 2px 10px;*/
     cursor: move;
 }
 
@@ -526,35 +547,10 @@ div > .ppof-metabox {
 
 
 .ppof-settings .field-wrapper{
-    margin: 20px 0;
-}
-
-/* Collapsible */
-
-.ppof-settings .collapsible{
-    margin-bottom: 2px;
-}
-.ppof-settings .collapsible .header{
-    background: #eee;
-    padding: 8px 10px;
-}
-
-.ppof-settings .collapsible .header span{
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 2px;
-}
-
-.ppof-settings .collapsible .content{
-    display: none;
-    padding: 10px;
-    background: #f1f1f1;
+    /*margin: 20px 0;*/
 }
 
 
-.ppof-settings .collapsible.active .content{
-    display: block;
-}
 
 /*dependency-field*/
 
@@ -573,10 +569,12 @@ div > .ppof-metabox {
     margin: 5px 0;
 }
 
-.field-text-multi-wrapper .field-list .item .remove{}
+.field-text-multi-wrapper .field-list .item .clone{
+    cursor: copy;
+}
+.field-text-multi-wrapper .field-list .item .sort{}
 .field-text-multi-wrapper .field-list .item .remove {
-    margin-left: 9px;
-    padding: 2px 10px;
+
 }
 
 
@@ -662,7 +660,7 @@ div > .ppof-metabox {
 
 
 .field-switcher-wrapper .switcher{
-    width: 80px;
+    width: 60px;
     display: block;
     padding: 5px 15px;
     border-radius: 3px;
@@ -670,8 +668,12 @@ div > .ppof-metabox {
     background-color: #eee;
     overflow: hidden;
     position: relative;
-    height: 24px;
+    height: 20px;
     cursor: pointer;
+    border: 1px solid #c5c5c5;
+}
+.field-switcher-wrapper .switcher.checked{
+    border: 1px solid #2d632f;
 }
 .field-switcher-wrapper .switcher .layer {
     content: "";
@@ -885,6 +887,9 @@ div > .ppof-metabox {
 
 .field-switch-wrapper{
     margin-bottom: 15px;
+    display: inline-block;
+    border-radius: 3px;
+    overflow: hidden;
 }
 
 .field-switch-wrapper input[type='radio']{
@@ -896,13 +901,11 @@ div > .ppof-metabox {
     padding: 5px 15px;
     border: 1px solid #ddd;
     margin: 0;
-    border-right: none;
     display: block;
 }
 
 .field-switch-wrapper label{
     display: inline-block;
-    margin: 2px 0;
 }
 .field-switch-wrapper label.checked .sw-button {
     background: #ddd;
@@ -1181,7 +1184,9 @@ div > .ppof-metabox {
 /*field-switch-img-wrapper*/
 
 .field-switch-img-wrapper{
-    margin-bottom: 15px;
+    display: inline-block;
+    border-radius: 3px;
+    overflow: hidden;
 }
 
 .field-switch-img-wrapper input[type='radio']{
@@ -1193,7 +1198,7 @@ div > .ppof-metabox {
     padding: 5px 15px;
     border: 1px solid #ddd;
     margin: 0;
-    border-right: none;
+
     display: block;
 }
 
@@ -1212,14 +1217,11 @@ div > .ppof-metabox {
 
 .field-switch-img-wrapper label:last-child .sw-button{
     border-right: 1px solid #ddd;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+
 }
 
 .field-switch-img-wrapper label:first-child .sw-button{
 
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
 }
 
 
@@ -1230,6 +1232,9 @@ div > .ppof-metabox {
 
 
 .field-time-format-wrapper .format-list{}
+.field-time-format-wrapper .format{
+    margin: 5px 0;
+}
 .field-time-format-wrapper .format-list label{
     min-width: 200px;
     display: inline-block;
@@ -1243,6 +1248,9 @@ div > .ppof-metabox {
 
 
 .field-date-format-wrapper .format-list{}
+.field-date-format-wrapper .format{
+    margin: 5px 0;
+}
 .field-date-format-wrapper .format-list label{
     min-width: 200px;
     display: inline-block;
@@ -1252,7 +1260,9 @@ div > .ppof-metabox {
 /*field-switch-multi-wrapper*/
 
 .field-switch-multi-wrapper{
-    margin-bottom: 15px;
+    display: inline-block;
+    border-radius: 3px;
+    overflow: hidden;
 }
 
 .field-switch-multi-wrapper input[type='checkbox']{
@@ -1264,12 +1274,11 @@ div > .ppof-metabox {
     padding: 5px 15px;
     border: 1px solid #ddd;
     margin: 0;
-    border-right: none;
+
     display: block;
 }
 .field-switch-multi-wrapper label{
     display: inline-block;
-    margin: 3px 0;
 }
 
 .field-switch-multi-wrapper label.checked .sw-button {
@@ -1278,14 +1287,12 @@ div > .ppof-metabox {
 
 .field-switch-multi-wrapper label:last-child .sw-button{
     border-right: 1px solid #ddd;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+
 }
 
 .field-switch-multi-wrapper label:first-child .sw-button{
 
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+
 }
 
 
@@ -1301,6 +1308,7 @@ div > .ppof-metabox {
     padding: 5px 10px;
     border: 1px solid #ddd;
     cursor: pointer;
+    border-radius: 3px;
 }
 
 .field-icon-wrapper .select-icon{}
@@ -1363,6 +1371,7 @@ div > .ppof-metabox {
     cursor: pointer;
     display: inline-block;
     margin: 2px;
+    border-radius: 3px;
 }
 
 .field-icon-multi-wrapper .icons-wrapper .item:hover {
@@ -1563,7 +1572,22 @@ div > .ppof-metabox {
     padding: 3px 10px;
     cursor: pointer;
 }
+.field-media-wrapper .upload{
 
+}
+
+.field-media-wrapper .clear{
+    margin: 0 10px;
+}
+
+
+/*field-post-objects-wrapper*/
+.field-post-objects-wrapper{}
+.field-post-objects-wrapper .field-list{}
+.field-post-objects-wrapper .field-list .item{
+    margin: 5px 0;
+}
+.field-post-objects-wrapper .field-list .sort {}
 
 
 
@@ -1602,7 +1626,13 @@ div > .ppof-metabox {
 }
 
 
+.field-media-multi-wrapper .upload{
 
+}
+
+.field-media-multi-wrapper .clear{
+    margin: 0 10px;
+}
 
 
 

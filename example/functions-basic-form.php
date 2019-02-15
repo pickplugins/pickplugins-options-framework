@@ -188,7 +188,7 @@ function pp_display_fileds(){
 
     $args = array(
         'id'		    => 'field_password',
-        //'field_name'	=> 'text_field', // optional
+        //'field_name'	=> 'field_password', // optional
         'title'		    => __('First Name','text-domain'),
         'details'	    => __('Description of first name','text-domain'),
         'value'		    => '',
@@ -230,7 +230,7 @@ function pp_display_fileds(){
         ),
     );
 
-    echo $FormFieldsGenerator->field_google_map($args);
+    //echo $FormFieldsGenerator->field_google_map($args);
 
 
 
@@ -313,7 +313,7 @@ function pp_display_fileds(){
 
     $args = array(
         'id'		    => 'custom_html_field',
-        //'field_name'	=> 'text_field', // optional
+        //'field_name'	=> 'custom_html_field', // optional
         'title'		    => __('Text Field','text-domain'),
         'details'	    => __('Description of text field','text-domain'),
         'html'		    => '<b>Lorem Ipsum</b> is simply dummy text ',
@@ -322,8 +322,8 @@ function pp_display_fileds(){
     echo $FormFieldsGenerator->field_custom_html($args);
 
     $args = array(
-        'id'		    => 'text_field',
-        //'field_name'	=> 'text_field', // optional
+        'id'		    => 'text_field_1',
+        //'field_name'	=> 'text_field_1', // optional
         'title'		    => __('Text Field','text-domain'),
         'details'	    => __('Description of text field','text-domain'),
         'value'		    => 'Hello text value',
@@ -360,7 +360,7 @@ function pp_display_fileds(){
         'secret_key'    => '',
     );
 
-    echo $FormFieldsGenerator->field_google_recaptcha($args);
+    //echo $FormFieldsGenerator->field_google_recaptcha($args);
 
 
 
@@ -1042,11 +1042,11 @@ function pp_display_fileds(){
         'details'	=> __('Repeatable Description','text-domain'),
         'collapsible'=> true,
         'sortable'	=> true,
-        'title_field' => 'text_field',
+        'title_field' => 'text_field_2',
         'fields'    => array(
 
             array('type'=>'hello_world', 'default'=>'Hello 3', 'item_id'=>'hello_world_field', 'name'=>'Hello world Field'),
-            array('type'=>'text', 'default'=>'Hello 3', 'item_id'=>'text_field', 'name'=>'Text Field'),
+            array('type'=>'text', 'default'=>'Hello 3', 'item_id'=>'text_field_2', 'name'=>'Text Field'),
             array('type'=>'number', 'default'=>'123456', 'item_id'=>'number_field', 'name'=>'Number Field'),
             array('type'=>'tel', 'default'=>'', 'item_id'=>'tel_field', 'name'=>'Tel Field'),
             array('type'=>'time', 'default'=>'', 'item_id'=>'time_field', 'name'=>'Time Field'),

@@ -206,7 +206,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             ?>
                             <div class="item">
                                 <?php if($sortable):?>
-                                    <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
+                                    <span class="ppof-button sort"><i class="fas fa-arrows-alt"></i></span>
                                 <?php endif; ?>
                                 <label>
                                     <input type="checkbox" <?php if(in_array($argsKey,$values)) echo 'checked';?>  value="<?php
@@ -2968,9 +2968,12 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 echo esc_attr($placeholder); ?>' value='<?php echo esc_attr($value); ?>' />
                 <div class="error-mgs"></div>
             </div>
-            <script>
-                jQuery('#field-wrapper-<?php echo $id; ?>').formFieldDependency({});
-            </script>
+            <?php if(!empty($depends)) {?>
+                <script>
+                    jQuery('#field-wrapper-<?php echo $id; ?>').formFieldDependency({});
+                </script>
+            <?php } ?>
+
             <?php
 
             return ob_get_clean();
@@ -3211,7 +3214,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ?>
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-text-multi-wrapper
             field-text-multi-wrapper-<?php echo $field_id; ?>">
-                <span class="button add-item">Add</span>
+                <span class="ppof-button add-item"><?php echo __('Add','pickplugins-options-framework'); ?></span>
                 <div class="field-list" id="<?php echo $field_id; ?>">
                     <?php
                     if(!empty($values)):
@@ -3219,11 +3222,15 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                             ?>
                             <div class="item">
                                 <input type='text' name='<?php echo esc_attr($field_name); ?>[]'  placeholder='<?php
-                                echo esc_attr($placeholder); ?>' value="<?php echo esc_attr($value); ?>" /><span class="button remove" onclick="jQuery(this)
-                                .parent().remove()"><?php echo ($remove_text); ?></span><span class="button clone"><i class="far fa-clone"></i></span>
+                                echo esc_attr($placeholder); ?>' value="<?php echo esc_attr($value); ?>" />
+
+                                <span class="ppof-button clone"><i class="far fa-clone"></i></span>
+
                                 <?php if($sortable):?>
-                                <span class="button sort"><i class="fas fa-arrows-alt"></i></span>
+                                <span class="ppof-button sort"><i class="fas fa-arrows-alt"></i></span>
                                 <?php endif; ?>
+
+                                <span class="ppof-button remove" onclick="jQuery(this).parent().remove()"><?php echo ($remove_text); ?></span>
                             </div>
                         <?php
                         endforeach;
@@ -4847,9 +4854,9 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </div>
             <script>
                 jQuery(document).ready(function($) {
-                    jQuery(document).on('click', '.field-time-format-wrapper-<?php echo $id; ?> .format-list .format',
+                    jQuery(document).on('click', '.field-time-format-wrapper-<?php echo $id; ?> .format-list input[type="radio"]',
                         function () {
-                        value = $(this).attr('datavalue');
+                        value = $(this).val();
                         $('.field-time-format-wrapper-<?php echo $id; ?> .format-value input').val(value);
                     })
                 });
@@ -4995,8 +5002,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </div>
             <script>
                 jQuery(document).ready(function($) {
-                    jQuery(document).on('click', '.field-date-format-wrapper-<?php echo $id; ?> .format-list .format', function () {
-                        value = $(this).attr('datavalue');
+                    jQuery(document).on('click', '.field-date-format-wrapper-<?php echo $id; ?> .format-list input[type="radio"]', function () {
+                        value = $(this).val();
                         $('.field-date-format-wrapper-<?php echo $id; ?> .format-value input').val(value);
                     })
                 });
@@ -5358,13 +5365,13 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                 <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-colorpicker-multi-wrapper
                 field-colorpicker-multi-wrapper-<?php echo $id;
                 ?>">
-                    <div class="button add">Add</div>
+                    <div class="ppof-button add"><?php echo __('Add','pickplugins-options-framework'); ?></div>
                     <div class="item-list">
                         <?php
                         foreach ($values as $value):
                             ?>
                             <div class="item">
-                                <span class="button remove"><?php echo $remove_text; ?></span>
+                                <span class="ppof-button remove"><?php echo $remove_text; ?></span>
                                 <input type='text' name='<?php echo $field_name; ?>[]' value='<?php echo $value; ?>' />
                             </div>
                         <?php
@@ -5678,8 +5685,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     endif; ?>
                 </div>
                 <div class="user-list">
-                    <div class="button select-user" >Choose User</div>
-                    <div class="search-user" ><input class="" type="text" placeholder="Start typing..."></div>
+                    <div class="ppof-button select-user" ><?php echo __('Choose User','pickplugins-options-framework');?></div>
+                    <div class="search-user" ><input class="" type="text" placeholder="<?php echo __('Start typing...','pickplugins-options-framework');?>"></div>
                     <ul>
                         <?php
                         if(!empty($icons)):
@@ -5856,8 +5863,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     <input type="hidden" name="<?php echo $field_name; ?>" value="<?php echo $value; ?>">
                 </div>
                 <div class="icon-list">
-                    <div class="button select-icon" >Choose Icon</div>
-                    <div class="search-icon" ><input class="" type="text" placeholder="start typing..."></div>
+                    <div class="ppof-button select-icon" ><?php echo __('Choose Icon','pickplugins-options-framework'); ?></div>
+                    <div class="search-icon" ><input class="" type="text" placeholder="<?php echo __('Start typing...','pickplugins-options-framework'); ?>"></div>
                     <ul>
                         <?php
                         if(!empty($icons)):
@@ -6025,8 +6032,8 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     endif; ?>
                 </div>
                 <div class="icon-list">
-                    <div class="button select-icon" >Choose Icon</div>
-                    <div class="search-icon" ><input class="" type="text" placeholder="start typing..."></div>
+                    <div class="ppof-button select-icon" ><?php echo __('Choose Icon','pickplugins-options-framework'); ?></div>
+                    <div class="search-icon" ><input class="" type="text" placeholder="<?php echo __('Start typing...','pickplugins-options-framework'); ?>"></div>
                     <ul>
                         <?php
                         if(!empty($icons)):
@@ -7399,7 +7406,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
                     ?>
                 </div>
                 <input type='hidden' name='<?php echo $field_name; ?>' id='media_input_<?php echo $id; ?>' value='<?php echo $value; ?>' />
-                <div class='button' id='media_upload_<?php echo $id; ?>'>Upload</div><div class='button clear' id='media_clear_<?php echo $id; ?>'>Clear</div>
+                <div class='ppof-button upload' id='media_upload_<?php echo $id; ?>'><?php echo __('Upload','pickplugins-options-framework');?></div><div class='ppof-button clear' id='media_clear_<?php echo $id; ?>'><?php echo __('Clear','pickplugins-options-framework');?></div>
                 <div class="error-mgs"></div>
             </div>
 
@@ -7536,10 +7543,10 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             ?>
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-media-multi-wrapper
             field-media-multi-wrapper-<?php echo $id; ?>">
-                <div class='button' id='media_upload_<?php echo $id; ?>'>Upload</div><div class='button clear'
+                <div class='ppof-button upload' id='media_upload_<?php echo $id; ?>'><?php echo __('Upload','pickplugins-options-framework');?></div><div class='ppof-button clear'
                                                                                           id='media_clear_<?php echo
                                                                                           $id;
-                                                                                          ?>'>Clear</div>
+                                                                                          ?>'><?php echo __('Clear','pickplugins-options-framework');?></div>
                 <div class="media-list media-list-<?php echo $id; ?>">
                     <?php
                     if(!empty($values) && is_array($values)):
@@ -7991,7 +7998,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             </script>
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-repeatable-wrapper
             field-repeatable-wrapper-<?php echo $id; ?>">
-                <div class="button add-item">Add</div>
+                <div class="ppof-button add-item"><?php _e('Add','pickplugins-options-framework'); ?></div>
                 <div class="field-list" id="<?php echo $id; ?>">
                     <?php
                     if(!empty($values)):
