@@ -8014,22 +8014,52 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-image-link-wrapper
             field-image-link-wrapper-<?php echo $id; ?>">
                 <?php
-                foreach( $links as $key => $link ):
 
-                    $checked = ( $link == $value ) ? "checked" : "";
-                    ?><label  class="<?php echo $checked; ?>" for='<?php echo $id; ?>-<?php echo $key; ?>'><input
-                             type='radio' id='<?php echo $id; ?>-<?php echo $key; ?>'
-                            value='<?php echo $key; ?>' <?php echo $checked; ?>>
-                    <img src="<?php echo $link; ?>">
+
+                    if(!empty($links))
+                        foreach( $links as $key => $link ):
+
+
+
+                            $checked = ( $link == $value ) ? "checked" : "";
+                            ?><label  class="<?php echo $checked; ?>" for='<?php echo $id; ?>-<?php echo $key; ?>'><input
+                                    type='radio' id='<?php echo $id; ?>-<?php echo $key; ?>'
+                                    value='<?php echo $key; ?>' <?php echo $checked; ?>>
+                            <img src="<?php echo $link; ?>">
+                            <span class="checked-icon"><i class="fas fa-check"></i></span>
+                            </label><?php
+                        endforeach;
+                if(!in_array($value, $links)){
+                    ?><label  class="checked" for='<?php echo $id; ?>-custom'><input
+                            type='radio' id='<?php echo $id; ?>-custom'
+                            value='<?php echo $value; ?>' checked>
+                    <img src="<?php echo $value; ?>">
                     <span class="checked-icon"><i class="fas fa-check"></i></span>
                     </label><?php
-                endforeach;
+                }
+
+
                 ?>
                 <div class="val-wrap">
-                    <input class="link-val" name='<?php echo $field_name; ?>' type="text" value="<?php echo $value; ?>"><span class="ppof-button clear">Clear</span>
+                    <input class="link-val" name='<?php echo $field_name; ?>' type="text" value="<?php echo $value; ?>"> <span class='ppof-button upload' id='media_upload_<?php echo $id; ?>'><?php echo __('Upload','pickplugins-options-framework');?></span> <span class="ppof-button clear">Clear</span>
                 </div>
                 <div class="error-mgs"></div>
             </div>
+            <script>jQuery(document).ready(function($){
+                    $('#media_upload_<?php echo $id; ?>').click(function() {
+                        //var send_attachment_bkp = wp.media.editor.send.attachment;
+                        wp.media.editor.send.attachment = function(props, attachment) {
+                            //$('#media_preview_<?php echo $id; ?>').attr('src', attachment.url);
+                            //$('#media_input_<?php echo $id; ?>').val(attachment.url);
+                            jQuery('.field-image-link-wrapper-<?php echo $id; ?> .link-val').val(attachment.url);
+                            //wp.media.editor.send.attachment = send_attachment_bkp;
+                        }
+                        wp.media.editor.open($(this));
+                        return false;
+                    });
+
+                });
+            </script>
             <style type="text/css">
                 .field-image-link-wrapper-<?php echo $id; ?> img{
                     transition: ease all 1s;
