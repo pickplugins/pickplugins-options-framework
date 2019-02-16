@@ -64,7 +64,7 @@ class pickpluginsOptionsFramework{
         require_once( PPOF_PLUGIN_DIR . 'example/functions-conditional-fields.php');
 
         require_once( PPOF_PLUGIN_DIR . 'example/functions-create-sidebars.php');
-        require_once( PPOF_PLUGIN_DIR . 'example/functions-create-post-status.php');
+        //require_once( PPOF_PLUGIN_DIR . 'example/functions-create-post-status.php');
         require_once( PPOF_PLUGIN_DIR . 'example/functions-create-nav-menus.php');
         require_once( PPOF_PLUGIN_DIR . 'example/functions-insert-post.php');
 
@@ -100,7 +100,7 @@ class pickpluginsOptionsFramework{
         require_once( PPOF_PLUGIN_DIR . 'classes/class-create-user.php');
         require_once( PPOF_PLUGIN_DIR . 'classes/class-media-upload-by-url.php');
         require_once( PPOF_PLUGIN_DIR . 'classes/class-create-sidebars.php');
-        require_once( PPOF_PLUGIN_DIR . 'classes/class-create-post-status.php');
+        //require_once( PPOF_PLUGIN_DIR . 'classes/class-create-post-status.php');
         require_once( PPOF_PLUGIN_DIR . 'classes/class-create-nav-menus.php');
         require_once( PPOF_PLUGIN_DIR . 'classes/class-insert-post.php');
         require_once( PPOF_PLUGIN_DIR . 'classes/class-create-dashboard-widget.php');
