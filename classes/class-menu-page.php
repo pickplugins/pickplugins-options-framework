@@ -233,6 +233,12 @@ if( ! class_exists( 'AddMenuPage' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'image_link' ){
                 echo $FormFieldsGenerator->field_image_link($option);
             }
+            elseif( isset($option['type']) && $option['type'] === 'option_group_accordion' ){
+                echo $FormFieldsGenerator->field_option_group_accordion($option);
+            }
+            elseif( isset($option['type']) && $option['type'] === 'option_group_tabs' ){
+                echo $FormFieldsGenerator->field_option_group_tabs($option);
+            }
 
 
             elseif( isset($option['type']) && $option['type'] === $type ){

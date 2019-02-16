@@ -527,9 +527,14 @@ div > .ppof-metabox {
 /*}*/
 
 .ppof-settings  .remove {
-    background-color: #e14d43;
+    transition: all 0.4s;
+}
+
+.ppof-settings  .remove:hover {
+    background-color: #e14d43 !important;
     color: #fff;
 }
+
 
 .ppof-settings  .sort {
     /*background-color: #2196F3;*/
@@ -538,13 +543,14 @@ div > .ppof-metabox {
     cursor: move;
 }
 
-
-
-.ppof-settings  .remove:hover {
-    background-color: #dc291d;
-
+.ppof-settings .ui-sortable-placeholder{
+    background: antiquewhite;
+    visibility: visible !important;
 }
 
+.ppof-settings .ui-sortable-helper{
+
+}
 
 .ppof-settings .field-wrapper{
     /*margin: 20px 0;*/
@@ -1592,6 +1598,53 @@ div > .ppof-metabox {
     padding: 10px;
     background: #e5e5e55e;
     display: none;
+}
+
+
+
+/* option-group-tabs */
+
+.field-option-group-tabs-wrapper .faq-list{}
+.field-option-group-tabs-wrapper .tab-navs{}
+.field-option-group-tabs-wrapper .tab-navs li{
+    padding: 10px;
+    background: #ddd;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    float: left;
+}
+.field-option-group-tabs-wrapper .tab-navs li.active{
+    background: #eee;
+}
+
+
+
+.field-option-group-tabs-wrapper .tab-content{
+    padding: 10px 20px;
+    background: #eee;
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    clear: both;
+    float: none;
+}
+
+.field-option-group-tabs-wrapper .tab-content.active{
+    display: none;
+
+}
+
+
+.field-option-group-tabs-wrapper .faq-list .faq-item{
+    margin: 5px 0;
+}
+
+.field-option-group-tabs-wrapper .faq-list .faq-item.active .faq-content{
+    display: block;
+}
+.field-option-group-tabs-wrapper .faq-list .faq-item.active .faq-header{
+    background: #ddddddbf;
 }
 
 

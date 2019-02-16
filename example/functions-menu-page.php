@@ -22,15 +22,170 @@ $page_1_options = array(
             'description' 	=> __('This is section details','text-domain'),
             'options' 	=> array(
 
-//                array(
-//                    'id'		    => 'text_field',
-//                    //'field_name'		    => 'some_id_text_field_1',
-//                    'title'		    => __('Text Field','text-domain'),
-//                    'details'	    => __('Description of text field','text-domain'),
-//                    'type'		    => 'text',
-//                    'default'		=> 'Default Text',
-//                    'placeholder'   => __('Text value','text-domain'),
-//                ),
+                array(
+                    'id'		=> 'option_group_accordion',
+                    'title'		=> __('Option group accordion','text-domain'),
+                    'details'	=> __('Description of Option group accordion field','text-domain'),
+                    'type'		=> 'option_group_accordion',
+
+                    'args'		=> array(
+                        array(
+                            'title'=>'What is Lorem Ipsum?',
+                            'link'=>'#',
+                            'options'=>array(
+                                array(
+                                    'id'		    => 'text_field',
+                                    //'field_name'		    => 'some_id_text_field_1',
+                                    'title'		    => __('Text Field','text-domain'),
+                                    'details'	    => __('Description of text field','text-domain'),
+                                    'type'		    => 'text',
+                                    'default'		=> 'Default Text 1',
+                                    'placeholder'   => __('Text value 1','text-domain'),
+                                ),
+
+                                array(
+                                    'id'		    => 'text_multi_field_56',
+                                    //'field_name'		    => 'text_multi_field',
+                                    'title'		    => __('Multi Text Field','text-domain'),
+                                    'details'	    => __('Description of multi text field','text-domain'),
+                                    'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
+                                    'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
+                                    'placeholder'   => __('Text value','text-domain'),
+                                    'type'		    => 'text_multi',
+                                    'limit'		    => '5',
+                                    'remove_text'   => '<i class="fas fa-times"></i>',
+                                ),
+
+
+                            ),
+                        ),
+                        array(
+                            'title'=>'What is Lorem Ipsum?',
+                            'link'=>'#',
+                            'options'=>array(
+                                array(
+                                    'id'		    => 'text_field_78',
+                                    //'field_name'		    => 'some_id_text_field_1',
+                                    'title'		    => __('Text Field','text-domain'),
+                                    'details'	    => __('Description of text field','text-domain'),
+                                    'type'		    => 'text',
+                                    'default'		=> 'Default Text 1',
+                                    'placeholder'   => __('Text value 1','text-domain'),
+                                ),
+
+                                array(
+                                    'id'		    => 'text_multi_field_96',
+                                    //'field_name'		    => 'text_multi_field',
+                                    'title'		    => __('Multi Text Field','text-domain'),
+                                    'details'	    => __('Description of multi text field','text-domain'),
+                                    'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
+                                    'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
+                                    'placeholder'   => __('Text value','text-domain'),
+                                    'type'		    => 'text_multi',
+                                    'limit'		    => '5',
+                                    'remove_text'   => '<i class="fas fa-times"></i>',
+                                ),
+
+
+                            ),
+                        ),
+                    ),
+                ),
+
+
+
+                array(
+                    'id'		=> 'option_group_tabs',
+                    'title'		=> __('Option group accordion','text-domain'),
+                    'details'	=> __('Description of Option group accordion field','text-domain'),
+                    'type'		=> 'option_group_tabs',
+
+                    'args'		=> array(
+                        array(
+                            'title'=>'Lorem',
+                            'link'=>'#',
+                            'options'=>array(
+                                array(
+                                    'id'		    => 'text_field_852',
+                                    //'field_name'		    => 'some_id_text_field_1',
+                                    'title'		    => __('Text Field','text-domain'),
+                                    'details'	    => __('Description of text field','text-domain'),
+                                    'type'		    => 'text',
+                                    'default'		=> 'Default Text 1',
+                                    'placeholder'   => __('Text value 1','text-domain'),
+                                ),
+
+                                array(
+                                    'id'		    => 'text_multi_field_357',
+                                    //'field_name'		    => 'text_multi_field',
+                                    'title'		    => __('Multi Text Field','text-domain'),
+                                    'details'	    => __('Description of multi text field','text-domain'),
+                                    'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
+                                    'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
+                                    'placeholder'   => __('Text value','text-domain'),
+                                    'type'		    => 'text_multi',
+                                    'limit'		    => '5',
+                                    'remove_text'   => '<i class="fas fa-times"></i>',
+                                ),
+
+
+                            ),
+                        ),
+                        array(
+                            'title'=>'Ipsum',
+                            'link'=>'#',
+                            'options'=>array(
+                                array(
+                                    'id'		    => 'text_field_79',
+                                    //'field_name'		    => 'some_id_text_field_1',
+                                    'title'		    => __('Text Field','text-domain'),
+                                    'details'	    => __('Description of text field','text-domain'),
+                                    'type'		    => 'text',
+                                    'default'		=> 'Default Text 1',
+                                    'placeholder'   => __('Text value 1','text-domain'),
+                                ),
+                                array(
+                                    'id'		    => 'text_field_78',
+                                    //'field_name'		    => 'some_id_text_field_1',
+                                    'title'		    => __('Text Field','text-domain'),
+                                    'details'	    => __('Description of text field','text-domain'),
+                                    'type'		    => 'text',
+                                    'default'		=> 'Default Text 1',
+                                    'placeholder'   => __('Text value 1','text-domain'),
+                                ),
+
+                                array(
+                                    'id'		    => 'text_multi_field_96',
+                                    //'field_name'		    => 'text_multi_field',
+                                    'title'		    => __('Multi Text Field','text-domain'),
+                                    'details'	    => __('Description of multi text field','text-domain'),
+                                    'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
+                                    'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
+                                    'placeholder'   => __('Text value','text-domain'),
+                                    'type'		    => 'text_multi',
+                                    'limit'		    => '5',
+                                    'remove_text'   => '<i class="fas fa-times"></i>',
+                                ),
+
+
+                            ),
+                        ),
+                    ),
+                ),
+
+
+
+
+
+                array(
+                    'id'		    => 'text_field',
+                    //'field_name'		    => 'some_id_text_field_1',
+                    'title'		    => __('Text Field','text-domain'),
+                    'details'	    => __('Description of text field','text-domain'),
+                    'type'		    => 'text',
+                    'default'		=> 'Default Text',
+                    'placeholder'   => __('Text value','text-domain'),
+                ),
                 array(
                     'id'		    => 'text_multi_field_0',
                     //'field_name'		    => 'text_multi_field',
@@ -50,6 +205,7 @@ $page_1_options = array(
                     'collapsible'=> true,
                     'sortable'	=> true,
                     'limit'	=> 3,
+                    'remove_text'   => '<i class="fas fa-times"></i>',
                     'title_field' => 'text_field',
                     'type'		    => 'repeatable',
                     'fields'    => array(
