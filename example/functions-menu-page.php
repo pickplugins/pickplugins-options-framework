@@ -23,6 +23,44 @@ $page_1_options = array(
             'options' 	=> array(
 
                 array(
+                    'id'		=> 'option_group',
+                    'title'		=> __('Option group','text-domain'),
+                    'details'	=> __('Description of Option group  field','text-domain'),
+                    'type'		=> 'option_group',
+
+
+                    'options'=>array(
+                        array(
+                            'id'		    => 'text_field865',
+                            //'field_name'		    => 'some_id_text_field_1',
+                            'title'		    => __('Text Field','text-domain'),
+                            'details'	    => __('Description of text field','text-domain'),
+                            'type'		    => 'text',
+                            'default'		=> 'Default Text 1',
+                            'placeholder'   => __('Text value 1','text-domain'),
+                        ),
+
+                        array(
+                            'id'		    => 'text_multi_field_565',
+                            //'field_name'		    => 'text_multi_field',
+                            'title'		    => __('Multi Text Field','text-domain'),
+                            'details'	    => __('Description of multi text field','text-domain'),
+                            'value'		    => array('Default Text Val #1', 'Default Text Val #2', 'Default Text Val #3'),
+                            'default'		=> array('Default Text #1', 'Default Text #2', 'Default Text #3'),
+                            'placeholder'   => __('Text value','text-domain'),
+                            'type'		    => 'text_multi',
+                            'limit'		    => '5',
+                            'remove_text'   => '<i class="fas fa-times"></i>',
+                        ),
+
+
+                    ),
+
+
+
+                ),
+
+                array(
                     'id'		=> 'option_group_accordion',
                     'title'		=> __('Option group accordion','text-domain'),
                     'details'	=> __('Description of Option group accordion field','text-domain'),
@@ -96,8 +134,8 @@ $page_1_options = array(
 
                 array(
                     'id'		=> 'option_group_tabs',
-                    'title'		=> __('Option group accordion','text-domain'),
-                    'details'	=> __('Description of Option group accordion field','text-domain'),
+                    'title'		=> __('Option group tabs','text-domain'),
+                    'details'	=> __('Description of Option group tabs field','text-domain'),
                     'type'		=> 'option_group_tabs',
 
                     'args'		=> array(

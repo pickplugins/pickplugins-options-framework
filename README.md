@@ -84,9 +84,6 @@ Ready to be Role
 *  Icon multi
 *  Date format 
 *  Time format 
-*  FAQ
-*  Grid
-*  Custom_html
 *  Color palette
 *  Color palette multi
 *  User select
@@ -97,11 +94,14 @@ Ready to be Role
 *  Margin
 *  Padding
 *  Google Map
-* Post Objects
-* Image Select
-
-
-
+*  Post Objects
+*  Image Select
+*  Option Group
+*  Option group Accordion
+*  Option Group Tabs
+*  FAQ
+*  Grid
+*  Custom HTML
 
 #### Special Fields(Arguments)
 

@@ -1607,17 +1607,17 @@ div > .ppof-metabox {
 .field-option-group-tabs-wrapper .faq-list{}
 .field-option-group-tabs-wrapper .tab-navs{}
 .field-option-group-tabs-wrapper .tab-navs li{
-    padding: 10px;
+    padding: 10px 15px;
     background: #ddd;
     cursor: pointer;
     display: inline-block;
     margin: 0;
     float: left;
+
 }
 .field-option-group-tabs-wrapper .tab-navs li.active{
     background: #eee;
 }
-
 
 
 .field-option-group-tabs-wrapper .tab-content{

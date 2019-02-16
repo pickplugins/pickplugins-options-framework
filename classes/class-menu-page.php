@@ -239,6 +239,10 @@ if( ! class_exists( 'AddMenuPage' ) ) {
             elseif( isset($option['type']) && $option['type'] === 'option_group_tabs' ){
                 echo $FormFieldsGenerator->field_option_group_tabs($option);
             }
+            elseif( isset($option['type']) && $option['type'] === 'option_group' ){
+                echo $FormFieldsGenerator->field_option_group($option);
+            }
+
 
 
             elseif( isset($option['type']) && $option['type'] === $type ){

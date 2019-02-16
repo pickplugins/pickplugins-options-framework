@@ -6507,6 +6507,309 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
         }
 
 
+        public function field_option_group( $option ){
+
+            $id				= isset( $option['id'] ) ? $option['id'] : "";
+            $options			= isset( $option['options'] ) ? $option['options'] : array();
+            $field_name 	= isset( $option['field_name'] ) ? $option['field_name'] : $id;
+            $values			= isset( $option['value'] ) ? $option['value'] : '';
+            $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : array();
+            $FormFieldsGenerator = new FormFieldsGenerator();
+
+            $field_id       = $id;
+            $field_name     = !empty( $field_name ) ? $field_name : $id;
+
+
+
+
+            if(!empty($conditions)):
+
+                $depends = '';
+
+                $field = isset($conditions['field']) ? $conditions['field'] :'';
+                $cond_value = isset($conditions['value']) ? $conditions['value']: '';
+                $type = isset($conditions['type']) ? $conditions['type'] : '';
+                $pattern = isset($conditions['pattern']) ? $conditions['pattern'] : '';
+                $modifier = isset($conditions['modifier']) ? $conditions['modifier'] : '';
+                $like = isset($conditions['like']) ? $conditions['like'] : '';
+                $strict = isset($conditions['strict']) ? $conditions['strict'] : '';
+                $empty = isset($conditions['empty']) ? $conditions['empty'] : '';
+                $sign = isset($conditions['sign']) ? $conditions['sign'] : '';
+                $min = isset($conditions['min']) ? $conditions['min'] : '';
+                $max = isset($conditions['max']) ? $conditions['max'] : '';
+
+                $depends .= "{'[name=".$field."]':";
+                $depends .= '{';
+
+                if(!empty($type)):
+                    $depends .= "'type':";
+                    $depends .= "'".$type."'";
+                endif;
+
+                if(!empty($modifier)):
+                    $depends .= ",'modifier':";
+                    $depends .= "'".$modifier."'";
+                endif;
+
+                if(!empty($like)):
+                    $depends .= ",'like':";
+                    $depends .= "'".$like."'";
+                endif;
+
+                if(!empty($strict)):
+                    $depends .= ",'strict':";
+                    $depends .= "'".$strict."'";
+                endif;
+
+                if(!empty($empty)):
+                    $depends .= ",'empty':";
+                    $depends .= "'".$empty."'";
+                endif;
+
+                if(!empty($sign)):
+                    $depends .= ",'sign':";
+                    $depends .= "'".$sign."'";
+                endif;
+
+                if(!empty($min)):
+                    $depends .= ",'min':";
+                    $depends .= "'".$min."'";
+                endif;
+
+                if(!empty($max)):
+                    $depends .= ",'max':";
+                    $depends .= "'".$max."'";
+                endif;
+                if(!empty($cond_value)):
+                    $depends .= ",'value':";
+                    if(is_array($cond_value)):
+                        $count= count($cond_value);
+                        $i = 1;
+                        $depends .= "[";
+                        foreach ($cond_value as $val):
+                            $depends .= "'".$val."'";
+                            if($i<$count)
+                                $depends .= ",";
+                            $i++;
+                        endforeach;
+                        $depends .= "]";
+                    else:
+                        $depends .= "[";
+                        $depends .= "'".$cond_value."'";
+                        $depends .= "]";
+                    endif;
+                endif;
+                $depends .= '}}';
+
+            endif;
+
+
+            ob_start();
+            ?>
+
+            <div <?php if(!empty($depends)) {?> data-depends="[<?php echo $depends; ?>]" <?php } ?> id="field-wrapper-<?php echo $id; ?>" class="<?php if(!empty($depends)) echo 'dependency-field'; ?> field-wrapper field-option-group-tabs-wrapper
+            field-option-group-tabs-wrapper-<?php echo $id; ?>">
+
+                        <?php
+                        if(!empty($options)):
+                            ?>
+                            <table class="form-table">
+                                <tbody>
+
+                                <?php
+
+                                foreach ($options as $key =>$option):
+
+                                    $option['field_name'] = $field_name.'['.$option['id'].']';
+                                    $option['value'] = $values[$option['id']];
+
+
+                                    ?>
+                                    <tr>
+                                        <th scope="row"><?php echo $option['title']; ?></th>
+                                        <td>
+                                            <?php
+
+                                            if( isset($option['type']) && $option['type'] === 'text' ){
+                                                echo $FormFieldsGenerator->field_text($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'text_multi' ){
+                                                echo $FormFieldsGenerator->field_text_multi($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'textarea' ){
+                                                echo $FormFieldsGenerator->field_textarea($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'checkbox' ){
+                                                echo $FormFieldsGenerator->field_checkbox($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'checkbox_multi' ){
+                                                echo $FormFieldsGenerator->field_checkbox_multi($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'radio' ){
+                                                echo $FormFieldsGenerator->field_radio($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'select' ){
+                                                echo $FormFieldsGenerator->field_select($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'range' ){
+                                                echo $FormFieldsGenerator->field_range($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'range_input' ){
+                                                echo $FormFieldsGenerator->field_range_input($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'switch' ){
+                                                echo $FormFieldsGenerator->field_switch($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'switch_multi' ){
+                                                echo $FormFieldsGenerator->field_switch_multi($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'switch_img' ){
+                                                echo $FormFieldsGenerator->field_switch_img($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'time_format' ){
+                                                echo $FormFieldsGenerator->field_time_format($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'date_format' ){
+                                                echo $FormFieldsGenerator->field_date_format($option);
+                                            }
+
+                                            elseif( isset($option['type']) && $option['type'] === 'datepicker' ){
+                                                echo $FormFieldsGenerator->field_datepicker($option);
+                                            }
+
+                                            elseif( isset($option['type']) && $option['type'] === 'colorpicker' ){
+                                                echo $FormFieldsGenerator->field_colorpicker($option);
+                                            }
+
+                                            elseif( isset($option['type']) && $option['type'] === 'colorpicker_multi' ){
+                                                echo $FormFieldsGenerator->field_colorpicker_multi($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'link_color' ){
+                                                echo $FormFieldsGenerator->field_link_color($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'icon' ){
+                                                echo $FormFieldsGenerator->field_icon($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'icon_multi' ){
+                                                echo $FormFieldsGenerator->field_icon_multi($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'dimensions' ){
+                                                echo $FormFieldsGenerator->field_dimensions($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'wp_editor' ){
+                                                echo $FormFieldsGenerator->field_wp_editor($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'select2' ){
+                                                echo $FormFieldsGenerator->field_select2($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'faq' ){
+                                                echo $FormFieldsGenerator->field_faq($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'grid' ){
+                                                echo $FormFieldsGenerator->field_grid($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'color_sets' ){
+                                                echo $FormFieldsGenerator->field_color_sets($option);
+                                            }
+
+                                            elseif( isset($option['type']) && $option['type'] === 'color_palette' ){
+                                                echo $FormFieldsGenerator->field_color_palette($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'color_palette_multi' ){
+                                                echo $FormFieldsGenerator->field_color_palette_multi($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'media' ){
+                                                echo $FormFieldsGenerator->field_media($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'media_multi' ){
+                                                echo $FormFieldsGenerator->field_media_multi($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'repeatable' ){
+                                                echo $FormFieldsGenerator->field_repeatable($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'user' ){
+                                                echo $FormFieldsGenerator->field_user($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'margin' ){
+                                                echo $FormFieldsGenerator->field_margin($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'padding' ){
+                                                echo $FormFieldsGenerator->field_padding($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'border' ){
+                                                echo $FormFieldsGenerator->field_border($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'switcher' ){
+                                                echo $FormFieldsGenerator->field_switcher($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'password' ){
+                                                echo $FormFieldsGenerator->field_password($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'post_objects' ){
+                                                echo $FormFieldsGenerator->field_post_objects($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'google_map' ){
+                                                echo $FormFieldsGenerator->field_google_map($option);
+                                            }
+                                            elseif( isset($option['type']) && $option['type'] === 'image_link' ){
+                                                echo $FormFieldsGenerator->field_image_link($option);
+                                            }
+
+
+                                            ?>
+                                        </td>
+                                    </tr>
+                                <?php
+
+
+
+
+                                endforeach;
+
+                                ?>
+
+
+                                </tbody>
+                            </table>
+                        <?php
+
+                        endif;
+                        ?>
+
+
+                    <?php
+
+                ?>
+
+                <div class="error-mgs"></div>
+            </div>
+            <script>
+
+                jQuery(document).on('click', '.field-option-group-tabs-wrapper-<?php echo $id; ?> .tab-navs li', function() {
+
+                    index = $(this).attr('index');
+
+                    jQuery(".field-option-group-tabs-wrapper-<?php echo $id; ?> .tab-navs li").removeClass('active');
+                    jQuery(".field-option-group-tabs-wrapper-<?php echo $id; ?> .tab-content").removeClass('active');
+                    if(jQuery(this).hasClass('active')){
+
+                    }else{
+                        jQuery(this).addClass('active');
+                        jQuery(".field-option-group-tabs-wrapper-<?php echo $id; ?> .tab-content-"+index).addClass('active');
+                    }
+
+
+
+                })
+
+                <?php if(!empty($depends)) {?>
+                jQuery('#field-wrapper-<?php echo $id; ?>').formFieldDependency({});
+                <?php } ?>
+            </script>
+            <?php
+            return ob_get_clean();
+        }
+
         public function field_option_group_tabs( $option ){
 
             $id				= isset( $option['id'] ) ? $option['id'] : "";
