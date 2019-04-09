@@ -407,6 +407,18 @@ $page_1_options = array(
                     'type'		    => 'range_input',
                     'args'		=> array('min' => '0','max' => '100','step' => '1'),
                 ),
+
+                array(
+                    'id'		=> 'range_input_field2',
+                    'title'		=> __('Range field 2','text-domain'),
+                    'details'	=> __('Description of Range field','text-domain'),
+                    'default'		=> '75',
+                    'value'		=> '70',
+                    'type'		    => 'range_input',
+                    'args'		=> array('min' => '0','max' => '100','step' => '1'),
+                ),
+
+
                 array(
                     'id'		    => 'switcher_field',
                     'title'		    => __('Switcher Field','text-domain'),
@@ -420,6 +432,24 @@ $page_1_options = array(
                     ),
 
                 ),
+
+                array(
+                    'id'		    => 'switcher_field_2',
+                    'title'		    => __('Switcher Field 2','text-domain'),
+                    'details'	    => __('Description of switcher field','text-domain'),
+                    'value'		    => '',
+                    'default'		=> '1',
+                    'type'		=> 'switcher',
+                    'args'		=> array(
+                        'on'	=> __('On','text-domain'),
+                        'off'	=> __('Off','text-domain'),
+                    ),
+
+                ),
+
+
+
+
                 array(
                     'id'		=> 'switch_icon_field',
                     'title'		=> __('Switch icon Field','text-domain'),
@@ -463,6 +493,23 @@ $page_1_options = array(
                 ),
 
                 array(
+                    'id'		=> 'switch_multi_field9',
+                    'title'		=> __('Switch multi Field 9','text-domain'),
+                    'details'	=> __('Description of switch multi field','text-domain'),
+                    'value'		=> array('option_3'),
+                    'default'		=> array('option_2','option_4'),
+                    'type'		=> 'switch_multi',
+                    'args'		=> array(
+                        'option_1'	=> __('Option 1','text-domain'),
+                        'option_2'	=> __('Option 2','text-domain'),
+                        'option_3'	=> __('Option 3','text-domain'),
+                        'option_4'	=> __('Option 4','text-domain'),
+                    ),
+                ),
+
+
+
+                array(
                     'id'		=> 'switch_img_field',
                     'title'		=> __('Switch image Field','text-domain'),
                     'details'	=> __('Description of switch image field','text-domain'),
@@ -476,6 +523,23 @@ $page_1_options = array(
                         'option_3'	=> array('src'=>'https://i.imgur.com/GT3VkYX.png'),
                     ),
                 ),
+
+                array(
+                    'id'		=> 'switch_img_field1',
+                    'title'		=> __('Switch image Field 1','text-domain'),
+                    'details'	=> __('Description of switch image field','text-domain'),
+                    'default'	=> 'option_2',
+                    'width'     =>'100px',
+                    'height'    =>'auto',
+                    'type'		=> 'switch_img',
+                    'args'		=> array(
+                        'option_1'	=> array('src'=>'https://i.imgur.com/YiUyAgA.png'),
+                        'option_2'	=> array('src'=>'https://i.imgur.com/tWGz0EU.png'),
+                        'option_3'	=> array('src'=>'https://i.imgur.com/GT3VkYX.png'),
+                    ),
+                ),
+
+
                 array(
                     'id'		    => 'field_password',
                     //'field_name'	=> 'text_field', // optional
@@ -496,6 +560,17 @@ $page_1_options = array(
                     'default'	=> 'H:i',
                 ),
                 array(
+                    'id'		=> 'time_format_field1',
+                    'title'		=> __('Time format Field 1','text-domain'),
+                    'details'	=> __('Description of time format field','text-domain'),
+                    'args'		=> array('g:i a' ,'g:i A', 'H:i'),
+                    'type'		=> 'time_format',
+                    'default'	=> 'H:i',
+                ),
+
+
+
+                array(
                     'id'		=> 'date_format_field',
                     'title'		=> __('Date format Field','text-domain'),
                     'details'	=> __('Description of date format field','text-domain'),
@@ -504,6 +579,17 @@ $page_1_options = array(
                     'default'	=> 'F j, Y',
                     'type'		=> 'date_format',
                 ),
+
+                array(
+                    'id'		=> 'date_format_field2',
+                    'title'		=> __('Date format Field 2','text-domain'),
+                    'details'	=> __('Description of date format field','text-domain'),
+                    'value'	=> 'Y-m-d',
+                    'args'		=> array('F j, Y' ,'Y-m-d', 'm/d/Y' ,'d/m/Y' ),
+                    'default'	=> 'F j, Y',
+                    'type'		=> 'date_format',
+                ),
+
                 array(
                     'id'		    => 'datepicker_field',
                     'title'		    => __('Date picker field','text-domain'),
@@ -550,6 +636,17 @@ $page_1_options = array(
                     'type'		=> 'icon',
                     'args'		=> 'FONTAWESOME_ARRAY',
                 ),
+
+
+                array(
+                    'id'		=> 'icon_field2',
+                    'title'		=> __('Icon Field 2','text-domain'),
+                    'details'	=> __('Description of icon field','text-domain'),
+                    'default'	=> 'fas fa-bomb',
+                    'type'		=> 'icon',
+                    'args'		=> 'FONTAWESOME_ARRAY',
+                ),
+
                 array(
                     'id'		=> 'icon_multi_field2',
                     'title'		=> __('Icon multi Field','text-domain'),

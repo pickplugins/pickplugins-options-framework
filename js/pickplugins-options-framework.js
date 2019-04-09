@@ -29,17 +29,19 @@ jQuery(document).ready(function($) {
 
     jQuery(document).on('change', '.field-range-input-wrapper .range-hndle', function() {
         val = $(this).val();
-        $('.field-range-input-wrapper .range-val').val(val);
+        $(this).parent().children('.range-val').val(val);
     })
     jQuery(document).on('keyup', '.field-range-input-wrapper .range-val', function() {
         val = $(this).val();
-        console.log(val);
-        $('.field-range-input-wrapper .range-hndle').val(val);
+        $(this).parent().children('.range-hndle').val(val);
     })
 
 
     jQuery(document).on('click', '.field-switch-wrapper .sw-button', function() {
-        jQuery('.field-switch-wrapper label').removeClass('checked');
+
+        jQuery(this).parent().parent().children('label').removeClass('checked');
+        //jQuery('.field-switch-wrapper label').removeClass('checked');
+
         if(jQuery(this).parent().hasClass('checked')){
             jQuery(this).parent().removeClass('checked');
         }else{
@@ -57,7 +59,11 @@ jQuery(document).ready(function($) {
     })
 
     jQuery(document).on('click', '.field-switch-img-wrapper .sw-button img', function() {
-        jQuery('.field-switch-img-wrapper label').removeClass('checked');
+
+        jQuery(this).parent().parent().children('label').removeClass('checked');
+        //jQuery('.field-switch-img-wrapper label').removeClass('checked');
+
+
         if(jQuery(this).parent().parent().hasClass('checked')){
             jQuery(this).parent().parent().removeClass('checked');
         }else{
@@ -69,13 +75,16 @@ jQuery(document).ready(function($) {
 
     jQuery(document).on('click', '.field-time-format-wrapper .format-list input[type="radio"]',function () {
             value = $(this).val();
-            $('.field-time-format-wrapper .format-value input').val(value);
+            $(this).parent().parent().parent().children('.format-value').children('.format').children('input').val(value);
+            //$(this).parent().parent().parent().children('.format-value').children('input').val(value);
+
         })
 
 
     jQuery(document).on('click', '.field-date-format-wrapper .format-list input[type="radio"]', function () {
         value = $(this).val();
-        $('.field-date-format-wrapper .format-value input').val(value);
+        $(this).parent().parent().parent().children('.format-value').children('.format').children('input').val(value);
+        //$('.field-date-format-wrapper .format-value input').val(value);
     })
 
 
@@ -89,8 +98,10 @@ jQuery(document).ready(function($) {
         }
     })
     jQuery(document).on('keyup', '.field-icon-wrapper .search-icon input', function(){
+
         text = jQuery(this).val();
-        $('.field-icon-wrapper .icon-list li').each(function( index ) {
+
+        $(this).parent().parent().children('ul').children('li').each(function( index ) {
             console.log( index + ": " + $( this ).attr('title') );
             title = $( this ).attr('title');
             n = title.indexOf(text);
@@ -104,8 +115,11 @@ jQuery(document).ready(function($) {
     jQuery(document).on('click', '.field-icon-wrapper .icon-list li', function(){
         iconData = jQuery(this).attr('iconData');
         html = '<i class="'+iconData+'"></i>';
-        jQuery('.field-icon-wrapper .icon-wrapper span').html(html);
-        jQuery('.field-icon-wrapper .icon-wrapper input').val(iconData);
+
+        jQuery(this).parent().parent().parent().children('.icon-wrapper').children('span').html(html);
+        jQuery(this).parent().parent().parent().children('.icon-wrapper').children('input').val(iconData);
+
+        //jQuery('.field-icon-wrapper .icon-wrapper input').val(iconData);
     })
 
 
