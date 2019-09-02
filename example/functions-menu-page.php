@@ -1087,9 +1087,9 @@ $page_4_options = array(
                 ),
                 array(
                     'id'		=> 'wp_editor_field',
-                    'title'		=> __('WP editor Field','text-domain'),
+                    'title'		=> __('WP editor Field 1','text-domain'),
                     'details'	=> __('Description of wp_editor field, please see detail here https://codex.wordpress.org/Function_Reference/wp_editor','text-domain'),
-                    'editor_settings'=>array('textarea_name'=>'wp_editor_field', 'editor_height'=>'150px'),
+                    //'editor_settings'=>array('textarea_name'=>'wp_editor_field', 'editor_height'=>'150px'),
                     'placeholder' => __('wp_editor value','text-domain'),
                     'default'		=> 'Editor content',
                     'type'		=> 'wp_editor',

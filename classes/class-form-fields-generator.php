@@ -5796,7 +5796,7 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $default 			= isset( $option['default'] ) ? $option['default'] : "";
             $placeholder 	= isset( $option['placeholder'] ) ? $option['placeholder'] : "";
 
-            $value 			= isset( $option['value '] ) ? $option['value '] : "";
+            $value 			= isset( $option['value'] ) ? $option['value'] : "";
             $value = !empty($value) ? $value : $default;
 
             $field_id       = $id;
@@ -5908,14 +5908,20 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
             $conditions 	= isset( $option['conditions'] ) ? $option['conditions'] : array();
             $placeholder = isset( $option['placeholder'] ) ? $option['placeholder'] : "";
             $default = isset( $option['default'] ) ? $option['default'] : "";
-            $editor_settings= isset( $option['editor_settings'] ) ? $option['editor_settings'] : array('textarea_name'=>$id);
+            $editor_settings= isset( $option['editor_settings'] ) ? $option['editor_settings'] : array('textarea_name'=>$field_name);
 
-            $value 			= isset( $option['value '] ) ? $option['value '] : "";
+            //echo '<pre>'.var_export($option, true).'</pre>';
+
+
+            $value 			= isset( $option['value'] ) ? $option['value'] : "";
+
+            //echo '<pre>'.var_export($value, true).'</pre>';
             $value = !empty($value) ? $value : $default;
 
             $field_id       = $id;
-            $field_name     = !empty( $field_name ) ? $field_name : $id;
+            //$field_name     = !empty( $field_name ) ? $field_name : $id;
 
+            //echo '<pre>'.var_export($value, true).'</pre>';
 
             if(!empty($conditions)):
 
@@ -6270,13 +6276,17 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
                                 foreach ($options as $key =>$option):
 
-                                    $option['field_name'] = $field_name.'['.$option['id'].']';
-                                    $option['value'] = $values[$option['id']];
+                                    $option_id = isset($option['id']) ? $option['id'] : '';
+                                    $option_title = isset($option['title']) ? $option['title'] : '';
+
+
+                                    $option['field_name'] = $field_name.'['.$option_id.']';
+                                    $option['value'] = isset($values[$option_id]) ? $values[$option_id] : '';
 
 
                                     ?>
                                     <tr>
-                                        <th scope="row"><?php echo $option['title']; ?></th>
+                                        <th scope="row"><?php echo $option_title; ?></th>
                                         <td>
                                             <?php
 
@@ -6585,8 +6595,11 @@ if( ! class_exists( 'FormFieldsGenerator' ) ) {
 
                                         foreach ($options as $option):
 
-                                            $option['field_name'] = $field_name.'['.$key.']['.$option['id'].']';
-                                            $option['value'] = $values[$key][$option['id']];
+                                            $option_id = isset($option['id']) ? $option['id'] : '';
+                                            $option_title = isset($option['title']) ? $option['title'] : '';
+
+                                            $option['field_name'] = $field_name.'['.$key.']['.$option_id.']';
+                                            $option['value'] = isset($values[$key][$option_id]) ? $values[$key][$option_id] : '';
 
 
                                             ?>
